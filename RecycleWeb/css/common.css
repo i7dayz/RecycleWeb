@@ -234,19 +234,19 @@ body .content > .foot .section.flat{position:relative;text-align:left;margin:0 1
 }
 
 .btn-green {
-    background-color: #91cd33;
-    color: #ffffff;
-    text-shadow: none;
-    border: none;
+    background-color: #91cd33 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    border: none !important;
     font-weight: normal !important;
     border-style: none !important;
 }
 
 .btn-gray {
-    background-color: #b7b7b7;
-    color: #ffffff;
-    text-shadow: none;
-    border: none;
+    background-color: #b7b7b7 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    border: none !important;
     font-weight: normal !important;
     border-style: none !important;
 }

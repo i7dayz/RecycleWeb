@@ -25,8 +25,8 @@
             margin-top: 15px;
             font-size: 13px;
             padding: 5px;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
             box-sizing: border-box;
         }
     </style>
@@ -111,7 +111,7 @@
                     });
 
                     $.ajax({
-                        url: "../policy.txt",
+                        url: "../policies.txt",
                         dataType: "text",
                         success: function (data) {
                             $("#policy").text(data);

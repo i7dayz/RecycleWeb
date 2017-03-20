@@ -7,9 +7,9 @@
 // </자동 생성됨>
 //------------------------------------------------------------------------------
 
-namespace RecycleWeb.Member {
+namespace RecycleWeb.Collection {
     
     
-    public partial class TermsAgree {
+    public partial class RequestDetails {
     }
 }

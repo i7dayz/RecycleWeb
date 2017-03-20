@@ -520,7 +520,7 @@
 
                                 <div class="footer" style="padding:5px; background-color:#ffffff;">                                        
                                     <div class="button">
-                                        <a href="pickup_detail.html" data-ajax="false" id="btnRequest" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">
+                                        <a href="#" data-ajax="false" id="btnRequest" class="ui-btn ui-corner-all btn-green">
                                             수거신청
                                         </a>
                                     </div>
@@ -549,7 +549,7 @@
                                         <!-- 상품권, 편의점, 카페 -->
                                         <div class="ui-grid-b grids" style="height:130px;">
                                             <div class="ui-block-a" style="height:100%; text-align:center; background-color:#ffffff; border-bottom: 1px solid #eeeeee">
-                                                <a href="store.html">
+                                                <a href="#" id="btnGiftCard">
                                                     <div style="height:50px; padding-top:30px;">
                                                         <img src="img/gift-card.png" style="width:25%; height:auto">
                                                     </div>
@@ -628,7 +628,7 @@
 
                                 <div class="footer" style="padding:5px; background-color:#ffffff;">                                        
                                     <div class="button">
-                                        <a href="pickup_detail.html" data-ajax="false" id="btnRequest" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0">
+                                        <a href="pickup_detail.html" data-ajax="false" id="btnCoupon" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0">
                                             쿠폰함 바로가기
                                         </a>
                                     </div>
@@ -703,7 +703,7 @@
                 initComponent: function () {
                 },
                 initEvent: function () {
-                    //내쿠폰함
+                    //내 쿠폰함
                     $(document).on('click', '#btnMyCoupon', function () {
                         location.href = "/Member/MyCoupon.aspx";
                     });
@@ -718,10 +718,54 @@
                         location.href = "/Support/Event.aspx";
                     });
 
+                    //회원정보변경
+
+                    //포인트내역
+                    $(document).on('click', '#btnPointHistory', function () {
+                        location.href = "/Member/PointHistory.aspx"
+                    });
+
+                    //기부내역
+                    $(document).on('click', '#btnDonationHistory', function () {
+                        location.href = "/Member/DonationHistory.aspx"
+                    });
+
                     //공지사항
                     $(document).on('click', '#btnNotice', function () {
                         location.href = "/Support/Notice.aspx";
                     });
+
+                    //이용안내
+                    $(document).on('click', '#btnUsageGuide', function () {
+                        location.href = "/Support/UsageGuide.aspx";
+                    });
+
+                    //자주 묻는 질문
+                    $(document).on('click', '#btnFaq', function () {
+                        location.href = "/Support/FAQ.aspx";
+                    });
+
+                    //1:1문의
+
+                    //약관 및 정책
+                    $(document).on('click', '#btnTermsAndPolicies', function () {
+                        location.href = "/Support/TermsAndPolicies.aspx";
+                    });
+
+                    //홈탭
+
+                    //수거요청탭
+                    $(document).on('click', '#btnRequest', function () {
+                        location.href = "/Collection/RequestDetails.aspx";
+                    });
+
+                    //스토어탭
+                    //상품권
+                    $(document).on('click', '#btnGiftCard', function () {
+                        location.href = "/Store/Goods.aspx";
+                    });
+
+                    //기부탭
                 },
                 fn: {
                 }

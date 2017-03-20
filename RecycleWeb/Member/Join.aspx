@@ -131,7 +131,7 @@
                 },
                 initEvent: function () {        
                     $("#btnSave").click(function() {
-                        location.href = "main.html";
+                        location.href = "../Main.aspx";
                     });
                     $("#btnSearchAddress").click(function () {
                         location.href = "AddressSearch.aspx";

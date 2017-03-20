@@ -10,6 +10,6 @@
 namespace RecycleWeb.Member {
     
     
-    public partial class TermsAgree {
+    public partial class DonationHistory {
     }
 }
