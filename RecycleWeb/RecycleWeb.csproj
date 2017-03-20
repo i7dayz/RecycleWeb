@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86790D0A-72E0-4F73-922D-0CEBCB2E92E3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RecycleWeb</RootNamespace>
+    <AssemblyName>RecycleWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\notokr-regular.eot" />
+    <Content Include="font\notokr-regular.ttf" />
+    <Content Include="font\notokr-regular.woff" />
+    <Content Include="font\notokr-regular.woff2" />
+    <Content Include="script\extention\icheck-1.x\.gitignore" />
+    <Content Include="script\extention\icheck-1.x\bower.json" />
+    <Content Include="script\extention\icheck-1.x\CHANGELOG.md" />
+    <Content Include="script\extention\icheck-1.x\demo\css\custom.styl" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-bold.eot" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-bold.ttf" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-bold.woff" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-regular.eot" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-regular.ttf" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-regular.woff" />
+    <Content Include="script\extention\icheck-1.x\icheck.jquery.json" />
+    <Content Include="script\extention\icheck-1.x\README.md" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\jqm-contents.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\jqm-navmenu.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\jqm-search.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\js\jquery.mobile-1.4.5.min.map" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation-php-redirect\redirect-target.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation-php-redirect\redirect.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation-php-redirect\source.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\alertevents-2.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\alertevents-3.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\alertevents.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\docs.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents-2.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents-3.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents.php" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile-1.4.5.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\adjustment.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\base.css" />
+    <Content Include="css\common.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="css\nativedroid2.color.green.css" />
+    <Content Include="css\nativedroid2.css" />
+    <Content Include="css\store.css" />
+    <Content Include="css\waves.min.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="font\notokr-regular.svg" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\icons-png\action-black.png" />
+    <Content Include="images\icons-png\action-white.png" />
+    <Content Include="images\icons-png\alert-black.png" />
+    <Content Include="images\icons-png\alert-white.png" />
+    <Content Include="images\icons-png\arrow-d-black.png" />
+    <Content Include="images\icons-png\arrow-d-l-black.png" />
+    <Content Include="images\icons-png\arrow-d-l-white.png" />
+    <Content Include="images\icons-png\arrow-d-r-black.png" />
+    <Content Include="images\icons-png\arrow-d-r-white.png" />
+    <Content Include="images\icons-png\arrow-d-white.png" />
+    <Content Include="images\icons-png\arrow-l-black.png" />
+    <Content Include="images\icons-png\arrow-l-white.png" />
+    <Content Include="images\icons-png\arrow-r-black.png" />
+    <Content Include="images\icons-png\arrow-r-white.png" />
+    <Content Include="images\icons-png\arrow-u-black.png" />
+    <Content Include="images\icons-png\arrow-u-l-black.png" />
+    <Content Include="images\icons-png\arrow-u-l-white.png" />
+    <Content Include="images\icons-png\arrow-u-r-black.png" />
+    <Content Include="images\icons-png\arrow-u-r-white.png" />
+    <Content Include="images\icons-png\arrow-u-white.png" />
+    <Content Include="images\icons-png\audio-black.png" />
+    <Content Include="images\icons-png\audio-white.png" />
+    <Content Include="images\icons-png\back-black.png" />
+    <Content Include="images\icons-png\back-white.png" />
+    <Content Include="images\icons-png\bars-black.png" />
+    <Content Include="images\icons-png\bars-white.png" />
+    <Content Include="images\icons-png\bullets-black.png" />
+    <Content Include="images\icons-png\bullets-white.png" />
+    <Content Include="images\icons-png\calendar-black.png" />
+    <Content Include="images\icons-png\calendar-white.png" />
+    <Content Include="images\icons-png\camera-black.png" />
+    <Content Include="images\icons-png\camera-white.png" />
+    <Content Include="images\icons-png\carat-d-black.png" />
+    <Content Include="images\icons-png\carat-d-white.png" />
+    <Content Include="images\icons-png\carat-l-black.png" />
+    <Content Include="images\icons-png\carat-l-white.png" />
+    <Content Include="images\icons-png\carat-r-black.png" />
+    <Content Include="images\icons-png\carat-r-white.png" />
+    <Content Include="images\icons-png\carat-u-black.png" />
+    <Content Include="images\icons-png\carat-u-white.png" />
+    <Content Include="images\icons-png\check-black.png" />
+    <Content Include="images\icons-png\check-white.png" />
+    <Content Include="images\icons-png\clock-black.png" />
+    <Content Include="images\icons-png\clock-white.png" />
+    <Content Include="images\icons-png\cloud-black.png" />
+    <Content Include="images\icons-png\cloud-white.png" />
+    <Content Include="images\icons-png\comment-black.png" />
+    <Content Include="images\icons-png\comment-white.png" />
+    <Content Include="images\icons-png\delete-black.png" />
+    <Content Include="images\icons-png\delete-white.png" />
+    <Content Include="images\icons-png\edit-black.png" />
+    <Content Include="images\icons-png\edit-white.png" />
+    <Content Include="images\icons-png\eye-black.png" />
+    <Content Include="images\icons-png\eye-white.png" />
+    <Content Include="images\icons-png\forbidden-black.png" />
+    <Content Include="images\icons-png\forbidden-white.png" />
+    <Content Include="images\icons-png\forward-black.png" />
+    <Content Include="images\icons-png\forward-white.png" />
+    <Content Include="images\icons-png\gear-black.png" />
+    <Content Include="images\icons-png\gear-white.png" />
+    <Content Include="images\icons-png\grid-black.png" />
+    <Content Include="images\icons-png\grid-white.png" />
+    <Content Include="images\icons-png\heart-black.png" />
+    <Content Include="images\icons-png\heart-white.png" />
+    <Content Include="images\icons-png\home-black.png" />
+    <Content Include="images\icons-png\home-white.png" />
+    <Content Include="images\icons-png\info-black.png" />
+    <Content Include="images\icons-png\info-white.png" />
+    <Content Include="images\icons-png\location-black.png" />
+    <Content Include="images\icons-png\location-white.png" />
+    <Content Include="images\icons-png\lock-black.png" />
+    <Content Include="images\icons-png\lock-white.png" />
+    <Content Include="images\icons-png\mail-black.png" />
+    <Content Include="images\icons-png\mail-white.png" />
+    <Content Include="images\icons-png\minus-black.png" />
+    <Content Include="images\icons-png\minus-white.png" />
+    <Content Include="images\icons-png\navigation-black.png" />
+    <Content Include="images\icons-png\navigation-white.png" />
+    <Content Include="images\icons-png\phone-black.png" />
+    <Content Include="images\icons-png\phone-white.png" />
+    <Content Include="images\icons-png\plus-black.png" />
+    <Content Include="images\icons-png\plus-white.png" />
+    <Content Include="images\icons-png\power-black.png" />
+    <Content Include="images\icons-png\power-white.png" />
+    <Content Include="images\icons-png\recycle-black.png" />
+    <Content Include="images\icons-png\recycle-white.png" />
+    <Content Include="images\icons-png\refresh-black.png" />
+    <Content Include="images\icons-png\refresh-white.png" />
+    <Content Include="images\icons-png\search-black.png" />
+    <Content Include="images\icons-png\search-white.png" />
+    <Content Include="images\icons-png\shop-black.png" />
+    <Content Include="images\icons-png\shop-white.png" />
+    <Content Include="images\icons-png\star-black.png" />
+    <Content Include="images\icons-png\star-white.png" />
+    <Content Include="images\icons-png\tag-black.png" />
+    <Content Include="images\icons-png\tag-white.png" />
+    <Content Include="images\icons-png\user-black.png" />
+    <Content Include="images\icons-png\user-white.png" />
+    <Content Include="images\icons-png\video-black.png" />
+    <Content Include="images\icons-png\video-white.png" />
+    <Content Include="images\icons-svg\action-black.svg" />
+    <Content Include="images\icons-svg\action-white.svg" />
+    <Content Include="images\icons-svg\alert-black.svg" />
+    <Content Include="images\icons-svg\alert-white.svg" />
+    <Content Include="images\icons-svg\arrow-d-black.svg" />
+    <Content Include="images\icons-svg\arrow-d-l-black.svg" />
+    <Content Include="images\icons-svg\arrow-d-l-white.svg" />
+    <Content Include="images\icons-svg\arrow-d-r-black.svg" />
+    <Content Include="images\icons-svg\arrow-d-r-white.svg" />
+    <Content Include="images\icons-svg\arrow-d-white.svg" />
+    <Content Include="images\icons-svg\arrow-l-black.svg" />
+    <Content Include="images\icons-svg\arrow-l-white.svg" />
+    <Content Include="images\icons-svg\arrow-r-black.svg" />
+    <Content Include="images\icons-svg\arrow-r-white.svg" />
+    <Content Include="images\icons-svg\arrow-u-black.svg" />
+    <Content Include="images\icons-svg\arrow-u-l-black.svg" />
+    <Content Include="images\icons-svg\arrow-u-l-white.svg" />
+    <Content Include="images\icons-svg\arrow-u-r-black.svg" />
+    <Content Include="images\icons-svg\arrow-u-r-white.svg" />
+    <Content Include="images\icons-svg\arrow-u-white.svg" />
+    <Content Include="images\icons-svg\audio-black.svg" />
+    <Content Include="images\icons-svg\audio-white.svg" />
+    <Content Include="images\icons-svg\back-black.svg" />
+    <Content Include="images\icons-svg\back-white.svg" />
+    <Content Include="images\icons-svg\bars-black.svg" />
+    <Content Include="images\icons-svg\bars-white.svg" />
+    <Content Include="images\icons-svg\bullets-black.svg" />
+    <Content Include="images\icons-svg\bullets-white.svg" />
+    <Content Include="images\icons-svg\calendar-black.svg" />
+    <Content Include="images\icons-svg\calendar-white.svg" />
+    <Content Include="images\icons-svg\camera-black.svg" />
+    <Content Include="images\icons-svg\camera-white.svg" />
+    <Content Include="images\icons-svg\carat-d-black.svg" />
+    <Content Include="images\icons-svg\carat-d-white.svg" />
+    <Content Include="images\icons-svg\carat-l-black.svg" />
+    <Content Include="images\icons-svg\carat-l-white.svg" />
+    <Content Include="images\icons-svg\carat-r-black.svg" />
+    <Content Include="images\icons-svg\carat-r-white.svg" />
+    <Content Include="images\icons-svg\carat-u-black.svg" />
+    <Content Include="images\icons-svg\carat-u-white.svg" />
+    <Content Include="images\icons-svg\check-black.svg" />
+    <Content Include="images\icons-svg\check-white.svg" />
+    <Content Include="images\icons-svg\clock-black.svg" />
+    <Content Include="images\icons-svg\clock-white.svg" />
+    <Content Include="images\icons-svg\cloud-black.svg" />
+    <Content Include="images\icons-svg\cloud-white.svg" />
+    <Content Include="images\icons-svg\comment-black.svg" />
+    <Content Include="images\icons-svg\comment-white.svg" />
+    <Content Include="images\icons-svg\delete-black.svg" />
+    <Content Include="images\icons-svg\delete-white.svg" />
+    <Content Include="images\icons-svg\edit-black.svg" />
+    <Content Include="images\icons-svg\edit-white.svg" />
+    <Content Include="images\icons-svg\eye-black.svg" />
+    <Content Include="images\icons-svg\eye-white.svg" />
+    <Content Include="images\icons-svg\forbidden-black.svg" />
+    <Content Include="images\icons-svg\forbidden-white.svg" />
+    <Content Include="images\icons-svg\forward-black.svg" />
+    <Content Include="images\icons-svg\forward-white.svg" />
+    <Content Include="images\icons-svg\gear-black.svg" />
+    <Content Include="images\icons-svg\gear-white.svg" />
+    <Content Include="images\icons-svg\grid-black.svg" />
+    <Content Include="images\icons-svg\grid-white.svg" />
+    <Content Include="images\icons-svg\heart-black.svg" />
+    <Content Include="images\icons-svg\heart-white.svg" />
+    <Content Include="images\icons-svg\home-black.svg" />
+    <Content Include="images\icons-svg\home-white.svg" />
+    <Content Include="images\icons-svg\info-black.svg" />
+    <Content Include="images\icons-svg\info-white.svg" />
+    <Content Include="images\icons-svg\location-black.svg" />
+    <Content Include="images\icons-svg\location-white.svg" />
+    <Content Include="images\icons-svg\lock-black.svg" />
+    <Content Include="images\icons-svg\lock-white.svg" />
+    <Content Include="images\icons-svg\mail-black.svg" />
+    <Content Include="images\icons-svg\mail-white.svg" />
+    <Content Include="images\icons-svg\minus-black.svg" />
+    <Content Include="images\icons-svg\minus-white.svg" />
+    <Content Include="images\icons-svg\navigation-black.svg" />
+    <Content Include="images\icons-svg\navigation-white.svg" />
+    <Content Include="images\icons-svg\phone-black.svg" />
+    <Content Include="images\icons-svg\phone-white.svg" />
+    <Content Include="images\icons-svg\plus-black.svg" />
+    <Content Include="images\icons-svg\plus-white.svg" />
+    <Content Include="images\icons-svg\power-black.svg" />
+    <Content Include="images\icons-svg\power-white.svg" />
+    <Content Include="images\icons-svg\recycle-black.svg" />
+    <Content Include="images\icons-svg\recycle-white.svg" />
+    <Content Include="images\icons-svg\refresh-black.svg" />
+    <Content Include="images\icons-svg\refresh-white.svg" />
+    <Content Include="images\icons-svg\search-black.svg" />
+    <Content Include="images\icons-svg\search-white.svg" />
+    <Content Include="images\icons-svg\shop-black.svg" />
+    <Content Include="images\icons-svg\shop-white.svg" />
+    <Content Include="images\icons-svg\star-black.svg" />
+    <Content Include="images\icons-svg\star-white.svg" />
+    <Content Include="images\icons-svg\tag-black.svg" />
+    <Content Include="images\icons-svg\tag-white.svg" />
+    <Content Include="images\icons-svg\user-black.svg" />
+    <Content Include="images\icons-svg\user-white.svg" />
+    <Content Include="images\icons-svg\video-black.svg" />
+    <Content Include="images\icons-svg\video-white.svg" />
+    <Content Include="img\address-btn.png" />
+    <Content Include="img\alarm-select.png" />
+    <Content Include="img\alarm.png" />
+    <Content Include="img\alert.png" />
+    <Content Include="img\angel-illust.png" />
+    <Content Include="img\angel.png" />
+    <Content Include="img\announce.png" />
+    <Content Include="img\arrangement.png" />
+    <Content Include="img\back-btn-02.png" />
+    <Content Include="img\back-btn.png" />
+    <Content Include="img\banner-01.png" />
+    <Content Include="img\banner-02.png" />
+    <Content Include="img\banner-03.png" />
+    <Content Include="img\basic-btn-02.png" />
+    <Content Include="img\basic-btn.png" />
+    <Content Include="img\beauty.png" />
+    <Content Include="img\bg_texture.svg" />
+    <Content Include="img\big.png" />
+    <Content Include="img\bottle.png" />
+    <Content Include="img\bronze.png" />
+    <Content Include="img\btn-01.png" />
+    <Content Include="img\btn-02.png" />
+    <Content Include="img\btn-03.png" />
+    <Content Include="img\btn-04.png" />
+    <Content Include="img\btn-05.png" />
+    <Content Include="img\cake.png" />
+    <Content Include="img\calendar.png" />
+    <Content Include="img\cancel.png" />
+    <Content Include="img\cellphone.png" />
+    <Content Include="img\character-02.png" />
+    <Content Include="img\character-03.png" />
+    <Content Include="img\character-04.png" />
+    <Content Include="img\character.png" />
+    <Content Include="img\check-04.png" />
+    <Content Include="img\check.png" />
+    <Content Include="img\check_01.png" />
+    <Content Include="img\check_02.png" />
+    <Content Include="img\check_03.png" />
+    <Content Include="img\check_04.png" />
+    <Content Include="img\choice-btn.png" />
+    <Content Include="img\close-btn.png" />
+    <Content Include="img\close-p.png" />
+    <Content Include="img\close.png" />
+    <Content Include="img\cloth.png" />
+    <Content Include="img\coffee.png" />
+    <Content Include="img\confirm-btn.png" />
+    <Content Include="img\confirm.png" />
+    <Content Include="img\conveniect.png" />
+    <Content Include="img\convenient.png" />
+    <Content Include="img\coupon-w.png" />
+    <Content Include="img\coupon.png" />
+    <Content Include="img\customer.png" />
+    <Content Include="img\donation-select.png" />
+    <Content Include="img\donation.png" />
+    <Content Include="img\etc.png" />
+    <Content Include="img\event-g.png" />
+    <Content Include="img\event-w.png" />
+    <Content Include="img\friend-select.png" />
+    <Content Include="img\friend.png" />
+    <Content Include="img\gift-card.png" />
+    <Content Include="img\gold.png" />
+    <Content Include="img\home-select.png" />
+    <Content Include="img\home.png" />
+    <Content Include="img\howto.png" />
+    <Content Include="img\icecream.png" />
+    <Content Include="img\ic_close_black_24dp_1x.png" />
+    <Content Include="img\ic_close_black_24dp_2x.png" />
+    <Content Include="img\ic_close_white_24dp_1x.png" />
+    <Content Include="img\ic_close_white_24dp_2x.png" />
+    <Content Include="img\ic_login_background1.png" />
+    <Content Include="img\ic_menu_black_24dp_1x.png" />
+    <Content Include="img\ic_menu_black_24dp_2x.png" />
+    <Content Include="img\input-01.png" />
+    <Content Include="img\intro-01.png" />
+    <Content Include="img\intro-02.png" />
+    <Content Include="img\intro-03.png" />
+    <Content Include="img\intro-04.png" />
+    <Content Include="img\invitaion.png" />
+    <Content Include="img\invitation.png" />
+    <Content Include="img\iron.png" />
+    <Content Include="img\kakao-btn.png" />
+    <Content Include="img\kakao-login.png" />
+    <Content Include="img\kakao.png" />
+    <Content Include="img\line.png" />
+    <Content Include="img\link.png" />
+    <Content Include="img\member-w.png" />
+    <Content Include="img\menu.png" />
+    <Content Include="img\minus-select.png" />
+    <Content Include="img\minus.png" />
+    <Content Include="img\money-box.png" />
+    <Content Include="img\money-select.png" />
+    <Content Include="img\money.png" />
+    <Content Include="img\move.png" />
+    <Content Include="img\movie.png" />
+    <Content Include="img\non-iron.png" />
+    <Content Include="img\notice.png" />
+    <Content Include="img\ok.png" />
+    <Content Include="img\open-g.png" />
+    <Content Include="img\open.png" />
+    <Content Include="img\paper.png" />
+    <Content Include="img\person64x64.png" />
+    <Content Include="img\pickup-illust.png" />
+    <Content Include="img\pickup-select.png" />
+    <Content Include="img\pickup.png" />
+    <Content Include="img\plus-02.png" />
+    <Content Include="img\plus-03.png" />
+    <Content Include="img\plus-select.png" />
+    <Content Include="img\plus.png" />
+    <Content Include="img\popup-01.png" />
+    <Content Include="img\popup-02.png" />
+    <Content Include="img\popup-green.png" />
+    <Content Include="img\popup-ok.png" />
+    <Content Include="img\popup-profile.png" />
+    <Content Include="img\price-01.png" />
+    <Content Include="img\price-02.png" />
+    <Content Include="img\profile.png" />
+    <Content Include="img\rank-select.png" />
+    <Content Include="img\rank.png" />
+    <Content Include="img\reborn.png" />
+    <Content Include="img\recommend.png" />
+    <Content Include="img\restaurant.png" />
+    <Content Include="img\search.png" />
+    <Content Include="img\select-minus.png" />
+    <Content Include="img\silver.png" />
+    <Content Include="img\slider-01.png" />
+    <Content Include="img\slider-02.png" />
+    <Content Include="img\slider-03.png" />
+    <Content Include="img\slider-04.png" />
+    <Content Include="img\small.png" />
+    <Content Include="img\sms.png" />
+    <Content Include="img\store-illust.png" />
+    <Content Include="img\store-select.png" />
+    <Content Include="img\store.png" />
+    <Content Include="LeftMenu.html" />
+    <Content Include="Main.aspx" />
+    <Content Include="Member\AddressSearch.aspx" />
+    <Content Include="Member\Join.aspx" />
+    <Content Include="Member\MyCoupon.aspx" />
+    <Content Include="Member\Recommender.aspx" />
+    <Content Include="Member\TermsAgree.aspx" />
+    <Content Include="script\extention\icheck-1.x\demo\css\banner.jpg" />
+    <Content Include="script\extention\icheck-1.x\demo\css\custom.css" />
+    <Content Include="script\extention\icheck-1.x\demo\css\icheck.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\arrow-bottom.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\arrow-top.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\header-line.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\icon-fork.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\icon-github.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\icon-lab.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\icon-options.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\ie\icon-star.png" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-bold.svg" />
+    <Content Include="script\extention\icheck-1.x\demo\css\montserrat-regular.svg" />
+    <Content Include="script\extention\icheck-1.x\demo\css\normalize.css" />
+    <Content Include="script\extention\icheck-1.x\demo\index.html" />
+    <Content Include="script\extention\icheck-1.x\demo\js\custom.js" />
+    <Content Include="script\extention\icheck-1.x\demo\js\custom.min.js" />
+    <Content Include="script\extention\icheck-1.x\demo\js\jquery.js" />
+    <Content Include="script\extention\icheck-1.x\demo\js\zepto.js" />
+    <Content Include="script\extention\icheck-1.x\icheck.js" />
+    <Content Include="script\extention\icheck-1.x\icheck.min.js" />
+    <Content Include="script\extention\icheck-1.x\skins\all.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\aero%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\aero.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\aero.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\blue%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\blue.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\blue.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\flat%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\flat.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\flat.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\green%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\green.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\green.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\grey%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\grey.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\grey.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\orange%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\orange.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\orange.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\pink%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\pink.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\pink.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\purple%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\purple.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\purple.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\red%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\red.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\red.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\yellow%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\yellow.css" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\yellow.png" />
+    <Content Include="script\extention\icheck-1.x\skins\flat\_all.css" />
+    <Content Include="script\extention\icheck-1.x\skins\futurico\futurico%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\futurico\futurico.css" />
+    <Content Include="script\extention\icheck-1.x\skins\futurico\futurico.png" />
+    <Content Include="script\extention\icheck-1.x\skins\line\aero.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\blue.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\green.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\grey.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\line%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\line\line.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\line.png" />
+    <Content Include="script\extention\icheck-1.x\skins\line\orange.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\pink.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\purple.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\red.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\yellow.css" />
+    <Content Include="script\extention\icheck-1.x\skins\line\_all.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\aero%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\aero.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\aero.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\blue%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\blue.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\blue.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\green%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\green.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\green.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\grey%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\grey.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\grey.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\minimal%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\minimal.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\minimal.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\orange%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\orange.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\orange.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\pink%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\pink.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\pink.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\purple%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\purple.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\purple.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\red%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\red.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\red.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\yellow%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\yellow.css" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\yellow.png" />
+    <Content Include="script\extention\icheck-1.x\skins\minimal\_all.css" />
+    <Content Include="script\extention\icheck-1.x\skins\polaris\polaris%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\polaris\polaris.css" />
+    <Content Include="script\extention\icheck-1.x\skins\polaris\polaris.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\aero%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\aero.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\aero.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\blue%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\blue.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\blue.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\green%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\green.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\green.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\grey%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\grey.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\grey.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\orange%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\orange.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\orange.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\pink%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\pink.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\pink.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\purple%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\purple.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\purple.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\red%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\red.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\red.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\square%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\square.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\square.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\yellow%402x.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\yellow.css" />
+    <Content Include="script\extention\icheck-1.x\skins\square\yellow.png" />
+    <Content Include="script\extention\icheck-1.x\skins\square\_all.css" />
+    <Content Include="script\extention\jquery.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\backbone-requirejs\backbone-require.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\backbone-requirejs\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\body-bar-classes\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\button-markup\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\button\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\checkboxradio-checkbox\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\checkboxradio-radio\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\collapsible-dynamic\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\collapsibleset\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\collapsible\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\controlgroup-dynamic\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\controlgroup\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\datepicker\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\favicon.ico" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\filterable\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\flipswitch\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\forms-disabled\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\forms-field-contain\fieldcontain-hide-label-deprecated.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\forms-field-contain\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\forms-gallery\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\forms-label-hidden-accessible\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\forms\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\grids-buttons\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\grids-custom-responsive\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\grids\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\icons-grunticon\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\icons\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\intro\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\jqm-contents.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\jqm-navmenu.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\jqm-search.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\js\jquery.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\js\jquery.min.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\js\jquery.mobile-1.4.5.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\js\jquery.mobile-1.4.5.min.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-autocomplete-remote\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-autocomplete\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-autodividers-linkbar\autodividers-linkbar-demo.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-autodividers-linkbar\autodividers-linkbar.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-autodividers-linkbar\autodividers-linkbar.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-autodividers-linkbar\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-autodividers-selector\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-collapsible-item-flat\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-collapsible-item-indented\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-grid\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-grid\listview-grid.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-grid\listview-grid.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview-nested-lists\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\listview\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\loader\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\map-geolocation\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\map-list-toggle\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\map-list-toggle\jquery.gmap.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\map-list-toggle\showMore.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navbar\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation-hash-processing\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation-linking-pages\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation-php-redirect\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation\demo.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\navigation\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\controls-in-header-footer.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\disabling-a-button-does-not-work.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\dom-ready-not-working.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-can-i-stop-auto-enhancement-of-a-block-of-elements.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-can-i-stop-auto-enhancement-of-elements.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-configure-phonegap-cordova.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-do-i-control-page-titles.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-do-i-load-a-page.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-do-i-scroll-to-a-position.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-do-i-turn-off-url-hiding.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-do-i-use-touch-mouse-events.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\how-does-theming-work.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\injected-content-is-not-enhanced.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\my-html-5-inputs-look-different-in-browsers.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\my-range-search-input-type-is-being-changed.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\pass-query-params-to-page.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\pass-via-the-hash-to-page.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\scripts-and-styles-not-loading.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\sometimes-custom-select-shows-as-dialog-popup.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\the-application-cache-is-not-working.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\triggering-create-on-injected-content-does-not-work.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\updating-the-value-of-enhanced-form-elements-does-not-work.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\why-is-only-the-first-page-loaded.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\old-faq-pages\why-wont-my-css-styles-apply-correctly-to-a-widget.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\alertevents-2.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\alertevents-3.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\alertevents.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\docs.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents-2.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents-3.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\pages\index.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\demos\pages\samepagetransition.html" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\ajax-loader.gif" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\action-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\action-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\alert-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\alert-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-d-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-d-l-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-d-l-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-d-r-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-d-r-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-d-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-l-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-l-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-r-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-r-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-u-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-u-l-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-u-l-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-u-r-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-u-r-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\arrow-u-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\audio-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\audio-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\back-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\back-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\bars-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\bars-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\bullets-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\bullets-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\calendar-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\calendar-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\camera-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\camera-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-d-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-d-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-l-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-l-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-r-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-r-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-u-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\carat-u-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\check-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\check-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\clock-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\clock-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\cloud-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\cloud-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\comment-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\comment-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\delete-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\delete-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\edit-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\edit-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\eye-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\eye-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\forbidden-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\forbidden-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\forward-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\forward-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\gear-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\gear-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\grid-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\grid-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\heart-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\heart-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\home-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\home-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\info-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\info-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\location-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\location-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\lock-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\lock-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\mail-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\mail-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\minus-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\minus-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\navigation-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\navigation-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\phone-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\phone-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\plus-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\plus-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\power-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\power-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\recycle-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\recycle-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\refresh-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\refresh-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\search-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\search-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\shop-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\shop-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\star-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\star-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\tag-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\tag-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\user-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\user-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\video-black.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-png\video-white.png" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\action-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\action-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\alert-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\alert-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-d-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-d-l-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-d-l-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-d-r-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-d-r-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-d-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-l-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-l-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-r-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-r-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-u-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-u-l-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-u-l-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-u-r-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-u-r-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\arrow-u-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\audio-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\audio-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\back-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\back-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\bars-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\bars-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\bullets-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\bullets-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\calendar-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\calendar-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\camera-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\camera-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-d-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-d-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-l-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-l-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-r-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-r-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-u-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\carat-u-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\check-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\check-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\clock-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\clock-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\cloud-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\cloud-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\comment-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\comment-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\delete-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\delete-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\edit-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\edit-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\eye-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\eye-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\forbidden-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\forbidden-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\forward-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\forward-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\gear-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\gear-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\grid-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\grid-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\heart-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\heart-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\home-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\home-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\info-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\info-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\location-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\location-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\lock-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\lock-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\mail-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\mail-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\minus-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\minus-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\navigation-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\navigation-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\phone-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\phone-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\plus-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\plus-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\power-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\power-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\recycle-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\recycle-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\refresh-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\refresh-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\search-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\search-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\shop-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\shop-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\star-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\star-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\tag-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\tag-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\user-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\user-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\video-black.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\images\icons-svg\video-white.svg" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile-1.4.5.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile-1.4.5.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile-1.4.5.min.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile-1.4.5.min.js" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.external-png-1.4.5.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.external-png-1.4.5.min.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.icons-1.4.5.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.icons-1.4.5.min.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.inline-png-1.4.5.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.inline-png-1.4.5.min.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.inline-svg-1.4.5.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.inline-svg-1.4.5.min.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.structure-1.4.5.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.structure-1.4.5.min.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.theme-1.4.5.css" />
+    <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.theme-1.4.5.min.css" />
+    <Content Include="script\extention\nativedroid2.js" />
+    <Content Include="script\extention\nd2settings.js" />
+    <Content Include="script\extention\waves.min.js" />
+    <Content Include="script\extention\wow.min.js" />
+    <Content Include="Support\Event.aspx" />
+    <Content Include="Support\Notice.aspx" />
+    <Content Include="temp\777.jpg" />
+    <Content Include="temp\cef1f56553fba92d9e95c19e5a34c09a.jpg" />
+    <Content Include="temp\EAN-13.png" />
+    <Content Include="temp\editor_1486545894965.jpg" />
+    <Content Include="temp\G00000008061_250.jpg" />
+    <Content Include="temp\hollys.jpg" />
+    <Content Include="temp\img_mobile.png" />
+    <Content Include="temp\smoothie.png" />
+    <Content Include="temp\star.jpg" />
+    <Content Include="temp\star.png" />
+    <Content Include="temp\tour.png" />
+    <Content Include="temp\twosome.png" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\AddressSearch.aspx.cs">
+      <DependentUpon>AddressSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\AddressSearch.aspx.designer.cs">
+      <DependentUpon>AddressSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Join.aspx.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Join.aspx.designer.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\MyCoupon.aspx.cs">
+      <DependentUpon>MyCoupon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\MyCoupon.aspx.designer.cs">
+      <DependentUpon>MyCoupon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Recommender.aspx.cs">
+      <DependentUpon>Recommender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Recommender.aspx.designer.cs">
+      <DependentUpon>Recommender.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\TermsAgree.aspx.cs">
+      <DependentUpon>TermsAgree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\TermsAgree.aspx.designer.cs">
+      <DependentUpon>TermsAgree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\Event.aspx.cs">
+      <DependentUpon>Event.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Support\Event.aspx.designer.cs">
+      <DependentUpon>Event.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Support\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Support\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52491</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52491/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
