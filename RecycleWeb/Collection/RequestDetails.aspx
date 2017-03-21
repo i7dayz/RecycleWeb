@@ -15,6 +15,7 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/air-datepicker-master/datepicker.min.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap" id="wrap">            
@@ -82,11 +83,7 @@
                                     <li>
                                         <span class="txt-color5">희망수거일시</span>    
                                         <div class="wpc100">
-                                            <input type="text" class="text-field required input-guide txt-input-guide wpc70" 
-                                                value="2017년 3월 3일 17:00">
-                                            <a href="#" id="btnChangeDate" class="ui-btn ui-corner-all wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important; margin:0; font-weight:normal; float:right;">
-                                                변경
-                                            </a>
+                                            <input type="text" class="text-field required input-guide txt-input-guide wpc100" id="txtReqDate" onFocus="this.blur()">
                                         </div> 
                                     </li> 
                                 </ul>
@@ -102,6 +99,8 @@
     </div> <!-- //wrap -->
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
+    <script type="text/javascript" src="../script/extention/air-datepicker-master/datepicker.min.js"></script>
+    <script type="text/javascript" src="../script/extention/air-datepicker-master/i18n/datepicker.ko.js"></script>
         
     <script>
         (function () {
@@ -110,7 +109,38 @@
                     this.initComponent();
                     this.initEvent();
                 },
-                initComponent: function () {      
+                initComponent: function () {
+                    // Create start date
+                    var start = new Date();
+
+                    // 08:00 AM
+                    start.setHours(8);
+                    start.setMinutes(0);
+
+                    var disabledDays = [0, 6];
+                    $('#txtReqDate').datepicker({
+                        language: 'ko',
+                        position: 'top left',
+                        startDate: start,
+                        minDate: start, // Now can select only dates, which goes after today
+                        onRenderCell: function (date, cellType) {
+                            if (cellType == 'day') {
+                                var day = date.getDay(),
+                                    isDisabled = disabledDays.indexOf(day) != -1;
+                                return {
+                                    disabled: isDisabled
+                                }
+                            }
+                        },
+                        todayButton: new Date(),
+                        timepicker: true,
+                        navTitles: {
+                            days: '<span>yyyy</span>년 MM'
+                        },
+                        minHours: 8,
+                        maxHours: 20,
+                        minutesStep: 30,
+                    });
                 },
                 initEvent: function () {
                     $(document).on('click', '#btnRequest', function () {
