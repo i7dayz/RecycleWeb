@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RecycleWeb {
+namespace RecycleWeb.Store {
     
     
-    public partial class Main {
+    public partial class GoodsDetails {
     }
 }

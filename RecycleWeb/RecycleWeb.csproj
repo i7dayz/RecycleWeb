@@ -97,6 +97,8 @@
     <Content Include="Collection\RequestDetails.aspx" />
     <Content Include="Collection\RequestDone.aspx" />
     <Content Include="Member\DonationHistory.aspx" />
+    <Content Include="Member\MyCouponDetails.aspx" />
+    <Content Include="Member\MyCouponGuide.aspx" />
     <Content Include="Member\PointHistory.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -106,6 +108,7 @@
     <Content Include="font\notokr-regular.ttf" />
     <Content Include="font\notokr-regular.woff" />
     <Content Include="font\notokr-regular.woff2" />
+    <Content Include="script\common.js" />
     <Content Include="script\extention\icheck-1.x\.gitignore" />
     <Content Include="script\extention\icheck-1.x\bower.json" />
     <Content Include="script\extention\icheck-1.x\CHANGELOG.md" />
@@ -946,6 +949,7 @@
     <Content Include="script\extention\waves.min.js" />
     <Content Include="script\extention\wow.min.js" />
     <Content Include="Store\Goods.aspx" />
+    <Content Include="Store\GoodsDetails.aspx" />
     <Content Include="Support\Event.aspx" />
     <Content Include="Support\FAQ.aspx" />
     <Content Include="Support\TermsAndPolicies.aspx" />
@@ -1022,6 +1026,20 @@
     <Compile Include="Member\MyCoupon.aspx.designer.cs">
       <DependentUpon>MyCoupon.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Member\MyCouponDetails.aspx.cs">
+      <DependentUpon>MyCouponDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\MyCouponDetails.aspx.designer.cs">
+      <DependentUpon>MyCouponDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\MyCouponGuide.aspx.cs">
+      <DependentUpon>MyCouponGuide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\MyCouponGuide.aspx.designer.cs">
+      <DependentUpon>MyCouponGuide.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Member\PointHistory.aspx.cs">
       <DependentUpon>PointHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1050,6 +1068,13 @@
     </Compile>
     <Compile Include="Store\Goods.aspx.designer.cs">
       <DependentUpon>Goods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Store\GoodsDetails.aspx.cs">
+      <DependentUpon>GoodsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Store\GoodsDetails.aspx.designer.cs">
+      <DependentUpon>GoodsDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Support\Event.aspx.cs">
       <DependentUpon>Event.aspx</DependentUpon>

@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RecycleWeb {
+namespace RecycleWeb.Member {
     
     
-    public partial class Main {
+    public partial class MyCouponGuide {
     }
 }

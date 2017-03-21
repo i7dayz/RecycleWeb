@@ -15,6 +15,7 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../css/nativedroid2.css" rel="stylesheet" />
     
 </head>
 <body class="all" contenteditable="false">
@@ -28,7 +29,7 @@
                             <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
                         </a>
                         <span style="font-weight: normal;">
-                            카페
+                            카페, 베이커리
                         </span>
                     </div>
                 </div>
@@ -101,37 +102,37 @@
                                 할리스
                             </div>
                             <div class="goods-list">
-                                <ul data-role="listview" data-icon="false" style="margin:0;">
-                                    <li style="border-bottom: 1px solid #eeeeee;">
-                                        <a href="#" style="background-color:#ffffff;">
-                                            <img src="../temp/img_mobile.png" class="ui-thumbnail" style="margin-top:30px;" />
-                                            <h6 style="color:#e3e3e3; font-size:12px; font-weight:normal;">문화상품권</h6>
+                                <ul data-role="listview" data-icon="false">
+                                    <li>
+                                        <a href="#" name="goods" id="g1000">
+                                            <img src="../temp/img_mobile.png" class="ui-thumbnail" />
+                                            <h6>문화상품권</h6>
                                             <h2>모바일 문화상품권 10,000원권</h2>
-                                            <span style="white-space:normal" class="btn-point">10,000ⓟ</span>
+                                            <span class="btn-point">10,000ⓟ</span>
                                         </a>
                                     </li>
-                                    <li style="border-bottom: 1px solid #eeeeee;">
-                                        <a href="#" style="background-color:#ffffff;">
-                                            <img src="../temp/img_mobile.png" class="ui-thumbnail" style="margin-top:30px;" />
-                                            <h6 style="color:#e3e3e3; font-size:12px; font-weight:normal;">문화상품권</h6>
+                                    <li>
+                                        <a href="#" name="goods" id="g1001">
+                                            <img src="../temp/img_mobile.png" class="ui-thumbnail"/>
+                                            <h6>문화상품권</h6>
                                             <h2>모바일 문화상품권 5,000원권</h2>
-                                            <span style="white-space:normal" class="btn-point">5,000ⓟ</span>
+                                            <span class="btn-point">5,000ⓟ</span>
                                         </a>
                                     </li>
-                                    <li style="border-bottom: 1px solid #eeeeee;">
-                                        <a href="#" style="background-color:#ffffff;">
-                                            <img src="../temp/777.jpg" class="ui-thumbnail" style="margin-top:30px;" />
-                                            <h6 style="color:#e3e3e3; font-size:12px; font-weight:normal;">문화상품권</h6>
+                                    <li>
+                                        <a href="#" name="goods" id="g1002">
+                                            <img src="../temp/777.jpg" class="ui-thumbnail"/>
+                                            <h6>문화상품권</h6>
                                             <h2>온라인 문화상품권 10,000원권</h2>
-                                            <span style="white-space:normal" class="btn-point">10,000ⓟ</span>
+                                            <span class="btn-point">10,000ⓟ</span>
                                         </a>
                                     </li>
-                                    <li style="border-bottom: 1px solid #eeeeee;">
-                                        <a href="#" style="background-color:#ffffff;">
-                                            <img src="../temp/777.jpg" class="ui-thumbnail" style="margin-top:30px;" />
-                                            <h6 style="color:#e3e3e3; font-size:12px; font-weight:normal;">문화상품권</h6>
+                                    <li>
+                                        <a href="#" name="goods" id="g1003">
+                                            <img src="../temp/777.jpg" class="ui-thumbnail"/>
+                                            <h6>문화상품권</h6>
                                             <h2>온라인 문화상품권 5,000원권</h2>
-                                            <span style="white-space:normal" class="btn-point">5,000ⓟ</span>
+                                            <span class="btn-point">5,000ⓟ</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -155,7 +156,10 @@
                 },
                 initComponent: function () {
                 },
-                initEvent: function () {                 
+                initEvent: function () {
+                    $(document).on("click", "a[name='goods']", function () {
+                        location.href = "GoodsDetails.aspx?goods_id=" + $(this).attr("id");
+                    });
                 },
                 fn: {
                 }

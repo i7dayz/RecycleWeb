@@ -38,7 +38,7 @@
                 <div class="colgroup">
                     <div class="content fixed" id="content">
                         <div class="coupon-list">
-                            <a href="coupon_detail.html">
+                            <a href="#" name="myCoupon" id="g1001">
                                 <div class="coupon">
                                     <div class="coupon-image">
                                         <img src="../temp/G00000008061_250.jpg">
@@ -53,7 +53,7 @@
                                 </div>
                             </a>
                             <div class="clear"></div>
-                            <a href="coupon_detail.html">
+                            <a href="#" name="myCoupon" id="g1002">
                                 <div class="coupon">
                                     <div class="coupon-image">
                                         <img src="../temp/G00000008061_250.jpg">
@@ -68,7 +68,7 @@
                                 </div>
                             </a>
                             <div class="clear"></div>
-                            <a href="coupon_detail.html">
+                            <a href="#" name="myCoupon" id="g1003">
                                 <div class="coupon">
                                     <div class="coupon-image">
                                         <img src="../temp/G00000008061_250.jpg">
@@ -100,7 +100,10 @@
                 },
                 initComponent: function () {      
                 },
-                initEvent: function () {        
+                initEvent: function () {
+                    $(document).on("click", "a[name='myCoupon']", function () {
+                        location.href = "MyCouponDetails.aspx?my_coupon_id=" + $(this).attr("id");
+                    });
                 },
                 fn: {
                 }

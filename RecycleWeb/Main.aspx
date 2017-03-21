@@ -626,9 +626,9 @@
                                     </div>
                                 </div>
 
-                                <div class="footer" style="padding:5px; background-color:#ffffff;">                                        
+                                <div class="footer" style="padding:15px; background-color:#ffffff;">                                        
                                     <div class="button">
-                                        <a href="pickup_detail.html" data-ajax="false" id="btnCoupon" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0">
+                                        <a href="#" data-ajax="false" id="btnCoupon" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0">
                                             쿠폰함 바로가기
                                         </a>
                                     </div>
@@ -705,6 +705,9 @@
                 initEvent: function () {
                     //내 쿠폰함
                     $(document).on('click', '#btnMyCoupon', function () {
+                        location.href = "/Member/MyCoupon.aspx";
+                    });
+                    $(document).on('click', '#btnCoupon', function () {
                         location.href = "/Member/MyCoupon.aspx";
                     });
                     

@@ -35,51 +35,15 @@
             <!-- #container -->
             <div class="container" id="container">
                 <div class="colgroup">
-                    <div class="content fixed" id="content">
-                        <div class="notice">
-                            <div class="title">
-                                <div class="title-image">
-                                    <img src="../img/notice.png">
-                                </div>
-                                <div class="title-text">
-                                    <ul>
-                                        <li class="title-main">추천인 공지사항</li>
-                                        <li class="title-date">2017-02-01 18:00</li>
-                                    </ul>
-                                </div>
-                                <div class="title-close">
-                                    <img src="../img/close-p.png">
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <img src="../img/banner-01.png">
-                                <p>고객님이 추천한 회원에게 고객님이 판매하신 재활용품의 1%만큼 리본에서 적립해드립니다. 결코 회원님의 수익에서 차감되는 것이 아니라, 회사의 수익에서 적립해 드리는 것입니다.
-                                아울러 고객님을 추천한 회원이 재활용품을 판매하면 ...</p>
-                            </div>
-                        </div>
-                        <div class="notice">
-                            <div class="title">
-                                <div class="title-image">
-                                    <img src="../img/notice.png">
-                                </div>
-                                <div class="title-text">
-                                    <ul>
-                                        <li class="title-main">추천인 공지사항</li>
-                                        <li class="title-date">2017-02-01 18:00</li>
-                                    </ul>
-                                </div>
-                                <div class="title-close">
-                                    <img src="../img/open-g.png">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="content fixed" id="content"></div>
                 </div>
             </div> <!-- //container -->
         </div>
     </div> <!-- //wrap -->
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
         
     <script>
         (function () {
@@ -88,11 +52,62 @@
                     this.initComponent();
                     this.initEvent();
                 },
-                initComponent: function () {      
+                initComponent: function () {
+                    page.fn.noticeList();
                 },
-                initEvent: function () {        
+                initEvent: function () {
+                    $(document).on('click', '.notice', function (id) {
+                        $(this).find('.content-area').toggle(100, function () {
+                            if ($(this).css('display') != 'none') {
+                                $(this).parent().find('#notice_img').attr("src", $(this).parent().find('#notice_img').attr("src").replace("../img/open-g.png", "../img/close-p.png"));
+                            } else {
+                                $(this).parent().find('#notice_img').attr("src", $(this).parent().find('#notice_img').attr("src").replace("../img/close-p.png", "../img/open-g.png"));
+                            }
+                        });
+                    });
                 },
                 fn: {
+                    noticeList: function () {
+                        var params = {
+                            pageNum: 0
+                        };
+
+                        Server.ajax("/producer/noticeList", params, function (respone, status, xhr) {
+                            if (respone.value == 0) {
+                                var list = respone.noticeList;
+                                
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addNotice(list[i]);
+                                }
+                            } else {
+                                Dialog.Alert("Error Code : " + respone.value);
+                            }
+                        }, "post", false);
+                    },
+                    addNotice: function (item) {
+                        var notice = '<div class="notice" id="' + item[0] + '">'
+                                     + '    <div class="title">'
+                                     + '        <div class="title-image">'
+                                     + '            <img src="../img/notice.png">'
+                                     + '        </div>'
+                                     + '        <div class="title-text">'
+                                     + '            <ul>'
+                                     + '                <li class="title-main">' + item[1] + '</li>'
+                                     + '                <li class="title-date">' + item[3] + '</li>'
+                                     + '            </ul>'
+                                     + '        </div>'
+                                     + '        <div class="title-close">'
+                                     + '            <img id="notice_img" src="../img/open-g.png">'
+                                     + '        </div>'
+                                     + '    </div>'
+                                     + '    <div class="content-area">'
+                                     + '        <img src="../img/banner-01.png">'
+                                     + '        <p>' + item[2] + '</p>'
+                                     + '    </div>'
+                                     + '</div>';
+
+                        $('#content').append(notice);
+                    }
                 }
             };
 
