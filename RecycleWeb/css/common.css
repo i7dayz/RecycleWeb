@@ -260,7 +260,9 @@ body .content > .foot .section.flat{position:relative;text-align:left;margin:0 1
 
 .address-list { border-top: 1px solid #eeeeee; background-color:#ffffff; }
 .address-list ul { padding: 15px; border-bottom: 1px solid #eeeeee }
-.address-list ul li { font-size: 12px; line-height: 22px; }
+.address-list ul li { font-size: 13px; line-height: 22px; }
+
+.address-paginate { padding: 15px; }
 
 .goods-list > ul { margin:0; }
 .goods-list > ul > li { border-bottom: 1px solid #eeeeee; }
