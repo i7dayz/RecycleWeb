@@ -41,7 +41,7 @@
                             <div class="background">
                                 <img src="../temp/star.png">
                                 <div class="coupon-use-guide">
-                                    <a href="#" id="btnMyCouponGuide">사용안내</a>
+                                    <a href="javascript:;" id="btnMyCouponGuide">사용안내</a>
                                 </div>
                                 
                                 <div class="coupon-image">

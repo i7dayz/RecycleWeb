@@ -104,7 +104,7 @@
                             <div class="goods-list">
                                 <ul data-role="listview" data-icon="false">
                                     <li>
-                                        <a href="#" name="goods" id="g1000">
+                                        <a href="javascript:;" name="goods" id="g1000">
                                             <img src="../temp/img_mobile.png" class="ui-thumbnail" />
                                             <h6>문화상품권</h6>
                                             <h2>모바일 문화상품권 10,000원권</h2>
@@ -112,7 +112,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" name="goods" id="g1001">
+                                        <a href="javascript:;" name="goods" id="g1001">
                                             <img src="../temp/img_mobile.png" class="ui-thumbnail"/>
                                             <h6>문화상품권</h6>
                                             <h2>모바일 문화상품권 5,000원권</h2>
@@ -120,7 +120,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" name="goods" id="g1002">
+                                        <a href="javascript:;" name="goods" id="g1002">
                                             <img src="../temp/777.jpg" class="ui-thumbnail"/>
                                             <h6>문화상품권</h6>
                                             <h2>온라인 문화상품권 10,000원권</h2>
@@ -128,7 +128,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" name="goods" id="g1003">
+                                        <a href="javascript:;" name="goods" id="g1003">
                                             <img src="../temp/777.jpg" class="ui-thumbnail"/>
                                             <h6>문화상품권</h6>
                                             <h2>온라인 문화상품권 5,000원권</h2>

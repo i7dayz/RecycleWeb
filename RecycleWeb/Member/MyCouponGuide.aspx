@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="floating-btn-white">
-                        <a href="#" id="btnBuy" class="ui-btn ui-corner-all btn-green" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">환불신청</a>
+                        <a href="javascript:;" id="btnBuy" class="ui-btn ui-corner-all btn-green" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">환불신청</a>
                     </div>
                 </div>
             </div> <!-- //container -->

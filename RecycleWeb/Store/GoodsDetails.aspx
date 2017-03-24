@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div class="floating-btn-gray">
-                            <a href="#" id="btnBuy" class="ui-btn ui-corner-all btn-green" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">구매하기</a>
+                            <a href="javascript:;" id="btnBuy" class="ui-btn ui-corner-all btn-green" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">구매하기</a>
                         </div>
                     </div>
                 </div> <!-- //main -->

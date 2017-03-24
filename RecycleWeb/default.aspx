@@ -39,13 +39,14 @@
         <div class="btn-area-index">
             <!--<a id="kakao-login-btn" style="width:100%"></a>
             <a href="http://alpha-developers.kakao.com/logout"></a>-->
-            <a href="#" id="btnKakaoLogin" class="ui-btn ui-corner-all">카카오계정으로 로그인</a>
+            <a href="javascript:;" id="btnKakaoLogin" class="ui-btn ui-corner-all">카카오계정으로 로그인</a>
             <!-- 임시버튼 -->
-            <a href="#" id="btnNext" class="ui-btn ui-corner-all">약관동의화면 이동</a>
+            <a href="javascript:;" id="btnNext" class="ui-btn ui-corner-all">약관동의화면 이동</a>
         </div>
     </div>
 
     <script type="text/javascript" src="script/extention/jquery.js"></script>
+    <script type="text/javascript" src="script/common.js"></script>
         
     <script>
         (function () {
@@ -59,7 +60,11 @@
                 initEvent: function () {        
                     $('#btnNext').click(function() {
                         location.href = "Member/TermsAgree.aspx";
-                    });                
+                    });
+
+                    $(document).on('click', '#btnKakaoLogin', function () {
+                        location.href = "https://kauth.kakao.com/oauth/authorize?client_id=7ac9ab630f44e0b7910f477934bb9f9a&redirect_uri=http://localhost:52491/Member/KakaoLogin.aspx&response_type=code";
+                    });
                 },
                 fn: {
                 }

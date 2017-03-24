@@ -55,7 +55,7 @@
                                         <span class="txt-color5">기본주소</span>
                                         <div class="wpc100">
                                             <input type="text" class="text-field required input-guide txt-input-guide wpc70" />
-                                            <a href="#" id="btnChangeAddress" class="ui-btn ui-corner-all wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; font-weight:normal; float:right;">
+                                            <a href="javascript:;" id="btnChangeAddress" class="ui-btn ui-corner-all wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; font-weight:normal; float:right;">
                                                 변경
                                             </a>
                                         </div>                                 
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="footer" style="padding:10px;">
-                            <a href="#" id="btnRequest" class="ui-btn ui-corner-all btn-green">수거신청</a>
+                            <a href="javascript:;" id="btnRequest" class="ui-btn ui-corner-all btn-green">수거신청</a>
                         </div>
                     </div>
                 </div>

@@ -172,7 +172,7 @@
                         <nd2-ad data-banner="sample.banner" style="background-color:#90cd32;">
                             <ul data-role="listview" data-icon="false" style="margin:0; padding:10px; background-color:#90cd32;">
                                 <li style="padding-left:40% !important; background-color:#90cd32; border:0; text-shadow:none;">
-                                    <!--<a href="#" style="padding-left:50% !important;">-->
+                                    <!--<a href="javascript:;" style="padding-left:50% !important;">-->
                                         <img src="img/pickup-illust.png" class="ui-thumbnail" style="max-width:30%; padding-top:15px; padding-left:20px;">
                                         <h2 style="text-align:right; color:#ffffff;">수거신청</h2>
                                         <p style="text-align:right; color:#ffffff;">20kg이상, 3000원이상 신청가능</p>
@@ -520,7 +520,7 @@
 
                                 <div class="footer" style="padding:5px; background-color:#ffffff;">                                        
                                     <div class="button">
-                                        <a href="#" data-ajax="false" id="btnRequest" class="ui-btn ui-corner-all btn-green">
+                                        <a href="javascript:;" data-ajax="false" id="btnRequest" class="ui-btn ui-corner-all btn-green">
                                             수거신청
                                         </a>
                                     </div>
@@ -534,7 +534,7 @@
                         <nd2-ad data-banner="sample.banner" style="background-color:#90cd32;">
                             <ul data-role="listview" data-icon="false" style="margin:0; padding:10px; background-color:#90cd32;">
                                 <li style="padding-left:40% !important; background-color:#90cd32; border:0; text-shadow:none;">
-                                    <!--<a href="#" style="padding-left:50% !important;">-->
+                                    <!--<a href="javascript:;" style="padding-left:50% !important;">-->
                                         <img src="img/store-illust.png" class="ui-thumbnail" style="max-width:30%; padding-top:15px; padding-left:20px;">
                                         <h2 style="text-align:right; color:#ffffff;">스토어</h2>
                                         <p style="text-align:right; color:#ffffff;">적립된 포인트는 현금처럼!</p>
@@ -549,7 +549,7 @@
                                         <!-- 상품권, 편의점, 카페 -->
                                         <div class="ui-grid-b grids" style="height:130px;">
                                             <div class="ui-block-a" style="height:100%; text-align:center; background-color:#ffffff; border-bottom: 1px solid #eeeeee">
-                                                <a href="#" id="btnGiftCard">
+                                                <a href="javascript:;" id="btnGiftCard">
                                                     <div style="height:50px; padding-top:30px;">
                                                         <img src="img/gift-card.png" style="width:25%; height:auto">
                                                     </div>
@@ -628,7 +628,7 @@
 
                                 <div class="footer" style="padding:15px; background-color:#ffffff;">                                        
                                     <div class="button">
-                                        <a href="#" data-ajax="false" id="btnCoupon" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0">
+                                        <a href="javascript:;" data-ajax="false" id="btnCoupon" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0">
                                             쿠폰함 바로가기
                                         </a>
                                     </div>
@@ -642,7 +642,7 @@
                         <nd2-ad data-banner="sample.banner" style="background-color:#90cd32;">
                             <ul data-role="listview" data-icon="false" style="margin:0; padding:10px; background-color:#90cd32;">
                                 <li style="padding-left:40% !important; background-color:#90cd32; border:0; text-shadow:none;">
-                                    <!--<a href="#" style="padding-left:50% !important;">-->
+                                    <!--<a href="javascript:;" style="padding-left:50% !important;">-->
                                         <img src="img/angel-illust.png" class="ui-thumbnail" style="max-width:30%; padding-top:15px; padding-left:20px;">
                                         <h2 style="text-align:right; color:#ffffff;">기부하기</h2>
                                         <p style="text-align:right; color:#ffffff;">어려운 이웃을 도와주세요!</p>

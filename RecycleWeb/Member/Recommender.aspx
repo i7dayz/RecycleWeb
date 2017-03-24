@@ -41,7 +41,7 @@
                             <div class="fixed option-area recommender">
                                 <h6>추천인 입력</h6>
                                 <input type="text" class="text-field wpc80" placeholder="추천인 닉네임 입력" />
-                                <a href="#" id="" class="ui-btn ui-corner-all wpc15 btn-confirm" style="font-weight:normal; float:right">
+                                <a href="javascript:;" id="" class="ui-btn ui-corner-all wpc15 btn-confirm" style="font-weight:normal; float:right">
                                     확인
                                 </a>
                                 <h6>친구초대</h6>

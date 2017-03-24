@@ -258,9 +258,40 @@ body .content > .foot .section.flat{position:relative;text-align:left;margin:0 1
 .checkbox-wrap input[type=checkbox] { display: none;}
 .checkbox-wrap input[type=checkbox]:checked + .check-icon-green { background-image: url(../img/check_01.png); }
 
+#modal-wrapper {
+  display:none;
+}
+  
+#modal-overlay {
+position: fixed;
+left:0;
+right:0;
+top:0;
+bottom:0;
+z-index: 1;
+cursor: pointer;
+background: rgba(0,0,0,0.3);
+}
+#modal-content {
+position: fixed;
+left:50%;
+top:50%;
+z-index: 2;
+transform: translate3d(-50%, -50%, 0);
+background:#fff;
+overflow: auto;
+width: 420px;
+height: 100%;
+/*padding: 30px;*/
+/*box-shadow: 0 0 5px #000;*/
+    
+}
+
 .address-list { border-top: 1px solid #eeeeee; background-color:#ffffff; }
 .address-list ul { padding: 15px; border-bottom: 1px solid #eeeeee }
 .address-list ul li { font-size: 13px; line-height: 22px; }
+
+.address-list > #address { cursor: pointer; }
 
 .address-paginate { padding: 15px; }
 

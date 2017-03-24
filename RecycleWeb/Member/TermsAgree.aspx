@@ -80,10 +80,10 @@
                     <div>
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
-                                <a href="#" id="btnDisAgree" class="ui-btn ui-corner-all btn-gray" style="margin-left:10px;margin-right:5px">동의안함</a>
+                                <a href="javascript:;" id="btnDisAgree" class="ui-btn ui-corner-all btn-gray" style="margin-left:10px;margin-right:5px">동의안함</a>
                             </div>
                             <div class="ui-block-b">
-                                <a href="#" id="btnAgree" class="ui-btn ui-corner-all btn-green" style="margin-left:5px;margin-right:10px">동의함</a>
+                                <a href="javascript:;" id="btnAgree" class="ui-btn ui-corner-all btn-green" style="margin-left:5px;margin-right:10px">동의함</a>
                             </div>
                         </div>
                     </div>

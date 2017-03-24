@@ -52,7 +52,7 @@
                                             <input type="search" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
                                                 placeholder="도로, 건물명, 지번을 검색해보세요."
                                                 value="" />
-                                            <a href="#" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">
+                                            <a href="javascript:;" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">
                                                 <img src="../img/search.png" style="width:16px; height:16px;">
                                             </a>
                                         </div>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="address-list"></div>
                     <div class="address-paginate">
-                        <a href="#" id="btnSearchNext" class="ui-btn ui-corner-all btn-gray">다음</a>
+                        <a href="javascript:;" id="btnSearchNext" class="ui-btn ui-corner-all btn-gray">다음</a>
                     </div>
                 </div>
             </div>
@@ -91,6 +91,8 @@
 
                     $(document).on('click', '#btnSearch', function () {
                         $(".address-list").html("");
+                        $("input[name='currentPage']").val("1");
+
                         page.fn.getAddress();
                     });
 
@@ -104,6 +106,7 @@
                     $(document).on('keypress', '#keyword', function (e) {
                         if (e.which == 13) {
                             if ($(this).val() != "") {
+                                $("input[name='currentPage']").val("1");
                                 page.fn.getAddress();
                             }
                         }
@@ -130,6 +133,8 @@
 
                                         var listCount = $(".address-list").children().length;
                                         var totalCount = $("input[name='totalCount'").val();
+                                        alert(listCount);
+                                        alert(totalCount);
 
                                         if (listCount == totalCount) {
                                             $('#btnSearchNext').hide();

@@ -82,10 +82,10 @@
                             <div class="footer" style="padding:10px">
                                 <div class="ui-grid-a">
                                     <div class="ui-block-a">
-                                        <a href="#" id="btnCancel" class="ui-btn ui-corner-all btn-gray" style="">취소</a>
+                                        <a href="javascript:;" id="btnCancel" class="ui-btn ui-corner-all btn-gray" style="">취소</a>
                                     </div>
                                     <div class="ui-block-b">
-                                        <a href="#" id="btnConfirm" class="ui-btn ui-corner-all btn-green" style="">확인</a>
+                                        <a href="javascript:;" id="btnConfirm" class="ui-btn ui-corner-all btn-green" style="">확인</a>
                                     </div>
                                 </div>
                             </div>
