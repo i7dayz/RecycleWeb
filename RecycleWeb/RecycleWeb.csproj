@@ -100,7 +100,17 @@
   <ItemGroup>
     <Content Include="Collection\RequestDetails.aspx" />
     <Content Include="Collection\RequestDone.aspx" />
-    <Content Include="Member\DonationHistory.aspx" />
+    <Content Include="Donation\DonationDetails.aspx" />
+    <Content Include="img\home-w.png" />
+    <Content Include="img\hrx.png" />
+    <Content Include="img\kasy.png" />
+    <Content Include="img\point-icn.png" />
+    <Content Include="img\radio-01.png" />
+    <Content Include="img\radio-02.png" />
+    <Content Include="img\reborn.jpg" />
+    <Content Include="Donation\DonationHistory.aspx" />
+    <Content Include="Member\EditInfo.aspx" />
+    <Content Include="Member\Info.aspx" />
     <Content Include="Member\KakaoLogin.aspx" />
     <Content Include="Member\MyCouponDetails.aspx" />
     <Content Include="Member\MyCouponGuide.aspx" />
@@ -147,6 +157,9 @@
     <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents-3.php" />
     <Content Include="script\extention\jquery.mobile-1.4.5\demos\page-events\logevents.php" />
     <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile-1.4.5.min.map" />
+    <Content Include="script\extention\jquery.modal-master\bower.json" />
+    <Content Include="script\extention\jquery.modal-master\LICENSE" />
+    <Content Include="script\extention\jquery.modal-master\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -821,10 +834,17 @@
     <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.structure-1.4.5.min.css" />
     <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.theme-1.4.5.css" />
     <Content Include="script\extention\jquery.mobile-1.4.5\jquery.mobile.theme-1.4.5.min.css" />
+    <Content Include="script\extention\jquery.modal-master\css\jquery.modal.css" />
+    <Content Include="script\extention\jquery.modal-master\css\jquery.modal.theme-atlant.css" />
+    <Content Include="script\extention\jquery.modal-master\css\jquery.modal.theme-xenon.css" />
+    <Content Include="script\extention\jquery.modal-master\index.html" />
+    <Content Include="script\extention\jquery.modal-master\js\jquery.modal.js" />
+    <Content Include="script\extention\jquery.modal-master\js\jquery.modal.min.js" />
     <Content Include="script\extention\nativedroid2.js" />
     <Content Include="script\extention\nd2settings.js" />
     <Content Include="script\extention\waves.min.js" />
     <Content Include="script\extention\wow.min.js" />
+    <Content Include="script\store.js" />
     <Content Include="Store\Goods.aspx" />
     <Content Include="Store\GoodsDetails.aspx" />
     <Content Include="Support\Event.aspx" />
@@ -868,6 +888,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Donation\DonationDetails.aspx.cs">
+      <DependentUpon>DonationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Donation\DonationDetails.aspx.designer.cs">
+      <DependentUpon>DonationDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -882,12 +909,26 @@
     <Compile Include="Member\AddressSearch.aspx.designer.cs">
       <DependentUpon>AddressSearch.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Member\DonationHistory.aspx.cs">
+    <Compile Include="Donation\DonationHistory.aspx.cs">
       <DependentUpon>DonationHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Member\DonationHistory.aspx.designer.cs">
+    <Compile Include="Donation\DonationHistory.aspx.designer.cs">
       <DependentUpon>DonationHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\EditInfo.aspx.cs">
+      <DependentUpon>EditInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\EditInfo.aspx.designer.cs">
+      <DependentUpon>EditInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Info.aspx.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\Info.aspx.designer.cs">
+      <DependentUpon>Info.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\Join.aspx.cs">
       <DependentUpon>Join.aspx</DependentUpon>

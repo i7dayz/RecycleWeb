@@ -1,4 +1,4 @@
-@charset 'utf-8';
+﻿@charset 'utf-8';
 
 @font-face {
     font-family: 'notokr-regular';
@@ -119,17 +119,56 @@ body .content > .header > .expire { padding-top: 10px;padding-right: 10px; }
 
 body .content > .header-join > .expire ul li,
 body .content > .header > .expire ul li {text-align:right; font-size: 12px; line-height: 14px; }
+body .content > .header > .expire ul li > label { display: inline-block; padding-left:3px; }
 
-body .content > .header-join > .profile,
-body .content > .header > .profile {width:100%}
+body .content > .header-join > .profile {
+    width:100%; text-align: center; 
+    background: url('../img/character-02.png') no-repeat;
+    background-size: contain;
+    background-position:center
+}
+
+body .content > .header > .profile { 
+    width:100%; text-align: center; 
+    background-size: contain;
+    background-position:center
+}
+
+body .content > .header > .profile > .image-wrapper { 
+    width:100%; text-align: center; 
+    background: url('../img/character-02.png') no-repeat;
+    background-size: contain;
+    background-position:center
+}
 
 body .content > .header-join > .profile .image,
-body .content > .header > .profile .image {width: 100%; text-align: center; }
+body .content > .header > .profile .image { display: block; overflow: hidden; width: 75px; height: 75px; border-radius: 50%; margin: 0 auto; }
+
+body .content > .header-join > .profile > .image > img {
+    display: inline-block; /* Otherwise it keeps some space around baseline */
+    max-width: 100%; /* Scale up to fill container width */
+    min-height: 100%; /* Scale up to fill container height */
+    -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
+}
+
+body .content > .header > .profile > .image-wrapper > .image > img {
+    display: inline-block; /* Otherwise it keeps some space around baseline */
+    max-width: 100%; /* Scale up to fill container width */
+    min-height: 100%; /* Scale up to fill container height */
+    -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
+}
+
 
 body .content > .header-join > .profile .nickname,
-body .content > .header > .profile .nickname {width: 100%; text-align: center; }
+body .content > .header > .profile .nickname { width: 100%; text-align: center; padding-top: 5px; }
+body .content > .header > .profile .name { width: 100%; text-align: center; padding-top: 5px; }
 
-body .content > .header > .profile .point {width: 100%; text-align: center;font-size:24px;font-weight:bold;}
+body .content > .header > .profile .nickname > label { width: 100%; text-align: center; font-size:16px; }
+
+body .content > .header > .profile .point { width: 100%; text-align: center;  padding-top: 10px;}
+
+body .content > .header > .profile .point > label { display:inline-block; font-size:24px;font-weight:bold; vertical-align:middle }
+body .content > .header > .profile .point > img { display:inline-block; width: 24px; height: auto; vertical-align:middle; margin-left: 5px; }
 
 * html body .content > .header {height:1%;}
 
@@ -249,11 +288,18 @@ html.use-gModal body{overflow:hidden;overflow-x:hidden;overflow-y:hidden;}
 .btn-minus {
 	width: 12px !important;
 	height: 2px !important;
-	padding-bottom: 5px !important;
+    cursor:pointer;
+    padding: 15px 10px 10px 10px;
 }
 .btn-plus {
 	width: 12px !important;
 	height: 12px !important;
+    padding:10px;
+    cursor:pointer;
+}
+
+.chk-pickup {
+    cursor: pointer;
 }
 
 .grids .cell {

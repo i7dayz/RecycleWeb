@@ -15,15 +15,17 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
+    <input type="hidden" runat="server" id="hdProducerIdx" />
     <div class="wrap" id="wrap">            
         <div data-role="page" class="nd2-no-menu-swipe">
             <!-- #header -->
             <div class="header" id="header">
                 <div data-role="header" class="wow fadeIn">
                     <div class="ci use-search-reset" style="width:100%">
-                        <a href="#panel">
+                        <a href="javascript:;" class="back-btn">
                             <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
                         </a>
                         <div>
@@ -40,8 +42,8 @@
                         <div class="main ui-content">
                             <div class="fixed option-area recommender">
                                 <h6>추천인 입력</h6>
-                                <input type="text" class="text-field wpc80" placeholder="추천인 닉네임 입력" />
-                                <a href="javascript:;" id="" class="ui-btn ui-corner-all wpc15 btn-confirm" style="font-weight:normal; float:right">
+                                <input type="text" id="txtRecommenderNickname" class="text-field wpc80" placeholder="추천인 닉네임 입력" />
+                                <a href="javascript:;" id="btnSave" class="ui-btn ui-corner-all wpc15 btn-confirm" style="font-weight:normal; float:right">
                                     확인
                                 </a>
                                 <h6>친구초대</h6>
@@ -74,6 +76,8 @@
     </div> <!-- //wrap -->
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
+        <script type="text/javascript" src="../script/common.js"></script>
+        <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
 
     <script>
         (function () {
@@ -84,9 +88,30 @@
                 },
                 initComponent: function () {      
                 },
-                initEvent: function () {        
+                initEvent: function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
+                    $(document).on('click', '#btnSave', function () {
+                        page.fn.saveRecommender();
+                    });
                 },
                 fn: {
+                    saveRecommender: function () {
+                        var params = {
+                            producerIdx: $("#hdProducerIdx").val(),
+                            recommenderNickname: $("#txtRecommenderNickname").val(),
+                        }
+
+                        Server.ajax("/producer/donation", params, function (response, status, xhr) {
+                            alert(response.value);
+                            if (response.value == 0) {
+                                infoBox($("#txtRecommenderNickname").val() + "님을 추천인으로 등록하셨습니다.");
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    }
                 }
             };
 

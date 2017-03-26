@@ -18,7 +18,7 @@ body .header .ci *{/*color:#fff;*/text-decoration:none;font-size:18px;line-heigh
 body .header .ci .img-menu.ci-logo{margin:12px;width:24px;height:24px;}
 body .header .ci .img-menu.ci-logo img{margin-top:4px;width:24px;height:auto;}
 body .header .ci .img-menu.ci-company-name{margin:15px 0 15px 10px;width:131px;height:20px;background-image:url('/img/ci_company_name.svg');-webkit-background-size:131px 20px;-moz-background-size:131px 20px;-o-background-size:131px 20px;background-size:131px 20px;background-repeat:no-repeat;}
-body .header .gnb{position:absolute;top:18px;right:10px;}
+body .header .gnb{position:absolute;top:14px;right:15px;}
 body .header .gnb *{color:#313841;text-decoration:none;font-weight:bold;font-size:13px;line-height:13px;}
 body .header .gnb > ul > li{float:left;border-left:#313841 1px solid;padding:0 10px;height:13px;line-height:13px;}
 body .header .gnb > ul > li:first-child{border-left-width:0;padding-left:0;}

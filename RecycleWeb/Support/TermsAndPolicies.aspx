@@ -40,7 +40,7 @@
         <div class="header" id="header">
             <div class="colgroup fixed">
                 <div class="ci use-search-reset">
-                    <a href="#leftmenu" class="">
+                        <a href="javascript:;" class="back-btn">
                         <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                              
                     </a>
                     <span>약관 및 정책 </span>
@@ -95,6 +95,9 @@
                     });
                 },
                 initEvent: function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
                 },
                 fn: {
                 }

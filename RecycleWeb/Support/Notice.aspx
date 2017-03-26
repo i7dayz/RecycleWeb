@@ -14,6 +14,7 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap" id="wrap">            
@@ -22,7 +23,7 @@
             <div class="header" id="header">
                 <div data-role="header" class="wow fadeIn">
                     <div class="ci use-search-reset" style="width:100%">
-                        <a href="#panel">
+                        <a href="javascript:;" class="back-btn">
                             <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
                         </a>
                         <div>
@@ -43,6 +44,7 @@
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
         
     <script>
@@ -53,9 +55,12 @@
                     this.initEvent();
                 },
                 initComponent: function () {
-                    page.fn.noticeList();
                 },
                 initEvent: function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
+
                     $(document).on('click', '.notice', function (id) {
                         $(this).find('.content-area').toggle(100, function () {
                             if ($(this).css('display') != 'none') {
@@ -80,7 +85,7 @@
                                     page.fn.addNotice(list[i]);
                                 }
                             } else {
-                                Dialog.Alert("Error Code : " + respone.value);
+                                errorBox("Error Code : " + respone.value);
                             }
                         }, "post", false);
                     },
@@ -113,6 +118,7 @@
 
             $(document).on('ready', function () {
                 page.init();
+                page.fn.noticeList();
             });
         })();
     </script>

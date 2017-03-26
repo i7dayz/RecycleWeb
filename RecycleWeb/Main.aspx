@@ -18,6 +18,7 @@
     <link href="css/waves.min.css" rel="stylesheet" />
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/nativedroid2.css" rel="stylesheet" />
+    <link href="script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap" id="wrap">            
@@ -67,19 +68,22 @@
                                 <div class="header" style="padding-top:0">
                                     <div class="expire">
                                         <ul>
-                                            <li>만료예정일 : 2018-12-31</li>
-                                            <li>만료예정 포인트 : 8,500</li>
+                                            <li><label style="font-size:15px">만료예정일 : </label><label runat="server" id="exDate" style="font-size:15px"></label></li>
+                                            <li><label style="font-size:15px">만료예정 포인트 : </label><label runat="server" id="exPoint" style="font-size:15px"></label></li>
                                         </ul>
                                     </div>
                                     <div class="profile">
-                                        <div class="image">
-                                            <img src="img/person64x64.png">
+                                        <div class="image-wrapper">
+                                            <div class="image">
+                                                <img runat="server" id="profileImg" src="img/person64x64.png">
+                                            </div>
                                         </div>
                                         <div class="nickname">
-                                            i7dayz
+                                            <label runat="server" id="nickname"></label>
                                         </div>
-                                        <div class="point">
-                                            20,000 ⓟ
+                                        <div class="point">                                            
+                                            <label runat="server" id="point">0</label>
+                                            <img src="img/point-icn.png" />
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +107,7 @@
                                             <div class="btn-area fixed">
                                                 <ul class="">
                                                     <li>
-                                                        <a href="" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
+                                                        <a href="javascript:;" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
                                                             <!--<em class="img-bul pictures"></em>-->
                                                             수거신청
                                                         </a>
@@ -183,344 +187,358 @@
                         <div class="colgroup">
                             <div class="content fixed" style="background-color:#f6f6f6">   
                                 <div class="main">
-                                    <div class="section" style="margin:0 auto">
-                                        <!-- title -->
-                                        <div class="ui-grid-a request-title">
-                                            <div class="ui-block-a">수거서비스</div>
-                                            <div class="ui-block-b align-right">ⓘ 수거 가능/불가능 품목 확인</div>
-                                        </div>
-
-                                        <!-- 헌옷,휴대폰 -->
-                                        <div class="ui-grid-a grids">
-                                            <!-- 헌옷 -->
-                                            <div class="ui-block-a cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/cloth.png" style="width:22px; height:26px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    헌옷
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 kg
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                    <form runat="server" id="pickupForm" method="post" action="Collection/RequestDetails.aspx" data-ajax="false">
+                                        <div class="section" style="margin:0 auto">
+                                            <!-- title -->
+                                            <div class="ui-grid-a request-title">
+                                                <div class="ui-block-a">수거서비스</div>
+                                                <div class="ui-block-b align-right">ⓘ 수거 가능/불가능 품목 확인</div>
                                             </div>
-                                            <!-- //헌옷 -->
 
-                                            <!-- 휴대폰 -->
-                                            <div class="ui-block-b cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/cellphone.png" style="width:16px; height:26px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    휴대폰
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 개
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
+                                            <!-- 헌옷,휴대폰 -->
+                                            <div class="ui-grid-a grids">
+                                                <!-- 헌옷 -->
+                                                <div class="ui-block-a cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/cloth.png" style="width:22px; height:26px;">
                                                         </div>
                                                     </div>
+                                                    <div class="row align-center">
+                                                        헌옷
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct06" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="kg" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <!-- //헌옷 -->
+
+                                                <!-- 휴대폰 -->
+                                                <div class="ui-block-b cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/cellphone.png" style="width:16px; height:26px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-center">
+                                                        휴대폰
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct07" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="개" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- //휴대폰 -->
                                             </div>
-                                            <!-- //휴대폰 -->
-                                        </div>
-                                        <!-- //헌옷,휴대폰 -->
+                                            <!-- //헌옷,휴대폰 -->
                                                                           
-                                        <!-- 소형가전,대형가전 -->
-                                        <div class="ui-grid-a grids">
-                                            <!-- 소형가전 -->
-                                            <div class="ui-block-a cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/small.png" style="width:26px; height:18px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    소형가전
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 개
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
+                                            <!-- 소형가전,대형가전 -->
+                                            <div class="ui-grid-a grids">
+                                                <!-- 소형가전 -->
+                                                <div class="ui-block-a cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/small.png" style="width:26px; height:18px;">
                                                         </div>
                                                     </div>
+                                                    <div class="row align-center">
+                                                        소형가전
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct09" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="개" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- //소형가전 -->
+                                                <!-- //소형가전 -->
 
-                                            <!-- 대형가전 -->
-                                            <div class="ui-block-b cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/big.png" style="width:22px; height:26px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    대형가전
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 개
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
+                                                <!-- 대형가전 -->
+                                                <div class="ui-block-b cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/big.png" style="width:22px; height:26px;">
                                                         </div>
                                                     </div>
+                                                    <div class="row align-center">
+                                                        대형가전
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct08" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="개" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- //대형가전 -->
-                                        </div>                                            
-                                        <!-- //소형가전,대형가전 -->
+                                                <!-- //대형가전 -->
+                                            </div>                                            
+                                            <!-- //소형가전,대형가전 -->
                                             
-                                        <!-- 폐지,병 -->
-                                        <div class="ui-grid-a grids">
-                                            <!-- 폐지 -->
-                                            <div class="ui-block-a cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/paper.png" style="width:20px; height:26px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    폐지
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 kg
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
+                                            <!-- 폐지,병 -->
+                                            <div class="ui-grid-a grids">
+                                                <!-- 폐지 -->
+                                                <div class="ui-block-a cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/paper.png" style="width:20px; height:26px;">
                                                         </div>
                                                     </div>
+                                                    <div class="row align-center">
+                                                        폐지
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct01" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="kg" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- //폐지 -->
+                                                <!-- //폐지 -->
 
-                                            <!-- 병 -->
-                                            <div class="ui-block-b cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/bottle.png" style="width:14px; height:26px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    병
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 개
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
+                                                <!-- 병 -->
+                                                <div class="ui-block-b cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/bottle.png" style="width:14px; height:26px;">
                                                         </div>
                                                     </div>
+                                                    <div class="row align-center">
+                                                        병
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct02" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="개" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <!-- //병 -->
                                             </div>
-                                            <!-- //병 -->
-                                        </div>
-                                        <!-- //폐지,병 -->
+                                            <!-- //폐지,병 -->
                                             
-                                        <!-- 고철,비철 -->
-                                        <div class="ui-grid-a grids">
-                                            <!-- 고철 -->
-                                            <div class="ui-block-a cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/iron.png" style="width:17px; height:26px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    고철
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 kg
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
+                                            <!-- 고철,비철 -->
+                                            <div class="ui-grid-a grids">
+                                                <!-- 고철 -->
+                                                <div class="ui-block-a cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/iron.png" style="width:17px; height:26px;">
                                                         </div>
                                                     </div>
+                                                    <div class="row align-center">
+                                                        고철
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct04" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="kg" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- //고철 -->
+                                                <!-- //고철 -->
 
-                                            <!-- 비철 -->
-                                            <div class="ui-block-b cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/non-iron.png" style="width:26px; height:26px;">
-                                                    </div>
-                                                </div>
-                                                <div class="row align-center">
-                                                    비철
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a align-right">
-                                                            <img src="img/minus.png" class="btn-minus">
-                                                        </div>
-                                                        <div class="ui-block-b align-center">
-                                                            0 kg
-                                                        </div>
-                                                        <div class="ui-block-c">
-                                                            <img src="img/plus.png" class="btn-plus">
+                                                <!-- 비철 -->
+                                                <div class="ui-block-b cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/non-iron.png" style="width:26px; height:26px;">
                                                         </div>
                                                     </div>
+                                                    <div class="row align-center">
+                                                        비철
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a align-right">
+                                                                <img src="img/minus.png" class="btn-minus">
+                                                            </div>
+                                                            <div class="ui-block-b align-center">
+                                                                <input type="text" runat="server" id="txtProduct05" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="kg" readonly="readonly"/>
+                                                            </div>
+                                                            <div class="ui-block-c">
+                                                                <img src="img/plus.png" class="btn-plus">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <!-- //비철 -->
                                             </div>
-                                            <!-- //비철 -->
-                                        </div>
-                                        <!-- //고철,비철 -->
+                                            <!-- //고철,비철 -->
                                             
-                                        <!-- 이삿짐,기타 -->
-                                        <div class="ui-grid-a grids">
-                                            <!-- 이삿짐 -->
-                                            <div class="ui-block-a cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/move.png" style="width:26px; height:26px;">
+                                            <!-- 이삿짐,기타 -->
+                                            <div class="ui-grid-a grids">
+                                                <!-- 이삿짐 -->
+                                                <div class="ui-block-a cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/move.png" style="width:26px; height:26px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-center">
+                                                        이삿짐
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a" style="width:25%"></div>
+                                                            <div class="ui-block-b align-center chk-pickup" style="width:50%; padding:10px 0;">
+                                                                <img src="img/check-c.png" style="width:14px; height: auto;"> 신청하기
+                                                                <input type="checkbox" runat="server" id="chkProduct10" style="display:none" />
+                                                            </div>
+                                                            <div class="ui-block-c" style="width:25%"></div>
+                                                        </div>                                                        
                                                     </div>
                                                 </div>
-                                                <div class="row align-center">
-                                                    이삿짐
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a" style="width:25%"></div>
-                                                        <div class="ui-block-b align-center" style="width:50%">
-                                                            <img src="img/check_02.png" style="width:14px; height: auto"> 신청하기
-                                                        </div>
-                                                        <div class="ui-block-c" style="width:25%"></div>
-                                                    </div>                                                        
-                                                </div>
-                                            </div>
-                                            <!-- //이삿짐 -->
+                                                <!-- //이삿짐 -->
 
-                                            <!-- 기타 -->
-                                            <div class="ui-block-b cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/etc.png" style="width:22px; height:26px;">
+                                                <!-- 기타 -->
+                                                <div class="ui-block-b cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/etc.png" style="width:22px; height:26px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-center">
+                                                        기타
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a" style="width:25%"></div>
+                                                            <div class="ui-block-b align-center chk-pickup" style="width:50%; padding:10px 0;">
+                                                                <img src="img/check-c.png" style="width:14px; height: auto;"> 신청하기
+                                                                <input type="checkbox" runat="server" id="chkProduct03" style="display:none" /> <!-- 임시 사용 -->
+                                                            </div>
+                                                            <div class="ui-block-c" style="width:25%"></div>
+                                                        </div>                                                        
                                                     </div>
                                                 </div>
-                                                <div class="row align-center">
-                                                    기타
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a" style="width:25%"></div>
-                                                        <div class="ui-block-b align-center" style="width:50%">
-                                                            <img src="img/check_01.png" style="width:14px; height: auto"> 신청
-                                                        </div>
-                                                        <div class="ui-block-c" style="width:25%"></div>
-                                                    </div>                                                        
-                                                </div>
+                                                <!-- //기타 -->
                                             </div>
-                                            <!-- //기타 -->
-                                        </div>
-                                        <!-- //이삿짐,기타 -->
+                                            <!-- //이삿짐,기타 -->
                                             
-                                        <!-- title -->
-                                        <div class="ui-grid-a request-title">
-                                            <div class="ui-block-a">대행서비스</div>
-                                            <div class="ui-block-b align-right">ⓘ 수거 가능/불가능 품목 확인</div>
-                                        </div>
+                                            <!-- title -->
+                                            <div class="ui-grid-a request-title">
+                                                <div class="ui-block-a">대행서비스</div>
+                                                <div class="ui-block-b align-right">ⓘ 수거 가능/불가능 품목 확인</div>
+                                            </div>
 
-                                        <!-- 폐기서비스,유품정리 -->
-                                        <div class="ui-grid-a grids">
-                                            <!-- 폐기서비스 -->
-                                            <div class="ui-block-a cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/arrangement.png" style="width:26px; height:26px;">
+                                            <!-- 폐기서비스,유품정리 -->
+                                            <div class="ui-grid-a grids">
+                                                <!-- 폐기서비스 -->
+                                                <div class="ui-block-a cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/arrangement.png" style="width:26px; height:26px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-center">
+                                                        폐기서비스
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a" style="width:25%"></div>
+                                                            <div class="ui-block-b align-center chk-pickup" style="width:50%; padding:10px 0;">
+                                                                <img src="img/check-c.png" style="width:14px; height: auto;"> 신청하기
+                                                                <input type="checkbox" runat="server" id="chkProduct11" style="display:none" />
+                                                            </div>
+                                                            <div class="ui-block-c" style="width:25%"></div>
+                                                        </div>                                                        
                                                     </div>
                                                 </div>
-                                                <div class="row align-center">
-                                                    폐기서비스
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a" style="width:25%"></div>
-                                                        <div class="ui-block-b align-center" style="width:50%">
-                                                            <img src="img/check_02.png" style="width:14px; height: auto"> 신청하기
-                                                        </div>
-                                                        <div class="ui-block-c" style="width:25%"></div>
-                                                    </div>                                                        
-                                                </div>
-                                            </div>
-                                            <!-- //폐기서비스 -->
+                                                <!-- //폐기서비스 -->
 
-                                            <!-- 유품정리 -->
-                                            <div class="ui-block-b cell">
-                                                <div class="row align-center">
-                                                    <div class="icon-area">
-                                                        <img src="img/angel.png" style="width:26px; height:26px;">
+                                                <!-- 유품정리 -->
+                                                <div class="ui-block-b cell">
+                                                    <div class="row align-center">
+                                                        <div class="icon-area">
+                                                            <img src="img/angel.png" style="width:26px; height:26px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-center">
+                                                        유품정리
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="ui-grid-b">
+                                                            <div class="ui-block-a" style="width:25%"></div>
+                                                            <div class="ui-block-b align-center chk-pickup" style="width:50%; padding:10px 0;">
+                                                                <img src="img/check-c.png" style="width:14px; height: auto;"> 신청하기
+                                                                <input type="checkbox" runat="server" id="chkProduct12" style="display:none" />
+                                                            </div>
+                                                            <div class="ui-block-c" style="width:25%"></div>
+                                                        </div>                                                        
                                                     </div>
                                                 </div>
-                                                <div class="row align-center">
-                                                    유품정리
-                                                </div>
-                                                <div class="row">
-                                                    <div class="ui-grid-b">
-                                                        <div class="ui-block-a" style="width:25%"></div>
-                                                        <div class="ui-block-b align-center" style="width:50%">
-                                                            <img src="img/check_02.png" style="width:14px; height: auto"> 신청하기
-                                                        </div>
-                                                        <div class="ui-block-c" style="width:25%"></div>
-                                                    </div>                                                        
-                                                </div>
+                                                <!-- //유품정리 -->
                                             </div>
-                                            <!-- //유품정리 -->
+                                            <!-- //폐기서비스,유품정리 -->
                                         </div>
-                                        <!-- //폐기서비스,유품정리 -->
-                                    </div>
+                                    </form>
                                 </div>
 
                                 <div class="footer" style="padding:5px; background-color:#ffffff;">                                        
                                     <div class="button">
-                                        <a href="javascript:;" data-ajax="false" id="btnRequest" class="ui-btn ui-corner-all btn-green">
+                                        <a href="javascript:;"  target="_self" id="btnRequest" class="ui-btn ui-corner-all btn-green">
                                             수거신청
                                         </a>
                                     </div>
@@ -545,6 +563,7 @@
                         <div class="colgroup">
                             <div class="content fixed" style="background-color:#f6f6f6">   
                                 <div class="main">
+                                    <input type="hidden" runat="server" id="hdTest" />
                                     <div class="section" style="margin:0 auto">
                                         <!-- 상품권, 편의점, 카페 -->
                                         <div class="ui-grid-b grids" style="height:130px;">
@@ -650,36 +669,7 @@
                                 </li>
                             </ul>
                         </nd2-ad>
-                        <ul data-role="listview" data-icon="false" style="margin:0;">
-                            <li style="border-bottom: 1px solid #eeeeee;">
-                                <a href="donation_detail.html" style="background-color:#ffffff;">
-                                    <img src="//lorempixel.com/150/150/people/6/" class="ui-thumbnail ui-thumbnail-circular" />
-                                    <h2>사랑의 열매</h2>
-                                    <p style="white-space:normal">나의 기부, 가장 착한 선물입니다. 사랑의 열매는 사회복지공동모금회를 상징하는 희망아이콘입니다.</p>
-                                </a>
-                            </li>
-                            <li style="border-bottom: 1px solid #eeeeee;">
-                                <a href="donation_detail.html" style="background-color:#ffffff;">
-                                    <img src="//lorempixel.com/150/150/people/5/" class="ui-thumbnail ui-thumbnail-circular" />
-                                    <h2>어린이 재단</h2>
-                                    <p style="white-space:normal">68년 역사, 국내 최대 아동복지 전문기관입니다.<br/>아이들에게 밝은 내일을 선물해주세요.</p>
-                                </a>
-                            </li>
-                            <li style="border-bottom: 1px solid #eeeeee;">
-                                <a href="donation_detail.html" style="background-color:#ffffff;">
-                                    <img src="//lorempixel.com/150/150/people/7/" class="ui-thumbnail ui-thumbnail-circular" />
-                                    <h2>유니셰프</h2>
-                                    <p style="white-space:normal">어린이를 돕는 일, 지금 시작하세요!<br/>여러분의 사랑이 어린이의 작은 생명을 구합니다.</p>
-                                </a>
-                            </li>
-                            <li style="border-bottom: 1px solid #eeeeee;">
-                                <a href="donation_detail.html" style="background-color:#ffffff;">
-                                    <img src="//lorempixel.com/150/150/people/7/" class="ui-thumbnail ui-thumbnail-circular" />
-                                    <h2>홀트아동복지회</h2>
-                                    <p style="white-space:normal">사랑받은 아이들이 세상을 웃게합니다.<br/>오늘부터 당신의 사랑을 보여주세요.</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <ul data-role="listview" data-icon="false" style="margin:0;" id="donationGroupList"></ul>
                     </div> <!-- //기부 tab -->
                 </div> <!-- //main -->
             </div> <!-- //container -->
@@ -692,6 +682,8 @@
     <script type="text/javascript" src="script/extention/wow.min.js"></script>
     <script type="text/javascript" src="script/extention/nativedroid2.js"></script>
     <script type="text/javascript" src="script/extention/nd2settings.js"></script>
+    <script type="text/javascript" src="script/extention/jquery.modal-master/js/jquery.modal.js"></script>
+    <script type="text/javascript" src="script/common.js"></script>
         
     <script>
         (function () {
@@ -722,6 +714,9 @@
                     });
 
                     //회원정보변경
+                    $(document).on('click', '#btnMemberInfo', function () {
+                        location.href = "/Member/Info.aspx";
+                    });
 
                     //포인트내역
                     $(document).on('click', '#btnPointHistory', function () {
@@ -730,7 +725,7 @@
 
                     //기부내역
                     $(document).on('click', '#btnDonationHistory', function () {
-                        location.href = "/Member/DonationHistory.aspx"
+                        location.href = "/Donation/DonationHistory.aspx"
                     });
 
                     //공지사항
@@ -758,8 +753,47 @@
                     //홈탭
 
                     //수거요청탭
+                    $(document).on('click', '.btn-minus', function () {
+                        var $input = $('#' + $(this).parent().parent().find('input').first().attr('id'));
+                        var currCount = $input.val();
+                        $input.val(parseInt(currCount) - 1 < 0 ? 0 : parseInt(currCount) - 1);
+                    });
+
+                    $(document).on('click', '.btn-plus', function () {
+                        var $input = $('#' + $(this).parent().parent().find('input').first().attr('id'));
+                        var currCount = $input.val();
+                        $input.val(parseInt(currCount) + 1);
+                    });
+
+                    $(document).on('click', '.chk-pickup', function () {
+                        var $input = $(this).find('input');
+                        $input.prop('checked', !$input.prop('checked'));
+
+                        if ($input.prop('checked'))
+                        {
+                            $(this).find('img').attr('src', 'img/check-g.png');
+                        }
+                        else
+                        {
+                            $(this).find('img').attr('src', 'img/check-c.png');
+                        }
+                        
+                    });
+
                     $(document).on('click', '#btnRequest', function () {
-                        location.href = "/Collection/RequestDetails.aspx";
+                        // 선택된 항목이 한개라도 있어야 수거 신청 가능
+                        if (parseInt($("#txtProduct06").val()) > 0 || parseInt($("#txtProduct07").val()) > 0
+                            || parseInt($("#txtProduct09").val()) > 0 || parseInt($("#txtProduct08").val()) > 0
+                            || parseInt($("#txtProduct01").val()) > 0 || parseInt($("#txtProduct02").val()) > 0
+                            || parseInt($("#txtProduct04").val()) > 0 || parseInt($("#txtProduct05").val()) > 0 ) {
+                            // 여기서 수거신청한 금액이 얼마인지 체크
+
+                            $("#pickupForm").submit();
+                        }
+                        else {
+                            infoBox("선택된 수거요청항목이 없습니다.");
+                            return;
+                        }
                     });
 
                     //스토어탭
@@ -771,11 +805,36 @@
                     //기부탭
                 },
                 fn: {
+                    getDonationGroup: function () {
+                        Server.ajax("/producer/donationGroupList", null, function (respone, status, xhr) {
+                            if (respone.value == 0) {
+                                var list = respone.donationGroupList;
+
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addDonationGroup(list[i]);
+                                }
+                            } else {
+                                errorBox("Error Code : " + respone.value);
+                            }
+                        }, "post", false);
+                    },
+                    addDonationGroup: function (item) {
+                        var donationGroup = '<li style="border-bottom: 1px solid #eeeeee;" class="ui-li-has-thumb">'
+                                          + '    <a href="/Donation/DonationDetails.aspx?data=' + item + '" style="background-color:#ffffff;" class="ui-btn" data-ajax="false">'
+                                          + '        <img src="' + item[3] + '" class="ui-thumbnail ui-thumbnail-circular" style="width:75px;height:75px;margin:10px auto;" />'
+                                          + '        <h2>' +  item[1] + '</h2>'
+                                          + '        <p style="white-space:normal">' + item[2] + '</p>'
+                                          + '    </a>'
+                                          + '</li>';
+
+                        $('#donationGroupList').append(donationGroup);
+                    }
                 }
             };
 
             $(document).on('ready', function () {
                 page.init();
+                page.fn.getDonationGroup();
             });
         })();
     </script>

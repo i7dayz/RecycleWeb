@@ -15,6 +15,7 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap" id="wrap">            
@@ -23,7 +24,7 @@
             <div class="header" id="header">
                 <div data-role="header" class="wow fadeIn">
                     <div class="ci use-search-reset" style="width:100%">
-                        <a href="#panel">
+                        <a href="javascript:;" class="back-btn">
                             <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
                         </a>
                         <div>
@@ -36,51 +37,16 @@
             <!-- #container -->
             <div class="container" id="container">
                 <div class="colgroup">
-                    <div class="content fixed" id="content">
-                        <div class="event">
-                            <div class="title">
-                                <div class="title-image">
-                                    <img src="../img/event-g.png">
-                                </div>
-                                <div class="title-text">
-                                    <ul>
-                                        <li class="title-main">추천인 이벤트</li>
-                                        <li class="title-date">2017-02-01 18:00</li>
-                                    </ul>
-                                </div>
-                                <div class="title-close">
-                                    <img src="../img/close-p.png">
-                                </div>
-                            </div>
-                            <div class="content-area">
-                                <img src="../img/banner-01.png">
-                                <p>고객님이 추천한 회원에게 고객님이 판매하신 재활용품의 1%만큼 리본에서 적립해드립니다. 결코 회원님의 수익에서 차감되는 것이 아니라, 회사의 수익에서 적립해 드리는 것입니다.
-                                아울러 고객님을 추천한 회원이 재활용품을 판매하면 ...</p>
-                            </div>
-                        </div>
-                        <div class="event">
-                            <div class="title">
-                                <div class="title-image">
-                                    <img src="../img/event-g.png">
-                                </div>
-                                <div class="title-text">
-                                    <ul>
-                                        <li class="title-main">추천인 이벤트</li>
-                                        <li class="title-date">2017-02-01 18:00</li>
-                                    </ul>
-                                </div>
-                                <div class="title-close">
-                                    <img src="../img/open-g.png">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="content fixed" id="content"></div>
                 </div>
             </div> <!-- //container -->
         </div>
     </div> <!-- //wrap -->
-
-    <script type="text/javascript" src="script/extention/jquery.js"></script>
+    
+    <script type="text/javascript" src="../script/extention/jquery.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
         
     <script>
         (function () {
@@ -91,14 +57,67 @@
                 },
                 initComponent: function () {      
                 },
-                initEvent: function () {        
+                initEvent: function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
+                    $(document).on('click', '.notice', function (id) {
+                        $(this).find('.content-area').toggle(100, function () {
+                            if ($(this).css('display') != 'none') {
+                                $(this).parent().find('#notice_img').attr("src", $(this).parent().find('#notice_img').attr("src").replace("../img/open-g.png", "../img/close-p.png"));
+                            } else {
+                                $(this).parent().find('#notice_img').attr("src", $(this).parent().find('#notice_img').attr("src").replace("../img/close-p.png", "../img/open-g.png"));
+                            }
+                        });
+                    });
                 },
                 fn: {
+                    eventList: function () {
+                        var params = {
+                            pageNum: 0
+                        };
+
+                        Server.ajax("/producer/eventList", params, function (respone, status, xhr) {
+                            if (respone.value == 0) {
+                                var list = respone.eventList;
+
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addEvent(list[i]);
+                                }
+                            } else {
+                                errorBox(getErrMsg(respone.value));
+                            }
+                        }, "post", false);
+                    },
+                    addEvent: function (item) {
+                        var event = '<div class="notice" id="' + item[0] + '">'
+                                     + '    <div class="title">'
+                                     + '        <div class="title-image">'
+                                     + '            <img src="../img/event-g.png">'
+                                     + '        </div>'
+                                     + '        <div class="title-text">'
+                                     + '            <ul>'
+                                     + '                <li class="title-main">' + "[" + item[6] + "]" + item[1] + '</li>'
+                                     + '                <li class="title-date">' + item[4] + "~" + item[5] + '</li>'
+                                     + '            </ul>'
+                                     + '        </div>'
+                                     + '        <div class="title-close">'
+                                     + '            <img id="notice_img" src="../img/open-g.png">'
+                                     + '        </div>'
+                                     + '    </div>'
+                                     + '    <div class="content-area">'
+                                     + '        <img src="' + item[3] + '">'
+                                     + '    </div>'
+                                     + '</div>';
+
+                        $('#content').append(event);
+                    }
                 }
             };
 
             $(document).on('ready', function () {
                 page.init();
+                page.fn.eventList();
             });
         })();
     </script>

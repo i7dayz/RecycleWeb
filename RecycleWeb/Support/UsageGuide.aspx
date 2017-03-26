@@ -23,7 +23,7 @@
             <div class="header" id="header">
                 <div data-role="header" class="wow fadeIn">
                     <div class="ci use-search-reset" style="width:100%">
-                        <a href="#panel">
+                        <a href="javascript:;" class="back-btn">
                             <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
                         </a>
                         <div>
@@ -96,7 +96,10 @@
                 },
                 initComponent: function () {      
                 },
-                initEvent: function () {        
+                initEvent: function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
                 },
                 fn: {
                 }

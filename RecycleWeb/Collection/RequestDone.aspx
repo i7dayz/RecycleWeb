@@ -17,13 +17,14 @@
         <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
     </head>
     <body class="all" contenteditable="false">
+        <input type="hidden" runat="server" id="hdProducerIdx" />
         <div class="wrap" id="wrap">            
             <div data-role="page" class="nd2-no-menu-swipe">
                 <!-- #header -->
                 <div class="header" id="header">
                     <div data-role="header" class="wow fadeIn">
                         <div class="ci use-search-reset" style="width:100%">
-                            <a href="#panel">
+                        <a href="javascript:;" class="back-btn">
                                 <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
                             </a>
                             <div>
@@ -106,7 +107,11 @@
                     },
                     initComponent: function () {      
                     },
-                    initEvent: function () {        
+                    initEvent: function () {
+                        $(document).on('click', '.back-btn', function () {
+                            //window.history.back();
+                            location.href = "/Main.aspx";
+                        });
                     },
                     fn: {
                     }

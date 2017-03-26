@@ -11,7 +11,14 @@ namespace RecycleWeb.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["kakaoId"] != null)
+            {
+                this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+            }
+            else
+            {
+                Response.Redirect("/Default.aspx");
+            }
         }
     }
 }

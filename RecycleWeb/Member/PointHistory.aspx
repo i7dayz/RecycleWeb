@@ -15,15 +15,17 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
+    <input type="hidden" runat="server" id="hdProducerIdx" />
     <div class="wrap" id="wrap">            
         <div data-role="page" class="nd2-no-menu-swipe">
             <!-- #header -->
             <div class="header" id="header">
                 <div data-role="header" class="wow fadeIn">
                     <div class="ci use-search-reset" style="width:100%">
-                        <a href="#panel">
+                        <a href="javascript:;" class="back-btn">
                             <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
                         </a>
                         <div>
@@ -42,69 +44,27 @@
                             <div class="header" style="padding-top:0">
                                 <div class="expire">
                                     <ul>
-                                        <li>만료예정일 : 2018-12-31</li>
-                                        <li>만료예정 포인트 : 8,500</li>
+                                        <li><label>만료예정일 : </label><label runat="server" id="exDate"></label></li>
+                                        <li><label>만료예정 포인트 : </label><label runat="server" id="exPoint"></label></li>
                                     </ul>
                                 </div>
                                 <div class="profile">
-                                    <div class="image">
-                                        <img src="../img/person64x64.png">
+                                    <div class="image-wrapper">
+                                        <div class="image">
+                                            <img runat="server" id="profileImg" src="../img/person64x64.png">
+                                        </div>
                                     </div>
                                     <div class="nickname">
-                                        i7dayz
+                                        <label runat="server" id="nickname"></label>
                                     </div>
-                                    <div class="point">
-                                        20,000 ⓟ
+                                    <div class="point">                                            
+                                        <label runat="server" id="point">0</label>
+                                        <img src="../img/point-icn.png" />
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="main point-list">
-                                <ul class="point-item">
-                                    <li class="date">
-                                        2017.04.12
-                                    </li>
-                                    <li class="point">
-                                        +15,000
-                                    </li>
-                                    <li class="goods">
-                                        고철1, 헌옷3, 비철3, 병2
-                                    </li>
-                                </ul>
-                                <ul class="point-item">
-                                    <li class="date">
-                                        2017.04.02
-                                    </li>
-                                    <li class="point">
-                                        +15,000
-                                    </li>
-                                    <li class="goods">
-                                        고철1, 헌옷3, 비철3, 병2
-                                    </li>
-                                </ul>
-                                <ul class="point-item">
-                                    <li class="date">
-                                        2017.03.15
-                                    </li>
-                                    <li class="point">
-                                        +15,000
-                                    </li>
-                                    <li class="goods">
-                                        고철1, 헌옷3, 비철3, 병2
-                                    </li>
-                                </ul>
-                                <ul class="point-item">
-                                    <li class="date">
-                                        2017.2.02
-                                    </li>
-                                    <li class="point">
-                                        +15,000
-                                    </li>
-                                    <li class="goods">
-                                        고철1, 헌옷3, 비철3, 병2
-                                    </li>
-                                </ul>
-                            </div>
+                            <div class="main point-list"></div>
 
                             <div class="footer">
                             </div>
@@ -114,8 +74,10 @@
             </div> <!-- //container -->
         </div>
     </div> <!-- //wrap -->
-
+    
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
         
     <script>
         (function () {
@@ -126,14 +88,91 @@
                 },
                 initComponent: function () {
                 },
-                initEvent: function () {                 
+                initEvent: function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
                 },
                 fn: {
+                    pointHistory: function () {
+                        var params = {
+                            producerIdx: $("#hdProducerIdx").val(),
+                            pageNum: 0
+                        };
+
+                        Server.ajax("/producer/pointHistory", params, function (respone, status, xhr) {
+                            if (respone.value == 0) {
+                                var list = respone.pointHistory;
+
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addPoint(list[i]);
+                                }
+                            } else {
+                                errorBox("Error Code : " + respone.value);
+                            }
+                        }, "post", false);
+                    },
+                    addPoint: function (item) {
+                        var type = "";
+                        var pm = "";
+                        switch (item[1]) {
+                            case "1": 
+                                type = "적립";
+                                pm = "+";
+                                break;
+                            case "2 ": 
+                                type = "사용";
+                                pm = "-";
+                                break;
+                            case "3": 
+                                type = "기부";
+                                pm = "-";
+                                break;
+                            case "4":
+                                type = "추천포인트";
+                                pm = "+";
+                                break;
+                        }
+
+                        var goods = "";
+
+                        if (parseInt(item[5]) > 0)
+                            goods += "폐지 " + item[5] + ", ";
+                        if (parseInt(item[6]) > 0)
+                            goods += "병 " + item[6] + ", ";
+                        if (parseInt(item[7]) > 0)
+                            goods += "캔 " + item[7] + ", ";
+                        if (parseInt(item[8]) > 0)
+                            goods += "고철 " + item[8] + ", ";
+                        if (parseInt(item[9]) > 0)
+                            goods += "비철 " + item[9] + ", ";
+                        if (parseInt(item[10]) > 0)
+                            goods += "헌옷 " + item[10] + ", ";
+                        if (parseInt(item[11]) > 0)
+                            goods += "휴대폰 " + item[11] + ", ";
+                        if (parseInt(item[12]) > 0)
+                            goods += "대형가전 " + item[12] + ", ";
+                        if (parseInt(item[13]) > 0)
+                            goods += "소형가전 " + item[13] + ", ";
+                        if (parseInt(item[14]) > 0)
+                            goods += "이사수거 " + item[14] + ", ";
+
+                        var date = new Date(item[4]);
+
+                        var point = '<ul class="point-item" id=' + item[0] + '>'
+                                  + '    <li class="date">' + date.getFullYear() + "." + (date.getMonth() + 1 ) + "." + date.getDate()  + '</li>'
+                                  + '    <li class="point">' + pm + item[3] + '</li>'
+                                  + '    <li class="goods">' + goods + '</li>'
+                                  + '</ul>';
+
+                        $(".point-list").append(point);
+                    },
                 }
             };
 
             $(document).on('ready', function () {
                 page.init();
+                page.fn.pointHistory();
             });
         })();
     </script>

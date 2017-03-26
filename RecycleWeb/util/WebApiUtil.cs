@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace RecycleWeb.util
             }
             return _flag;
         }
+
         public static bool HttpPost(string url, Dictionary<string, string> paramList, out string Msg)
         {
             bool _flag = false;
@@ -89,6 +91,43 @@ namespace RecycleWeb.util
 
             // Encode the parameters as form data:
             byte[] formData = UTF8Encoding.UTF8.GetBytes(paramz.ToString());
+            req.ContentLength = formData.Length;
+
+            // Send the request:
+            using (Stream post = req.GetRequestStream())
+            {
+                post.Write(formData, 0, formData.Length);
+                post.Flush();
+            }
+
+            // Pick up the response:
+            using (HttpWebResponse resp = req.GetResponse() as HttpWebResponse)
+            {
+                if (resp.StatusCode == HttpStatusCode.OK)
+                {
+                    _flag = true;
+                }
+                StreamReader reader = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("UTF-8"));
+                Msg = reader.ReadToEnd();
+            }
+
+            return _flag;
+        }
+
+        public static bool HttpPostJSON(string url, Dictionary<string, string> paramList, out string Msg)
+        {
+            bool _flag = false;
+            HttpWebRequest req = WebRequest.Create(new Uri(url)) as HttpWebRequest;
+            req.Method = "POST";
+            req.ContentType = "application/json; charset=UTF-8";
+
+            // Build a string with all the params, properly encoded.
+            // We assume that the arrays paramName and paramVal are
+            // of equal length:
+            string param = JsonConvert.SerializeObject(paramList, Formatting.Indented);
+
+            // Encode the parameters as form data:
+            byte[] formData = UTF8Encoding.UTF8.GetBytes(param);
             req.ContentLength = formData.Length;
 
             // Send the request:

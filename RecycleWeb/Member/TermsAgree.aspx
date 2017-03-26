@@ -33,63 +33,72 @@
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap" id="wrap">
-        <!-- #header -->
-        <div class="header" id="header">
-            <div class="colgroup fixed">
-                <div class="ci use-search-reset">
-                    <a href="#leftmenu" class="">
-                        <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                            
-                    </a>
-                    <span>이용약관</span>
-                </div>
-                <div class="gnb" id="gnb">
+        <form runat="server" method="post" action="Join.aspx">
+            <input type="hidden" id="kakaoId" runat="server" value="" />
+            <input type="hidden" id="kakaoNickname" runat="server" value="" />
+            <input type="hidden" id="kakaoEmail" runat="server" value="" />
+            <input type="hidden" id="kakaoThumbnailImage" runat="server" value="" />
+            <input type="hidden" id="kakaoProfileImage" runat="server" value="" />
+            <input type="hidden" id="accessToken" runat="server" value="" />
+            <input type="hidden" id="refreshToken" runat="server" value="" />
+            <!-- #header -->
+            <div class="header" id="header">
+                <div class="colgroup fixed">
+                    <div class="ci use-search-reset">
+                        <a href="#leftmenu" class="">
+                            <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                            
+                        </a>
+                        <span>이용약관</span>
+                    </div>
+                    <div class="gnb" id="gnb">
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- //#header -->
-        <!-- #container -->
-        <div class="container" id="container" style="background-color:#fff !important">
-            <div class="colgroup">
-                <div class="content fixed" id="content">
-                    <div class="main ui-content">
-                        <div class="ui-grid-solo">
-                            <div class="bb-1 pb10 mb15">
-                                <label class="checkbox-wrap"><input type="checkbox" id="allAgree" name="allAgree" value=""><i class="check-icon-green"></i> 전체동의</label>
-                                <div class="ml15">이용약관(필수), 개인정보 수집 및 이용 정책(필수), 프로모션 안내 SMS/메일 수신(선택)에 모두 동의합니다.</div>
-                            </div>
+            <!-- //#header -->
+            <!-- #container -->
+            <div class="container" id="container" style="background-color:#fff !important">
+                <div class="colgroup">
+                    <div class="content fixed" id="content">
+                        <div class="main ui-content">
+                            <div class="ui-grid-solo">
+                                <div class="bb-1 pb10 mb15">
+                                    <label class="checkbox-wrap"><input type="checkbox" id="allAgree" name="allAgree" value=""><i class="check-icon-green"></i> 전체동의</label>
+                                    <div class="ml15">이용약관(필수), 개인정보 수집 및 이용 정책(필수), 프로모션 안내 SMS/메일 수신(선택)에 모두 동의합니다.</div>
+                                </div>
 
-                            <div class="mb15">
-                                <label class="checkbox-wrap"><input type="checkbox" id="termsAgree" name="termsAgree" value=""><i class="check-icon-green"></i> 서비스 이용약관 <span class="color_red">(필수)</span></label>
-                                <textarea id="terms" rows="8" readonly="readonly"></textarea>
-                            </div>
+                                <div class="mb15">
+                                    <label class="checkbox-wrap"><input type="checkbox" id="termsAgree" name="termsAgree" value=""><i class="check-icon-green"></i> 서비스 이용약관 <span class="color_red">(필수)</span></label>
+                                    <textarea id="terms" rows="8" readonly="readonly"></textarea>
+                                </div>
 
-                            <div class="mb15">
-                                <label class="checkbox-wrap"><input type="checkbox" id="policyAgree" name="policyAgree" value=""><i class="check-icon-green"></i> 개인정보 수집 및 이용 정책 <span class="color_red">(필수)</span></label>
-                                <textarea id="policy" rows="8" readonly="readonly"></textarea>
-                            </div>
+                                <div class="mb15">
+                                    <label class="checkbox-wrap"><input type="checkbox" id="policyAgree" name="policyAgree" value=""><i class="check-icon-green"></i> 개인정보 수집 및 이용 정책 <span class="color_red">(필수)</span></label>
+                                    <textarea id="policy" rows="8" readonly="readonly"></textarea>
+                                </div>
                                 
-                            <div class="bb-1 pb10 mb15">
-                                <label class="checkbox-wrap"><input type="checkbox" id="smsAgree" name="smsAgree" value=""><i class="check-icon-green"></i> 이벤트 등 프로모션 알림 SMS 수신 <span class="color_red">(선택)</span></label>
-                            </div>
+                                <div class="bb-1 pb10 mb15">
+                                    <label class="checkbox-wrap"><input type="checkbox" id="smsAgree" name="smsAgree" value=""><i class="check-icon-green"></i> 이벤트 등 프로모션 알림 SMS 수신 <span class="color_red">(선택)</span></label>
+                                </div>
 
-                            <div class="bb-1 pb10">
-                                <label class="checkbox-wrap"><input type="checkbox" id="emailAgree" name="emailAgree" value=""><i class="check-icon-green"></i> 이벤트 등 프로모션 알림 메일 수신 <span class="color_red">(선택)</span></label>
+                                <div class="bb-1 pb10">
+                                    <label class="checkbox-wrap"><input type="checkbox" id="emailAgree" name="emailAgree" value=""><i class="check-icon-green"></i> 이벤트 등 프로모션 알림 메일 수신 <span class="color_red">(선택)</span></label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ui-grid-a">
-                            <div class="ui-block-a">
-                                <a href="javascript:;" id="btnDisAgree" class="ui-btn ui-corner-all btn-gray" style="margin-left:10px;margin-right:5px">동의안함</a>
-                            </div>
-                            <div class="ui-block-b">
-                                <a href="javascript:;" id="btnAgree" class="ui-btn ui-corner-all btn-green" style="margin-left:5px;margin-right:10px">동의함</a>
+                        <div>
+                            <div class="ui-grid-a">
+                                <div class="ui-block-a">
+                                    <a href="javascript:;" id="btnDisAgree" class="ui-btn ui-corner-all btn-gray" style="margin-left:10px;margin-right:5px">동의안함</a>
+                                </div>
+                                <div class="ui-block-b">
+                                    <a href="javascript:;" id="btnAgree" class="ui-btn ui-corner-all btn-green" style="margin-left:5px;margin-right:10px">동의함</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
@@ -118,12 +127,16 @@
                         }
                     });
                 },
-                initEvent: function () {        
-                    $('#btnDisAgree').click(function() {
-                        //location.href = "terms_agree.html";
-                    });               
+                initEvent: function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
+
+                    $('#btnDisAgree').click(function () {
+                        window.history.back();
+                    });              
                     $('#btnAgree').click(function() {
-                        location.href = "Join.aspx";
+                        $("form").submit();
                     });                  
                 },
                 fn: {
