@@ -13,9 +13,6 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-    
-    <style>
-    </style>
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap join" id="wrap">
@@ -100,7 +97,7 @@
                             </div>
                         </div>
                         <div style="padding:15px">
-                            <a href="javascript:;" id="btnSave" class="ui-btn ui-corner-all btn-gray" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">수거주소록 관리</a>
+                            <a href="javascript:;" id="btnEditAddress" class="ui-btn ui-corner-all btn-gray" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">수거주소록 관리</a>
                         </div>
                     </div>
                 </div>
@@ -134,6 +131,10 @@
 
                     $(document).on('click', '#btnEdit', function () {
                         location.href = "EditInfo.aspx";
+                    });
+
+                    $(document).on('click', '#btnEditAddress', function () {
+                        location.href = "AddressList.aspx";
                     });
                 },
                 fn: {  

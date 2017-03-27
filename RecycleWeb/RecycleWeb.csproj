@@ -109,6 +109,8 @@
     <Content Include="img\radio-02.png" />
     <Content Include="img\reborn.jpg" />
     <Content Include="Donation\DonationHistory.aspx" />
+    <Content Include="Member\AddressList.aspx" />
+    <Content Include="Member\EditAddress.aspx" />
     <Content Include="Member\EditInfo.aspx" />
     <Content Include="Member\Info.aspx" />
     <Content Include="Member\KakaoLogin.aspx" />
@@ -902,6 +904,13 @@
     <Compile Include="Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Member\AddressList.aspx.cs">
+      <DependentUpon>AddressList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\AddressList.aspx.designer.cs">
+      <DependentUpon>AddressList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Member\AddressSearch.aspx.cs">
       <DependentUpon>AddressSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -915,6 +924,13 @@
     </Compile>
     <Compile Include="Donation\DonationHistory.aspx.designer.cs">
       <DependentUpon>DonationHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\EditAddress.aspx.cs">
+      <DependentUpon>EditAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\EditAddress.aspx.designer.cs">
+      <DependentUpon>EditAddress.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\EditInfo.aspx.cs">
       <DependentUpon>EditInfo.aspx</DependentUpon>

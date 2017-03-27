@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditInfo.aspx.cs" Inherits="RecycleWeb.Member.EditInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditAddress.aspx.cs" Inherits="RecycleWeb.Member.EditAddress" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -12,18 +13,13 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap join" id="wrap">
-        <form runat="server" method="post" action="Main.aspx">
+        <form runat="server" method="post" action="AddressList.aspx">
             <input type="hidden" id="producerIdx" runat="server" value="" />
-            <input type="hidden" id="kakaoId" runat="server" value="" />
-            <input type="hidden" id="kakaoNickname" runat="server" value="" />
-            <input type="hidden" id="kakaoEmail" runat="server" value="" />
-            <input type="hidden" id="kakaoThumbnailImage" runat="server" value="" />
-            <input type="hidden" id="kakaoProfileImage" runat="server" value="" />
-            <input type="hidden" id="accessToken" runat="server" value="" />
-            <input type="hidden" id="refreshToken" runat="server" value="" />
+            <input type="hidden" id="addressIdx" runat="server" value="" />
 
             <input type="hidden" id="address1" value="" />
             <input type="hidden" id="address2" value="" />
@@ -35,10 +31,7 @@
                         <a href="javascript:;" class="back-btn">
                             <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                                                    
                         </a>
-                        <span>회원정보변경</span>
-                    </div>
-                    <div class="gnb" id="gnb" style="color:#90cd32; font-size:13px;">
-                        편집
+                        <span>수거주소록 관리</span>
                     </div>
                 </div>
             </div>
@@ -66,24 +59,6 @@
                             <div class="fixed option-area join">
                                 <ul>
                                     <li>
-                                        <span class="txt-color5">연락처</span>
-                                        <div class="wpc100">
-                                            <input type="tel" runat="server" id="txtContactNumber" name="txtContactNumber" maxlength="13" class="text-field required input-guide txt-input-guide wpc70"  />
-                                            <a href="javascript:;" id="btnSendAuthNum" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
-                                                인증번호 받기
-                                            </a>
-                                        </div>                                 
-                                    </li>
-                                    <li>
-                                        <span class="txt-color5">인증번호입력</span>
-                                        <div class="wpc100">
-                                            <input type="text" class="text-field required input-guide txt-input-guide wpc70" />
-                                            <a href="javascript:;" id="btnConfirmAuthNum" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
-                                                인증하기
-                                            </a>
-                                        </div>                                 
-                                    </li>
-                                    <li>
                                         <span class="txt-color5">기본주소</span>
                                         <div class="wpc100">
                                             <input type="text" runat="server" id="txtBaseAddress" class="text-field required input-guide txt-input-guide wpc90" />
@@ -101,7 +76,7 @@
                                                 <span class="txt-color5">우편번호</span>
                                             </div>
                                         </div>
-                                    </li>    
+                                    </li>   
                                     <li>
                                         <div class="ui-grid-a">
                                             <div class="ui-block-a wpc75">
@@ -112,11 +87,20 @@
                                             </div>
                                         </div>
                                     </li>    
+                                    <li>
+                                        <span class="txt-color5">장소</span>
+                                        <div class="wpc100">
+                                            <input type="text" runat="server" id="txtLocation" class="text-field required input-guide txt-input-guide wpc100" />
+                                        </div>                                 
+                                    </li> 
+                                    <li>
+                                        <label class="checkbox-wrap" style="font-weight:normal;"><input type="checkbox" id="chkMain" name="chkMain" value=""><i class="check-icon-green"></i> 기본 수거주소로 등록</label>                     
+                                    </li> 
                                 </ul>
                             </div>
                         </div>
                         <div style="padding:15px">
-                            <a href="javascript:;" id="btnSave" class="ui-btn ui-corner-all btn-green" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">기본정보 저장</a>
+                            <a href="javascript:;" id="btnSave" class="ui-btn ui-corner-all btn-green" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">저장</a>
                         </div>
                     </div>
                 </div>
@@ -183,6 +167,7 @@
     </div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
         
     <script>
@@ -261,21 +246,38 @@
                     });
 
                     $(document).on('click', '#btnSave', function () {
+                        if ($("#txtZipNo").val() == "" || $("#address1").val() == "" || $("#address2").val() == "") {
+                            infoBox("기본주소를 검색 후 선택하세요.");
+                            return;
+                        }
+
+                        if ($("#txtDetailAddress").val() == "") {
+                            infoBox("세부주소를 입력하세요.");
+                            $("#txtDetailAddress").focus();
+                            return;
+                        }
+
+                        if ($("#txtLocation").val() == "") {
+                            infoBox("장소를 입력하세요.");
+                            $("#txtLocation").focus();
+                            return;
+                        }
+
                         var params = {
-                            ProducerIdx: $("#producerIdx").val(),
-                            storeName: "",
-                            contactNumber: $("#txtComtactNumber").val(),
+                            producerIdx: $("#producerIdx").val(),
                             zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
                             address2: $("#address2").val(),
-                            detailAddress: $("#txtDetailAddress").val()
+                            detailAddress: $("#txtDetailAddress").val(),
+                            ContactNumber: "",
+                            isMain: $("#chkMain").is(":checked") ? "1" : "0"
                         };
 
-                        Server.ajax("/producer/userInfoModify", params, function (respone, status, xhr) {
+                        Server.ajax("/producer/addressInfoReg", params, function (respone, status, xhr) {
                             if (respone.value == 0) {
-                                // 수정완료 알림 메세지 팝업
+                                infoBox("신규 수거주소가 등록되었습니다");
                             } else {
-                                // 에러메세지 팝업
+                                errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
                     });
@@ -374,6 +376,12 @@
                         });
 
                         $(".address-list").append(html);
+                    },
+                    getSelectedAddress: function () {
+                        if ($("#addressIdx").val() == null) {
+                            window.history.back();
+                            return;
+                        }
                     }
                 }
             };

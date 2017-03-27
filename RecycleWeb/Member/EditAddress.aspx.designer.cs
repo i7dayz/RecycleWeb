@@ -10,70 +10,25 @@
 namespace RecycleWeb.Member {
     
     
-    public partial class Info {
+    public partial class EditAddress {
         
         /// <summary>
-        /// kakaoId control.
+        /// producerIdx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden kakaoId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden producerIdx;
         
         /// <summary>
-        /// kakaoNickname control.
+        /// addressIdx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden kakaoNickname;
-        
-        /// <summary>
-        /// kakaoEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden kakaoEmail;
-        
-        /// <summary>
-        /// kakaoThumbnailImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden kakaoThumbnailImage;
-        
-        /// <summary>
-        /// kakaoProfileImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden kakaoProfileImage;
-        
-        /// <summary>
-        /// accessToken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden accessToken;
-        
-        /// <summary>
-        /// refreshToken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden refreshToken;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden addressIdx;
         
         /// <summary>
         /// profileImg control.
@@ -103,15 +58,6 @@ namespace RecycleWeb.Member {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nickname;
         
         /// <summary>
-        /// txtContactNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber;
-        
-        /// <summary>
         /// txtBaseAddress control.
         /// </summary>
         /// <remarks>
@@ -137,5 +83,14 @@ namespace RecycleWeb.Member {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtZipNo;
+        
+        /// <summary>
+        /// txtLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLocation;
     }
 }
