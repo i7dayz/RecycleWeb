@@ -224,6 +224,11 @@
                 _self.switchTab($(this), $(this).data('tab'), $(this).closest('.nd2Tabs').find(".nd2Tabs-nav-item").index($(this)[0]));
             });
 
+            // 홈탭 수거신청 이벤트 바인딩
+            $(document).on("click", "#btnQuickRequest", function () {
+                _self.changeNavTab(true);
+            });
+
             if (_self.settings.activeTab) {
                 _self.prepareTabs();
             }

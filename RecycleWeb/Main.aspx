@@ -89,76 +89,93 @@
                                 </div>
 
                                 <div class="main">
-                                    <!-- banner -->
-                                    <div class="banner">
-                                        banner
-                                    </div>
-                                    <div class="section">
-                                        <!-- collector info -->
-                                        <div class="collector">
-                                            <div>
-                                                <span class="image">
-                                                    <img src="img/profile.png" style="width:60px; height:auto;">
-                                                </span>
-                                                <span class="name txt-ellipsis">
-                                                    <img src="img/calendar.png" style="width:20px; height:auto; float:left; margin-right:5px;"><span>예약현황</span></span>
-                                                <span class="subject txt-ellipsis ">수거신청내역이 없습니다.</span>
-                                            </div>
-                                            <div class="btn-area fixed">
-                                                <ul class="">
-                                                    <li>
-                                                        <a href="javascript:;" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
-                                                            <!--<em class="img-bul pictures"></em>-->
-                                                            수거신청
-                                                        </a>
-                                                        <!--
-                                                        <a href="" class="ui-btn ui-corner-all">
-                                                            취소/변경
-                                                        </a>
-                                                        -->
-                                                    </li>
-                                                </ul>
+                                    <!-- 알림 -->
+                                    <div class="alarm" style="height:400px;">
+                                        <!-- banner -->
+                                        <div class="banner">
+                                            banner
+                                        </div>
+                                        <div class="section">
+                                            <!-- collector info -->
+                                            <div class="collector">
+                                                <div>
+                                                    <span class="image">
+                                                        <img src="img/profile.png" style="width:60px; height:auto;">
+                                                    </span>
+                                                    <span class="name txt-ellipsis">
+                                                        <img src="img/calendar.png" style="width:20px; height:auto; float:left; margin-right:5px;"><span>예약현황</span></span>
+                                                    <span class="subject txt-ellipsis ">수거신청내역이 없습니다.</span>
+                                                </div>
+                                                <div class="btn-area fixed">
+                                                    <ul class="">
+                                                        <li>
+                                                            <a href="javascript:;" class="ui-btn ui-corner-all" id="btnQuickRequest" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
+                                                                <!--<em class="img-bul pictures"></em>-->
+                                                                수거신청
+                                                            </a>
+                                                            <!--
+                                                            <a href="" class="ui-btn ui-corner-all">
+                                                                취소/변경
+                                                            </a>
+                                                            -->
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="information">
+                                            <ul>
+                                                <li id="btnNoticeEvent" style="cursor:pointer">
+                                                    <img src="img/notice.png" style="width:24px; height:auto">
+                                                    <p>공지사항/이벤트</p>
+                                                </li>
+                                                <li id="btnUsageGuide" style="cursor:pointer">
+                                                    <img src="img/howto.png" style="width:24px; height:auto">
+                                                    <p>이용안내</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>                                    
+                                    <!-- //알림 -->
+                                    <!-- 기부랭킹 -->
+                                    <div class="rank" style="height:400px;">
+                                        <ul></ul>
                                     </div>
+                                    <!-- //기부랭킹 -->
+                                    <!-- 누적기부금 -->
+                                    <div class="totalDonaPoint" style="height:400px;">
+
+                                    </div>
+                                    <!-- //누적기부금 -->
+                                    <!-- 친구추천 -->
+                                    <div class="invite" style="height:400px;">
+
+                                    </div>
+                                    <!-- //친구추천 -->
                                 </div>
 
-                                <div class="footer">
-
-                                    <div class="information">
-                                        <ul>
-                                            <li>
-                                                <img src="img/notice.png" style="width:24px; height:auto">
-                                                <p>공지사항/이벤트</p>
-                                            </li>
-                                            <li>
-                                                <img src="img/howto.png" style="width:24px; height:auto">
-                                                <p>이용안내</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                        
+                                <div class="footer">                                        
                                     <div class="button" style="height:48px;">
                                         <ul>
-                                            <li style="padding:6px;">
+                                            <li style="padding:6px; cursor:pointer" id="btnAlarm">
                                                 <div style="height:24px;text-align:center;float:none;">
                                                     <img src="img/alarm.png" style="width:auto;height:24px;line-height:1;float:none;margin-bottom:10px;">
                                                 </div>
                                                 <p style="font-size:10px;line-height:1;clear:both;color:#b7b7b7;margin-top:3px;">알림</p>
                                             </li>
-                                            <li style="padding:6px;">
+                                            <li style="padding:6px; cursor:pointer" id="btnRank">
                                                 <div style="height:24px;text-align:center;float:none;">
                                                     <img src="img/rank.png" style="width:auto;height:24px;line-height:1;float:none;margin-bottom:10px;">
                                                 </div>
                                                 <p style="font-size:10px;line-height:1;clear:both;color:#b7b7b7;margin-top:3px;">기부랭킹</p>
                                             </li>
-                                            <li style="padding:6px;">
+                                            <li style="padding:6px; cursor:pointer" id="btnTotalDonaPoint">
                                                 <div style="height:24px;text-align:center;float:none;">
                                                     <img src="img/money.png" style="width:auto;height:24px;line-height:1;float:none;margin-bottom:10px;">
                                                 </div>
                                                 <p style="font-size:10px;line-height:1;clear:both;color:#b7b7b7;margin-top:3px;">누적기부금</p>
                                             </li>
-                                            <li style="padding:6px;">
+                                            <li style="padding:6px; cursor:pointer" id="btnInvite">
                                                 <div style="height:24px;text-align:center;float:none;">
                                                     <img src="img/friend.png" style="width:auto;height:24px;line-height:1;float:none;margin-bottom:10px;">
                                                 </div>
@@ -563,7 +580,9 @@
                         <div class="colgroup">
                             <div class="content fixed" style="background-color:#f6f6f6">   
                                 <div class="main">
-                                    <input type="hidden" runat="server" id="hdTest" />
+                                    <input type="hidden" runat="server" id="hdCid" />
+                                    <input type="hidden" runat="server" id="hdBarndId" />
+                                    <input type="hidden" runat="server" id="enc" />
                                     <div class="section" style="margin:0 auto">
                                         <!-- 상품권, 편의점, 카페 -->
                                         <div class="ui-grid-b grids" style="height:130px;">
@@ -684,6 +703,7 @@
     <script type="text/javascript" src="script/extention/nd2settings.js"></script>
     <script type="text/javascript" src="script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="script/common.js"></script>
+    <script type="text/javascript" src="script/store.js"></script>
         
     <script>
         (function () {
@@ -695,6 +715,10 @@
                 initComponent: function () {
                 },
                 initEvent: function () {
+                    $('.rank').hide();
+                    $('.totalDonaPoint').hide();
+                    $('.invite').hide();
+
                     //내 쿠폰함
                     $(document).on('click', '#btnMyCoupon', function () {
                         location.href = "/Member/MyCoupon.aspx";
@@ -751,6 +775,36 @@
                     });
 
                     //홈탭
+                    $(document).on('click', '#btnAlarm', function () {
+                        $('.alarm').show();
+                        $('.rank').hide();
+                        $('.totalDonaPoint').hide();
+                        $('.invite').hide();
+                    });
+                    $(document).on('click', '#btnRank', function () {
+                        $('.alarm').hide();
+                        $('.rank').show();
+                        $('.totalDonaPoint').hide();
+                        $('.invite').hide();
+                    });
+                    $(document).on('click', '#btnTotalDonaPoint', function () {
+                        $('.alarm').hide();
+                        $('.rank').hide();
+                        $('.totalDonaPoint').show();
+                        $('.invite').hide();
+                    });
+                    $(document).on('click', '#btnInvite', function () {
+                        $('.alarm').hide();
+                        $('.rank').hide();
+                        $('.totalDonaPoint').hide();
+                        $('.invite').show();
+                    });
+                    $(document).on('click', '#btnNoticeEvent', function () {
+                        //location.href = "/Support/UsageGuide.aspx";
+                    });
+                    $(document).on('click', '#btnUsageGuide', function () {
+                        location.href = "/Support/UsageGuide.aspx";
+                    });
 
                     //수거요청탭
                     $(document).on('click', '.btn-minus', function () {
@@ -806,15 +860,15 @@
                 },
                 fn: {
                     getDonationGroup: function () {
-                        Server.ajax("/producer/donationGroupList", null, function (respone, status, xhr) {
-                            if (respone.value == 0) {
-                                var list = respone.donationGroupList;
+                        Server.ajax("/producer/donationGroupList", null, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                var list = response.donationGroupList;
 
                                 for (var i = 0; i < list.length; i++) {
                                     page.fn.addDonationGroup(list[i]);
                                 }
                             } else {
-                                errorBox("Error Code : " + respone.value);
+                                errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
                     },
@@ -828,6 +882,46 @@
                                           + '</li>';
 
                         $('#donationGroupList').append(donationGroup);
+                    },
+                    getRank: function () {
+                        Server.ajax("/producer/donationRankList", null, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                var list = response.donationRankList;
+
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addRank(list[i]);
+                                }
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
+                    addRank: function (item) {
+                        var medal = "";
+                        switch (item[0]) {
+                            case 1:
+                                medal = '<img src="img/gold.png" style="width:16px; height:auto;">';
+                                break;
+                            case 2:
+                                medal = '<img src="img/silver.png" style="width:16px; height:auto;">';
+                                break;
+                            case 3:
+                                medal = '<img src="img/bronze.png" style="width:16px; height:auto;">';
+                                break;
+                            default:
+                                medal = '<span style="color:#5e8e18">' + item[0] + '</span>';
+                                break;
+                        }
+
+                        var rank = '<li class="" style="height: 40px; background-color:#91cd33; padding:5px; box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box; border-top:1px solid #eeeeee">'
+                                 + '    <div class="ui-grid-b">'
+                                 + '        <div class="ui-block-a wpc30" style="line-height:32px; text-align:center;">' + medal + '</div>'
+                                 + '        <div class="ui-block-b wpc40" style=""><img src="img/person64x64.png" style="width:26px; height:auto; vertical-align:middle"><span style="line-height:28px; margin-left: 10px; color:#ffffff">' + item[5] + '</span></div>'
+                                 + '        <div class="ui-block-c wpc30" style="line-height:32px; text-align:right; padding-right:10%; color:#ffffff">' + item[1] + '</div>'
+                                 + '    </div>'
+                                 + '</li>';
+
+                        $(".rank").find("ul").append(rank);
                     }
                 }
             };
@@ -835,6 +929,8 @@
             $(document).on('ready', function () {
                 page.init();
                 page.fn.getDonationGroup();
+
+                page.fn.getRank();
             });
         })();
     </script>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
@@ -16,7 +17,6 @@ namespace RecycleWeb
         {
             if (Session["kakaoId"] != null)
             {
-                this.hdTest.Value = MD5Hash("test");
                 if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
                 {
                     this.profileImg.Src = Session["kakaoProfileImage"].ToString();
@@ -28,6 +28,8 @@ namespace RecycleWeb
 
                 this.nickname.InnerText = Session["nickname"].ToString();
                 this.point.InnerText = Session["producePoint"].ToString();
+
+                //this.hdCid.Value = WebConfigurationManager.AppSettings["cid"];
             }
             else
             {

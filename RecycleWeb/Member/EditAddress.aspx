@@ -267,7 +267,7 @@
                             producerIdx: $("#producerIdx").val(),
                             zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
-                            address2: $("#address2").val(),
+                            address2: $.trim($("#address2").val()),
                             detailAddress: $("#txtDetailAddress").val(),
                             ContactNumber: "",
                             isMain: $("#chkMain").is(":checked") ? "1" : "0"

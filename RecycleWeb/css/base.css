@@ -184,10 +184,10 @@ body .content > .main .collector .subject { height: 70px;  margin-bottom: 3px;}
 body .content > .main .collector .button { height: 30px;}
 
 
-body .content > .footer .information { border-top: 1px solid #eeeeee; }
-body .content > .footer .information ul {width: 100%;}
-body .content > .footer .information ul li {width: 10%; height: 100px; text-align: center; vertical-align: middle;display:table-cell;}
-body .content > .footer .information ul li:first-child { 
+body .content > .main .information { border-top: 1px solid #eeeeee; }
+body .content > .main .information ul {width: 100%;}
+body .content > .main .information ul li {width: 10%; height: 100px; text-align: center; vertical-align: middle;display:table-cell;}
+body .content > .main .information ul li:first-child { 
     border-right: 1px solid #eeeeee;
 }
 

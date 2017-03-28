@@ -12,6 +12,7 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap join" id="wrap">
@@ -25,8 +26,8 @@
             <input type="hidden" id="accessToken" runat="server" value="" />
             <input type="hidden" id="refreshToken" runat="server" value="" />
 
-            <input type="hidden" id="address1" value="" />
-            <input type="hidden" id="address2" value="" />
+            <input type="hidden" id="address1" runat="server" value="" />
+            <input type="hidden" id="address2" runat="server" value="" />
 
             <!-- #header -->
             <div class="header" id="header" style="z-index:1;">
@@ -184,6 +185,7 @@
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
         
     <script>
         (function () {
@@ -263,19 +265,19 @@
                     $(document).on('click', '#btnSave', function () {
                         var params = {
                             ProducerIdx: $("#producerIdx").val(),
-                            storeName: "",
-                            contactNumber: $("#txtComtactNumber").val(),
-                            zipCode: $("#txtZipNo").val(),
+                            ProducerStoreName: "",
+                            ProducerContactNumber: $("#txtContactNumber").val(),
+                            ZipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
-                            address2: $("#address2").val(),
-                            detailAddress: $("#txtDetailAddress").val()
+                            address2: $.trim($("#address2").val()),
+                            DetailAddress: $("#txtDetailAddress").val()
                         };
 
-                        Server.ajax("/producer/userInfoModify", params, function (respone, status, xhr) {
-                            if (respone.value == 0) {
-                                // 수정완료 알림 메세지 팝업
+                        Server.ajax("/producer/userInfoModify", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                infoBoxWithCallback("회원정보가 수정되었습니다.", page.fn.goUrl, { url: "Info.aspx" });
                             } else {
-                                // 에러메세지 팝업
+                                errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
                     });
@@ -374,6 +376,9 @@
                         });
 
                         $(".address-list").append(html);
+                    },
+                    goUrl(urlData) {
+                        location.href = urlData.url;
                     }
                 }
             };

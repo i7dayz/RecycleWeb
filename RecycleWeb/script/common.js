@@ -464,10 +464,24 @@ function infoBox(txt){
         type: 'info',
         title: 'Info',
         text: txt,
-        autoclose: true
+        //autoclose: true
     });
 }
- 
+
+function infoBoxWithCallback(txt, callbackMethod, jsonData) {
+    modal({
+        type: 'info',
+        title: 'Info',
+        text: txt,
+        //autoclose: true,
+        callback: function (result) {
+            if (result) {
+                callbackMethod(jsonData);
+            }
+        }
+    });
+}
+
 function errorBox(txt){
     modal({
         type: 'error',
@@ -476,7 +490,7 @@ function errorBox(txt){
     });
 }
 
-function errorBoxWithCallBack(txt, callbackMethod, jsonData) {
+function errorBoxWithCallback(txt, callbackMethod, jsonData) {
     modal({
         type: 'error',
         title: 'Error',

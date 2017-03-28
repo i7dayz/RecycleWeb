@@ -25,6 +25,8 @@ namespace RecycleWeb.Member
                 this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
                 this.txtDetailAddress.Value = Session["detailAddress"].ToString();
                 this.txtZipNo.Value = Session["zipCode"].ToString();
+                this.address1.Value = Session["address1"].ToString();
+                this.address2.Value = Session["address2"].ToString();
             }
             else
             {

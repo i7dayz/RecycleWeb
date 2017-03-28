@@ -13,13 +13,11 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-    
-    <style>
-    </style>
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap join" id="wrap">
-        <form runat="server" method="post" action="Main.aspx">
+        <form runat="server" id="joinForm" method="post" action="/Main.aspx" data-ajax="false">
             <input type="hidden" id="kakaoId" runat="server" value="" />
             <input type="hidden" id="kakaoNickname" runat="server" value="" />
             <input type="hidden" id="kakaoEmail" runat="server" value="" />
@@ -191,6 +189,7 @@
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
         
     <script>
         (function () {
@@ -277,7 +276,7 @@
                             contactNumber: $("#txtComtactNumber").val(),
                             zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
-                            address2: $("#address2").val(),
+                            address2: $.trim($("#address2").val()),
                             detailAddress: $("#txtDetailAddress").val(),
                             carrierId: "31",
                             appVersion: "1.0.0",
@@ -285,11 +284,11 @@
                             nickname: $("#txtNickname").val()
                         };
 
-                        Server.ajax("/producer/userRegist", params, function (respone, status, xhr) {
-                            if (respone.value == 0) {
+                        Server.ajax("/producer/userRegist", params, function (response, status, xhr) {
+                            if (response.value == 0) {
                                 location.href = "/Main.aspx";
                             } else {
-                                Dialog.Alert("Error Code : " + respone.value);
+                                errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
                     });
@@ -372,7 +371,7 @@
                                 }
                             }
                             , error: function (xhr, status, error) {
-                                alert("에러발생"); // AJAX 호출 에러
+                                errorBox(getErrMsg("에러발생"));
                             }
                         });
                     },

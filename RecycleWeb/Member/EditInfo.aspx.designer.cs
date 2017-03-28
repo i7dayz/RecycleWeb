@@ -85,6 +85,24 @@ namespace RecycleWeb.Member {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden refreshToken;
         
         /// <summary>
+        /// address1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden address1;
+        
+        /// <summary>
+        /// address2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden address2;
+        
+        /// <summary>
         /// profileImg control.
         /// </summary>
         /// <remarks>

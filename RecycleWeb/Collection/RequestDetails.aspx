@@ -38,7 +38,7 @@
     <div class="wrap" id="wrap">            
         <div data-role="page" class="nd2-no-menu-swipe">
             <!-- #header -->
-            <div class="header" id="header">
+            <div class="header" id="header" style="z-index:1;">
                 <div data-role="header" class="wow fadeIn">
                     <div class="ci use-search-reset" style="width:100%">
                         <a href="javascript:;" class="back-btn">
@@ -124,6 +124,38 @@
             </div> <!-- //container -->
         </div> <!-- //page -->
     </div> <!-- //wrap -->
+    
+    <div id="modal-wrapper">
+        <div id="modal-overlay"></div>
+        <div id="modal-content">
+            <div class="wrap join" id="wrap">
+                <!-- #header -->
+                <div class="header" id="header" style="z-index:2;">
+                    <div class="colgroup fixed">
+                        <div class="ci use-search-reset">
+                            <a href="javascript:;" class="back-btn">
+                                <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                                                    
+                            </a>
+                            <span>수거주소록</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- //#header -->
+                <!-- #container -->
+                <div class="container" id="container" style="background-color:#fff !important">
+                    <div class="colgroup">
+                        <div class="content fixed" id="content">
+                            <div class="main ui-content">
+                                <div class="fixed option-area join">
+                                    <ul id="addressList"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/extention/air-datepicker-master/datepicker.min.js"></script>
@@ -139,6 +171,32 @@
                     this.initEvent();
                 },
                 initComponent: function () {
+                    $("#modal-wrapper").hide();
+
+                    var modal = {
+                        open: function () {
+                            $('#modal-wrapper').show();
+                        },
+                        close: function () {
+                            $('#modal-wrapper').hide();
+                        }
+                    };
+
+
+                    $(document).on('click', '#modal-overlay', function () {
+                        window.history.back();
+                    }).on('click', '#btnChangeAddress', function () {
+                        window.history.pushState({}, 'modal', '/modal');
+                        modal.open();
+                        page.fn.addressList();
+                    });
+
+                    window.onpopstate = history.onpushstate = function (e) {
+                        if (window.location.href.split('/').pop().indexOf('modal') === -1) { // 마지막 segment가 cards라면 모달이 아닌 리스트인 상태이어야한다.
+                            modal.close(); // 현재의 모달을 닫는다.
+                        }
+                    }
+
                     // Create start date
                     var start = new Date();
 
@@ -180,6 +238,15 @@
                         //location.href = "RequestDone.aspx";
                         page.fn.requestPickup();
                     });
+
+                    $(document).on('click', 'li[name=address]', function () {
+                        $("#hdAddress1").val($(this).find('div').find('div').find('#address1').text());
+                        $("#hdAddress2").val($(this).find('div').find('div').find('#address2').text());
+                        $("#txtBaseAddress").val($(this).find('div').find('div').find('#address1').text() + ' ' + $(this).find('div').find('div').find('#address2').text());
+                        $("#txtDetailAddress").val($(this).find('div').find('div').find('#detailAddress').text());
+                        $("#txtZipno").val($(this).find('div').find('div').find('#zipNo').text());
+                        window.history.back();
+                    });
                 },
                 fn: {
                     requestPickup: function () {
@@ -209,13 +276,45 @@
                                 $("#pickupForm").submit();
                             } else {
                                 if (response.value == 200) {
-                                    errorBoxWithCallBack("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goMain, {url:"/Main.aspx"});
+                                    errorBoxWithCallback("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goUrl, { url: "/Main.aspx" });
                                 }
                             }
                         }, "post", false);
                     },
-                    goMain(urlData) {
+                    goUrl(urlData) {
                         location.href = urlData.url;
+                    },
+                    addressList: function () {
+                        $('#addressList').html('');
+
+                        var params = {
+                            producerIdx: $("#hdProducerIdx").val()
+                        };
+
+                        Server.ajax("/producer/addressInfoList", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                var list = response.addressInfoList;
+
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addAddress(list[i]);
+                                }
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
+                    addAddress: function (item) {
+                        var address = '<li class="bb-1 pb10" name="address" id="' + item[0] + '" style="cursor:pointer">'
+                                    + '    <span class="txt-color5">' + '장소구분' + '</span>'
+                                    + '    <div class="ui-grid-a">'
+                                    + '        <div class="ui-block-a wpc90">'
+                                    + '            <span id="address1">' + item[3] + '</span> <span id="address2">' + item[4] + '</span> '
+                                    + '            <span id="detailAddress">' + item[5] + '</span> (<span id="zipNo">' + item[2] + '</span>)'
+                                    + '        </div>'
+                                    + '    </div>'
+                                    + '</li>';
+
+                        $('#addressList').append(address);
                     }
                 }
             };
