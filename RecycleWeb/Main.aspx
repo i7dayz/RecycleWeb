@@ -484,7 +484,7 @@
                                                             <div class="ui-block-a" style="width:25%"></div>
                                                             <div class="ui-block-b align-center chk-pickup" style="width:50%; padding:10px 0;">
                                                                 <img src="img/check-c.png" style="width:14px; height: auto;"> 신청하기
-                                                                <input type="checkbox" runat="server" id="chkProduct03" style="display:none" /> <!-- 임시 사용 -->
+                                                                <input type="checkbox" runat="server" id="chkEtc1" style="display:none" /> <!-- 임시 사용 -->
                                                             </div>
                                                             <div class="ui-block-c" style="width:25%"></div>
                                                         </div>                                                        
@@ -517,7 +517,7 @@
                                                             <div class="ui-block-a" style="width:25%"></div>
                                                             <div class="ui-block-b align-center chk-pickup" style="width:50%; padding:10px 0;">
                                                                 <img src="img/check-c.png" style="width:14px; height: auto;"> 신청하기
-                                                                <input type="checkbox" runat="server" id="chkProduct11" style="display:none" />
+                                                                <input type="checkbox" runat="server" id="chkEtc2" style="display:none" />
                                                             </div>
                                                             <div class="ui-block-c" style="width:25%"></div>
                                                         </div>                                                        
@@ -540,7 +540,7 @@
                                                             <div class="ui-block-a" style="width:25%"></div>
                                                             <div class="ui-block-b align-center chk-pickup" style="width:50%; padding:10px 0;">
                                                                 <img src="img/check-c.png" style="width:14px; height: auto;"> 신청하기
-                                                                <input type="checkbox" runat="server" id="chkProduct12" style="display:none" />
+                                                                <input type="checkbox" runat="server" id="chkEtc3" style="display:none" />
                                                             </div>
                                                             <div class="ui-block-c" style="width:25%"></div>
                                                         </div>                                                        
@@ -839,7 +839,11 @@
                         if (parseInt($("#txtProduct06").val()) > 0 || parseInt($("#txtProduct07").val()) > 0
                             || parseInt($("#txtProduct09").val()) > 0 || parseInt($("#txtProduct08").val()) > 0
                             || parseInt($("#txtProduct01").val()) > 0 || parseInt($("#txtProduct02").val()) > 0
-                            || parseInt($("#txtProduct04").val()) > 0 || parseInt($("#txtProduct05").val()) > 0 ) {
+                            || parseInt($("#txtProduct04").val()) > 0 || parseInt($("#txtProduct05").val()) > 0
+                            || $("#chkProduct10").is(":checked")
+                            || $("#chkEtc1").is(":checked")
+                            || $("#chkEtc2").is(":checked")
+                            || $("#chkEtc3").is(":checked")) {
                             // 여기서 수거신청한 금액이 얼마인지 체크
 
                             $("#pickupForm").submit();
@@ -874,7 +878,7 @@
                     },
                     addDonationGroup: function (item) {
                         var donationGroup = '<li style="border-bottom: 1px solid #eeeeee;" class="ui-li-has-thumb">'
-                                          + '    <a href="/Donation/DonationDetails.aspx?data=' + item + '" style="background-color:#ffffff;" class="ui-btn" data-ajax="false">'
+                                          + '    <a href="/Donation/DonationDetails.aspx?id=' + item[0] + '" style="background-color:#ffffff;" class="ui-btn" data-ajax="false">'
                                           + '        <img src="' + item[3] + '" class="ui-thumbnail ui-thumbnail-circular" style="width:75px;height:75px;margin:10px auto;" />'
                                           + '        <h2>' +  item[1] + '</h2>'
                                           + '        <p style="white-space:normal">' + item[2] + '</p>'

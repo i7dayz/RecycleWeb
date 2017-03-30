@@ -20,20 +20,21 @@
 </head>
 <body class="all" contenteditable="false">
     <input type="hidden" runat="server" id="hdProducerIdx" />
-    <input type="hidden" runat="server" id="hdAddress1" />
-    <input type="hidden" runat="server" id="hdAddress2" />
-    <input type="hidden" runat="server" id="hdProduct01" />
-    <input type="hidden" runat="server" id="hdProduct02" />
-    <input type="hidden" runat="server" id="hdProduct03" />
-    <input type="hidden" runat="server" id="hdProduct04" />
-    <input type="hidden" runat="server" id="hdProduct05" />
-    <input type="hidden" runat="server" id="hdProduct06" />
-    <input type="hidden" runat="server" id="hdProduct07" />
-    <input type="hidden" runat="server" id="hdProduct08" />
-    <input type="hidden" runat="server" id="hdProduct09" />
-    <input type="hidden" runat="server" id="hdProduct10" />
-    <input type="hidden" runat="server" id="hdProduct11" />
-    <input type="hidden" runat="server" id="hdProduct12" />
+    <input type="hidden" runat="server" id="hdAddress1" value="0" />
+    <input type="hidden" runat="server" id="hdAddress2" value="0" />
+    <input type="hidden" runat="server" id="hdProduct01" value="0" />
+    <input type="hidden" runat="server" id="hdProduct02" value="0" />
+    <input type="hidden" runat="server" id="hdProduct03" value="0" />
+    <input type="hidden" runat="server" id="hdProduct04" value="0" />
+    <input type="hidden" runat="server" id="hdProduct05" value="0" />
+    <input type="hidden" runat="server" id="hdProduct06" value="0" />
+    <input type="hidden" runat="server" id="hdProduct07" value="0" />
+    <input type="hidden" runat="server" id="hdProduct08" value="0" />
+    <input type="hidden" runat="server" id="hdProduct09" value="0" />
+    <input type="hidden" runat="server" id="hdProduct10" value="0" />
+    <input type="hidden" runat="server" id="hdEtc1" value="0" />
+    <input type="hidden" runat="server" id="hdEtc2" value="0" />
+    <input type="hidden" runat="server" id="hdEtc3" value="0" />
 
     <div class="wrap" id="wrap">            
         <div data-role="page" class="nd2-no-menu-swipe">
@@ -250,7 +251,6 @@
                 },
                 fn: {
                     requestPickup: function () {
-                        // 기타/폐기서비스/유품정리, 희망수거일자 추가 예정
                         var params = {
                             producerIdx: $("#hdProducerIdx").val(),
                             zipCode: $("#txtZipno").val(),
@@ -267,7 +267,12 @@
                             product_7: $("#hdProduct07").val(),
                             product_8: $("#hdProduct08").val(),
                             product_9: $("#hdProduct09").val(),
-                            product_10: $("#hdProduct10").val()
+                            product_10: $("#hdProduct10").val(), // 이삿짐
+                            etc_1: $("#hdEtc1").val(), // 기타
+                            etc_2: $("#hdEtc2").val(), // 폐기서비스
+                            etc_3: $("#hdEtc3").val(), // 유품정리
+                            companyCode: 0,
+                            hopCollectDate: $("#txtReqDate").val()
                         };
 
                         Server.ajax("/producer/produceReg", params, function (response, status, xhr) {
@@ -275,9 +280,10 @@
                             if (response.value == 0) {
                                 $("#pickupForm").submit();
                             } else {
-                                if (response.value == 200) {
-                                    errorBoxWithCallback("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goUrl, { url: "/Main.aspx" });
-                                }
+                                //if (response.value == 200) {
+                                //    errorBoxWithCallback("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goUrl, { url: "/Main.aspx" });
+                                //} 
+                                errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
                     },

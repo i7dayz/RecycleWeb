@@ -62,7 +62,7 @@
                                 <div class="ui-grid-a" style="padding:10px 0; border-bottom: 3px solid #91cd33; margin-bottom: 20px;">
                                     <div class="ui-block-a" style="line-height:30px;">기부포인트</div>
                                     <div class="ui-block-b" style="text-align:right;">
-                                        <input type="text" id="donationPoint" value="0" style="width:100%; padding:0; margin:0; border:1px solid #eeeeee !important; text-align: right;">
+                                        <input type="text" id="txtDonationPoint" value="0" style="width:100%; padding:0; margin:0; border:1px solid #eeeeee !important; text-align: right;">
                                     </div>
                                 </div>
 
@@ -97,8 +97,23 @@
                         });
                     },
                     fn: {
+                        group: function () {
+                            var params = {
+                                donationGroupIdx: $("#hdGroupIdx").val()
+                            }
+
+                            Server.ajax("/producer/donationDetail", params, function (response, status, xhr) {
+                                if (response.value == 0) {                                    
+                                    $("#lblGroupName").text(response.donationDetail[0][1]);
+                                    $("#lblGroupDesc").text(response.donationDetail[0][3]);
+                                    $("#imgGroup").attr("src", response.donationDetail[0][5]);
+                                } else {
+                                    errorBox(getErrMsg(response.value));
+                                }
+                            }, "post", false);
+                        },
                         donate: function () {
-                            if ($("#currPoint").val() < $("#donationPoint").val()) {
+                            if ($("#currPoint").val() < $("#txtDonationPoint").val()) {
                                 infoBox("현재 보유중인 포인트내에서 기부가능합니다.");
                                 return;
                             }
@@ -106,16 +121,15 @@
                             var params = {
                                 producerIdx: $("#hdProducerIdx").val(),
                                 donationGroupIdx: $("#hdGroupIdx").val(),
-                                donationPoint: $("#donationPoint").val()
+                                donationPoint: $("#txtDonationPoint").val()
                             }
 
                             Server.ajax("/producer/donation", params, function (response, status, xhr) {
-                                //alert(response.value);
                                 if (response.value == 0) {
-                                    infoBox($("#donationPoint").val() + "포인트를 기부하였습니다.");
+                                    infoBox($("#txtDonationPoint").val() + "포인트를 기부하였습니다.");
                                 } else {
                                     if (response.value == 111) {
-                                        errorBox("현재 보유중인 포인트내에서 기부가능합니다.");
+                                        errorBox(getErrMsg(response.value));
                                     }
                                 }
                             }, "post", false);
@@ -125,6 +139,7 @@
 
                 $(document).on('ready', function () {
                     page.init();
+                    page.fn.group();
                 });
             })();
         </script>

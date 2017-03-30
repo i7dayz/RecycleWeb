@@ -18,15 +18,17 @@ namespace RecycleWeb.Member
                     this.profileImg.Src = Session["kakaoProfileImage"].ToString();
                 }
 
-                this.producerIdx.Value = Session["producerIdx"].ToString();
-                this.name.InnerHtml = "이름";
+                this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+                this.name.InnerHtml = Session["name"].ToString();
                 this.nickname.InnerHtml = Session["nickname"].ToString();
 
                 if (!string.IsNullOrEmpty(Request["id"].ToString()))
                 {
                     // 수정
-                    this.addressIdx.Value = Request["id"].ToString();
+                    this.hdAddressIdx.Value = Request["id"].ToString();
                 }
+
+                this.hdProducerIdx.Value = Session["producerIdx"].ToString();
             }
             else
             {

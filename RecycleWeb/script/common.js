@@ -521,111 +521,112 @@ function primaryBox(txt){
 
 function getErrMsg(errCode) {
     var msg = "";
-
     switch (errCode) {
-        case "0":
+        case 0:
             msg = "처리가 정상적으로 완료되었습니다.";
             break;
-        case "1":
+        case 1:
             msg = "이미 가입된 아이디입니다.";
             break;
-        case "2":
+        case 2:
             msg = "잘못된 추천인 코드를 입력하셨습니다.";
             break;
-        case "3":
+        case 3:
             msg = "이미 존재하는 닉네임입니다.";
             break;
-        case "11":
+        case 4:
+            msg = "인증번호가 일치하지 않습니다.";
+            break;
+        case 11:
             msg = "가입되지 않은 아이디입니다.";
             break;
-        case "12":
+        case 12:
             msg = "탈퇴한 회원입니다.";
             break;
-        case "21":
+        case 21:
             msg = "이미 가입된 아이디입니다.";
             break;
-        case "22":
+        case 22:
             msg = "가입 신청 중인 아이디입니다.";
             break;
-        case "31":
+        case 31:
             msg = "비밀번호가 일치하지 않습니다.";
             break;
-        case "41":
+        case 41:
             msg = "이미 가입된 아이디입니다.";
             break;
-        case "51":
+        case 51:
             msg = "잘못된 아이디입니다.";
             break;
-        case "52":
+        case 52:
             msg = "비밀번호가 일치하지 않습니다.";
             break;
-        case "61":
+        case 61:
             msg = "비밀번호가 일치하지 않습니다.";
             break;
-        case "71":
+        case 71:
             msg = "이미 가입된 아이디입니다.";
             break;
-        case "72":
+        case 72:
             msg = "일일 친구 초대 제한 수 초과하였습니다.";
             break;
-        case "73":
+        case 73:
             msg = "친구 초대 쿨타임 제한중입니다.";
             break;
-        case "81":
+        case 81:
             msg = "중복 회수되었습니다.";
             break;
-        case "82":
+        case 82:
             msg = "수거자 포인트가 부족합니다.";
             break;
-        case "91":
+        case 91:
             msg = "가입 미승인 아이디입니다.";
             break;
-        case "92":
+        case 92:
             msg = "탈퇴된 아이디입니다.";
             break;
-        case "93":
+        case 93:
             msg = "가입 불가 아이디입니다.";
             break;
-        case "94":
+        case 94:
             msg = "비밀번호가 일치하지 않습니다.";
             break;
-        case "101":
+        case 101:
             msg = "잘못된 배출 정보입니다.";
             break;
-        case "111":
+        case 111:
             msg = "포인트가 부족합니다.";
             break;
-        case "121":
+        case 121:
             msg = "포인트가 부족합니다.";
             break;
-        case "131":
+        case 131:
             msg = "정상 가입된 아이디가 아닙니다.";
             break;
-        case "132":
+        case 132:
             msg = "비밀번호가 일치하지 않습니다.";
             break;
-        case "141":
+        case 141:
             msg = "최대 등록 배송지 초과하였습니다.";
             break;
-        case "151":
+        case 151:
             msg = "등록되지 않은 주소입니다.";
             break;
-        case "161":
+        case 161:
             msg = "잘못된 추천인 닉네임을 입력하셨습니다.";
             break;
-        case "162":
+        case 162:
             msg = "이미 추천인을 등록한 계정입니다.";
             break;
-        case "163":
+        case 163:
             msg = "자기 자신을 추천할 수 없습니다.";
             break;
-        case "200":
+        case 200:
             msg = "이미 배출 신청 중입니다.";
             break;
-        case "9999":
+        case 9999:
             msg = "기타 오류가 발생하였습니다.<br/>관리자에게 문의하세요.";
             break;
     }
-
     return msg;
 }

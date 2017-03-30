@@ -68,11 +68,12 @@
                                 <ul class="my-donation">
                                     <li class="title">나의 기부 내역</li>
                                     <li class="point" style="">
-                                        <span runat="server" id="totalDonatePoint" style="font-size:24px; font-weight:bold; display:inline; vertical-align:middle">43240
+                                        <span runat="server" id="totalDonatePoint" style="font-size:24px; font-weight:bold; display:inline; vertical-align:middle">0
                                         <img src="../img/point-icn.png" style="width:26px; height:26px; display:inline;vertical-align:middle" /></span>
                                     </li>
                                 </ul>
-                                <ul class="donation-item">
+                                <div class="donation-history-list"></div>
+                                <%--<ul class="donation-item">
                                     <li class="date">
                                         2017.04.02
                                     </li>
@@ -126,7 +127,7 @@
                                     <li class="group">
                                         사랑의 열매
                                     </li>
-                                </ul>
+                                </ul>--%>
                             </div>
 
                             <div class="footer">
@@ -157,11 +158,38 @@
                     });
                 },
                 fn: {
+                    donationHistoryList: function () {
+                        var params = {
+                            producerIdx: $("#hdProducerIdx").val()
+                        };
+
+                        Server.ajax("/producer/donationHistory", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                var list = response.donationHistory;
+
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addDonationHistory(list[i]);
+                                }
+                            } else {
+                                errorBox("Error Code : " + response.value);
+                            }
+                        }, "post", false);
+                    },
+                    addDonationHistory: function (item) {
+                        var donationHistory = '<ul class="donation-item" id="' + item[0] + '">'
+                                            + '    <li class="date">기부일자..</li>'
+                                            + '    <li class="point">' + item[3] + '</li>'
+                                            + '    <li class="group">' + item[1] + '</li>'
+                                            + '</ul>';
+
+                        $('.donation-history-list').append(donationHistory);
+                    }
                 }
             };
 
             $(document).on('ready', function () {
                 page.init();
+                page.fn.donationHistoryList();
             });
         })();
     </script>

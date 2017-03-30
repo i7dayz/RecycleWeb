@@ -46,35 +46,35 @@
                                     <ul>
                                         <li>
                                             <div class="wpc100" style="text-align:center;">
-                                                <img src="../temp/cef1f56553fba92d9e95c19e5a34c09a.jpg" style="width:120px; height:auto;">
+                                                <img id="imgCollectorImg" src="../temp/cef1f56553fba92d9e95c19e5a34c09a.jpg" style="width:120px; height:auto;">
                                             </div>
                                         </li>
                                         <li>
                                             <span style="color:#91cd33">[수거요청품목]</span>
                                             <div>
-                                                <input type="text" name="txtReqList" class="text-field required input-guide txt-input-guide wpc100"
-                                                    value="고철 1, 헌옷 3, 비철 5, 병 2"/>                                        
+                                                <input type="text" id="txtReqList" name="txtReqList" class="text-field required input-guide txt-input-guide wpc100"
+                                                    value=""/>                                        
                                             </div>
                                         </li>
                                         <li>
                                             <span class="txt-color5">수거담당자</span>
                                             <div>
-                                                <input type="text" name="txtName" class="text-field required input-guide txt-input-guide wpc100"
-                                                    value="손혁기 기사님" />
+                                                <input type="text" id="txtCollectorName" name="txtName" class="text-field required input-guide txt-input-guide wpc100"
+                                                    value="" />
                                             </div>
                                         </li>
                                         <li>
                                             <span class="txt-color5">연락처</span>
                                             <div class="wpc100">
-                                                <input type="text" class="text-field required input-guide txt-input-guide wpc100"
-                                                    value="010-1111-2222" />
+                                                <input type="text" id="txtCollectorContactNumber" class="text-field required input-guide txt-input-guide wpc100"
+                                                    value="" />
                                             </div>                                 
                                         </li>
                                         <li>
                                             <span class="txt-color5">희망수거일시</span>    
                                             <div class="wpc100">
-                                                <input type="text" class="text-field required input-guide txt-input-guide wpc100" 
-                                                    value="2017년 3월 3일 화요일 17:00">
+                                                <input type="text" id="txtReqDate" class="text-field required input-guide txt-input-guide wpc100" 
+                                                    value="">
                                             </div> 
                                         </li>
                                     </ul>
@@ -97,6 +97,8 @@
         </div> <!-- //wrap -->
 
         <script type="text/javascript" src="../script/extention/jquery.js"></script>
+        <script type="text/javascript" src="../script/common.js"></script>
+        <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
         
         <script>
             (function () {
@@ -112,13 +114,68 @@
                             //window.history.back();
                             location.href = "/Main.aspx";
                         });
+
+                        $(document).on('click', '#btnConfirm', function () {
+                            location.href = "/Main.aspx";
+                        });
                     },
                     fn: {
+                        getCollectorInfo: function () {
+                            var params = {
+                                producerIdx: $("#hdProducerIdx").val()
+                            }
+
+                            Server.ajax("/producer/collectReserve", params, function (response, status, xhr) {
+                                //infoBox(response.value);
+                                if (response.value == 0) {
+
+                                    if (response.collectReserve.product_1 != 0) {
+                                        $("#txtReqList").val($("#txtReqList").val() + "폐지 " + response.collectReserve.product_1 + ", ");
+                                    }
+                                    if (response.collectReserve.product_2 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "병 " + response.collectReserve.product_2 + ", ");
+                                    }
+                                    if (response.collectReserve.product_4 != 0) {
+                                        $("#txtReqList").val($("#txtReqList").val() + "고철 " + response.collectReserve.product_4 + ", ");
+                                    }
+                                    if (response.collectReserve.product_5 != 0) {
+                                        $("#txtReqList").val($("#txtReqList").val() + "비철 " + response.collectReserve.product_5 + ", ");
+                                    }
+                                    if (response.collectReserve.product_6 != 0) {
+                                        $("#txtReqList").val($("#txtReqList").val() + "헌옷 " + response.collectReserve.product_6 + ", ");
+                                    }
+                                    if (response.collectReserve.product_7 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "휴대폰 " + response.collectReserve.product_7 + ", ");
+                                    }
+                                    if (response.collectReserve.product_8 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "대형가전 " + response.collectReserve.product_8 + ", ");
+                                    }
+                                    if (response.collectReserve.product_9 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "소형가전 " + response.collectReserve.product_9 + ", ");
+                                    }
+                                    if (response.collectReserve.product_10 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "이사수거 " + response.collectReserve.product_10 + ", ");
+                                    }
+
+                                    $("#imgCollectorImg").attr("src", response.collectReserve.collectorImageUrl);
+                                    $("#txtCollectorName").text(response.collectReserve.collectorName);
+                                    $("#txtCollectorContactNumber").text(response.collectReserve.collectorContactNumber);
+                                    $("#txtReqDate").text(response.collectReserve.hopeCollectDate);
+
+                                } else {
+                                    //if (response.value == 200) {
+                                    //    errorBoxWithCallback("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goUrl, { url: "/Main.aspx" });
+                                    //} 
+                                    errorBox(getErrMsg(response.value));
+                                }
+                            }, "post", false);
+                        }
                     }
                 };
 
                 $(document).on('ready', function () {
                     page.init();
+                    page.fn.getCollectorInfo();
                 });
             })();
         </script>

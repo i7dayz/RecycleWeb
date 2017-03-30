@@ -18,8 +18,8 @@
 <body class="all" contenteditable="false">
     <div class="wrap join" id="wrap">
         <form runat="server" method="post" action="AddressList.aspx">
-            <input type="hidden" id="producerIdx" runat="server" value="" />
-            <input type="hidden" id="addressIdx" runat="server" value="" />
+            <input type="hidden" id="hdProducerIdx" runat="server" value="" />
+            <input type="hidden" id="hdAddressIdx" runat="server" value="" />
 
             <input type="hidden" id="address1" value="" />
             <input type="hidden" id="address2" value="" />
@@ -264,25 +264,53 @@
                         }
 
                         var params = {
-                            producerIdx: $("#producerIdx").val(),
+                            producerIdx: $("#hdProducerIdx").val(),
                             zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
                             address2: $.trim($("#address2").val()),
                             detailAddress: $("#txtDetailAddress").val(),
                             ContactNumber: "",
-                            isMain: $("#chkMain").is(":checked") ? "1" : "0"
+                            isMain: $("#chkMain").is(":checked") ? "1" : "0",
+                            addressInfoIdx: $("#hdAddressIdx").val(),
+                            addressEtc: $("#txtLocation").val()
                         };
 
-                        Server.ajax("/producer/addressInfoReg", params, function (respone, status, xhr) {
-                            if (respone.value == 0) {
-                                infoBox("신규 수거주소가 등록되었습니다");
+                        Server.ajax("/producer/addressInfoReg", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                if ($("#hdAddressIdx").val() != "") {
+                                    infoBox("수거주소가 수정되었습니다");
+                                }
+                                else {
+                                    infoBox("새주소가 등록되었습니다.")
+                                }
                             } else {
                                 errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
                     });
                 },
-                fn: {                    
+                fn: {
+                    getDetailAddress: function () {
+                        var params = {
+                            addressInfoIdx: $("#hdAddressIdx").val(),
+                            producerIdx: $("#hdProducerIdx").val()
+                        };
+
+                        Server.ajax("/producer/addressInfoDetail", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                $("#txtZipNo").val(response.addressInfoDetail.zipCode),
+                                $("#address1").val(response.addressInfoDetail.address1),
+                                $("#address2").val(response.addressInfoDetail.address2),
+                                $("#txtBaseAddress").val(response.addressInfoDetail.address1 + " " + response.addressInfoDetail.address2),
+                                $("#txtDetailAddress").val(response.addressInfoDetail.detailAddress),
+
+                                response.addressInfoDetail.isMain == "1" ? $("#chkMain").prop("checked", true) : $("#chkMain").prop("checked", false),
+                                $("#txtLocation").val(response.addressInfoDetail.addressEtc)
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
                     //특수문자, 특정문자열(sql예약어의 앞뒤공백포함) 제거
                     checkSearchedWord: function(obj){
 	                    if(obj.length >0){
@@ -388,6 +416,7 @@
 
             $(document).on('ready', function () {
                 page.init();
+                page.fn.getDetailAddress();
             });
         })();
     </script>

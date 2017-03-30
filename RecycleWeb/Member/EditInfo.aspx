@@ -28,6 +28,7 @@
 
             <input type="hidden" id="address1" runat="server" value="" />
             <input type="hidden" id="address2" runat="server" value="" />
+            <input type="hidden" id="contactNumber" runat="server" value="" />
 
             <!-- #header -->
             <div class="header" id="header" style="z-index:1;">
@@ -70,7 +71,7 @@
                                         <span class="txt-color5">연락처</span>
                                         <div class="wpc100">
                                             <input type="tel" runat="server" id="txtContactNumber" name="txtContactNumber" maxlength="13" class="text-field required input-guide txt-input-guide wpc70"  />
-                                            <a href="javascript:;" id="btnSendAuthNum" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
+                                            <a href="javascript:;" id="btnReqToken" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
                                                 인증번호 받기
                                             </a>
                                         </div>                                 
@@ -78,8 +79,8 @@
                                     <li>
                                         <span class="txt-color5">인증번호입력</span>
                                         <div class="wpc100">
-                                            <input type="text" class="text-field required input-guide txt-input-guide wpc70" />
-                                            <a href="javascript:;" id="btnConfirmAuthNum" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
+                                            <input type="text" id="txtToken" class="text-field required input-guide txt-input-guide wpc70" />
+                                            <a href="javascript:;" id="btnReqTokenCheck" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
                                                 인증하기
                                             </a>
                                         </div>                                 
@@ -231,6 +232,14 @@
                         $('#btnSearchNext').show();
                     }
 
+                    $(document).on('click', '#btnReqToken', function () {
+                        page.fn.getSmsToken();
+                    });
+
+                    $(document).on('click', '#btnReqTokenCheck', function () {
+                        page.fn.chkSmsToken();
+                    });
+
                     $(document).on('click', '#btnSearch', function () {
                         page.fn.resetAddressForm();
                         page.fn.getAddress();
@@ -263,14 +272,73 @@
                     });
 
                     $(document).on('click', '#btnSave', function () {
+                        page.fn.saveInfo();
+                    });
+                },
+                attr: {
+                    smsChcked: false,
+                },
+                fn: {
+                    getSmsToken: function () {
+                        var phoneNumber = $("#txtContactNumber").val();
+
+                        if (phoneNumber == null || phoneNumber == "") {
+                            errorBox("휴대전화번호를 입력하세요.");
+                        }
+
                         var params = {
-                            ProducerIdx: $("#producerIdx").val(),
-                            ProducerStoreName: "",
-                            ProducerContactNumber: $("#txtContactNumber").val(),
-                            ZipCode: $("#txtZipNo").val(),
+                            phoneNumber: phoneNumber
+                        };
+
+                        Server.ajax("/producer/smsTokenCreate", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                infoBox("인증번호가 발송되었습니다.");
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
+                    chkSmsToken: function () {
+                        var phoneNumber = $("#txtContactNumber").val();
+                        var token = $("#txtToken").val();
+
+                        if (phoneNumber == null || phoneNumber == "") {
+                            errorBox("휴대전화번호를 입력하세요.");
+                        }
+
+                        if (token == null || token == "") {
+                            errorBox("인증번호를 입력하세요.");
+                        }
+
+                        var params = {
+                            phoneNumber: phoneNumber,
+                            token: token
+                        };
+
+                        Server.ajax("/producer/smsTokenCheck", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                infoBox("휴대전화번호 인증이 완료되었습니다.");
+                                page.attr.smsChcked = true;
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
+                    saveInfo: function () {
+                        if ($("#txtContactNumber").val() != $("#contactNumber").val()) {
+                            if (!page.attr.smsChcked) {
+                                errorBox("휴대전화번호 인증이 필요합니다.");
+                            }
+                        }
+
+                        var params = {
+                            producerIdx: $("#producerIdx").val(),
+                            producerStoreName: "",
+                            producerContactNumber: $("#txtContactNumber").val(),
+                            zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
                             address2: $.trim($("#address2").val()),
-                            DetailAddress: $("#txtDetailAddress").val()
+                            detailAddress: $("#txtDetailAddress").val()
                         };
 
                         Server.ajax("/producer/userInfoModify", params, function (response, status, xhr) {
@@ -280,9 +348,7 @@
                                 errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
-                    });
-                },
-                fn: {                    
+                    },
                     //특수문자, 특정문자열(sql예약어의 앞뒤공백포함) 제거
                     checkSearchedWord: function(obj){
 	                    if(obj.length >0){

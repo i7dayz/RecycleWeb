@@ -75,35 +75,34 @@ namespace RecycleWeb.Collection
                                     this.hdProduct05.Value = Request.Form[i];
                                 }
                                 break;
-                            //2017.03.26 서버작업완료시까지 임시주석처리
-                            //case "chkProduct10":
-                            //    if (Request.Form[i].Equals("on"))
-                            //    {
-                            //        productList += "이삿짐, ";
-                            //        this.hdProduct10.Value = "1";
-                            //    }
-                            //    break;
-                            //case "chkProduct03":
-                            //    if (Request.Form[i].Equals("on"))
-                            //    {
-                            //        productList += "기타, ";
-                            //        this.hdProduct03.Value = "1";
-                            //    }
-                            //    break;
-                            //case "chkProduct11":
-                            //    if (Request.Form[i].Equals("on"))
-                            //    {
-                            //        productList += "폐기서비스, ";
-                            //        this.hdProduct11.Value = "1";
-                            //    }
-                            //    break;
-                            //case "chkProduct12":
-                            //    if (Request.Form[i].Equals("on"))
-                            //    {
-                            //        productList += "유품정리, ";
-                            //        this.hdProduct12.Value = "1";
-                            //    }
-                            //    break;
+                            case "chkProduct10":
+                                if (Request.Form[i].Equals("on"))
+                                {
+                                    productList += "이삿짐, ";
+                                    this.hdProduct10.Value = "1";
+                                }
+                                break;
+                            case "chkEtc1":
+                                if (Request.Form[i].Equals("on"))
+                                {
+                                    productList += "기타, ";
+                                    this.hdEtc1.Value = "1";
+                                }
+                                break;
+                            case "chkEtc2":
+                                if (Request.Form[i].Equals("on"))
+                                {
+                                    productList += "폐기서비스, ";
+                                    this.hdEtc2.Value = "1";
+                                }
+                                break;
+                            case "chkEtc3":
+                                if (Request.Form[i].Equals("on"))
+                                {
+                                    productList += "유품정리, ";
+                                    this.hdEtc3.Value = "1";
+                                }
+                                break;
                         }
                     }
                 }

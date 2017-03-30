@@ -24,7 +24,7 @@ namespace RecycleWeb
 
                 DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
                 this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
-                this.exPoint.InnerText = string.Empty; // 현재 로그인시에 넘어오는 값이 없음
+                this.exPoint.InnerText = Session["expirePoint"].ToString();
 
                 this.nickname.InnerText = Session["nickname"].ToString();
                 this.point.InnerText = Session["producePoint"].ToString();

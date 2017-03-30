@@ -65,6 +65,8 @@ namespace RecycleWeb.Member
                     Session["totalDonationPoint"] = rootObj.login.totalDonationPoint;
                     Session["rank"] = rootObj.login.rank;
                     Session["nickname"] = rootObj.login.nickname;
+                    Session["expirePoint"] = rootObj.login.expirePoint;
+                    Session["name"] = rootObj.login.name;
 
                     Response.Redirect("/Main.aspx");
                 }
@@ -93,6 +95,8 @@ namespace RecycleWeb.Member
         public int totalDonationPoint { get; set; }
         public int rank { get; set; }
         public string nickname { get; set; }
+        public string expirePoint { get; set; }
+        public string name { get; set; }
     }
 
     public class RootObject
