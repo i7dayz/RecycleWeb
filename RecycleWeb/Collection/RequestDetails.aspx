@@ -202,32 +202,24 @@
                     var start = new Date();
 
                     // 08:00 AM
-                    start.setHours(8);
-                    start.setMinutes(0);
+                    //start.setHours(8);
+                    //start.setMinutes(0);
 
-                    var disabledDays = [0, 6];
+                    //var disabledDays = [0, 6];
                     $('#txtReqDate').datepicker({
                         language: 'ko',
                         position: 'top left',
-                        startDate: start,
+                        //startDate: start,
                         minDate: start, // Now can select only dates, which goes after today
-                        onRenderCell: function (date, cellType) {
-                            if (cellType == 'day') {
-                                var day = date.getDay(),
-                                    isDisabled = disabledDays.indexOf(day) != -1;
-                                return {
-                                    disabled: isDisabled
-                                }
-                            }
-                        },
-                        //todayButton: new Date(),
-                        timepicker: true,
-                        navTitles: {
-                            days: '<span>yyyy</span>년 MM'
-                        },
-                        minHours: 8,
-                        maxHours: 20,
-                        minutesStep: 30,
+                        //onRenderCell: function (date, cellType) {
+                        //    if (cellType == 'day') {
+                        //        var day = date.getDay(),
+                        //            isDisabled = disabledDays.indexOf(day) != -1;
+                        //        return {
+                        //            disabled: isDisabled
+                        //        }
+                        //    }
+                        //},
                     });
                 },
                 initEvent: function () {
@@ -255,9 +247,9 @@
                             producerIdx: $("#hdProducerIdx").val(),
                             zipCode: $("#txtZipno").val(),
                             address1: $("#hdAddress1").val(),
-                            address2: $("#hdAddress2").val().replace(" ", ""), // 첫번째 공백 제거
+                            address2: $.trim($("#hdAddress2").val()),
                             detailAddress: $("#txtDetailAddress").val(),
-                            producerContactNumber: $("#hdProducerIdx").val(),
+                            producerContactNumber: $("#txtContactNumber").val(),
                             product_1: $("#hdProduct01").val(),
                             product_2: $("#hdProduct02").val(),
                             product_3: $("#hdProduct03").val(),
@@ -272,11 +264,11 @@
                             etc_2: $("#hdEtc2").val(), // 폐기서비스
                             etc_3: $("#hdEtc3").val(), // 유품정리
                             companyCode: 0,
-                            hopCollectDate: $("#txtReqDate").val()
+                            hopeCollectDate: $("#txtReqDate").val()
                         };
 
                         Server.ajax("/producer/produceReg", params, function (response, status, xhr) {
-                            //infoBox(response.value);
+                            //alert(response.value);
                             if (response.value == 0) {
                                 $("#pickupForm").submit();
                             } else {

@@ -114,7 +114,7 @@
                             checkbox = '<label class="checkbox-wrap"><input type="checkbox" checked onclick="return false" ><i class="check-icon-green"></i></label>';
 
                         var address = '<li class="bb-1 pb10" name="address" id="' + item[0] + '" style="cursor:pointer">'
-                                    + '    <span class="txt-color5">' + '장소구분' + '</span>'
+                                    + '    <span class="txt-color5">' + item[8] + '</span>'
                                     + '    <div class="ui-grid-a">'
                                     + '        <div class="ui-block-a wpc90">'
                                     + '            ' + item[3] + ' ' + item[4] + ' '

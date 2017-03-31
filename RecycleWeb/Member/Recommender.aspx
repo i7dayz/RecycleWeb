@@ -103,8 +103,8 @@
                             recommenderNickname: $("#txtRecommenderNickname").val(),
                         }
 
-                        Server.ajax("/producer/donation", params, function (response, status, xhr) {
-                            alert(response.value);
+                        Server.ajax("/producer/recommenderRegist", params, function (response, status, xhr) {
+                            //alert(response.value);
                             if (response.value == 0) {
                                 infoBox($("#txtRecommenderNickname").val() + "님을 추천인으로 등록하셨습니다.");
                             } else {

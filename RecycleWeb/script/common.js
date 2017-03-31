@@ -123,7 +123,7 @@ var Server = function () {
                     }
                 },
             }).done(_func).fail(function (xhr, status, error) {
-                alert(JSON.stringify(xhr));
+                //alert(JSON.stringify(xhr));
                 if (xhr.status == 0) {
                     //navigator.notification.alert("서버가 응답이 없습니다.\r\n네트워크 연결이 되었는지 확인하시고 계속 발생시 관리자에게 문의 하시기 바랍니다.", null, '알림', '확인');
                     errorBox("서버가 응답이 없습니다.\r\n네트워크 연결이 되었는지 확인하시고 계속 발생시 관리자에게 문의 하시기 바랍니다.");

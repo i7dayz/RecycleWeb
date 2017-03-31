@@ -158,9 +158,9 @@
                                     }
 
                                     $("#imgCollectorImg").attr("src", response.collectReserve.collectorImageUrl);
-                                    $("#txtCollectorName").text(response.collectReserve.collectorName);
-                                    $("#txtCollectorContactNumber").text(response.collectReserve.collectorContactNumber);
-                                    $("#txtReqDate").text(response.collectReserve.hopeCollectDate);
+                                    $("#txtCollectorName").val(response.collectReserve.collectorName);
+                                    $("#txtCollectorContactNumber").val(response.collectReserve.collectorContactNumber);
+                                    $("#txtReqDate").val(response.collectReserve.hopeCollectDate);
 
                                 } else {
                                     //if (response.value == 200) {
