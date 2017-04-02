@@ -1,4 +1,5 @@
-﻿var storeUrl = "https://wapi.gift-n.net";
+﻿
+var storeUrl = "https://wapi.gift-n.net:443";
 
 function getStoreErrMsg(errCode) {
     var msg = "";
@@ -90,7 +91,7 @@ function getEpin(cid, goods_id, enc, co_tid, mdn, reserved) {
         reserved: reserved // 선택, 임의사용
     }
 
-    Server.ajax("/GetEpin", params, function (response, status, xhr) {
+    Server.ajax2("/GetEpin", params, function (response, status, xhr) {
         if (response.rstCode == 0) {
             // 성공
             // "rstCode":"0", 
@@ -109,7 +110,7 @@ function getEpin(cid, goods_id, enc, co_tid, mdn, reserved) {
             // "reserved":"" 
             errorBox("[" + response.rstCode + "] " + response.rstMsg);
         }
-    }, "get", false);
+    }, "post", false);
 }
 
 // 모바일쿠폰 핀번호 취소
@@ -120,7 +121,7 @@ function cancelEpin(cid, enc, order_id) {
         order_id: order_id, // 기프트엔 거래번호
     }
 
-    Server.ajax("/CancelEpin", params, function (response, status, xhr) {
+    Server.ajax2("/CancelEpin", params, function (response, status, xhr) {
         if (response.rstCode == 0) {
             // 성공
             // "rstCode":"0", 
@@ -131,7 +132,7 @@ function cancelEpin(cid, enc, order_id) {
             // "rstMsg":"EPin 취소 실패 : 존재하지 않는 거래번호입니다."
             errorBox("[" + response.rstCode + "] " + response.rstMsg);
         }
-    }, "get", false);
+    }, "post", false);
 }
 
 // 모바일쿠폰 핀상태 조회
@@ -142,7 +143,7 @@ function statusEpin(cid, enc, order_id) {
         order_id: order_id, // 기프트엔 거래번호
     }
 
-    Server.ajax("/StatusEpin", params, function (response, status, xhr) {
+    Server.ajax2("/StatusEpin", params, function (response, status, xhr) {
         if (response.rstCode == 0) {
             // 성공
             // "rstCode":"0", 
@@ -159,7 +160,7 @@ function statusEpin(cid, enc, order_id) {
             // "branchname":"" 
             errorBox("[" + response.rstCode + "] " + response.rstMsg);
         }
-    }, "get", false);
+    }, "post", false);
 }
 
 // 모바일쿠폰 상품목록
@@ -167,10 +168,10 @@ function getGoodsInfoList(cid, brand_id, enc) {
     var params = {
         cid: cid, // 사용처 아이디
         brand_id: brand_id, // 브랜드 코드
-        enc: enc, // 사용처 인증키, 사용처 아이디, 브랜드 코드
+        enc: enc // 사용처 인증키, 사용처 아이디, 브랜드 코드
     }
 
-    Server.ajax("/getGoodsInfoList", params, function (response, status, xhr) {
+    Server.ajax2("/getGoodsInfoList", params, function (response, status, xhr) {
         if (response.rstCode == 0) {
             // 성공
             // [
@@ -196,7 +197,7 @@ function getGoodsInfoList(cid, brand_id, enc) {
             // "STATUS":"E" 
             errorBox("[" + response.rstCode + "] " + response.rstMsg);
         }
-    }, "get", false);
+    }, "post", false);
 }
 
 // 모바일쿠폰 상품정보
@@ -207,7 +208,7 @@ function getGoodsInfo(cid, goods_id, enc) {
         enc: enc, // 사용처 인증키, 사용처 아이디, 상품코드
     }
 
-    Server.ajax("/getGoodsInfo", params, function (response, status, xhr) {
+    Server.ajax2("/getGoodsInfo", params, function (response, status, xhr) {
         if (response.rstCode == 0) {
             // 성공
             // "GOODS_ID":"", // 상품 코드 
@@ -226,7 +227,7 @@ function getGoodsInfo(cid, goods_id, enc) {
             // "STATUS":"E" 
             errorBox("[" + response.rstCode + "] " + response.rstMsg);
         }
-    }, "get", false);
+    }, "post", false);
 }
 
 // 모바일쿠폰 브랜드 이미지
@@ -236,7 +237,7 @@ function getBrandImage(cid, brand_id) {
         brand_id: brand_id, // 브랜드 코드
     }
 
-    Server.ajax("/getBrandImage", params, function (response, status, xhr) {
+    Server.ajax2("/getBrandImage", params, function (response, status, xhr) {
         if (response.rstCode == 0) {
             // 성공
             // "BRAND_NAME":"GS칼텍스", 
@@ -247,7 +248,7 @@ function getBrandImage(cid, brand_id) {
             // "STATUS":"E" 
             errorBox("[" + response.rstCode + "] " + response.rstMsg);
         }
-    }, "get", false);
+    }, "post", false);
 }
 
 // 모바일쿠폰 거래번호 조회
@@ -258,7 +259,7 @@ function statusEpinByTid(cid, enc, co_tid) {
         co_tid: co_tid, // 사용처 거래번호
     }
 
-    Server.ajax("/StatusEpinByTid", params, function (response, status, xhr) {
+    Server.ajax2("/StatusEpinByTid", params, function (response, status, xhr) {
         if (response.rstCode == 0) {
             // 성공
             // "rstCode":"0", 
@@ -271,6 +272,6 @@ function statusEpinByTid(cid, enc, co_tid) {
             // "order_id":"" 
             errorBox("[" + response.rstCode + "] " + response.rstMsg);
         }
-    }, "get", false);
+    }, "post", false);
 }
 

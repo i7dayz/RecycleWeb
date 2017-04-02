@@ -76,7 +76,7 @@
                                             </a>
                                         </div>                                 
                                     </li>
-                                    <li>
+                                    <li id="reqTokenArea">
                                         <span class="txt-color5">인증번호입력</span>
                                         <div class="wpc100">
                                             <input type="text" id="txtToken" class="text-field required input-guide txt-input-guide wpc70" />
@@ -197,6 +197,7 @@
                 },
                 initComponent: function () {
                     $("#modal-wrapper").hide();
+                    $("#reqTokenArea").hide();
                 },
                 initEvent: function () {
                     var modal = {
@@ -234,6 +235,7 @@
 
                     $(document).on('click', '#btnReqToken', function () {
                         page.fn.getSmsToken();
+                        $("#reqTokenArea").show();
                     });
 
                     $(document).on('click', '#btnReqTokenCheck', function () {
@@ -327,7 +329,8 @@
                     saveInfo: function () {
                         if ($("#txtContactNumber").val() != $("#contactNumber").val()) {
                             if (!page.attr.smsChcked) {
-                                errorBox("휴대전화번호 인증이 필요합니다.");
+                                errorBox("휴대전화번호 변경시 인증이 필요합니다.");
+                                return;
                             }
                         }
 

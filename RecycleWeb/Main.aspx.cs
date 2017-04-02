@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RecycleWeb.util;
 
 namespace RecycleWeb
 {
@@ -29,7 +30,9 @@ namespace RecycleWeb
                 this.nickname.InnerText = Session["nickname"].ToString();
                 this.point.InnerText = Session["producePoint"].ToString();
 
-                //this.hdCid.Value = WebConfigurationManager.AppSettings["cid"];
+                this.hdCid.Value = WebConfigurationManager.AppSettings["cid"];
+                this.hdBrandId.Value = "83";
+                this.hdEnc.Value = MD5Hash(WebConfigurationManager.AppSettings["giftn_auth_key"] + WebConfigurationManager.AppSettings["cid"] + "83");
             }
             else
             {

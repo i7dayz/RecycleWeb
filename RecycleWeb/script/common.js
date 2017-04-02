@@ -136,6 +136,61 @@ var Server = function () {
                 }
             });
         },
+        defaultUrl2: function () {
+            return storeUrl;
+        },
+        ajax2: function (_url, _params, _func, _type, _async) {
+            if (_url == undefined || _func == undefined) {
+                return;
+            }
+
+            if ($.isEmptyObject(_params)) {
+                _params = null;
+            } else {
+                _params = JSON.stringify(_params)
+            }
+
+            if (_type == undefined || _type == null) {
+                _type = "post";
+            }
+
+            if (_async == undefined || _async == null) {
+                _async = true;
+            }
+
+            $.ajax({
+                url: this.defaultUrl2() + _url,
+                data: _params,
+                type: _type,
+                async: _async,
+                crossDomain: true,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                timeout: 10000,
+                beforeSend: function (xhr, settings) {
+                    if (_async == true) {
+                        $.mobile.loading("show");
+                    }
+                },
+                complete: function (xhr, status) {
+                    if (_async == true) {
+                        $.mobile.loading("hide");
+                    }
+                },
+            }).done(_func).fail(function (xhr, status, error) {
+                //alert(JSON.stringify(xhr));
+                if (xhr.status == 0) {
+                    //navigator.notification.alert("서버가 응답이 없습니다.\r\n네트워크 연결이 되었는지 확인하시고 계속 발생시 관리자에게 문의 하시기 바랍니다.", null, '알림', '확인');
+                    errorBox("서버가 응답이 없습니다.\r\n네트워크 연결이 되었는지 확인하시고 계속 발생시 관리자에게 문의 하시기 바랍니다.");
+                } else if (xhr.status == 500) {
+                    //navigator.notification.alert("서버에 오류가 발생 하였습니다.\r\n관리자에게 문의 하시기 바랍니다.", null, '알림', '확인');
+                    errorBox("서버에 오류가 발생 하였습니다.\r\n관리자에게 문의 하시기 바랍니다.");
+                } else {
+                    //navigator.notification.alert(error, null, '알림', '확인');
+                    errorBox(error);
+                }
+            });
+        }
     };
 }();
 

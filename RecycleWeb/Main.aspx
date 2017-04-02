@@ -581,8 +581,10 @@
                             <div class="content fixed" style="background-color:#f6f6f6">   
                                 <div class="main">
                                     <input type="hidden" runat="server" id="hdCid" />
-                                    <input type="hidden" runat="server" id="hdBarndId" />
-                                    <input type="hidden" runat="server" id="enc" />
+                                    <input type="hidden" runat="server" id="hdBrandId" />
+                                    <input type="hidden" runat="server" id="hdEnc" />
+                                    <input type="hidden" runat="server" id="msg" />
+
                                     <div class="section" style="margin:0 auto">
                                         <!-- 상품권, 편의점, 카페 -->
                                         <div class="ui-grid-b grids" style="height:130px;">
@@ -926,15 +928,16 @@
                                  + '</li>';
 
                         $(".rank").find("ul").append(rank);
-                    }
+                    },
                 }
             };
 
             $(document).on('ready', function () {
                 page.init();
                 page.fn.getDonationGroup();
-
                 page.fn.getRank();
+                
+                getGoodsInfoList($("#hdCid").val(), $("#hdBrandId").val(), $("#hdEnc").val());
             });
         })();
     </script>

@@ -126,7 +126,8 @@
                 },
                 initEvent: function () {
                     $(document).on('click', '.back-btn', function () {
-                        window.history.back();
+                        //window.history.back();
+                        location.href = "/Main.aspx";
                     });
 
                     $(document).on('click', '#btnEdit', function () {

@@ -184,21 +184,30 @@ namespace RecycleWeb {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdCid;
         
         /// <summary>
-        /// hdBarndId 컨트롤입니다.
+        /// hdBrandId 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdBarndId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdBrandId;
         
         /// <summary>
-        /// enc 컨트롤입니다.
+        /// hdEnc 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden enc;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdEnc;
+        
+        /// <summary>
+        /// msg 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden msg;
     }
 }

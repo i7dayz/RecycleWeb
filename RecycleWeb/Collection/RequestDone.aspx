@@ -115,6 +115,10 @@
                             location.href = "/Main.aspx";
                         });
 
+                        $(document).on('click', '#btnCancel', function () {
+
+                        });
+
                         $(document).on('click', '#btnConfirm', function () {
                             location.href = "/Main.aspx";
                         });
@@ -156,6 +160,15 @@
                                     if (response.collectReserve.product_10 != "0") {
                                         $("#txtReqList").val($("#txtReqList").val() + "이사수거 " + response.collectReserve.product_10 + ", ");
                                     }
+                                    if (response.collectReserve.etc_1 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "기타, ");
+                                    }
+                                    if (response.collectReserve.etc_2 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "폐기서비스, ");
+                                    }
+                                    if (response.collectReserve.etc_3 != "0") {
+                                        $("#txtReqList").val($("#txtReqList").val() + "유품정리, ");
+                                    }
 
                                     $("#imgCollectorImg").attr("src", response.collectReserve.collectorImageUrl);
                                     $("#txtCollectorName").val(response.collectReserve.collectorName);
@@ -163,13 +176,27 @@
                                     $("#txtReqDate").val(response.collectReserve.hopeCollectDate);
 
                                 } else {
-                                    //if (response.value == 200) {
-                                    //    errorBoxWithCallback("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goUrl, { url: "/Main.aspx" });
-                                    //} 
                                     errorBox(getErrMsg(response.value));
                                 }
                             }, "post", false);
-                        }
+                        },
+                        cancelRequest: function () {
+                            var params = {
+                                producerIdx: $("#hdProducerIdx").val()
+                            }
+
+                            Server.ajax("/producer/produceCancel", params, function (response, status, xhr) {
+                                if (response.value == 0) {
+                                    //infoBox(response.value);
+                                    infoBoxWithCallback("수거신청이 취소되었습니다.", page.fn.goUrl, { url: "/Main.aspx" })
+                                } else {
+                                    errorBox(getErrMsg(response.value));
+                                }
+                            }, "post", false);
+                        },
+                        goUrl(urlData) {
+                            location.href = urlData.url;
+                        },
                     }
                 };
 
