@@ -580,9 +580,6 @@
                         <div class="colgroup">
                             <div class="content fixed" style="background-color:#f6f6f6">   
                                 <div class="main">
-                                    <input type="hidden" runat="server" id="hdCid" />
-                                    <input type="hidden" runat="server" id="hdBrandId" />
-                                    <input type="hidden" runat="server" id="hdEnc" />
                                     <input type="hidden" runat="server" id="msg" />
 
                                     <div class="section" style="margin:0 auto">
@@ -937,7 +934,7 @@
                 page.fn.getDonationGroup();
                 page.fn.getRank();
                 
-                getGoodsInfoList($("#hdCid").val(), $("#hdBrandId").val(), $("#hdEnc").val());
+                //getGoodsInfoList($("#hdCid").val(), $("#hdBrandId").val(), $("#hdEnc").val());
             });
         })();
     </script>

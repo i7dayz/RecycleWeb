@@ -41,7 +41,8 @@
                 <div role="main" class="wow fadeIn" data-inset="false" data-wow-delay="0.2s">
                     <div class="content fixed" id="content">   
                         <div class="main">
-                            <ul class="brand-list">
+                            <input type="hidden" runat="server" id="hdMsg" />
+                            <ul runat="server" id="brandList" class="brand-list">
                                 <li style="width:24.7%; height:100px; float:left; text-align: center;">
                                     <div style="height:50px; padding-top:20px">
                                         <img src="../temp/hollys.jpg" style="width: 50%">
