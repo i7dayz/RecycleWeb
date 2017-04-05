@@ -42,7 +42,7 @@ namespace RecycleWeb.Member
                 WebApiUtil.HttpPostJSON(url, param, out msg);
 
                 //Dictionary<string, string> token = JsonConvert.DeserializeObject<Dictionary<string, string>>(msg);
-                RootObject rootObj = JsonConvert.DeserializeObject<RootObject>(msg);
+                RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(msg);
 
                 if (rootObj.value == 0)
                 {
@@ -99,7 +99,7 @@ namespace RecycleWeb.Member
         public string name { get; set; }
     }
 
-    public class RootObject
+    public class RootObjectLogin
     {
         public string result_msg { get; set; }
         public string server_time { get; set; }
