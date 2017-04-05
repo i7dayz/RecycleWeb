@@ -178,7 +178,7 @@ body .content > .main:after{display:block;visibility:hidden;clear:both;height:0;
 body .content > .main .banner {height:120px;background-color:darkslategray;text-align:center;color:#efefef;}
 
 body .content > .main .collector { padding:0 0 0 117px; /*height: 156px;*/position:relative;overflow: hidden;margin:0;}
-body .content > .main .collector .image { background-color:#f6f6f6; width: 112px; height:146px; position:absolute; top:0; left:0; text-align: center; padding-top:36px}
+body .content > .main .collector .image { background-color:#f6f6f6; width: 112px; height:125px; position:absolute; top:0; left:0; text-align: center; padding-top:36px}
 body .content > .main .collector .name { height: 30px; margin-bottom: 5px;}
 body .content > .main .collector .subject { margin-bottom: 3px;}
 body .content > .main .collector .subject > ul > li { line-height: 15px; }

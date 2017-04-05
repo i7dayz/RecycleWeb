@@ -31,7 +31,10 @@ namespace RecycleWeb
                 this.nickname.InnerText = Session["nickname"].ToString();
                 this.point.InnerText = Session["producePoint"].ToString();
 
-                getCollectReserve();
+                //2017-04-06 오류로 임시 주석
+                //getCollectReserve();
+
+                getMarketPrice();
             }
             else
             {
@@ -106,7 +109,7 @@ namespace RecycleWeb
                         productList += string.Format("유품정리, ", rootObj.collectReserve.etc_3.ToString());
                     }
 
-                    if (string.IsNullOrEmpty(rootObj.collectReserve.collectorImageUrl.ToString()))
+                    if (!string.IsNullOrEmpty(rootObj.collectReserve.collectorImageUrl.ToString()))
                     {
                         //this.collectorImg.Src = rootObj.collectReserve.collectorImageUrl;
                         this.collectorImg.InnerHtml = "<img src='http://cfile23.uf.tistory.com/image/2011B836512C50971B7845' style='width:100%; height:auto'>";
@@ -119,7 +122,35 @@ namespace RecycleWeb
                     this.collectorName.InnerText = rootObj.collectReserve.collectorName;
                     this.collectorContactNumber.InnerText = rootObj.collectReserve.collectorContactNumber;
                     this.collectorHopeDate.InnerText = rootObj.collectReserve.hopeCollectDate;
+
+                    this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+                    this.hdProduceIdx.Value = rootObj.collectReserve.product_3.ToString();
                 }
+            }
+        }
+
+        private void getMarketPrice()
+        {
+            string url = "http://geno47.cafe24.com:8080/producer/marketPriceView";
+            
+            string msg = string.Empty;
+
+            WebApiUtil.HttpPostJSON(url, null, out msg);
+
+            RootObjectMarketPrice rootObj = JsonConvert.DeserializeObject<RootObjectMarketPrice>(msg);
+
+            if (rootObj.value == 0)
+            {
+                this.hdProduce_1_price.Value = rootObj.marketPriceView[0][1].ToString();
+                this.hdProduce_2_price.Value = rootObj.marketPriceView[1][1].ToString();
+                this.hdProduce_3_price.Value = rootObj.marketPriceView[2][1].ToString();
+                this.hdProduce_4_price.Value = rootObj.marketPriceView[3][1].ToString();
+                this.hdProduce_5_price.Value = rootObj.marketPriceView[4][1].ToString();
+                this.hdProduce_6_price.Value = rootObj.marketPriceView[5][1].ToString();
+                this.hdProduce_7_price.Value = rootObj.marketPriceView[6][1].ToString();
+                this.hdProduce_8_price.Value = rootObj.marketPriceView[7][1].ToString();
+                this.hdProduce_9_price.Value = rootObj.marketPriceView[8][1].ToString();
+                this.hdProduce_10_price.Value = rootObj.marketPriceView[9][1].ToString();
             }
         }
     }
@@ -152,5 +183,14 @@ namespace RecycleWeb
         public CollectReserve collectReserve { get; set; }
         public string server_ver { get; set; }
         public int value { get; set; }
+    }
+
+    public class RootObjectMarketPrice
+    {
+        public string result_msg { get; set; }
+        public string server_time { get; set; }
+        public string server_ver { get; set; }
+        public int value { get; set; }
+        public List<List<int>> marketPriceView { get; set; }
     }
 }

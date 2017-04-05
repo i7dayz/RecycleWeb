@@ -446,7 +446,7 @@
 
                         $(".address-list").append(html);
                     },
-                    goUrl(urlData) {
+                    goUrl: function(urlData) {
                         location.href = urlData.url;
                     }
                 }

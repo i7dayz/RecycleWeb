@@ -194,7 +194,7 @@
                                 }
                             }, "post", false);
                         },
-                        goUrl(urlData) {
+                        goUrl: function(urlData) {
                             location.href = urlData.url;
                         },
                     }

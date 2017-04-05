@@ -89,6 +89,8 @@
                                 </div>
 
                                 <div class="main">
+                                    <input type="hidden" runat="server" id="hdProduceIdx" />
+                                    <input type="hidden" runat="server" id="hdProducerIdx" />
                                     <!-- 알림 -->
                                     <div class="alarm" style="height:400px;">
                                         <!-- banner -->
@@ -217,6 +219,16 @@
                             <div class="content fixed" style="background-color:#f6f6f6">   
                                 <div class="main">
                                     <form runat="server" id="pickupForm" method="post" action="Collection/RequestDetails.aspx" data-ajax="false">
+                                        <input type="hidden" runat="server" id="hdProduce_1_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_2_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_3_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_4_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_5_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_6_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_7_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_8_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_9_price" />
+                                        <input type="hidden" runat="server" id="hdProduce_10_price" />
                                         <div class="section" style="margin:0 auto">
                                             <!-- title -->
                                             <div class="ui-grid-a request-title">
@@ -386,7 +398,7 @@
                                                             </div>
                                                             <div class="ui-block-b align-center">
                                                                 <input type="text" runat="server" id="txtProduct02" style="display: inline-block; width:50%; float:left; text-align:right" value="0" readonly="readonly"/>
-                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="개" readonly="readonly"/>
+                                                                <input type="text" style="display: inline-block; width:40%; margin-left:10%; float:left;" value="kg" readonly="readonly"/>
                                                             </div>
                                                             <div class="ui-block-c">
                                                                 <img src="img/plus.png" class="btn-plus">
@@ -786,6 +798,9 @@
                     });
 
                     //홈탭
+                    $(document).on('click', '#btnQuickRequestCancel', function () {
+                        confirmBox("수거예약을 취소하시겠습니까?", page.fn.cancelRequest);
+                    });
                     $(document).on('click', '#btnAlarm', function () {
                         $('.alarm').show();
                         $('.rank').hide();
@@ -855,8 +870,14 @@
                             || $("#chkEtc1").is(":checked")
                             || $("#chkEtc2").is(":checked")
                             || $("#chkEtc3").is(":checked")) {
-                            // 여기서 수거신청한 금액이 얼마인지 체크
 
+                            // 여기서 수거신청 금액 확인
+                            if (!page.fn.checkPrice())
+                            {
+                                infoBox("수거신청은 총 요청 금액이 3,000원 이상이거나 수거대상이 20kg이상일 경우 가능합니다. (단 이삿짐, 기타, 폐기서비스, 유품정리의 경우 단일건 가능)");
+                                return;
+                            }
+                            //return;
                             $("#pickupForm").submit();
                         }
                         else {
@@ -938,6 +959,81 @@
 
                         $(".rank").find("ul").append(rank);
                     },
+                    cancelRequest: function () {
+                        var params = {
+                            produceIdx: $("#hdProduceIdx").val(),
+                            producerIdx: $("#hdProducerIdx").val()
+                        }
+
+                        Server.ajax("/producer/produceCancel", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                infoBoxWithCallback("수거예약이 취소되었습니다.", page.fn.goUrl, { url: "/Main.aspx" })
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
+                    goUrl: function(urlData) {
+                        location.href = urlData.url;
+                    },
+                    checkPrice: function (){
+                        var totalPrice = 0;
+                        var totalCount = 0;
+                        var canRequest = false;
+
+                        if (parseInt($("#txtProduct06").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct06").val()) * parseInt($("#hdProduce_6_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct06").val());
+                        }
+                        if (parseInt($("#txtProduct07").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct07").val()) * parseInt($("#hdProduce_7_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct07").val());
+                        }
+
+                        if (parseInt($("#txtProduct09").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct09").val()) * parseInt($("#hdProduce_9_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct09").val());
+                        }
+                        if (parseInt($("#txtProduct08").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct08").val()) * parseInt($("#hdProduce_8_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct08").val());
+                        }
+
+                        if (parseInt($("#txtProduct01").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct01").val()) * parseInt($("#hdProduce_1_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct01").val());
+                        }
+                        if (parseInt($("#txtProduct02").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct02").val()) * parseInt($("#hdProduce_2_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct02").val());
+                        }
+
+                        if (parseInt($("#txtProduct04").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct04").val()) * parseInt($("#hdProduce_4_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct04").val());
+                        }
+                        if (parseInt($("#txtProduct05").val()) > 0) {
+                            totalPrice = totalPrice + (parseInt($("#txtProduct05").val()) * parseInt($("#hdProduce_5_price").val()));
+                            totalCount = totalCount + parseInt($("#txtProduct05").val());
+                        }
+
+                        if (totalPrice >= 3000 || totalCount >= 20) {
+                            canRequest = true;
+                        }
+
+                        if (!canRequest) {
+                            if ($("#chkProduct10").is(":checked")
+                                || $("#chkEtc1").is(":checked")
+                                || $("#chkEtc2").is(":checked")
+                                || $("#chkEtc3").is(":checked")) {
+                                canRequest = true;
+                            }
+                        }
+                        //alert(totalPrice);
+                        //alert(totalCount);
+                        //alert(canRequest);  
+                        return canRequest;
+                    }
                 }
             };
 
