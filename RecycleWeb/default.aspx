@@ -78,6 +78,7 @@
 
                     $(document).on('click', '#custom-login-btn', function () {
                         page.fn.loginWithKakao();
+                        //location.href = "https://kauth.kakao.com/oauth/authorize?client_id=7ac9ab630f44e0b7910f477934bb9f9a&redirect_uri=http://localhost:52491/Member/KakaoLogin.aspx&response_type=code"
                     });
 
                     //$(document).on('click', '#btnKakaoLogin', function () {
@@ -91,82 +92,103 @@
                             success: function (authObj) {
                                 //alert(JSON.stringify(authObj));
                                 //infoBox(JSON.stringify(authObj));
-                                //return;
+
+                                var f = document.createElement("form");
+                                f.setAttribute("method", "post");
+                                f.setAttribute("action", "/Member/KakaoLoginTest.aspx");
+                                document.body.appendChild(f);
+
+                                var accessToken = Kakao.Auth.getAccessToken();
+                                var refreshToken = Kakao.Auth.getRefreshToken();
+
+                                var i_accessToken = document.createElement("input");
+                                i_accessToken.setAttribute("type", "hidden");
+                                i_accessToken.setAttribute("name", "accessToken");
+                                i_accessToken.setAttribute("value", accessToken);
+                                f.appendChild(i_accessToken);
+
+                                var i_refreshToken = document.createElement("input");
+                                i_refreshToken.setAttribute("type", "hidden");
+                                i_refreshToken.setAttribute("name", "refreshToken");
+                                i_refreshToken.setAttribute("value", refreshToken);
+                                f.appendChild(i_refreshToken);
+
+                                f.submit();
 
                                 // 로그인 성공시, API를 호출합니다.
-                                Kakao.API.request({
-                                    url: '/v1/user/me',
-                                    success: function (res) {
-                                        //alert(JSON.stringify(res));
-                                        infoBox(JSON.stringify(res));
-                                        return;
-                                        var data = JSON.stringify(res);
-                                        data = JSON.parse(data);
-                                        var id = data.id;
-                                        var nickname = data.properties.nickname;
-                                        var emil = data.kaccount_email;
-                                        var thumbnailImage = data.properties.thumbnail_image;
-                                        var profileImage = data.properties.profile_image;
+                                //Kakao.API.request({
+                                //    url: '/v1/user/me',
+                                //    success: function (res) {
+                                //        //alert(JSON.stringify(res));
+                                //        //infoBox(JSON.stringify(res));
+                                //        //return;
+                                //        var data = JSON.stringify(res);
+                                //        data = JSON.parse(data);
+                                //        var id = data.id;
+                                //        var nickname = data.properties.nickname;
+                                //        var emil = data.kaccount_email;
+                                //        var thumbnailImage = data.properties.thumbnail_image;
+                                //        var profileImage = data.properties.profile_image;
 
-                                        var f = document.createElement("form");
-                                        f.setAttribute("method", "post");
-                                        f.setAttribute("action", "/Member/KakaoLogin.aspx");
-                                        document.body.appendChild(f);
+                                //        var f = document.createElement("form");
+                                //        f.setAttribute("method", "post");
+                                //        f.setAttribute("action", "/Member/KakaoLogin.aspx");
+                                //        document.body.appendChild(f);
 
-                                        var i_id = document.createElement("input");
-                                        i_id.setAttribute("type", "hidden");
-                                        i_id.setAttribute("name", "kakaoId");
-                                        i_id.setAttribute("value", id);
-                                        f.appendChild(i_id);
+                                //        var i_id = document.createElement("input");
+                                //        i_id.setAttribute("type", "hidden");
+                                //        i_id.setAttribute("name", "kakaoId");
+                                //        i_id.setAttribute("value", id);
+                                //        f.appendChild(i_id);
 
-                                        var i_nick = document.createElement("input");
-                                        i_nick.setAttribute("type", "hidden");
-                                        i_nick.setAttribute("name", "kakaoNickname");
-                                        i_nick.setAttribute("value", nickname);
-                                        f.appendChild(i_nick);
+                                //        var i_nick = document.createElement("input");
+                                //        i_nick.setAttribute("type", "hidden");
+                                //        i_nick.setAttribute("name", "kakaoNickname");
+                                //        i_nick.setAttribute("value", nickname);
+                                //        f.appendChild(i_nick);
 
-                                        var i_mail = document.createElement("input");
-                                        i_mail.setAttribute("type", "hidden");
-                                        i_mail.setAttribute("name", "kakaoEmail");
-                                        i_mail.setAttribute("value", emil);
-                                        f.appendChild(i_mail);
+                                //        var i_mail = document.createElement("input");
+                                //        i_mail.setAttribute("type", "hidden");
+                                //        i_mail.setAttribute("name", "kakaoEmail");
+                                //        i_mail.setAttribute("value", emil);
+                                //        f.appendChild(i_mail);
 
-                                        var i_thum = document.createElement("input");
-                                        i_thum.setAttribute("type", "hidden");
-                                        i_thum.setAttribute("name", "kakaoThumbnailImage");
-                                        i_thum.setAttribute("value", thumbnailImage);
-                                        f.appendChild(i_thum);
+                                //        var i_thum = document.createElement("input");
+                                //        i_thum.setAttribute("type", "hidden");
+                                //        i_thum.setAttribute("name", "kakaoThumbnailImage");
+                                //        i_thum.setAttribute("value", thumbnailImage);
+                                //        f.appendChild(i_thum);
 
-                                        var i_profile = document.createElement("input");
-                                        i_profile.setAttribute("type", "hidden");
-                                        i_profile.setAttribute("name", "kakaoProfileImage");
-                                        i_profile.setAttribute("value", profileImage);
-                                        f.appendChild(i_profile);
+                                //        var i_profile = document.createElement("input");
+                                //        i_profile.setAttribute("type", "hidden");
+                                //        i_profile.setAttribute("name", "kakaoProfileImage");
+                                //        i_profile.setAttribute("value", profileImage);
+                                //        f.appendChild(i_profile);
 
-                                        var accessToken = Kakao.Auth.getAccessToken();
-                                        var refreshToken = Kakao.Auth.getRefreshToken();
+                                //        var accessToken = Kakao.Auth.getAccessToken();
+                                //        var refreshToken = Kakao.Auth.getRefreshToken();
 
-                                        var i_accessToken = document.createElement("input");
-                                        i_accessToken.setAttribute("type", "hidden");
-                                        i_accessToken.setAttribute("name", "accessToken");
-                                        i_accessToken.setAttribute("value", accessToken);
-                                        f.appendChild(i_accessToken);
+                                //        var i_accessToken = document.createElement("input");
+                                //        i_accessToken.setAttribute("type", "hidden");
+                                //        i_accessToken.setAttribute("name", "accessToken");
+                                //        i_accessToken.setAttribute("value", accessToken);
+                                //        f.appendChild(i_accessToken);
 
-                                        var i_refreshToken = document.createElement("input");
-                                        i_refreshToken.setAttribute("type", "hidden");
-                                        i_refreshToken.setAttribute("name", "refreshToken");
-                                        i_refreshToken.setAttribute("value", refreshToken);
-                                        f.appendChild(i_refreshToken);
+                                //        var i_refreshToken = document.createElement("input");
+                                //        i_refreshToken.setAttribute("type", "hidden");
+                                //        i_refreshToken.setAttribute("name", "refreshToken");
+                                //        i_refreshToken.setAttribute("value", refreshToken);
+                                //        f.appendChild(i_refreshToken);
 
-                                        //page.fn.getLoginInfo(id, profileImage, nickname);
+                                //        //page.fn.getLoginInfo(id, profileImage, nickname);
 
-                                        f.submit();
-                                    },
-                                    fail: function (error) {
-                                        //alert(JSON.stringify(error));
-                                        errorBox(JSON.stringify(error));
-                                    }
-                                });
+                                //        f.submit();
+                                //    },
+                                //    fail: function (error) {
+                                //        //alert(JSON.stringify(error));
+                                //        errorBox(JSON.stringify(error));
+                                //    }
+                                //});
                             },
                             fail: function (err) {
                                 //alert(JSON.stringify(err));

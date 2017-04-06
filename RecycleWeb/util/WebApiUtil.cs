@@ -92,37 +92,45 @@ namespace RecycleWeb.util
             bool _flag = false;
             HttpWebRequest req = WebRequest.Create(new Uri(url)) as HttpWebRequest;
             req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
-
+            req.ContentType = "application/json; charset=UTF-8";
+            req.Headers["Authorization"] = "Bearer " + obj.ToString();
             // Build a string with all the params, properly encoded.
             // We assume that the arrays paramName and paramVal are
             // of equal length:
-            string jsonString = new JavaScriptSerializer().Serialize(obj);
+            string jsonString = string.Empty; // new JavaScriptSerializer().Serialize("");
 
-            StringBuilder paramz = new StringBuilder();
-            paramz.Append("param=");
-            paramz.Append(System.Web.HttpUtility.UrlEncode(jsonString));
+            //StringBuilder paramz = new StringBuilder();
+            //paramz.Append("param=");
+            //paramz.Append(System.Web.HttpUtility.UrlEncode(jsonString));
 
             // Encode the parameters as form data:
-            byte[] formData = UTF8Encoding.UTF8.GetBytes(paramz.ToString());
-            req.ContentLength = formData.Length;
+            //byte[] formData = UTF8Encoding.UTF8.GetBytes(paramz.ToString());
+            //req.ContentLength = formData.Length;
 
             // Send the request:
-            using (Stream post = req.GetRequestStream())
-            {
-                post.Write(formData, 0, formData.Length);
-                post.Flush();
-            }
+            //using (Stream post = req.GetRequestStream())
+            //{
+            //    post.Write(formData, 0, formData.Length);
+            //    post.Flush();
+            //}
 
             // Pick up the response:
-            using (HttpWebResponse resp = req.GetResponse() as HttpWebResponse)
+            try
             {
-                if (resp.StatusCode == HttpStatusCode.OK)
+                using (HttpWebResponse resp = req.GetResponse() as HttpWebResponse)
                 {
-                    _flag = true;
+                    if (resp.StatusCode == HttpStatusCode.OK)
+                    {
+                        _flag = true;
+                    }
+                    StreamReader reader = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("UTF-8"));
+                    Msg = reader.ReadToEnd();
                 }
-                StreamReader reader = new StreamReader(resp.GetResponseStream(), Encoding.GetEncoding("UTF-8"));
-                Msg = reader.ReadToEnd();
+            }
+            catch (WebException e)
+            {
+                Console.Write(e.Message);
+                Msg = string.Empty;
             }
 
             return _flag;

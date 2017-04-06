@@ -137,7 +137,7 @@ var Server = function () {
             });
         },
         defaultUrl2: function () {
-            return storeUrl;
+            return "https://kauth.kakao.com";
         },
         ajax2: function (_url, _params, _func, _type, _async) {
             if (_url == undefined || _func == undefined) {
@@ -164,7 +164,6 @@ var Server = function () {
                 type: _type,
                 async: _async,
                 crossDomain: true,
-                dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 timeout: 10000,
                 beforeSend: function (xhr, settings) {

@@ -118,6 +118,7 @@
     <Content Include="Member\EditInfo.aspx" />
     <Content Include="Member\Info.aspx" />
     <Content Include="Member\KakaoLogin.aspx" />
+    <Content Include="Member\KakaoLoginTest.aspx" />
     <Content Include="Member\MyCouponDetails.aspx" />
     <Content Include="Member\MyCouponGuide.aspx" />
     <Content Include="Member\PointHistory.aspx" />
@@ -966,6 +967,13 @@
     </Compile>
     <Compile Include="Member\KakaoLogin.aspx.designer.cs">
       <DependentUpon>KakaoLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\KakaoLoginTest.aspx.cs">
+      <DependentUpon>KakaoLoginTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\KakaoLoginTest.aspx.designer.cs">
+      <DependentUpon>KakaoLoginTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member\MyCoupon.aspx.cs">
       <DependentUpon>MyCoupon.aspx</DependentUpon>
