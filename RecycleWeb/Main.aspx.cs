@@ -30,9 +30,8 @@ namespace RecycleWeb
 
                 this.nickname.InnerText = Session["nickname"].ToString();
                 this.point.InnerText = Session["producePoint"].ToString();
-
-                //2017-04-06 오류로 임시 주석
-                //getCollectReserve();
+                
+                getCollectReserve();
 
                 getMarketPrice();
             }
@@ -59,72 +58,90 @@ namespace RecycleWeb
 
                 if (rootObj.value == 0)
                 {
-                    string productList = string.Empty;
+                    if (rootObj.collectReserve != null)
+                    {
+                        string productList = string.Empty;
 
-                    if (!string.IsNullOrEmpty(rootObj.collectReserve.product_6.ToString()))
-                    {
-                        productList += string.Format("헌옷 {0}, ", rootObj.collectReserve.product_6.ToString());
-                    } else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_7.ToString()))
-                    {
-                        productList += string.Format("휴대폰 {0}, ", rootObj.collectReserve.product_7.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_9.ToString()))
-                    {
-                        productList += string.Format("소형가전 {0}, ", rootObj.collectReserve.product_9.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_8.ToString()))
-                    {
-                        productList += string.Format("대형가전 {0}, ", rootObj.collectReserve.product_8.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_1.ToString()))
-                    {
-                        productList += string.Format("폐지 {0}, ", rootObj.collectReserve.product_1.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_2.ToString()))
-                    {
-                        productList += string.Format("병 {0}, ", rootObj.collectReserve.product_2.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_4.ToString()))
-                    {
-                        productList += string.Format("고철 {0}, ", rootObj.collectReserve.product_4.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_5.ToString()))
-                    {
-                        productList += string.Format("비철 {0}, ", rootObj.collectReserve.product_5.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_10.ToString()))
-                    {
-                        productList += string.Format("이삿짐, ", rootObj.collectReserve.product_10.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_1.ToString()))
-                    {
-                        productList += string.Format("기타, ", rootObj.collectReserve.etc_1.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_2.ToString()))
-                    {
-                        productList += string.Format("폐기서비스, ", rootObj.collectReserve.etc_2.ToString());
-                    }
-                    else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_3.ToString()))
-                    {
-                        productList += string.Format("유품정리, ", rootObj.collectReserve.etc_3.ToString());
-                    }
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_6.ToString()))
+                        {
+                            productList += string.Format("헌옷 {0}, ", rootObj.collectReserve.product_6.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_7.ToString()))
+                        {
+                            productList += string.Format("휴대폰 {0}, ", rootObj.collectReserve.product_7.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_9.ToString()))
+                        {
+                            productList += string.Format("소형가전 {0}, ", rootObj.collectReserve.product_9.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_8.ToString()))
+                        {
+                            productList += string.Format("대형가전 {0}, ", rootObj.collectReserve.product_8.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_1.ToString()))
+                        {
+                            productList += string.Format("폐지 {0}, ", rootObj.collectReserve.product_1.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_2.ToString()))
+                        {
+                            productList += string.Format("병 {0}, ", rootObj.collectReserve.product_2.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_4.ToString()))
+                        {
+                            productList += string.Format("고철 {0}, ", rootObj.collectReserve.product_4.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_5.ToString()))
+                        {
+                            productList += string.Format("비철 {0}, ", rootObj.collectReserve.product_5.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_10.ToString()))
+                        {
+                            productList += string.Format("이삿짐, ", rootObj.collectReserve.product_10.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_1.ToString()))
+                        {
+                            productList += string.Format("기타, ", rootObj.collectReserve.etc_1.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_2.ToString()))
+                        {
+                            productList += string.Format("폐기서비스, ", rootObj.collectReserve.etc_2.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_3.ToString()))
+                        {
+                            productList += string.Format("유품정리, ", rootObj.collectReserve.etc_3.ToString());
+                        }
 
-                    if (!string.IsNullOrEmpty(rootObj.collectReserve.collectorImageUrl.ToString()))
-                    {
-                        //this.collectorImg.Src = rootObj.collectReserve.collectorImageUrl;
-                        this.collectorImg.InnerHtml = "<img src='http://cfile23.uf.tistory.com/image/2011B836512C50971B7845' style='width:100%; height:auto'>";
+                        if (string.IsNullOrEmpty(rootObj.collectReserve.collectorImageUrl.ToString()))
+                        {
+                            //this.collectorImg.Src = rootObj.collectReserve.collectorImageUrl;
+                            this.collectorImg.InnerHtml = "<img src='http://cfile23.uf.tistory.com/image/2011B836512C50971B7845' style='width:100%; height:auto'>";
+                        }
+                        else
+                        {
+                            this.collectorImg.InnerHtml = "<img src='/img/profile.png' style='width:100%; height:auto'>";
+                        }
+                        this.collectList.InnerText = productList;
+                        this.collectorName.InnerText = rootObj.collectReserve.collectorName;
+                        this.collectorContactNumber.InnerText = rootObj.collectReserve.collectorContactNumber;
+                        this.collectorHopeDate.InnerText = rootObj.collectReserve.hopeCollectDate;
+
+                        this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+                        this.hdProduceIdx.Value = rootObj.collectReserve.product_3.ToString();
+
+                        this.reserved.Style["display"] = "block";
+                        this.notReserved.Style["display"] = "none";
+
+                        this.btnQuickRequest.Style["display"] = "none";
+                        this.btnQuickRequestCancel.Style["display"] = "block";
                     }
                     else
                     {
-                        this.collectorImg.InnerHtml = "<img src='/img/profile.png' style='width:100%; height:auto'>";
-                    }
-                    this.collectList.InnerText = productList;
-                    this.collectorName.InnerText = rootObj.collectReserve.collectorName;
-                    this.collectorContactNumber.InnerText = rootObj.collectReserve.collectorContactNumber;
-                    this.collectorHopeDate.InnerText = rootObj.collectReserve.hopeCollectDate;
+                        this.reserved.Style["display"] = "none";
+                        this.notReserved.Style["display"] = "block";
 
-                    this.hdProducerIdx.Value = Session["producerIdx"].ToString();
-                    this.hdProduceIdx.Value = rootObj.collectReserve.product_3.ToString();
+                        this.btnQuickRequest.Style["display"] = "block";
+                        this.btnQuickRequestCancel.Style["display"] = "none";
+                    }
                 }
             }
         }

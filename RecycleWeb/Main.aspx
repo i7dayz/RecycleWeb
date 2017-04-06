@@ -106,30 +106,34 @@
                                                         <img src="img/calendar.png" style="width:20px; height:auto; float:left; margin-right:5px;"><span>예약현황</span>
                                                     </span>
                                                     <div class="subject txt-ellipsis ">
-                                                        <ul>
-                                                            <li>
-                                                                <span runat="server" id="collectList"></span>
-                                                            </li>
-                                                            <li>
-                                                                담당자: <span  runat="server" id="collectorName"></span> 기사님
-                                                            </li>
-                                                            <li>
-                                                                연락처: <span runat="server" id="collectorContactNumber"></span>
-                                                            </li>
-                                                            <li>
-                                                                희망수거일시: <span  runat="server" id="collectorHopeDate"></span>
-                                                            </li>
-                                                        </ul>
+                                                        <div runat="server" id="reserved">
+                                                            <ul>
+                                                                <li>
+                                                                    <span runat="server" id="collectList"></span>
+                                                                </li>
+                                                                <li>
+                                                                    담당자: <span  runat="server" id="collectorName"></span> 기사님
+                                                                </li>
+                                                                <li>
+                                                                    연락처: <span runat="server" id="collectorContactNumber"></span>
+                                                                </li>
+                                                                <li>
+                                                                    희망수거일시: <span  runat="server" id="collectorHopeDate"></span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div runat="server" id="notReserved">
+                                                            <span>수거신청내역이 없습니다.</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="btn-area fixed">
                                                     <ul class="">
                                                         <li>
-                                                            <a href="javascript:;" class="ui-btn ui-corner-all" id="btnQuickRequest" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
-                                                                <!--<em class="img-bul pictures"></em>-->
+                                                            <a href="javascript:;" class="ui-btn ui-corner-all" runat="server" id="btnQuickRequest" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
                                                                 수거신청
                                                             </a>
-                                                            <a href="javascript:;" class="ui-btn ui-corner-all" id="btnQuickRequestCancel" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
+                                                            <a href="javascript:;" class="ui-btn ui-corner-all" runat="server" id="btnQuickRequestCancel" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0; margin: 0;">
                                                                 취소
                                                             </a>
                                                         </li>
@@ -143,7 +147,7 @@
                                                     <img src="img/notice.png" style="width:24px; height:auto">
                                                     <p>공지사항/이벤트</p>
                                                 </li>
-                                                <li id="btnUsageGuide" style="cursor:pointer">
+                                                <li id="btnSimpleUsageGuide" style="cursor:pointer">
                                                     <img src="img/howto.png" style="width:24px; height:auto">
                                                     <p>이용안내</p>
                                                 </li>
@@ -828,8 +832,8 @@
                     $(document).on('click', '#btnNoticeEvent', function () {
                         //location.href = "/Support/UsageGuide.aspx";
                     });
-                    $(document).on('click', '#btnUsageGuide', function () {
-                        location.href = "/Support/UsageGuide.aspx";
+                    $(document).on('click', '#btnSimpleUsageGuide', function () {
+                        location.href = "/Support/SimpleUsageGuide.aspx";
                     });
 
                     //수거요청탭

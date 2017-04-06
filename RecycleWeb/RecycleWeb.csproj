@@ -844,6 +844,8 @@
     <Content Include="script\extention\jquery.modal-master\js\jquery.modal.min.js" />
     <Content Include="script\extention\nativedroid2.js" />
     <Content Include="script\extention\nd2settings.js" />
+    <Content Include="script\extention\swiper-3.4.2\swiper.jquery.min.js" />
+    <Content Include="script\extention\swiper-3.4.2\swiper.min.css" />
     <Content Include="script\extention\waves.min.js" />
     <Content Include="script\extention\wow.min.js" />
     <Content Include="script\store.js" />
@@ -851,6 +853,7 @@
     <Content Include="Store\GoodsDetails.aspx" />
     <Content Include="Support\Event.aspx" />
     <Content Include="Support\FAQ.aspx" />
+    <Content Include="Support\SimpleUsageGuide.aspx" />
     <Content Include="Support\TermsAndPolicies.aspx" />
     <Content Include="Support\UsageGuide.aspx" />
     <Content Include="Support\Notice.aspx" />
@@ -1030,6 +1033,13 @@
     </Compile>
     <Compile Include="Support\FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Support\SimpleUsageGuide.aspx.cs">
+      <DependentUpon>SimpleUsageGuide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Support\SimpleUsageGuide.aspx.designer.cs">
+      <DependentUpon>SimpleUsageGuide.aspx</DependentUpon>
     </Compile>
     <Compile Include="Support\TermsAndPolicies.aspx.cs">
       <DependentUpon>TermsAndPolicies.aspx</DependentUpon>
