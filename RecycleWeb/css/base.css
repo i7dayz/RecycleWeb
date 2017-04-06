@@ -181,7 +181,7 @@ body .content > .main .collector { padding:0 0 0 117px; /*height: 156px;*/positi
 body .content > .main .collector .image { background-color:#f6f6f6; width: 112px; height:125px; position:absolute; top:0; left:0; text-align: center; padding-top:36px}
 body .content > .main .collector .name { height: 30px; margin-bottom: 5px;}
 body .content > .main .collector .subject { margin-bottom: 3px;}
-body .content > .main .collector .subject > ul > li { line-height: 15px; }
+body .content > .main .collector .subject ul li { line-height: 15px; }
 body .content > .main .collector .button { height: 30px;}
 
 

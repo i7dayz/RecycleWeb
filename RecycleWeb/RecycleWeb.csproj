@@ -109,6 +109,10 @@
     <Content Include="img\radio-02.png" />
     <Content Include="img\reborn.jpg" />
     <Content Include="Donation\DonationHistory.aspx" />
+    <Content Include="img\usage_guide_1.png" />
+    <Content Include="img\usage_guide_2.png" />
+    <Content Include="img\usage_guide_3.png" />
+    <Content Include="img\usage_guide_4.png" />
     <Content Include="Member\AddressList.aspx" />
     <Content Include="Member\EditAddress.aspx" />
     <Content Include="Member\EditInfo.aspx" />

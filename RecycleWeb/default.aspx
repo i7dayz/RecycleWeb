@@ -91,13 +91,15 @@
                             success: function (authObj) {
                                 //alert(JSON.stringify(authObj));
                                 //infoBox(JSON.stringify(authObj));
+                                //return;
 
                                 // 로그인 성공시, API를 호출합니다.
                                 Kakao.API.request({
                                     url: '/v1/user/me',
                                     success: function (res) {
                                         //alert(JSON.stringify(res));
-                                        //infoBox(JSON.stringify(res));
+                                        infoBox(JSON.stringify(res));
+                                        return;
                                         var data = JSON.stringify(res);
                                         data = JSON.parse(data);
                                         var id = data.id;
