@@ -9,6 +9,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <input type="hidden" runat="server" id="test" />
+        <input type="hidden" runat="server" id="access" />
+        <input type="hidden" runat="server" id="msg" />
     <div>
     
     </div>

@@ -87,17 +87,17 @@ namespace RecycleWeb.util
             return _flag;
         }
 
-        public static bool HttpPost(string url, object obj, out string Msg)
+        public static bool HttpPostAuthHeader(string url, object obj, out string Msg)
         {
             bool _flag = false;
             HttpWebRequest req = WebRequest.Create(new Uri(url)) as HttpWebRequest;
             req.Method = "POST";
-            req.ContentType = "application/json; charset=UTF-8";
-            req.Headers["Authorization"] = "Bearer " + obj.ToString();
+            req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
+            req.Headers["Authorization"] = string.Format("Bearer {0}", obj.ToString());
             // Build a string with all the params, properly encoded.
             // We assume that the arrays paramName and paramVal are
             // of equal length:
-            string jsonString = string.Empty; // new JavaScriptSerializer().Serialize("");
+            //string jsonString =  new JavaScriptSerializer().Serialize("");
 
             //StringBuilder paramz = new StringBuilder();
             //paramz.Append("param=");

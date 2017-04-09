@@ -77,7 +77,16 @@
                     //});
 
                     $(document).on('click', '#custom-login-btn', function () {
-                        page.fn.loginWithKakao();
+                        //page.fn.loginWithKakao();
+
+
+                        var clientId = '7ac9ab630f44e0b7910f477934bb9f9a';
+                        var redirectUri = 'http://' + jQuery(location).attr('host') + '/Member/KakaoLoginTest.aspx';
+                        //var redirectUri = 'http://hrx.co.kr/Member/KakaoLoginTest.aspx';
+                        var url = 'https://kauth.kakao.com/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirectUri + '&response_type=code';
+                       
+                        //var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
+                        location.href = url;
                         //location.href = "https://kauth.kakao.com/oauth/authorize?client_id=7ac9ab630f44e0b7910f477934bb9f9a&redirect_uri=http://localhost:52491/Member/KakaoLogin.aspx&response_type=code"
                     });
 
