@@ -11,6 +11,10 @@ namespace RecycleWeb.Member
 {
     public partial class Info : System.Web.UI.Page
     {
+        const string KAKAO_KAPI_URI = "https://kapi.kakao.com";
+
+        const string GET_LOGOUT_RESOURCE = "v1/user/logout";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["kakaoId"] != null)
@@ -56,6 +60,18 @@ namespace RecycleWeb.Member
             {
                 Response.Redirect("/Default.aspx");
             }
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            string temp = WebApiUtil.Logout(KAKAO_KAPI_URI, GET_LOGOUT_RESOURCE, Session["accessToken"].ToString());
+            ScriptManager.RegisterStartupScript(
+                this,
+                this.GetType(),
+                "redirect",
+                "window.location='" + Request.ApplicationPath + "Default.aspx';",
+                true
+            );
         }
     }
 

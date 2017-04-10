@@ -13,6 +13,7 @@
     <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
 
     <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
 </head>
 <body class="all" contenteditable="false">
     <div class="wrap join" id="wrap">
@@ -103,10 +104,10 @@
                 </div>
                 <div class="ui-grid-a">
                     <div class="ui-block-a wpc50">
-                        <span class="txt-color5" style="padding-left:15px;">로그아웃</span>    
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">로그아웃</asp:LinkButton>
                     </div>
                     <div class="ui-block-b wpc50" style="text-align:right; ">
-                        <span class="txt-color5" style="padding-right:15px;"">회원탈퇴</span>
+                        <a class="txt-color5" style="padding-right:15px;" runat="server">회원탈퇴</a>
                     </div>
                 </div>
             </div>
@@ -114,6 +115,8 @@
     </div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
         
     <script>
         (function () {
@@ -137,8 +140,15 @@
                     $(document).on('click', '#btnEditAddress', function () {
                         location.href = "AddressList.aspx";
                     });
+
+                    $(document).on('click', '#LinkButton1', function () {
+                        infoBoxWithCallback("로그아웃하시겠습니까?", page.fn.goUrl, { url: "/Default.aspx" });
+                    });
                 },
                 fn: {  
+                    goUrl: function(urlData) {
+                        location.href = urlData.url;
+                    },
                 }
             };
 
