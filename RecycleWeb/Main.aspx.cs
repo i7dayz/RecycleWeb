@@ -21,15 +21,15 @@ namespace RecycleWeb
             {
                 if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
                 {
-                    this.profileImg.Src = Session["kakaoProfileImage"].ToString();
+                    //this.profileImg.Src = Session["kakaoProfileImage"].ToString();
                 }
 
                 DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
-                this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
-                this.exPoint.InnerText = Session["expirePoint"].ToString();
+                //this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
+                //this.exPoint.InnerText = Session["expirePoint"].ToString();
 
-                this.nickname.InnerText = Session["nickname"].ToString();
-                this.point.InnerText = Session["producePoint"].ToString();
+                //this.nickname.InnerText = Session["nickname"].ToString();
+                //this.point.InnerText = Session["producePoint"].ToString();
                 
                 getCollectReserve();
 
@@ -113,34 +113,33 @@ namespace RecycleWeb
 
                         if (string.IsNullOrEmpty(rootObj.collectReserve.collectorImageUrl.ToString()))
                         {
-                            //this.collectorImg.Src = rootObj.collectReserve.collectorImageUrl;
-                            this.collectorImg.InnerHtml = "<img src='http://cfile23.uf.tistory.com/image/2011B836512C50971B7845' style='width:100%; height:auto'>";
+                            //this.collectorImg.InnerHtml = "<img src='http://cfile23.uf.tistory.com/image/2011B836512C50971B7845' style='width:100%; height:auto'>";
                         }
                         else
                         {
-                            this.collectorImg.InnerHtml = "<img src='/img/profile.png' style='width:100%; height:auto'>";
+                            //this.collectorImg.InnerHtml = "<img src='/img/profile.png' style='width:100%; height:auto'>";
                         }
-                        this.collectList.InnerText = productList;
-                        this.collectorName.InnerText = rootObj.collectReserve.collectorName;
-                        this.collectorContactNumber.InnerText = rootObj.collectReserve.collectorContactNumber;
-                        this.collectorHopeDate.InnerText = rootObj.collectReserve.hopeCollectDate;
+                        //this.collectList.InnerText = productList;
+                        //this.collectorName.InnerText = rootObj.collectReserve.collectorName;
+                        //this.collectorContactNumber.InnerText = rootObj.collectReserve.collectorContactNumber;
+                        //this.collectorHopeDate.InnerText = rootObj.collectReserve.hopeCollectDate;
 
-                        this.hdProducerIdx.Value = Session["producerIdx"].ToString();
-                        this.hdProduceIdx.Value = rootObj.collectReserve.product_3.ToString();
+                        //this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+                        //this.hdProduceIdx.Value = rootObj.collectReserve.product_3.ToString();
 
-                        this.reserved.Style["display"] = "block";
-                        this.notReserved.Style["display"] = "none";
+                        //this.reserved.Style["display"] = "block";
+                        //this.notReserved.Style["display"] = "none";
 
-                        this.btnQuickRequest.Style["display"] = "none";
-                        this.btnQuickRequestCancel.Style["display"] = "block";
+                        //this.btnQuickRequest.Style["display"] = "none";
+                        //this.btnQuickRequestCancel.Style["display"] = "block";
                     }
                     else
                     {
-                        this.reserved.Style["display"] = "none";
-                        this.notReserved.Style["display"] = "block";
+                        //this.reserved.Style["display"] = "none";
+                        //this.notReserved.Style["display"] = "block";
 
-                        this.btnQuickRequest.Style["display"] = "block";
-                        this.btnQuickRequestCancel.Style["display"] = "none";
+                        //this.btnQuickRequest.Style["display"] = "block";
+                        //this.btnQuickRequestCancel.Style["display"] = "none";
                     }
                 }
             }
@@ -158,16 +157,16 @@ namespace RecycleWeb
 
             if (rootObj.value == 0)
             {
-                this.hdProduce_1_price.Value = rootObj.marketPriceView[0][1].ToString();
-                this.hdProduce_2_price.Value = rootObj.marketPriceView[1][1].ToString();
-                this.hdProduce_3_price.Value = rootObj.marketPriceView[2][1].ToString();
-                this.hdProduce_4_price.Value = rootObj.marketPriceView[3][1].ToString();
-                this.hdProduce_5_price.Value = rootObj.marketPriceView[4][1].ToString();
-                this.hdProduce_6_price.Value = rootObj.marketPriceView[5][1].ToString();
-                this.hdProduce_7_price.Value = rootObj.marketPriceView[6][1].ToString();
-                this.hdProduce_8_price.Value = rootObj.marketPriceView[7][1].ToString();
-                this.hdProduce_9_price.Value = rootObj.marketPriceView[8][1].ToString();
-                this.hdProduce_10_price.Value = rootObj.marketPriceView[9][1].ToString();
+                //this.hdProduce_1_price.Value = rootObj.marketPriceView[0][1].ToString();
+                //this.hdProduce_2_price.Value = rootObj.marketPriceView[1][1].ToString();
+                //this.hdProduce_3_price.Value = rootObj.marketPriceView[2][1].ToString();
+                //this.hdProduce_4_price.Value = rootObj.marketPriceView[3][1].ToString();
+                //this.hdProduce_5_price.Value = rootObj.marketPriceView[4][1].ToString();
+                //this.hdProduce_6_price.Value = rootObj.marketPriceView[5][1].ToString();
+                //this.hdProduce_7_price.Value = rootObj.marketPriceView[6][1].ToString();
+                //this.hdProduce_8_price.Value = rootObj.marketPriceView[7][1].ToString();
+                //this.hdProduce_9_price.Value = rootObj.marketPriceView[8][1].ToString();
+                //this.hdProduce_10_price.Value = rootObj.marketPriceView[9][1].ToString();
             }
         }
     }

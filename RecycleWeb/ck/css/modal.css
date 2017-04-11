@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+#mask {  
+  position:absolute;  
+  z-index:9000;  
+  background-color:#000;  
+  display:none;  
+  left:0;
+  top:0;
+}
+.window {
+    display: none;
+    position: absolute;
+    left: 18%;
+    top: 100px;
+    z-index: 10000;
+}
+.pro_modal {
+    width: 220px;
+}
+.pro_modal .m_title {
+    padding: 20px 5px;
+    text-align: center;
+    background: #90cd32;
+    border-radius: 9px 9px 0 0;
+    color: #fff;
+    font-size: 14px;
+}
+.pro_modal .m_con {
+    background: #fff;
+    padding: 12px;
+    border-bottom: 1px solid #eaeaea;
+	height: 48px;
+}
+.pro_modal .m_con.m_btm {
+    border-radius: 0 0 9px 9px;
+	border-bottom: 0px solid #eaeaea;
+}
+.mo_left {
+    float: left;
+    width: 77px;
+}
+.mo_right {
+    float: left;
+    width: 115px;
+    padding-top: 8px;
+}

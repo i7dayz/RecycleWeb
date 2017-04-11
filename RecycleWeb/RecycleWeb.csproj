@@ -104,19 +104,56 @@
   <ItemGroup>
     <Content Include="Collection\RequestDetails.aspx" />
     <Content Include="Collection\RequestDone.aspx" />
+    <Content Include="css\drawer.css" />
+    <Content Include="css\drawer.min.css" />
+    <Content Include="css\drawer_su.css" />
+    <Content Include="css\modal.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\sandbox.css" />
+    <Content Include="css\style.css" />
     <Content Include="Donation\DonationDetails.aspx" />
+    <Content Include="img\1.gif" />
+    <Content Include="img\cfn-cof.png" />
+    <Content Include="img\cfn-cof2.png" />
+    <Content Include="img\d-pnt-56.png" />
     <Content Include="img\home-w.png" />
     <Content Include="img\hrx.png" />
     <Content Include="img\kasy.png" />
+    <Content Include="img\left_menu_icon01.png" />
+    <Content Include="img\left_menu_icon02.png" />
+    <Content Include="img\left_menu_icon03.png" />
+    <Content Include="img\l_hrx.png" />
+    <Content Include="img\l_kas.png" />
+    <Content Include="img\menu01_off.png" />
+    <Content Include="img\menu01_on.png" />
+    <Content Include="img\menu02_off.png" />
+    <Content Include="img\menu02_on.png" />
+    <Content Include="img\menu03_off.png" />
+    <Content Include="img\menu03_on.png" />
+    <Content Include="img\menu04_off.png" />
+    <Content Include="img\menu04_on.png" />
+    <Content Include="img\menu_bak.png" />
+    <Content Include="img\menu_dbak.png" />
     <Content Include="img\point-icn.png" />
+    <Content Include="img\pro_icon.jpg" />
     <Content Include="img\radio-01.png" />
     <Content Include="img\radio-02.png" />
     <Content Include="img\reborn.jpg" />
     <Content Include="Donation\DonationHistory.aspx" />
+    <Content Include="img\savethe.gif" />
     <Content Include="img\usage_guide_1.png" />
     <Content Include="img\usage_guide_2.png" />
     <Content Include="img\usage_guide_3.png" />
     <Content Include="img\usage_guide_4.png" />
+    <Content Include="include\footer.html" />
+    <Content Include="include\footer_b.html" />
+    <Content Include="include\footer_smenu.html" />
+    <Content Include="include\footer_su.html" />
+    <Content Include="include\header.html" />
+    <Content Include="include\header_b.html" />
+    <Content Include="include\header_smenu.html" />
+    <Content Include="include\header_su.html" />
+    <Content Include="include\main_full_slide.html" />
     <Content Include="Member\AddressList.aspx" />
     <Content Include="Member\EditAddress.aspx" />
     <Content Include="Member\EditInfo.aspx" />
@@ -135,6 +172,10 @@
     <Content Include="font\notokr-regular.woff" />
     <Content Include="font\notokr-regular.woff2" />
     <Content Include="script\common.js" />
+    <Content Include="script\dragend.min.js" />
+    <Content Include="script\drawer.js" />
+    <Content Include="script\drawer.min.js" />
+    <Content Include="script\dropdown.min.js" />
     <Content Include="script\extention\air-datepicker-master\datepicker.min.css" />
     <Content Include="script\extention\air-datepicker-master\datepicker.min.js" />
     <Content Include="script\extention\air-datepicker-master\i18n\datepicker.cs.js" />
@@ -171,6 +212,9 @@
     <Content Include="script\extention\jquery.modal-master\bower.json" />
     <Content Include="script\extention\jquery.modal-master\LICENSE" />
     <Content Include="script\extention\jquery.modal-master\README.md" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -851,12 +895,12 @@
     <Content Include="script\extention\jquery.modal-master\index.html" />
     <Content Include="script\extention\jquery.modal-master\js\jquery.modal.js" />
     <Content Include="script\extention\jquery.modal-master\js\jquery.modal.min.js" />
-    <Content Include="script\extention\nativedroid2.js" />
-    <Content Include="script\extention\nd2settings.js" />
     <Content Include="script\extention\swiper-3.4.2\swiper.jquery.min.js" />
     <Content Include="script\extention\swiper-3.4.2\swiper.min.css" />
-    <Content Include="script\extention\waves.min.js" />
-    <Content Include="script\extention\wow.min.js" />
+    <Content Include="script\jquery-1.9.1.min.js" />
+    <Content Include="script\jquery.simplemodal.js" />
+    <Content Include="script\jssor.js" />
+    <Content Include="script\jssor.slider.js" />
     <Content Include="script\store.js" />
     <Content Include="Store\Goods.aspx" />
     <Content Include="Store\GoodsDetails.aspx" />
@@ -974,7 +1018,6 @@
     </Compile>
     <Compile Include="Member\KakaoLoginTest.aspx.cs">
       <DependentUpon>KakaoLoginTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Member\KakaoLoginTest.aspx.designer.cs">
       <DependentUpon>KakaoLoginTest.aspx</DependentUpon>
@@ -1079,6 +1122,35 @@
       <DependentUpon>Notice.aspx</DependentUpon>
     </Compile>
     <Compile Include="util\WebApiUtil.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="img\baechul\" />
+    <Folder Include="img\foot_menu\" />
+    <Folder Include="img\page_description\" />
+    <Folder Include="img\slide\" />
+    <Folder Include="img\sugeo\" />
+    <Folder Include="img\top_menu\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
