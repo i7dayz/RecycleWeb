@@ -10,6 +10,6 @@
 namespace RecycleWeb {
     
     
-    public partial class WebForm3 {
+    public partial class Donate {
     }
 }

@@ -29,7 +29,7 @@ namespace RecycleWeb.Member
 
             if (!string.IsNullOrEmpty(kakaoProfileImage))
             {
-                this.profileImg.Src = kakaoProfileImage;
+                //this.profileImg.Src = kakaoProfileImage;
             }
         }
     }

@@ -10,6 +10,6 @@
 namespace RecycleWeb {
     
     
-    public partial class WebForm1 {
+    public partial class StoreMain {
     }
 }

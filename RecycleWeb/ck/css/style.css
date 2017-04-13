@@ -29,8 +29,8 @@ select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
 pre {overflow-x:scroll;font-size:1.1em}
-/*a:link, a:visited {color:#000;text-decoration:none}*/
-a:hover, a:focus, a:active {color:#000;text-decoration:none}
+/*a:link, a:visited {color:#000;text-decoration:none}
+a:hover, a:focus, a:active {color:#000;text-decoration:none}*/
 
 ul {
     list-style: none;
@@ -75,6 +75,15 @@ footer {
 .pad4040 {padding:40px 40px;}
 .pad5050 {padding:50px 50px;}
 
+.pad_r {padding-right:12px;}
+.reser_icon.pad_l {padding-left:12px;}
+
+.mar_mt2 {margin-top:-2px;}
+.mar_mt4 {margin-top:-4px;}
+.mar_mt8 {margin-top:-8px;}
+.mar_mt10 {margin-top:-10px;}
+
+
 .mar_t10 {margin-top:10px;}
 .mar_t20 {margin-top:20px;}
 .mar_t30 {margin-top:30px;}
@@ -84,6 +93,8 @@ footer {
 .mar_t70 {margin-top:70px;}
 .mar_t80 {margin-top:80px;}
 .mar_t90 {margin-top:90px;}
+
+.pad_b10 {padding-bottom:10px;}
 
 .pad_t10 {padding-top:10px;}
 .pad_t20 {padding-top:20px;}
@@ -101,6 +112,7 @@ footer {
 .bak_fedc00 {background-color:#fedc00; }
 .harf_l_btn.bak_8b8b8b {background-color:#8b8b8b; }
 .harf_r_btn.bak_fedc00 {background-color:#fedc00; }
+
 
 .fix_btm {
 	position:fixed;
@@ -171,6 +183,12 @@ img.img95 { width: 95px;}
 .font_size20b { font-size:20px;font-weight: bold;}
 .font_size22b { font-size:22px;font-weight: bold;}
 .font_size24b { font-size:24px;font-weight: bold;}
+
+.rtext {
+    text-align: right;
+    margin: 0px;
+}
+
 .img27f {
     float: left;
     width: 27px;
@@ -593,7 +611,7 @@ input.su_input {
     border-right: 0px;
 }
 input.su_hp1, input.su_hp2, input.su_hp3 {
-    width: 65px;
+    width: 60px;
     font-size: 14px;
     line-height: 24px;
     border-top: 0;
@@ -787,6 +805,7 @@ span.icon_s {
     line-height: 12px;
     border-radius: 16px;
     margin-left: 8px;
+	color:#fff;
 }
 /*4-4*/
 .color_fff {
@@ -1182,10 +1201,10 @@ p.su_btn.po_more {
 /** 배출자 **/
 /* s0_0 */
 
-.b_login table {width:320px; margin:0 auto;}
+.b_login table {width:340px; margin:0 auto;}
 td.td_log1 {
     padding-left: 10px;
-    width: 80px;
+    width: 120px;
 }
 td.td_log2 input {
     width: 200px;
@@ -1195,4 +1214,71 @@ td.td_log2 input {
     border-radius: 5px;
     background: #f6f6f6;
 }
-
+/*s2_1*/
+ input.input_cf6 {
+    width: 200px;
+    border: 0;
+    padding: 5px;
+    height: 24px;
+    border-radius: 5px;
+    background: #f6f6f6;
+ }
+  input.input_cf6_100 {
+    width: 100%;
+    border: 0;
+    padding: 5px;
+    height: 24px;
+    border-radius: 5px;
+    background: #f6f6f6;
+ }
+ .btm0 {
+ 	border-bottom:0px;
+ }
+ .price_b {color: #fff;
+    padding: 3px 10px;
+    background: #53acbc;
+    border-radius: 7px;
+ }
+ .float_l {
+    float: left;
+    width: 100%;
+}
+.float_lsu {
+	float:left;
+}
+.float_lsu .su_juso_left {
+    float: left;
+    width: 75%;
+}
+.float_lsu  .su_juso_right {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.ltext {text-align:left;}
+.harf_l.bor_r_0 {
+    border-right: 0;
+}
+.harf_l3 {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.harf_r3 {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.mar0auto {
+    margin: 0 auto;
+    max-width: 398px;
+}
+span.icon_s16 {
+    background: #ffc045;
+    padding: 0px 5px;
+    line-height: 16px;
+    border-radius: 16px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #fff;
+}

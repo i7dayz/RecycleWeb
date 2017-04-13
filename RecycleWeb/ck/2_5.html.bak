@@ -17,7 +17,7 @@
             <div class="su_title pdt20">기본주소</div>
             <div class="su_adr">
                 <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" /></div>
-                <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;"></div>
+                <div class="su_juso_right2"><img src="./img/baechul/i-sch.png" width="40" style="margin-top: -10px;"></div>
             </div>
 			<p><span class="font_size12 colorccc">(예: 부개동 502, 국립중앙박물관, 반포대로 58)</span></p>
             <div class="su_submit pdt30"><div class="btn_grean">확인</div></div>

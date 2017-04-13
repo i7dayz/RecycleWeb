@@ -1099,8 +1099,12 @@ p.mar_t7 {
     background-position: 8px;
     padding-left: 46px;
 }
-#faq_con a.faq_q.faq_q2 {
+#faq_con a.faq_q2 {
     background-image: url(../img/sugeo/su_icon3/u-ntc.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 8px;
+    padding-left: 46px;
 }
 div.faq_a p.faq_aa {
  background-image: url(../img/sugeo/su_icon3/aa.png);

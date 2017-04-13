@@ -1,74 +1,54 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TermsAndPolicies.aspx.cs" Inherits="RecycleWeb.Support.TermsAndPolicies" %>
 
-<!DOCTYPE html>
+<!-- #include file="/include/header_b.html" --> 
+<style>
+.color_f78c96 {color:#f78c96;}
+.agr_txtarea {
+	width: 100%;
+    height: 78px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+</style>
 
-<html>
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>고물상</title>
-    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
-
-    <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
-
-    <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-    
-    <style>
-        #terms, #policy {
-            width: 99%;
-            height: auto !important;
-            overflow-y: scroll;
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            font-size: 13px;
-            padding: 5px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            margin-top: 10px;
-        }
-        .title {
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body class="all" contenteditable="false">
-    <div class="wrap" id="wrap">
-        <!-- #header -->
-        <div class="header" id="header">
-            <div class="colgroup fixed">
-                <div class="ci use-search-reset">
-                        <a href="javascript:;" class="back-btn">
-                        <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                              
-                    </a>
-                    <span>약관 및 정책 </span>
-                </div>
-            </div>
-        </div>
-        <!-- //#header -->
-        <!-- #container -->
-        <div class="container" id="container" style="background-color:#fff !important">
-            <div class="colgroup">
-                <div class="content fixed" id="content">
-                    <div class="main ui-content">
-                        <div class="mb15">
-                            <label class="title">서비스 이용약관</label>
-                            <textarea id="terms" rows="12" readonly="readonly"></textarea>
-                        </div>
-
-                        <div class="mb15">
-                            <label class="title">개인정보 수집 및 이용 정책</label>
-                            <textarea id="policy" rows="12" readonly="readonly"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<header>
+    <div class="su_header">
+        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>약관동의
     </div>
+</header>
+<div class="container" style="">
+	<div class="su_form">   
+            
+            <div class="su_title">
+            	<%--<input type="checkbox" name="" checked="checked" />--%>
+            	<label class="color_000">서비스 이용약관 <span class="font_size11b color_f78c96"></span></label>
+            </div>
+            <div class="reser">
+                <div class="pad1010">
+                    <textarea class="" id="terms" rows="15" readonly style="width:100%; border-radius:3px;">
+                    </textarea>
+                </div>
+            </div>
+            
+            <div class="su_title">
+            	<%--<input type="checkbox" name="" checked="checked" />--%>
+            	<label class="color_000">개인정보 수집 및 이용 <span class="font_size11b color_f78c96"></span></label>
+            </div>
+            <div class="reser">
+                <div class="pad1010">
+                    <textarea class="" id="policy" rows="15" readonly style="width:100%; border-radius:3px;">
+                    </textarea>
+                </div>
+            </div>
+	</div>
+</div>
 
-    <script type="text/javascript" src="../script/extention/jquery.js"></script>
+<!-- #include file="/include/footer_b.html" -->
+
+    <script type="text/javascript" src="/script/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <script type="text/javascript" src="/script/dropdown.min.js"></script>
+    <script type="text/javascript" src="/script/drawer.min.js"></script>
         
     <script>
         (function () {
@@ -79,7 +59,7 @@
                 },
                 initComponent: function () {
                     $.ajax({
-                        url: "../terms.txt",
+                        url: "/terms.txt",
                         dataType: "text",
                         success: function (data) {
                             $("#terms").text(data);
@@ -87,7 +67,7 @@
                     });
 
                     $.ajax({
-                        url: "../policies.txt",
+                        url: "/policies.txt",
                         dataType: "text",
                         success: function (data) {
                             $("#policy").text(data);
@@ -97,7 +77,7 @@
                 initEvent: function () {
                     $(document).on('click', '.back-btn', function () {
                         window.history.back();
-                    });
+                    });                  
                 },
                 fn: {
                 }

@@ -1,195 +1,169 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Join.aspx.cs" Inherits="RecycleWeb.Member.Join" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<meta property="og:type" content="website">
+<meta property="og:url" content=""> 
+<meta property="og:title" content="한국자원"> 
+<meta property="og:image" content=""> 
+<meta property="og:description" content="한국자원">
 
-<!DOCTYPE html>
+<meta name="title" content="한국자원">
+<meta name="subject" content="한국자원">
+<meta name="author" content="ck">
+<meta name="keywords" content="한국자원">
+<meta name="description" content="한국자원">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="한국자원">
+<meta property="og:site_name" content="">
+<meta property="og:author" content="">
+<meta property="og:type" content="">
+<meta property="og:description" content="">
+<meta property="og:url" content="">
 
-<html>
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>고물상</title>
-    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
+<title>한국자원</title>
 
-    <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/sandbox.css" >
+<link rel="stylesheet" href="/css/drawer.css" >
+<link rel="stylesheet" href="/css/layout.css" >
 
-    <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
+    <style>
+#wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
+    </style>
 </head>
-<body class="all" contenteditable="false">
-    <div class="wrap join" id="wrap">
-        <form runat="server" id="joinForm" method="post" action="/Main.aspx" data-ajax="false">
-            <input type="hidden" id="kakaoId" runat="server" value="" />
-            <input type="hidden" id="kakaoNickname" runat="server" value="" />
-            <input type="hidden" id="kakaoEmail" runat="server" value="" />
-            <input type="hidden" id="kakaoThumbnailImage" runat="server" value="" />
-            <input type="hidden" id="kakaoProfileImage" runat="server" value="" />
-            <input type="hidden" id="accessToken" runat="server" value="" />
-            <input type="hidden" id="refreshToken" runat="server" value="" />
-
-            <input type="hidden" id="address1" value="" />
-            <input type="hidden" id="address2" value="" />
-
-            <!-- #header -->
-            <div class="header" id="header" style="z-index:1;">
-                <div class="colgroup fixed">
-                    <div class="ci use-search-reset">
-                        <a href="javascript:;" class="back-btn">
-                            <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                                                    
-                        </a>
-                        <span>회원정보입력</span>
-                    </div>
-                    <div class="gnb" id="gnb">
-                    </div>
-                </div>
+<body>
+<div id="body">
+        <header>
+            <div class="su_header" style="z-index:1">
+                <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
+                회원정보입력
             </div>
+        </header>
+        <div class="container" style="">
+	        <div class="ctext pad20 back_green">
+                <a href="#" class="openMask"><img src="/img/baechul/kko-prf-1.png" width="100"></a>
+            </div>
+    
+	        <div class="su_form">    	
+                <form runat="server" id="joinForm" method="post" action="/Main.aspx" data-ajax="false">
+                    <input type="hidden" id="kakaoId" runat="server" value="" />
+                    <input type="hidden" id="kakaoNickname" runat="server" value="" />
+                    <input type="hidden" id="kakaoEmail" runat="server" value="" />
+                    <input type="hidden" id="kakaoThumbnailImage" runat="server" value="" />
+                    <input type="hidden" id="kakaoProfileImage" runat="server" value="" />
+                    <input type="hidden" id="accessToken" runat="server" value="" />
+                    <input type="hidden" id="refreshToken" runat="server" value="" />
+
+                    <input type="hidden" id="address1" value="" />
+                    <input type="hidden" id="address2" value="" />
+
+                    <div class="su_title pdt20">이름</div>
+                    <div><input type="text" id="txtSnsNickname" name="" value="" class="su_input"></div>
+        
+                    <div class="su_title pdt20">닉네임</div>
+                    <div><input type="text" name="" value="" class="su_input" /></div>
+            
+                    <div class="su_title pdt20">연락처</div>
+                    <div class="su_adr">
+                        <div class="su_juso_left"><input type="tel" name="" value="" class="su_hp1" id="txtContactNumber1" maxlength="3" /> - <input type="text" name="" value="" class="su_hp2" id="txtContactNumber2" maxlength="4" /> - <input type="text" name="" value="" class="su_hp3" id="txtContactNumber3" maxlength="4" /> </div>
+                        <div class="su_juso_right"><input type="button" class="btn gray_bak" value="인증번호받기"> </div>
+                    </div>
+            
+                    <div class="su_title pdt20 color90cd32">인증번호입력</div>
+                    <div class="su_adr">
+                        <div class="su_juso_left"><input type="text" name="" value="" class="su_input_juso01 b90cd32" /> </div>
+                        <div class="su_juso_right"><input type="button" class="btn" value="인증하기"> </div>
+                    </div>
+            
+                    <div class="su_title pdt20">기본주소</div>
+                    <div class="su_adr">
+                        <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" id="txtBaseAddress"/></div>
+                        <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearchAddress"></div>
+                    </div>
+                    <div class="su_title">
+                        <div class="su_juso_left">세부주소</div>
+                        <div class="su_juso_right">우편번호</div>
+                    </div>
+                    <div class="su_adr">
+                        <div class="su_juso_left"><input type="text" name="" value="" class="su_input_juso01" id="txtDetailAddress" /> </div>
+                        <div class="su_juso_right"><input type="text" name="" value="" class="su_input_juso02" id="txtZipNo"/> </div>
+                    </div>
+
+                    <div class="su_submit pdt30"><div class="btn_grean" id="btnSave">저장</div></div>
+                </form>
+            </div>
+        </div>
+
+<div id="modal-wrapper">
+    <div id="modal-overlay"></div>
+    <div id="modal-content">
+        <div class="wrap" id="wrap"> 
+        <header>
+            <div class="su_header" style="z-index:10000">
+                <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
+                주소검색
+            </div>
+        </header>
             <!-- //#header -->
             <!-- #container -->
             <div class="container" id="container" style="background-color:#fff !important">
                 <div class="colgroup">
-                    <div class="content fixed" id="content">
-                        <div class="header-join">
-                            <div class="profile">
-                                <div class="image">
-                                    <img id="profileImg" runat="server" src="">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="content fixed" id="content">                            
                         <div class="main ui-content">
-                            <div class="fixed option-area join">
-                                <ul>
-                                    <li>
-                                        <span class="txt-color5">이름</span>
-                                        <div><input type="text" id="txtName" name="txtName" class="text-field required input-guide txt-input-guide wpc100" title="이름을 입력하세요." /></div>
-                                    </li>
-                                    <li>
-                                        <span class="txt-color5">닉네임</span>
-                                        <div class="ui-grid-a">
-                                                <input type="text" id="txtNickname" name="txtNickname" class="text-field required input-guide txt-input-guide wpc70" title="닉네임을 입력하세요." />
-                                                <a href="javascript:;" id="btnCheckDup" class="ui-btn ui-corner-all ui-mini btn-green wpc25" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
-                                                    중복확인
-                                                </a>                                   
-                                        </div>                                    
-                                    </li>
-                                    <li>
-                                        <span class="txt-color5">연락처</span>
-                                        <div class="wpc100">
-                                            <input type="tel" id="txtComtactNumber" name="txtComtactNumber" maxlength="13" class="text-field required input-guide txt-input-guide wpc70"  />
-                                            <a href="javascript:;" id="btnSendAuthNum" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
-                                                인증번호 받기
-                                            </a>
-                                        </div>                                 
-                                    </li>
-                                    <li>
-                                        <span class="txt-color5">인증번호입력</span>
-                                        <div class="wpc100">
-                                            <input type="text" class="text-field required input-guide txt-input-guide wpc70" />
-                                            <a href="javascript:;" id="btnConfirmAuthNum" class="ui-btn ui-corner-all ui-mini wpc25 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; float:right;">
-                                                인증하기
-                                            </a>
-                                        </div>                                 
-                                    </li>
-                                    <li>
-                                        <span class="txt-color5">기본주소</span>
-                                        <div class="wpc100">
-                                            <input type="text" id="txtBaseAddress" class="text-field required input-guide txt-input-guide wpc90" />
-                                            <div id="btnSearchAddress" class="ui-btn ui-corner-all ui-mini wpc7 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important;margin:0; float:right;">
+                            <div class="fixed option-area"> 
+                                <form name="form" id="form" method="post">
+                                    <input type="hidden" name="currentPage" value="1" /> <!-- 요청 변수 설정 (현재 페이지) -->
+                                    <input type="hidden" name="countPerPage" value="10" /> <!-- 요청 변수 설정 (페이지당 출력 개수) -->
+                                    <input type="hidden" name="resultType" value="json" /> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
+                                    <input type="hidden" name="confmKey" value="U01TX0FVVEgyMDE1MTIxODE0MTU0NTA=" />	<!-- 요청 변수 설정 (승인키) -->
+                                    <input type="hidden" name="totalCount" value="0" />
+                                    <input style="display:none;">   
+	                                <div class="su_form">   
+                                        <%--<div>
+                                            <input type="search" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
+                                                placeholder="도로, 건물명, 지번을 검색해보세요."
+                                                value="" />
+                                            <a href="javascript:;" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">
                                                 <img src="../img/search.png" style="width:16px; height:16px;">
-                                            </div>
-                                        </div>                                 
-                                    </li>
-                                    <li>
-                                        <div class="ui-grid-a">
-                                            <div class="ui-block-a wpc75">
-                                                <span class="txt-color5">세부주소</span>    
-                                            </div>
-                                            <div class="ui-block-b wpc20">
-                                                <span class="txt-color5">우편번호</span>
-                                            </div>
+                                            </a>
                                         </div>
-                                    </li>    
-                                    <li>
-                                        <div class="ui-grid-a">
-                                            <div class="ui-block-a wpc75">
-                                                <input type="text" id="txtDetailAddress" class="text-field required input-guide txt-input-guide wpc95" />  
-                                            </div>
-                                            <div class="ui-block-b wpc25">
-                                                <input type="text" id="txtZipNo" class="text-field required input-guide txt-input-guide wpc100" />
-                                            </div>
+                                        <span class="txt-color5">(예: 부개동 502, 국립중앙박물관, 반포대로 55)</span>--%>
+                                            
+                                        <div class="su_title pdt20">기본주소</div>
+                                        <div class="su_adr">
+                                            <div class="su_juso_left8"><input type="search" id="keyword" name="keyword"
+                                                placeholder="도로, 건물명, 지번을 검색해보세요." value="" class="su_input_juso01" /></div>
+                                            <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearch"></div>
                                         </div>
-                                    </li>    
-                                </ul>
+			                            <p><span class="font_size12 colorccc">(예: 부개동 502, 국립중앙박물관, 반포대로 58)</span></p>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div style="padding:15px">
-                            <a href="javascript:;" id="btnSave" class="ui-btn ui-corner-all btn-green" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">기본정보 저장</a>
-                        </div>
+                        <div class="address-list"></div>
+                        <p class="su_btn" id="btnSearchNext">다음 검색</p>
                     </div>
                 </div>
-            </div>
-        </form>
+            </div> <!-- //container -->
+        </div> <!-- //wrap -->
     </div>
-    <div id="modal-wrapper">
-      <div id="modal-overlay"></div>
-      <div id="modal-content">
-            <div class="wrap" id="wrap">            
-                <!-- #header -->
-                <div class="header" id="header" style="z-index:2;">
-                    <div data-role="header" class="wow fadeIn">
-                        <div class="ci use-search-reset" style="width:100%">
-                            <a href="javascript:;" class="back-btn">
-                                <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                              
-                            </a>
-                            <div>
-                                주소 검색
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- //#header -->
-                <!-- #container -->
-                <div class="container" id="container" style="background-color:#fff !important">
-                    <div class="colgroup">
-                        <div class="content fixed" id="content">                            
-                            <div class="main ui-content">
-                                <div class="fixed option-area"> 
-                                    <form name="form" id="form" method="post">
-                                        <input type="hidden" name="currentPage" value="1" /> <!-- 요청 변수 설정 (현재 페이지) -->
-                                        <input type="hidden" name="countPerPage" value="10" /> <!-- 요청 변수 설정 (페이지당 출력 개수) -->
-                                        <input type="hidden" name="resultType" value="json" /> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
-                                        <input type="hidden" name="confmKey" value="U01TX0FVVEgyMDE1MTIxODE0MTU0NTA=" />	<!-- 요청 변수 설정 (승인키) -->
-                                        <input type="hidden" name="totalCount" value="0" />
-                                        <input style="display:none;">                                                                   
-                                        <ul>
-                                            <li>
-                                                <span class="txt-color5">기본주소</span>
-                                                <div>
-                                                    <input type="search" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
-                                                        placeholder="도로, 건물명, 지번을 검색해보세요."
-                                                        value="" />
-                                                    <a href="javascript:;" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">
-                                                        <img src="../img/search.png" style="width:16px; height:16px;">
-                                                    </a>
-                                                </div>
-                                                <span class="txt-color5">(예: 부개동 502, 국립중앙박물관, 반포대로 55)</span>
-                                            </li>
-                                        </ul>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="address-list"></div>
-                            <div class="address-paginate">
-                                <a href="javascript:;" id="btnSearchNext" class="ui-btn ui-corner-all btn-gray">다음</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- //container -->
-            </div> <!-- //wrap -->
-        </div>
-    </div>
+</div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+  <script src="../script/dropdown.min.js"></script>
+  <script src="../script/drawer.min.js" charset="utf-8"></script>
         
     <script>
         (function () {
@@ -271,9 +245,9 @@
                             snsType: "1",
                             snsId: $("#kakaoId").val(),
                             snsURL: $("#kakaoProfileImage").val(),
-                            snsNickname: $("#kakaoNickname").val(),
+                            snsNickname: $("#txtSnsNickname").val(),
                             storeName: "",
-                            contactNumber: $("#txtComtactNumber").val(),
+                            contactNumber: $("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val(),
                             zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
                             address2: $.trim($("#address2").val()),
@@ -379,11 +353,19 @@
                         var html = "";
                         // jquery를 이용한 JSON 결과 데이터 파싱
                         $(item.results.juso).each(function (index) {
-                            html += "<ul id='address'>";
-                            html += "   <li>[도로명] <span id='roadAddrPart1'>" + this.roadAddrPart1 + "</span><span id='roadAddrPart2'>" + this.roadAddrPart2 + "</span></li>";
-                            html += "   <li>[지번] <span id='jibunAddr'>" + this.jibunAddr + "</span></li>";
-                            html += "   <li>[우편번호] <span id='zipNo'>" + this.zipNo + "</span></li>";
-                            html += "</ul>";
+                            //html += "<ul id='address'>";
+                            //html += "   <li>[도로명] <span id='roadAddrPart1'>" + this.roadAddrPart1 + "</span><span id='roadAddrPart2'>" + this.roadAddrPart2 + "</span></li>";
+                            //html += "   <li>[지번] <span id='jibunAddr'>" + this.jibunAddr + "</span></li>";
+                            //html += "   <li>[우편번호] <span id='zipNo'>" + this.zipNo + "</span></li>";
+                            //html += "</ul>";
+                            
+                            html += "<div class='reser2' id='address'>";
+                            html += "    <div class='pad1010'>";
+                            html += "        <p class='font_size12b color000 pad_l0'>[도로명] <span id='roadAddrPart1'>" + this.roadAddrPart1 + "</span><span id='roadAddrPart2'>" + this.roadAddrPart2 + "</span></p>";
+                            html += "        <p class='font_size12b color000'>[지번] <span id='jibunAddr'>" + this.jibunAddr + "</span></p>";
+                            html += "        <p class='font_size12b color000'>[우편번호] <span id='zipNo'>" + this.zipNo + "</span></p>";
+                            html += "    </div>";
+                            html += "</div>";
                         });
 
                         $(".address-list").append(html);
@@ -393,8 +375,11 @@
 
             $(document).on('ready', function () {
                 page.init();
+                $('.drawer').drawer();
             });
         })();
     </script>
+
+
 </body>
 </html>

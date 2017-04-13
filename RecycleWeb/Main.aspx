@@ -59,19 +59,17 @@
                 },
                 initComponent: function () {
                     $('.drawer').drawer();
+                    $("#tabHome").find("img").attr("src", "/img/top_menu/top01o.png");
                 },
                 initEvent: function () {
-                    $(document).on('click', '#tabHome', function () {
-                        location.href = "Main.aspx";
-                    });
                     $(document).on('click', '#tabRequest', function () {
-                        location.href = "WebForm1.aspx";
+                        location.href = "CollectRequest.aspx";
                     });
                     $(document).on('click', '#tabStore', function () {
-                        location.href = "WebForm2.aspx";
+                        location.href = "StoreMain.aspx";
                     });
                     $(document).on('click', '#tabDonate', function () {
-                        location.href = "WebForm3.aspx";
+                        location.href = "Donate.aspx";
                     });
                 },
                 fn: {

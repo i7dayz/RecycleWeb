@@ -1,38 +1,23 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TermsAgree.aspx.cs" Inherits="RecycleWeb.Member.TermsAgree" %>
 
-<!DOCTYPE html>
+<!-- #include file="/include/header_b.html" --> 
+<style>
+.color_f78c96 {color:#f78c96;}
+.agr_txtarea {
+	width: 100%;
+    height: 78px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+</style>
 
-<html>
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>고물상</title>
-    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
-
-    <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
-
-    <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-    
-    <style>
-        #terms, #policy {
-            width: 99%;
-            height: auto !important;
-            overflow-y: scroll;
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-            margin-top: 15px;
-            font-size: 13px;
-            padding: 5px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-    </style>
-</head>
-<body class="all" contenteditable="false">
-    <div class="wrap" id="wrap">
+<header>
+    <div class="su_header">
+        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>약관동의
+    </div>
+</header>
+<div class="container" style="">
+	<div class="su_form">   
         <form runat="server" method="post" action="Join.aspx">
             <input type="hidden" id="kakaoId" runat="server" value="" />
             <input type="hidden" id="kakaoNickname" runat="server" value="" />
@@ -41,67 +26,69 @@
             <input type="hidden" id="kakaoProfileImage" runat="server" value="" />
             <input type="hidden" id="accessToken" runat="server" value="" />
             <input type="hidden" id="refreshToken" runat="server" value="" />
-            <!-- #header -->
-            <div class="header" id="header">
-                <div class="colgroup fixed">
-                    <div class="ci use-search-reset">
-                        <a href="#leftmenu" class="">
-                            <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                            
-                        </a>
-                        <span>이용약관</span>
-                    </div>
-                    <div class="gnb" id="gnb">
-                    </div>
+            <div class="su_title">
+            	<input type="checkbox" name="" checked="checked" />
+            	<label class="color_000">전체동의</label>
+            </div>
+            <div class="reser">
+                <div class="pad1010">
+                    <p class="font_size11b color000">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 안내 메일 수신(선택)에 모두 동의합니다.</p>
                 </div>
             </div>
-            <!-- //#header -->
-            <!-- #container -->
-            <div class="container" id="container" style="background-color:#fff !important">
-                <div class="colgroup">
-                    <div class="content fixed" id="content">
-                        <div class="main ui-content">
-                            <div class="ui-grid-solo">
-                                <div class="bb-1 pb10 mb15">
-                                    <label class="checkbox-wrap"><input type="checkbox" id="allAgree" name="allAgree" value=""><i class="check-icon-green"></i> 전체동의</label>
-                                    <div class="ml15">이용약관(필수), 개인정보 수집 및 이용 정책(필수), 프로모션 안내 SMS/메일 수신(선택)에 모두 동의합니다.</div>
-                                </div>
-
-                                <div class="mb15">
-                                    <label class="checkbox-wrap"><input type="checkbox" id="termsAgree" name="termsAgree" value=""><i class="check-icon-green"></i> 서비스 이용약관 <span class="color_red">(필수)</span></label>
-                                    <textarea id="terms" rows="8" readonly="readonly"></textarea>
-                                </div>
-
-                                <div class="mb15">
-                                    <label class="checkbox-wrap"><input type="checkbox" id="policyAgree" name="policyAgree" value=""><i class="check-icon-green"></i> 개인정보 수집 및 이용 정책 <span class="color_red">(필수)</span></label>
-                                    <textarea id="policy" rows="8" readonly="readonly"></textarea>
-                                </div>
-                                
-                                <div class="bb-1 pb10 mb15">
-                                    <label class="checkbox-wrap"><input type="checkbox" id="smsAgree" name="smsAgree" value=""><i class="check-icon-green"></i> 이벤트 등 프로모션 알림 SMS 수신 <span class="color_red">(선택)</span></label>
-                                </div>
-
-                                <div class="bb-1 pb10">
-                                    <label class="checkbox-wrap"><input type="checkbox" id="emailAgree" name="emailAgree" value=""><i class="check-icon-green"></i> 이벤트 등 프로모션 알림 메일 수신 <span class="color_red">(선택)</span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ui-grid-a">
-                                <div class="ui-block-a">
-                                    <a href="javascript:;" id="btnDisAgree" class="ui-btn ui-corner-all btn-gray" style="margin-left:10px;margin-right:5px">동의안함</a>
-                                </div>
-                                <div class="ui-block-b">
-                                    <a href="javascript:;" id="btnAgree" class="ui-btn ui-corner-all btn-green" style="margin-left:5px;margin-right:10px">동의함</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            
+            <div class="su_title">
+            	<input type="checkbox" name="" checked="checked" />
+            	<label class="color_000">서비스 이용약관 <span class="font_size11b color_f78c96">(필수)</span></label>
+            </div>
+            <div class="reser">
+                <div class="pad1010">
+                    <textarea class="agr_txtarea" id="terms">
+                    </textarea>
+                </div>
+            </div>
+            
+            <div class="su_title">
+            	<input type="checkbox" name="" checked="checked" />
+            	<label class="color_000">개인정보 수집 및 이용 <span class="font_size11b color_f78c96">(필수)</span></label>
+            </div>
+            <div class="reser">
+                <div class="pad1010">
+                    <textarea class="agr_txtarea" id="policy">
+                    </textarea>
+                </div>
+            </div>
+            
+            <%--
+            <div class="su_title reser">
+            	<input type="checkbox" name="" checked="checked" />
+            	<label class="color_000">이벤트 등 프로모션 알림 SMS 수신 <span class="font_size11b color_f78c96">(선택)</span></label>
+            </div>
+            
+            <div class="su_title reser">
+            	<input type="checkbox" name="" checked="checked" />
+            	<label class="color_000">이벤트 등 프로모션 알림 메일 수신 <span class="font_size11b color_f78c96">(선택)</span></label>
+            </div>
+            --%>
+            
+            <div style="height:30px;"></div>
+            <div class="harf_con">
+                <div class="harf_l2">
+                    <div class="btn_gray2" >동의안함</div>
+                </div>
+                <div class="harf_r2">
+                    <div class="btn_grean2" >동의</div>
                 </div>
             </div>
         </form>
-    </div>
+	</div>
+</div>
 
-    <script type="text/javascript" src="../script/extention/jquery.js"></script>
+<!-- #include file="/include/footer_b.html" -->
+
+    <script type="text/javascript" src="/script/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <script type="text/javascript" src="/script/dropdown.min.js"></script>
+    <script type="text/javascript" src="/script/drawer.min.js"></script>
         
     <script>
         (function () {

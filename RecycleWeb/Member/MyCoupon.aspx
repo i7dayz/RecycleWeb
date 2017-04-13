@@ -1,95 +1,51 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyCoupon.aspx.cs" Inherits="RecycleWeb.Member.MyCoupon" %>
+<!-- #include file="/include/header_b.html" --> 
+<style>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>고물상</title>
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
-
-    <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-</head>
-<body class="all" contenteditable="false">
-    <div class="wrap" id="wrap">            
-        <div data-role="page" class="nd2-no-menu-swipe">
-            <!-- #header -->
-            <div class="header" id="header">
-                <div data-role="header" class="wow fadeIn">
-                    <div class="ci use-search-reset" style="width:100%">
-                        <a href="#panel">
-                            <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
-                        </a>
-                        <div>
-                            쿠폰함
-                        </div>
-                    </div>
+</style>
+<header>
+        <div class="su_header">
+			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>쿠폰함
+        </div>
+    </header>
+    <div class="container" id="coupon-list">
+        <div class="reser">
+    	    <div class="reser_icon reser_icon2">
+        	    <img src="/img/cfn-cof.png" />
+            </div>
+            <div class="reser_con padt30">
+        	    <div><span class="font_size12b color90cd32  pad_l0">스타벅스</span></div>
+                <div> 
+            	    <p class="font_size16b color000 pad_l0">카페 아메리카노 Tall</p>
+                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</span></p>
                 </div>
             </div>
-            <!-- //#header -->
-            <!-- #container -->
-            <div class="container" id="container">
-                <div class="colgroup">
-                    <div class="content fixed" id="content">
-                        <div class="coupon-list">
-                            <a href="javascript:;" name="myCoupon" id="g1001">
-                                <div class="coupon">
-                                    <div class="coupon-image">
-                                        <img src="../temp/G00000008061_250.jpg">
-                                    </div>
-                                    <div class="coupon-info">
-                                        <ul>
-                                            <li class="brand-name">스타벅스</li>
-                                            <li class="goods-name">카페 아메리카노 Tall</li>
-                                            <li class="exdate">유효기간: 2017년 3월 31일까지</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="clear"></div>
-                            <a href="javascript:;" name="myCoupon" id="g1002">
-                                <div class="coupon">
-                                    <div class="coupon-image">
-                                        <img src="../temp/G00000008061_250.jpg">
-                                    </div>
-                                    <div class="coupon-info">
-                                        <ul>
-                                            <li class="brand-name">스타벅스</li>
-                                            <li class="goods-name">카페 아메리카노 Tall</li>
-                                            <li class="exdate">유효기간: 2017년 3월 31일까지</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="clear"></div>
-                            <a href="javascript:;" name="myCoupon" id="g1003">
-                                <div class="coupon">
-                                    <div class="coupon-image">
-                                        <img src="../temp/G00000008061_250.jpg">
-                                    </div>
-                                    <div class="coupon-info">
-                                        <ul>
-                                            <li class="brand-name">스타벅스</li>
-                                            <li class="goods-name">카페 아메리카노 Tall</li>
-                                            <li class="exdate">유효기간: 2017년 3월 31일까지</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- //container -->
         </div>
-    </div> <!-- //wrap -->
-
-    <script type="text/javascript" src="../script/extention/jquery.js"></script>
+        <div class="reser">
+    	    <div class="reser_icon reser_icon2">
+        	    <img src="/img/cfn-cof.png" />
+            </div>
+            <div class="reser_con padt30">
+        	    <div><span class="font_size12b color90cd32  pad_l0">스타벅스</span></div>
+                <div> 
+            	    <p class="font_size16b color000 pad_l0">카페 아메리카노 Tall</p>
+                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="reser">
+    	    <div class="reser_icon reser_icon2">
+        	    <img src="/img/cfn-cof.png" />
+            </div>
+            <div class="reser_con padt30">
+        	    <div><span class="font_size12b color90cd32  pad_l0">스타벅스</span></div>
+                <div> 
+            	    <p class="font_size16b color000 pad_l0">카페 아메리카노 Tall</p>
+                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
         
     <script>
         (function () {
@@ -101,7 +57,10 @@
                 initComponent: function () {      
                 },
                 initEvent: function () {
-                    $(document).on("click", "a[name='myCoupon']", function () {
+                    $(document).on('click', '.back-btn', function () {
+                        window.history.back();
+                    });
+                    $(document).on("click", "div[class='reser']", function () {
                         location.href = "MyCouponDetails.aspx?my_coupon_id=" + $(this).attr("id");
                     });
                 },
