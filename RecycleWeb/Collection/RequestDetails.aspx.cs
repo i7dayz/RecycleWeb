@@ -115,7 +115,19 @@ namespace RecycleWeb.Collection
 
                 this.txtReqProduct.Value = productList;
                 this.txtName.Value = Session["kakaoNickname"].ToString(); // snsNickname컬럼을 이름으로 사용
-                this.txtContactNumber.Value = Session["producerContactNumber"].ToString();
+
+                string[] contactNumber;
+                if (Session["producerContactNumber"].ToString().Length == 13)
+                {
+                    contactNumber = Session["producerContactNumber"].ToString().Split('-');
+
+                    if (contactNumber.Length >= 3)
+                    {
+                        this.txtContactNumber1.Value = contactNumber[0];
+                        this.txtContactNumber2.Value = contactNumber[1];
+                        this.txtContactNumber3.Value = contactNumber[2];
+                    }
+                }
                 this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"].ToString(), Session["address2"].ToString());
                 this.txtDetailAddress.Value = Session["detailAddress"].ToString();
                 this.txtZipno.Value = Session["zipCode"].ToString();

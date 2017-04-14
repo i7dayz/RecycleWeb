@@ -1,146 +1,107 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestDetails.aspx.cs" Inherits="RecycleWeb.Collection.RequestDetails" %>
-
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>고물상</title>
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<meta property="og:type" content="website">
+<meta property="og:url" content=""> 
+<meta property="og:title" content="한국자원"> 
+<meta property="og:image" content=""> 
+<meta property="og:description" content="한국자원">
 
-    <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
+<meta name="title" content="한국자원">
+<meta name="subject" content="한국자원">
+<meta name="author" content="ck">
+<meta name="keywords" content="한국자원">
+<meta name="description" content="한국자원">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="한국자원">
+<meta property="og:site_name" content="">
+<meta property="og:author" content="">
+<meta property="og:type" content="">
+<meta property="og:description" content="">
+<meta property="og:url" content="">
 
-    <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+<title>한국자원</title>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/sandbox.css" >
+<link rel="stylesheet" href="/css/drawer.css" >
+<link rel="stylesheet" href="/css/layout.css" >
+
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
+
     <link href="../script/extention/air-datepicker-master/datepicker.min.css" rel="stylesheet" type="text/css">
-    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
-</head>
-<body class="all" contenteditable="false">
-    <input type="hidden" runat="server" id="hdProducerIdx" />
-    <input type="hidden" runat="server" id="hdAddress1" value="0" />
-    <input type="hidden" runat="server" id="hdAddress2" value="0" />
-    <input type="hidden" runat="server" id="hdProduct01" value="0" />
-    <input type="hidden" runat="server" id="hdProduct02" value="0" />
-    <input type="hidden" runat="server" id="hdProduct03" value="0" />
-    <input type="hidden" runat="server" id="hdProduct04" value="0" />
-    <input type="hidden" runat="server" id="hdProduct05" value="0" />
-    <input type="hidden" runat="server" id="hdProduct06" value="0" />
-    <input type="hidden" runat="server" id="hdProduct07" value="0" />
-    <input type="hidden" runat="server" id="hdProduct08" value="0" />
-    <input type="hidden" runat="server" id="hdProduct09" value="0" />
-    <input type="hidden" runat="server" id="hdProduct10" value="0" />
-    <input type="hidden" runat="server" id="hdEtc1" value="0" />
-    <input type="hidden" runat="server" id="hdEtc2" value="0" />
-    <input type="hidden" runat="server" id="hdEtc3" value="0" />
+    <style>
+#wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
+    </style>
+    <header>
+        <div class="su_header" style="z-index:1">
+			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>수거신청
+        </div>
+    </header>
+    <div class="container" style="">
+	    <div class="su_form">
+            <input type="hidden" runat="server" id="hdProducerIdx" />
+            <input type="hidden" runat="server" id="hdAddress1" value="0" />
+            <input type="hidden" runat="server" id="hdAddress2" value="0" />
+            <input type="hidden" runat="server" id="hdProduct01" value="0" />
+            <input type="hidden" runat="server" id="hdProduct02" value="0" />
+            <input type="hidden" runat="server" id="hdProduct03" value="0" />
+            <input type="hidden" runat="server" id="hdProduct04" value="0" />
+            <input type="hidden" runat="server" id="hdProduct05" value="0" />
+            <input type="hidden" runat="server" id="hdProduct06" value="0" />
+            <input type="hidden" runat="server" id="hdProduct07" value="0" />
+            <input type="hidden" runat="server" id="hdProduct08" value="0" />
+            <input type="hidden" runat="server" id="hdProduct09" value="0" />
+            <input type="hidden" runat="server" id="hdProduct10" value="0" />
+            <input type="hidden" runat="server" id="hdEtc1" value="0" />
+            <input type="hidden" runat="server" id="hdEtc2" value="0" />
+            <input type="hidden" runat="server" id="hdEtc3" value="0" />
 
-    <div class="wrap" id="wrap">            
-        <div data-role="page" class="nd2-no-menu-swipe">
-            <!-- #header -->
-            <div class="header" id="header" style="z-index:1;">
-                <div data-role="header" class="wow fadeIn">
-                    <div class="ci use-search-reset" style="width:100%">
-                        <a href="javascript:;" class="back-btn">
-                            <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                                                    
-                        </a>
-                        <span>
-                            수거신청
-                        </span>
-                    </div>
-                </div>
+            <div class="su_title"><span class="color90cd32">[수거신청품목]</span></div>
+            <div><input type="text" runat="server" id="txtReqProduct" name="" value="" class="su_input" /></div>
+            <div class="su_title">이름</div>
+            <div><input type="text" runat="server" id="txtName" name="" value="" class="su_input" /></div>
+            <div class="su_title">연락처</div>
+            <div><input type="text" runat="server" id="txtContactNumber1" name="" value="" class="su_hp1" readonly/> - <input type="text" runat="server" id="txtContactNumber2" name="" value="" class="su_hp2" readonly /> - <input type="text" runat="server" id="txtContactNumber3" name="" value="" class="su_hp3" readonly /></div>
+            <div class="su_title">기본주소</div>
+                <div class="su_juso_left8"><input type="text" runat="server" id="txtBaseAddress" name="" value="" class="su_input" readonly/></div>
+                <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnChangeAddress"></div>
+            <div class="su_title">
+                <div class="su_juso_left">세부주소</div>
+                <div class="su_juso_right">우편번호</div>
             </div>
-            <!-- //#header -->
-            <!-- #container -->
-            <div class="container" id="container">
-                <div class="colgroup">
-                    <div class="content fixed" id="content">                            
-                        <div class="main ui-content">
-                            <form runat="server" id="pickupForm" method="post" action="RequestDone.aspx" data-ajax="false">
-                                <div class="fixed option-area join">
-                                    <ul>
-                                        <li>
-                                            <span class="txt-color8">[수거신청품목]</span>
-                                            <div><input type="text" runat="server" id="txtReqProduct" class="text-field required input-guide txt-input-guide wpc100" /></div>
-                                        </li>
-                                        <li>
-                                            <span class="txt-color5">이름</span>
-                                            <div><input type="text" runat="server" id="txtName" class="text-field required input-guide txt-input-guide wpc100" title="이름을 입력하세요." /></div>
-                                        </li>
-                                        <li>
-                                            <span class="txt-color5">연락처</span>
-                                            <div class="wpc100">
-                                                <input type="tel" runat="server" id="txtContactNumber" maxlength="13" class="text-field required input-guide txt-input-guide wpc100"  />
-                                            </div>                                 
-                                        </li>
-                                        <li>
-                                            <span class="txt-color5">기본주소</span>
-                                            <div class="ui-grid-a">
-                                                <div class="ui-block-a wpc85">
-                                                    <input type="text" runat="server" id="txtBaseAddress" class="text-field required input-guide txt-input-guide wpc95" />
-                                                </div>
-                                                <div class="ui-block-b wpc15">
-                                                    <a href="javascript:;" id="btnChangeAddress" class="ui-btn ui-corner-all wpc100 btn-green" style="display:inline-block !important; padding:5px 3px 5px 3px !important;margin:0; font-weight:normal; float:right;">
-                                                        변경
-                                                    </a>       
-                                                </div>
-                                            </div>           
-                                        </li>
-                                        <li>
-                                            <div class="ui-grid-a">
-                                                <div class="ui-block-a wpc75">
-                                                    <span class="txt-color5">세부주소</span>    
-                                                </div>
-                                                <div class="ui-block-b wpc20">
-                                                    <span class="txt-color5">우편번호</span>
-                                                </div>
-                                            </div>
-                                        </li>    
-                                        <li>
-                                            <div class="ui-grid-a">
-                                                <div class="ui-block-a wpc75">
-                                                    <input type="text" runat="server" id="txtDetailAddress" class="text-field required input-guide txt-input-guide wpc95" />  
-                                                </div>
-                                                <div class="ui-block-b wpc25">
-                                                    <input type="text" runat="server" id="txtZipno" class="text-field required input-guide txt-input-guide wpc100" />
-                                                </div>
-                                            </div>
-                                        </li>   
-                                        <li>
-                                            <span class="txt-color5">희망수거일시</span>    
-                                            <div class="wpc100">
-                                                <input type="text" id="txtReqDate" class="text-field required input-guide txt-input-guide wpc100" onFocus="this.blur()">
-                                            </div> 
-                                        </li> 
-                                    </ul>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="footer" style="padding:10px;">
-                            <a href="javascript:;" id="btnRequest" class="ui-btn ui-corner-all btn-green">수거신청</a>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- //container -->
-        </div> <!-- //page -->
-    </div> <!-- //wrap -->
-    
+            <div class="su_adr">
+                <div class="su_juso_left"><input type="text" runat="server" id="txtDetailAddress" name="" value="" class="su_input_juso01" readonly /> </div>
+                <div class="su_juso_right"><input type="text" runat="server" id="txtZipno" name="" value="" class="su_input_juso02" readonly /> </div>
+            </div>
+            <div class="su_title">희망수거일</div>
+            <div class="su_date">
+                <input type="text" id="txtReqDate" class="su_date01" onfocus="this.blur()"/>
+            </div>
+            <div style="height:30px;"></div>
+            <div class="su_submit" id="btnRequest"><div class="btn_grean">수거신청</div></div>
+        </div>
+    </div>
+
     <div id="modal-wrapper">
         <div id="modal-overlay"></div>
         <div id="modal-content">
-            <div class="wrap join" id="wrap">
+            <div class="wrap" id="wrap">
                 <!-- #header -->
-                <div class="header" id="header" style="z-index:2;">
-                    <div class="colgroup fixed">
-                        <div class="ci use-search-reset">
-                            <a href="javascript:;" class="back-btn">
-                                <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                                                    
-                            </a>
-                            <span>수거주소록</span>
-                        </div>
+                <header>
+                    <div class="su_header" style="z-index:10000">
+                        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
+                        수거주소록
                     </div>
-                </div>
+                </header>
                 <!-- //#header -->
                 <!-- #container -->
                 <div class="container" id="container" style="background-color:#fff !important">
@@ -148,7 +109,7 @@
                         <div class="content fixed" id="content">
                             <div class="main ui-content">
                                 <div class="fixed option-area join">
-                                    <ul id="addressList"></ul>
+                                    <div id="addressList"></div>
                                 </div>
                             </div>
                         </div>
@@ -220,6 +181,7 @@
                         //        }
                         //    }
                         //},
+                        autoClose: true
                     });
                 },
                 initEvent: function () {
@@ -232,17 +194,25 @@
                         page.fn.requestPickup();
                     });
 
-                    $(document).on('click', 'li[name=address]', function () {
-                        $("#hdAddress1").val($(this).find('div').find('div').find('#address1').text());
-                        $("#hdAddress2").val($(this).find('div').find('div').find('#address2').text());
-                        $("#txtBaseAddress").val($(this).find('div').find('div').find('#address1').text() + ' ' + $(this).find('div').find('div').find('#address2').text());
-                        $("#txtDetailAddress").val($(this).find('div').find('div').find('#detailAddress').text());
-                        $("#txtZipno").val($(this).find('div').find('div').find('#zipNo').text());
+                    $(document).on('click', 'div[name=address]', function () {
+                        $("#hdAddress1").val($(this).find('div').find('p').find('#address1').text());
+                        $("#hdAddress2").val($(this).find('div').find('p').find('#address2').text());
+                        $("#txtBaseAddress").val($(this).find('div').find('p').find('#address1').text() + ' ' + $(this).find('div').find('p').find('#address2').text());
+                        $("#txtDetailAddress").val($(this).find('div').find('p').find('#detailAddress').text());
+                        $("#txtZipno").val($(this).find('div').find('p').find('#zipNo').text());
                         window.history.back();
                     });
                 },
                 fn: {
+                    setFocus: function() {
+                        $("#txtReqDate").focus();
+                    },
                     requestPickup: function () {
+                        if ($("#txtReqDate").val() == "") {
+                            infoBoxWithCallback("수희망수거일을 선택하세요.", page.fn.setFocus, null);
+                            return;
+                        }
+
                         var params = {
                             producerIdx: $("#hdProducerIdx").val(),
                             zipCode: $("#txtZipno").val(),
@@ -302,15 +272,22 @@
                         }, "post", false);
                     },
                     addAddress: function (item) {
-                        var address = '<li class="bb-1 pb10" name="address" id="' + item[0] + '" style="cursor:pointer">'
-                                    + '    <span class="txt-color5">' + '장소구분' + '</span>'
-                                    + '    <div class="ui-grid-a">'
-                                    + '        <div class="ui-block-a wpc90">'
-                                    + '            <span id="address1">' + item[3] + '</span> <span id="address2">' + item[4] + '</span> '
-                                    + '            <span id="detailAddress">' + item[5] + '</span> (<span id="zipNo">' + item[2] + '</span>)'
-                                    + '        </div>'
-                                    + '    </div>'
-                                    + '</li>';
+                        //var address = '<li class="bb-1 pb10" name="address" id="' + item[0] + '" style="cursor:pointer">'
+                        //            + '    <span class="txt-color5">' + '장소구분' + '</span>'
+                        //            + '    <div class="ui-grid-a">'
+                        //            + '        <div class="ui-block-a wpc90">'
+                        //            + '            <span id="address1">' + item[3] + '</span> <span id="address2">' + item[4] + '</span> '
+                        //            + '            <span id="detailAddress">' + item[5] + '</span> (<span id="zipNo">' + item[2] + '</span>)'
+                        //            + '        </div>'
+                        //            + '    </div>'
+                        //            + '</li>';
+                        var address = "<div class='reser2' name='address' id='" + item[0] + "'>";
+                        address += "    <div class='pad1010'>";
+                        address += "        <p class='font_size12b color000 pad_l0'>" + "장소구분" + "</p>";
+                        address += "        <p class='font_size12b color000'><span id='address1'>" + item[3] + "</span> <span id='address2'>" + item[4] + "</span></p>";
+                        address += "        <p class='font_size12b color000'><span id='detailAddress'>" + item[5] + "</span> (<span id='zipNo'>" + item[2] + "</span>)</p>";
+                        address += "    </div>";
+                        address += "</div>";
 
                         $('#addressList').append(address);
                     }

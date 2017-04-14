@@ -8,14 +8,14 @@
     </div>
 </header>--%>
 <div class="container" style="">
-	<p class="txt_cen pad100"><img src="./img/sugeo/0_1.png" width="33%" /></p>   
-    <p class="txt_cen"><a href="javascript:;" id="btnKakaoLogin"><img src="./img/sugeo/kakao_login.png" class="kakao_link" /></a></p>
+	<p class="txt_cen pad100"><img src="/img/sugeo/0_1.png" width="33%" /></p>   
+    <p class="txt_cen"><a href="javascript:;" id="btnKakaoLogin"><img src="/img/sugeo/kakao_login.png" class="kakao_link" /></a></p>
     <div class="harf_con fix_btm">
         <div class="harf_l2">
-            <img src="./img/l_hrx.png" width="100%"/>
+            <img src="/img/l_hrx.png" width="100%"/>
         </div>
         <div class="harf_r2">
-            <img src="./img/l_kas.png" width="100%"/>
+            <img src="/img/l_kas.png" width="100%"/>
         </div>
     </div>
 </div>
