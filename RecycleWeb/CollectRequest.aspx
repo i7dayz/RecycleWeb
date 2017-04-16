@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CollectRequest.aspx.cs" Inherits="RecycleWeb.CollectRequest" %>
 
 <!-- #include file="./include/header.html" --> 
+    <link href="script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
 
     <!-- 수거신청 탭 -->        
     <div class="container" style="">
@@ -15,13 +16,15 @@
             <input type="hidden" runat="server" id="hdProduce_8_price" />
             <input type="hidden" runat="server" id="hdProduce_9_price" />
             <input type="hidden" runat="server" id="hdProduce_10_price" />
+            <input type="hidden" runat="server" id="hdProduceIdx" />
+            <input type="hidden" runat="server" id="hdProducerIdx" />   
 
 	        <div class="description">
     	        <img src="./img/page_description/4_1top.gif" width="100%" />
             </div>
             <div class="text_title">
                 <span class="font_size14b">수거서비스</span>
-                <span class="font_size10_bbb">ⓘ 수거가능/불가능 품목 확인</span>
+                <span class="font_size10_bbb"><a href="Collection/ProductDescription.aspx">ⓘ 수거가능/불가능 품목 확인</a></span>
             </div>
             <div class="harf_con2">
     	        <div class="harf_l">
@@ -32,7 +35,7 @@
                 <div class="harf_r">
                     <p><a href="#"><img src="./img/sugeo/su_icon/pck_02.png" class="img65"></a></p>
                     <p class="su_name">휴대폰</p>
-                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct07" style="width:30px; text-align:right; border:0" value="0" readonly>kg<span class="kg_p">+</span></p>
+                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct07" style="width:30px; text-align:right; border:0" value="0" readonly>개<span class="kg_p">+</span></p>
                 </div>
             </div>
             <div class="line_d"></div>
@@ -40,12 +43,12 @@
     	        <div class="harf_l">
                     <p><a href="#"><img src="./img/sugeo/su_icon/pck_03.png" class="img65"></a></p>
                     <p class="su_name">소형가전</p>
-                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct09" style="width:30px; text-align:right; border:0" value="0" readonly>kg<span class="kg_p">+</span></p>
+                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct09" style="width:30px; text-align:right; border:0" value="0" readonly>개<span class="kg_p">+</span></p>
                 </div>
                 <div class="harf_r">
                     <p><a href="#"><img src="./img/sugeo/su_icon/pck_04.png" class="img65"></a></p>
                     <p class="su_name">대형가전</p>
-                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct08" style="width:30px; text-align:right; border:0" value="0" readonly>kg<span class="kg_p">+</span></p>
+                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct08" style="width:30px; text-align:right; border:0" value="0" readonly>개<span class="kg_p">+</span></p>
                 </div>
             </div>
             <div class="line_d"></div>
@@ -58,7 +61,7 @@
                 <div class="harf_r">
                     <p><a href="#"><img src="./img/sugeo/su_icon/pck_06.png" class="img65"></a></p>
                     <p class="su_name">병</p>
-                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct02" style="width:30px; text-align:right; border:0" value="0" readonly>kg<span class="kg_p">+</span></p>
+                    <p class="su_pm"><span class="kg_m">-</span><input type="text" class="kg" runat="server" id="txtProduct02" style="width:30px; text-align:right; border:0" value="0" readonly>개<span class="kg_p">+</span></p>
                 </div>
             </div>
             <div class="line_d"></div>
@@ -95,7 +98,7 @@
             </div>
             <p class="text_title">
     	        <span class="font_size14b">대행서비스</span>
-                <span class="font_size10_bbb">ⓘ 수거가능/불가능 품목 확인</span>
+                <span class="font_size10_bbb"><a href="Collection/ProductDescription.aspx">ⓘ 수거가능/불가능 품목 확인</a></span>
             </p>
             <div class="harf_con2">
     	        <div class="harf_l">
@@ -115,9 +118,16 @@
                     </p>
                 </div>
             </div>
-            <p class="su_btn">
-    	        수거하기
-            </p>
+            <div runat="server" id="not_reserved">
+                <p class="su_btn">
+    	            수거하기
+                </p>
+            </div>
+            <div runat="server" id="reserved">
+                <p class="su_btn">
+    	            수거취소
+                </p>
+            </div>
         </form>
     </div> <!-- //수거신청 tab -->
         
@@ -175,7 +185,7 @@
 
                     });
 
-                    $(document).on('click', '.su_btn', function () {
+                    $(document).on('click', '#not_reserved', function () {
                         // 선택된 항목이 한개라도 있어야 수거 신청 가능
                         if (parseInt($("#txtProduct06").val()) > 0 || parseInt($("#txtProduct07").val()) > 0
                             || parseInt($("#txtProduct09").val()) > 0 || parseInt($("#txtProduct08").val()) > 0
@@ -199,8 +209,26 @@
                             return;
                         }
                     });
+
+                    $(document).on('click', '#reserved', function () {
+                        confirmBox("수거예약을 취소하시겠습니까?", page.fn.cancelRequest);
+                    });
                 },
                 fn: {
+                    cancelRequest: function () {
+                        var params = {
+                            produceIdx: $("#hdProduceIdx").val(),
+                            producerIdx: $("#hdProducerIdx").val()
+                        }
+
+                        Server.ajax("/producer/produceCancel", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                infoBoxWithCallback("수거예약이 취소되었습니다.", page.fn.goUrl, { url: "/CollectRequest.aspx" })
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
                     goUrl: function (urlData) {
                         location.href = urlData.url;
                     },

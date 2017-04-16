@@ -1,100 +1,42 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RequestDone.aspx.cs" Inherits="RecycleWeb.Collection.RequestDone" %>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>고물상</title>
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
-        <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
+<!-- #include file="/include/header_b.html" --> 
+    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
 
-        <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-    </head>
-    <body class="all" contenteditable="false">
-        <input type="hidden" runat="server" id="hdProducerIdx" />
-        <div class="wrap" id="wrap">            
-            <div data-role="page" class="nd2-no-menu-swipe">
-                <!-- #header -->
-                <div class="header" id="header">
-                    <div data-role="header" class="wow fadeIn">
-                        <div class="ci use-search-reset" style="width:100%">
-                        <a href="javascript:;" class="back-btn">
-                                <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt=""></em>                           
-                            </a>
-                            <div>
-                                수거신청완료
-                            </div>    
-                        </div>
+    <!-- 수거신청 탭 -->        
+        <input type="hidden" runat="server" id="hdProduceIdx" />
+        <input type="hidden" runat="server" id="hdProducerIdx" />   
+        <header>
+                <div class="su_header">
+			        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>수거신청
+                </div>
+            </header>
+        <div class="container" style="">
+	        <p class="su_wan">수거신청이 완료되었습니다. 기사님이 방문 전에 연락드리겠습니다.</p>
+	        <div class="su_form">    	
+    	        <div class="ctext pad20">
+                    <img src="/img/baechul/kko-prf-1.png" width="100" id="imgCollectorImg" runat="server">
+    	        </div>
+                <div class="su_title"><span class="color90cd32">[수거신청품목]</span></div>
+                <div><input type="text" runat="server" id="txtReqList" name="" value="" class="su_input" readonly/></div>
+                <div class="su_title">수거 담당자</div>
+                <div><input type="text" runat="server" id="txtCollectorName" name="" value="" class="su_input" readonly /></div>
+                <div class="su_title">연락처</div>
+                <div><input type="text" runat="server" id="txtCollectorContactNumber" name="" value="" class="su_input" readonly /></div>
+                <div class="su_title">희망수거일시</div>
+                <div><input type="text" runat="server" id="txtReqDate" name="" value="" class="su_input" readonly /></div>
+                <div style="height:30px;"></div>
+                <div class="harf_con">
+                    <div class="harf_l2">
+                        <div class="btn_gray2" id="btnCancel" >취소</div>
+                    </div>
+                    <div class="harf_r2">
+                        <div class="btn_grean2" id="btnConfirm" >확인</div>
                     </div>
                 </div>
-                <!-- //#header -->
-                <!-- #container -->
-                <div class="container" id="container">
-                    <div class="colgroup">                                                           
-                        <div style="background-color:#91cd33; color:#ffffff; padding:10px;">
-                            수거신청이 완료되었습니다. 기사님이 연락예정입니다.
-                        </div>
-                        <div class="content fixed" id="content">                            
-                            <div class="main ui-content">
-                                <div class="fixed option-area">     
-                                    <ul>
-                                        <li>
-                                            <div class="wpc100" style="text-align:center;">
-                                                <img id="imgCollectorImg" src="../temp/cef1f56553fba92d9e95c19e5a34c09a.jpg" style="width:120px; height:auto;">
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span style="color:#91cd33">[수거요청품목]</span>
-                                            <div>
-                                                <input type="text" id="txtReqList" name="txtReqList" class="text-field required input-guide txt-input-guide wpc100"
-                                                    value=""/>                                        
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="txt-color5">수거담당자</span>
-                                            <div>
-                                                <input type="text" id="txtCollectorName" name="txtName" class="text-field required input-guide txt-input-guide wpc100"
-                                                    value="" />
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="txt-color5">연락처</span>
-                                            <div class="wpc100">
-                                                <input type="text" id="txtCollectorContactNumber" class="text-field required input-guide txt-input-guide wpc100"
-                                                    value="" />
-                                            </div>                                 
-                                        </li>
-                                        <li>
-                                            <span class="txt-color5">희망수거일시</span>    
-                                            <div class="wpc100">
-                                                <input type="text" id="txtReqDate" class="text-field required input-guide txt-input-guide wpc100" 
-                                                    value="">
-                                            </div> 
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="footer" style="padding:10px">
-                                <div class="ui-grid-a">
-                                    <div class="ui-block-a">
-                                        <a href="javascript:;" id="btnCancel" class="ui-btn ui-corner-all btn-gray" style="">취소</a>
-                                    </div>
-                                    <div class="ui-block-b">
-                                        <a href="javascript:;" id="btnConfirm" class="ui-btn ui-corner-all btn-green" style="">확인</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- //container -->
             </div>
-        </div> <!-- //wrap -->
+        </div>        
 
         <script type="text/javascript" src="../script/extention/jquery.js"></script>
         <script type="text/javascript" src="../script/common.js"></script>
@@ -116,7 +58,7 @@
                         });
 
                         $(document).on('click', '#btnCancel', function () {
-
+                            page.fn.cancelRequest();
                         });
 
                         $(document).on('click', '#btnConfirm', function () {
@@ -169,7 +111,8 @@
                                     if (response.collectReserve.etc_3 != "0") {
                                         $("#txtReqList").val($("#txtReqList").val() + "유품정리, ");
                                     }
-
+                                    alert(response.collectReserve.collectorImageUrl);
+                                    $("#hdProduceIdx").val(response.collectReserve.product_3);
                                     $("#imgCollectorImg").attr("src", response.collectReserve.collectorImageUrl);
                                     $("#txtCollectorName").val(response.collectReserve.collectorName);
                                     $("#txtCollectorContactNumber").val(response.collectReserve.collectorContactNumber);
@@ -182,6 +125,7 @@
                         },
                         cancelRequest: function () {
                             var params = {
+                                produceIdx: $("#hdProduceIdx").val(),
                                 producerIdx: $("#hdProducerIdx").val()
                             }
 

@@ -19,9 +19,12 @@ namespace RecycleWeb.Member
                 }
 
                 this.producerIdx.Value = Session["producerIdx"].ToString();
-                this.name.InnerHtml = "이름";
-                this.nickname.InnerHtml = Session["nickname"].ToString();
-                this.txtContactNumber.Value = Session["producerContactNumber"].ToString();
+                this.name.Value = "이름";
+                this.nickname.Value = Session["nickname"].ToString();
+                string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
+                this.txtContactNumber1.Value = contactNumber[0];
+                this.txtContactNumber2.Value = contactNumber[1];
+                this.txtContactNumber3.Value = contactNumber[2];
                 this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
                 this.txtDetailAddress.Value = Session["detailAddress"].ToString();
                 this.txtZipNo.Value = Session["zipCode"].ToString();

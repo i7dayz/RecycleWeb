@@ -31,15 +31,15 @@
             background-color: #eeeeee;
             background-color: rgba(238, 238, 238, 0.7);
         }
-        #wrapper {padding-top: 0px;}
+#wrapper {padding-top: 0px;}
     </style>
     <!-- it works the same with all jquery version from 1.x to 2.x -->
 
     <!-- use jssor.slider.mini.js (40KB) instead for release -->
     <!-- jssor.slider.mini.js = (jssor.js + jssor.slider.js) -->
-    <script type="text/javascript" src="./script/jssor.js"></script>
-    <script type="text/javascript" src="./script/jssor.slider.js"></script>
-    <script type="text/javascript" src="./script/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/script/jssor.js"></script>
+    <script type="text/javascript" src="/script/jssor.slider.js"></script>
+    <script type="text/javascript" src="/script/jquery-1.9.1.min.js"></script>
     <script>
         jQuery(document).ready(function ($) {
             //Reference http://www.jssor.com/development/slider-with-slideshow-jquery.html
@@ -64,7 +64,7 @@
                 $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
                 $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
                 $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
-                $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+                $PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
 
                 $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
                 $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
@@ -92,14 +92,14 @@
                     $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
                 },
 
-                $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
-                    $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
                     $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
                     $AutoCenter: 0,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                     $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
                     $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
-                    $SpacingX: 10,                                  //[Optional] Horizontal space between each item in pixel, default value is 0
-                    $SpacingY: 10,                                  //[Optional] Vertical space between each item in pixel, default value is 0
+                    $SpacingX: 10,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $SpacingY: 10,                                   //[Optional] Vertical space between each item in pixel, default value is 0
                     $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
                 },
 
@@ -138,9 +138,9 @@
         
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 780px; height: 173px; overflow: hidden;">
-            <div><a u=image href="#"><img src="./img/slide/1.png" /></a></div>
-            <div><a u=image href="#"><img src="./img/slide/2.png" /></a></div>
-            <div><a u=image href="#"><img src="./img/slide/3.png" /></a></div>
+            <div><a u=image href="#"><img src="/img/slide/1.png" /></a></div>
+            <div><a u=image href="#"><img src="/img/slide/2.png" /></a></div>
+            <div><a u=image href="#"><img src="/img/slide/3.png" /></a></div>
         </div>
         
         <!--#region Bullet Navigator Skin Begin -->
@@ -173,7 +173,7 @@
             .jssorb01 .av { background-color: #fff; }
             .jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
         </style>
-        <!-- bullet navigator container -->
+<!-- bullet navigator container -->
         <div u="navigator" class="jssorb01" style="bottom: 16px;left: 48%;width: 100%;height: 12px;">
             <!-- bullet navigator item prototype -->
             <div u="prototype"></div>
@@ -188,28 +188,33 @@
             .jssora05l.jssora05ldn      (mousedown)
             .jssora05r.jssora05rdn      (mousedown)
             */
-            .jssora05l, .jssora05r {
-                display: block;
-                position: absolute;
-                /* size of arrow element */
-                width: 40px;
-                height: 40px;
-                cursor: pointer;
-                background: url(./img/slide/a12.png) no-repeat;
-                overflow: hidden;
-            }
+           .jssora05l, .jssora05r {
+    display: block;
+    position: absolute;
+    /* width: 40px; */
+    /* height: 40px; */
+    cursor: pointer;
+    /* background: url(./img/slide/a12.png) no-repeat; */
+    overflow: hidden;
+}
+img.img60per {
+    width: 60%;
+}
+			/*
             .jssora05l { background-position: -10px -40px; }
             .jssora05r { background-position: -70px -40px; }
             .jssora05l:hover { background-position: -130px -40px; }
             .jssora05r:hover { background-position: -190px -40px; }
             .jssora05l.jssora05ldn { background-position: -250px -40px; }
-            .jssora05r.jssora05rdn { background-position: -310px -40px; }
+            .jssora05r.jssora05rdn { background-position: -310px -40px; }*/
         </style>
         <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora05l" style="top: 69px; left: 0px;">
+        <span u="arrowleft" class="jssora05l" style="top: 42px; left: 0px;">
+        	<img src="/img/bnr_lft.png" class="img60per" />
         </span>>
         <!-- Arrow Right -->
-        <span u="arrowright" class="jssora05r" style="top: 69px; right: 0px;">
+        <span u="arrowright" class="jssora05r" style="top: 42px; right: 0px;text-align: right;">
+        	<img src="/img/bnr_rgt.png" class="img60per" />
         </span>
         <a style="display: none" href="http://www.jssor.com">Bootstrap Slider</a>
     </div>

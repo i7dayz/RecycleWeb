@@ -26,13 +26,15 @@
 
 <title>한국자원</title>
 
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/responsive.css">
-<link rel="stylesheet" href="./css/sandbox.css" >
-<link rel="stylesheet" href="./css/drawer.css" >
-<link href="./script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/sandbox.css" >
+<link rel="stylesheet" href="/css/drawer.css" >
 </head>
 <body class="drawer drawer--left drawer--sidebar">
+<!-- 검은색 장막 -->
+<div id="mask"></div>
+<!-- 장막 끝 -->
 <div id="body">
     <header class="drawer-navbar drawer-navbar--fixed" role="banner">
         <div class="drawer-container">
@@ -41,22 +43,22 @@
                      <ul id="top_menu_ul">
                        <li class="top_menu_li" style="z-index:999">
                             <a href="javascript:;" target="_self" class="gnb_1da" id="tabHome">                	
-                                <img src="./img/top_menu/top01.png" onmouseover="this.src='./img/top_menu/top01o.png'" onmouseout="this.src='./img/top_menu/top01.png'" border="0" title="">
+                                <img src="/img/top_menu/top01.png" onmouseover="this.src='/img/top_menu/top01o.png'" onmouseout="this.src='/img/top_menu/top01.png'" border="0" title="">
                             </a>
                         </li>
                         <li class="top_menu_li" style="z-index:999">
                             <a href="javascript:;" target="_self" class="gnb_1da" id="tabRequest">                	
-                                <img src="./img/top_menu/top02.png" onmouseover="this.src='./img/top_menu/top02o.png'" onmouseout="this.src='./img/top_menu/top02.png'" border="0" title="">
+                                <img src="/img/top_menu/top02.png" onmouseover="this.src='/img/top_menu/top02o.png'" onmouseout="this.src='/img/top_menu/top02.png'" border="0" title="">
                             </a>
                         </li>
                         <li class="top_menu_li" style="z-index:999">
                             <a href="javascript:;" target="_self" class="gnb_1da" id="tabStore">                	
-                                <img src="./img/top_menu/top03.png" onmouseover="this.src='./img/top_menu/top03o.png'" onmouseout="this.src='./img/top_menu/top03.png'" border="0" title="">
+                                <img src="/img/top_menu/top03.png" onmouseover="this.src='/img/top_menu/top03o.png'" onmouseout="this.src='/img/top_menu/top03.png'" border="0" title="">
                             </a>
                         </li>
                         <li class="top_menu_li" style="z-index:999">
                             <a href="javascript:;" target="_self" class="gnb_1da" id="tabDonate">                	
-                                <img src="./img/top_menu/top04.png" onmouseover="this.src='./img/top_menu/top04o.png'" onmouseout="this.src='./img/top_menu/top04.png'" border="0" title="">
+                                <img src="/img/top_menu/top04.png" onmouseover="this.src='/img/top_menu/top04o.png'" onmouseout="this.src='/img/top_menu/top04.png'" border="0" title="">
                             </a>
                         </li>
                     </ul>
@@ -69,32 +71,32 @@
         
             <nav class="drawer-nav" role="navigation">
                 <ul class="drawer-menu">
-                    <li><a class="drawer-brand drawer-menu-item" href="./index.html"><img src="./img/left_menu_icon01.png" width="25px" style="padding: 0 11px;"> HOME</a></li>
+                    <li><a class="drawer-brand drawer-menu-item" href="./index.html"><img src="/img/left_menu_icon01.png" width="25px" style="padding: 0 11px;"> HOME</a></li>
                     
                     <li>
-                    	<a href="/Member/MyCoupon.aspx"><img src="./img/baechul/ba_quick01.png" height="40px" style=""> </a><img src="./img/baechul/ba_quick_line.png" width="1px" height="40px"/>
-                        <a href="/Member/Recommender.aspx"><img src="./img/baechul/ba_quick02.png" height="40px" style=""> </a><img src="./img/baechul/ba_quick_line.png" width="1px" height="40px"/>
-                        <a href="/Support/Event.aspx"><img src="./img/baechul/ba_quick03.png" height="40px" style=""> </a>
+                    	<a href="/Member/MyCoupon.aspx"><img src="/img/baechul/ba_quick01.png" height="40px" style=""> </a><img src="/img/baechul/ba_quick_line.png" width="1px" height="40px"/>
+                        <a href="/Member/Recommender.aspx"><img src="/img/baechul/ba_quick02.png" height="40px" style=""> </a><img src="/img/baechul/ba_quick_line.png" width="1px" height="40px"/>
+                        <a href="/Support/Event.aspx"><img src="/img/baechul/ba_quick03.png" height="40px" style=""> </a>
                     </li>
                     <li class="drawer-dropdown">
-                        <a class="drawer-brand drawer-menu-item" data-target="#" href="javascript:;" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="./img/left_menu_icon02.png" width="25px" style="padding: 0 11px;"> 회원정보 <span class="drawer-caret"></span>
+                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img src="/img/left_menu_icon02.png" width="25px" style="padding: 0 11px;"> 회원정보 <span class="drawer-caret"></span>
                         </a>
                         <ul class="drawer-dropdown-menu">
-                            <li><a class="drawer-dropdown-menu-item" href="./7_6.html">회원 정보 변경</a></li>
-                            <li><a class="drawer-dropdown-menu-item" href="./7_7.html">포인트 내역</a></li>
-                            <li><a class="drawer-dropdown-menu-item" href="./7_8.html">기부 내역</a></li>
+                            <li><a class="drawer-dropdown-menu-item" href="/Member/Info.aspx">회원 정보 변경</a></li>
+                            <li><a class="drawer-dropdown-menu-item" href="/Member/PointHistory.aspx">포인트 내역</a></li>
+                            <li><a class="drawer-dropdown-menu-item" href="/Donation/DonationHistory.aspx">기부 내역</a></li>
                         </ul>
                     </li>
                     <li class="drawer-dropdown">
-                        <a class="drawer-brand drawer-menu-item" data-target="#" href="javascript:;" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="./img/left_menu_icon03.png" width="25px" style="padding: 0 11px;"> 고객센터 <span class="drawer-caret"></span>
+                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img src="/img/left_menu_icon03.png" width="25px" style="padding: 0 11px;"> 고객센터 <span class="drawer-caret"></span>
                         </a>
                         <ul class="drawer-dropdown-menu">
                             <li><a class="drawer-dropdown-menu-item" href="/Support/Notice.aspx">공지사항</a></li>
                             <li><a class="drawer-dropdown-menu-item" href="/Support/UsageGuide.aspx">이용안내</a></li>
                         	<li><a class="drawer-dropdown-menu-item" href="/Support/FAQ.aspx">자주 묻는 질문</a></li>
-                            <!--<li><a class="drawer-dropdown-menu-item" href="javascript:;">1:1 문의</a></li>-->
+                            <!--<li><a class="drawer-dropdown-menu-item" href="/">1:1 문의</a></li>-->
                             <li><a class="drawer-dropdown-menu-item" href="/Support/TermsAndPolicies.aspx">약관 및 정책</a></li>
                         </ul>
                     </li>

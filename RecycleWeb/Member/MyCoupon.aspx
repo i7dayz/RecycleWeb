@@ -3,7 +3,7 @@
 <style>
 
 </style>
-<header>
+    <header>
         <div class="su_header">
 			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>쿠폰함
         </div>
@@ -17,7 +17,7 @@
         	    <div><span class="font_size12b color90cd32  pad_l0">스타벅스</span></div>
                 <div> 
             	    <p class="font_size16b color000 pad_l0">카페 아메리카노 Tall</p>
-                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</span></p>
+                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</p>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
         	    <div><span class="font_size12b color90cd32  pad_l0">스타벅스</span></div>
                 <div> 
             	    <p class="font_size16b color000 pad_l0">카페 아메리카노 Tall</p>
-                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</span></p>
+                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</p>
                 </div>
             </div>
         </div>
@@ -41,11 +41,15 @@
         	    <div><span class="font_size12b color90cd32  pad_l0">스타벅스</span></div>
                 <div> 
             	    <p class="font_size16b color000 pad_l0">카페 아메리카노 Tall</p>
-                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</span></p>
+                    <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="../script/extention/jquery.js"></script>
+    <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
         
     <script>
         (function () {

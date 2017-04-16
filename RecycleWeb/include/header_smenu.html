@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,13 +26,16 @@
 
 <title>한국자원</title>
 
-<link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/responsive.css">
-<link rel="stylesheet" href="./css/sandbox.css" >
-<link rel="stylesheet" href="./css/drawer.css" >
-<link rel="stylesheet" href="./css/drawer_su.css" >
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/sandbox.css" >
+<link rel="stylesheet" href="/css/drawer.css" >
+<link rel="stylesheet" href="/css/drawer_su.css" >
 </head>
 <body class="drawer drawer--left drawer--sidebar">
+<!-- 검은색 장막 -->
+<div id="mask"></div>
+<!-- 장막 끝 -->
 <div id="body">
     <header class="drawer-navbar drawer-navbar--fixed" role="banner">
         <div class="drawer-container">
@@ -41,22 +44,22 @@
                      <ul id="top_menu_ul">
                        <li class="top_menu_li" style="z-index:999">
                             <a href="#" target="_self" class="gnb_1da">                	
-                                <img src="./img/top_menu/top01.png" onmouseover="this.src='./img/top_menu/top01o.png'" onmouseout="this.src='./img/top_menu/top01.png'" border="0" title="">
+                                <img src="/img/top_menu/top01.png" onmouseover="this.src='/img/top_menu/top01o.png'" onmouseout="this.src='/img/top_menu/top01.png'" border="0" title="">
                             </a>
                         </li>
                         <li class="top_menu_li" style="z-index:999">
                             <a href="#" target="_self" class="gnb_1da">                	
-                                <img src="./img/top_menu/top02.png" onmouseover="this.src='./img/top_menu/top02o.png'" onmouseout="this.src='./img/top_menu/top02.png'" border="0" title="">
+                                <img src="/img/top_menu/top02.png" onmouseover="this.src='/img/top_menu/top02o.png'" onmouseout="this.src='/img/top_menu/top02.png'" border="0" title="">
                             </a>
                         </li>
                         <li class="top_menu_li" style="z-index:999">
                             <a href="#" target="_self" class="gnb_1da">                	
-                                <img src="./img/top_menu/top03.png" onmouseover="this.src='./img/top_menu/top03o.png'" onmouseout="this.src='./img/top_menu/top03.png'" border="0" title="">
+                                <img src="/img/top_menu/top03.png" onmouseover="this.src='/img/top_menu/top03o.png'" onmouseout="this.src='/img/top_menu/top03.png'" border="0" title="">
                             </a>
                         </li>
                         <li class="top_menu_li" style="z-index:999">
                             <a href="#" target="_self" class="gnb_1da">                	
-                                <img src="./img/top_menu/top04.png" onmouseover="this.src='./img/top_menu/top04o.png'" onmouseout="this.src='./img/top_menu/top04.png'" border="0" title="">
+                                <img src="/img/top_menu/top04.png" onmouseover="this.src='/img/top_menu/top04o.png'" onmouseout="this.src='/img/top_menu/top04.png'" border="0" title="">
                             </a>
                         </li>
                     </ul>
@@ -69,10 +72,10 @@
         
             <nav class="drawer-nav" role="navigation">
                 <ul class="drawer-menu">
-                    <li><a class="drawer-brand drawer-menu-item" href="./index.html"><img src="./img/left_menu_icon01.png" width="25px" style="padding: 0 11px;"> HOME</a></li>
+                    <li><a class="drawer-brand drawer-menu-item" href="./index.html"><img src="/img/left_menu_icon01.png" width="25px" style="padding: 0 11px;"> HOME</a></li>
                     <li class="drawer-dropdown">
                         <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="./img/left_menu_icon02.png" width="25px" style="padding: 0 11px;"> 회원정보 <span class="drawer-caret"></span>
+                            <img src="/img/left_menu_icon02.png" width="25px" style="padding: 0 11px;"> 회원정보 <span class="drawer-caret"></span>
                         </a>
                         <ul class="drawer-dropdown-menu">
                             <li><a class="drawer-dropdown-menu-item" href="./">회원 정보 변경</a></li>
@@ -82,7 +85,7 @@
                     </li>
                     <li class="drawer-dropdown">
                         <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="./img/left_menu_icon03.png" width="25px" style="padding: 0 11px;"> 고객센터 <span class="drawer-caret"></span>
+                            <img src="/img/left_menu_icon03.png" width="25px" style="padding: 0 11px;"> 고객센터 <span class="drawer-caret"></span>
                         </a>
                         <ul class="drawer-dropdown-menu">
                             <li><a class="drawer-dropdown-menu-item" href="./">공지사항</a></li>

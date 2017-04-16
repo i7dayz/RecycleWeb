@@ -17,53 +17,65 @@ namespace RecycleWeb.Member
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["kakaoId"] != null)
+            if (!IsPostBack)
             {
-                // 로그인 진행
-                string url = "http://geno47.cafe24.com:8080/producer/userInfoDetail";
-
-                Dictionary<string, string> param = new Dictionary<string, string>();
-                param.Add("producerIdx", Session["producerIdx"].ToString());
-
-                string msg = string.Empty;
-
-                WebApiUtil.HttpPostJSON(url, param, out msg);
-
-                RootObject1 rootObj = JsonConvert.DeserializeObject<RootObject1>(msg);
-
-                if (rootObj.value == 0)
+                if (Session["kakaoId"] != null)
                 {
-                    Session["producerIdx"] = Session["producerIdx"].ToString();
-                    Session["producerContactNumber"] = rootObj.userInfoDetail.producerContactNumber;
-                    Session["zipCode"] = rootObj.userInfoDetail.zipCode;
-                    Session["address1"] = rootObj.userInfoDetail.address1;
-                    Session["address2"] = rootObj.userInfoDetail.address2;
-                    Session["detailAddress"] = rootObj.userInfoDetail.detailAddress;
-                    Session["producePoint"] = rootObj.userInfoDetail.producePoint;
-                    Session["producePointExpireDate"] = rootObj.userInfoDetail.producePointExpireDate;
-                    Session["nickname"] = rootObj.userInfoDetail.nickname;
-                }
+                    // 로그인 진행
+                    string url = "http://geno47.cafe24.com:8080/producer/userInfoDetail";
 
-                if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
+                    Dictionary<string, string> param = new Dictionary<string, string>();
+                    param.Add("producerIdx", Session["producerIdx"].ToString());
+
+                    string msg = string.Empty;
+
+                    WebApiUtil.HttpPostJSON(url, param, out msg);
+
+                    RootObject1 rootObj = JsonConvert.DeserializeObject<RootObject1>(msg);
+
+                    if (rootObj.value == 0)
+                    {
+                        Session["producerIdx"] = Session["producerIdx"].ToString();
+                        Session["producerContactNumber"] = rootObj.userInfoDetail.producerContactNumber;
+                        Session["zipCode"] = rootObj.userInfoDetail.zipCode;
+                        Session["address1"] = rootObj.userInfoDetail.address1;
+                        Session["address2"] = rootObj.userInfoDetail.address2;
+                        Session["detailAddress"] = rootObj.userInfoDetail.detailAddress;
+                        Session["producePoint"] = rootObj.userInfoDetail.producePoint;
+                        Session["producePointExpireDate"] = rootObj.userInfoDetail.producePointExpireDate;
+                        Session["nickname"] = rootObj.userInfoDetail.nickname;
+                    }
+
+                    if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
+                    {
+                        this.profileImg.Src = Session["kakaoProfileImage"].ToString();
+                    }
+
+                    this.name.InnerText = "이름";
+                    this.nickname.InnerText = Session["nickname"].ToString();
+
+                    string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
+                    this.txtContactNumber1.Value = contactNumber[0];
+                    this.txtContactNumber2.Value = contactNumber[1];
+                    this.txtContactNumber3.Value = contactNumber[2];
+                    this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
+                    this.txtDetailAddress.Value = Session["detailAddress"].ToString();
+                    this.txtZipNo.Value = Session["zipCode"].ToString();
+                }
+                else
                 {
-                    this.profileImg.Src = Session["kakaoProfileImage"].ToString();
+                    Response.Redirect("/Default.aspx");
                 }
-
-                this.name.InnerHtml = "이름";
-                this.nickname.InnerHtml = Session["nickname"].ToString();
-                this.txtContactNumber.Value = Session["producerContactNumber"].ToString();
-                this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
-                this.txtDetailAddress.Value = Session["detailAddress"].ToString();
-                this.txtZipNo.Value = Session["zipCode"].ToString();
-            }
-            else
-            {
-                Response.Redirect("/Default.aspx");
             }
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
+            if (Session["kakaoId"] != null)
+            {
+                Session["kakaoId"] = "";
+                Session.Abandon();
+            }
             string temp = WebApiUtil.Logout(KAKAO_KAPI_URI, GET_LOGOUT_RESOURCE, Session["accessToken"].ToString());
             ScriptManager.RegisterStartupScript(
                 this,

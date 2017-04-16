@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RecycleWeb.util;
 using Newtonsoft.Json;
+using RecycleWeb.Model;
 
 namespace RecycleWeb
 {
@@ -64,27 +65,33 @@ namespace RecycleWeb
                         {
                             productList += string.Format("헌옷 {0}, ", rootObj.collectReserve.product_6.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_7.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_7.ToString()))
                         {
                             productList += string.Format("휴대폰 {0}, ", rootObj.collectReserve.product_7.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_9.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_9.ToString()))
                         {
                             productList += string.Format("소형가전 {0}, ", rootObj.collectReserve.product_9.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_8.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_8.ToString()))
                         {
                             productList += string.Format("대형가전 {0}, ", rootObj.collectReserve.product_8.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_1.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_1.ToString()))
                         {
                             productList += string.Format("폐지 {0}, ", rootObj.collectReserve.product_1.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_2.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_2.ToString()))
                         {
                             productList += string.Format("병 {0}, ", rootObj.collectReserve.product_2.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_4.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_4.ToString()))
                         {
                             productList += string.Format("고철 {0}, ", rootObj.collectReserve.product_4.ToString());
                         }
@@ -92,19 +99,23 @@ namespace RecycleWeb
                         {
                             productList += string.Format("비철 {0}, ", rootObj.collectReserve.product_5.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_10.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_10.ToString()))
                         {
                             productList += string.Format("이삿짐, ", rootObj.collectReserve.product_10.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_1.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_1.ToString()))
                         {
                             productList += string.Format("기타, ", rootObj.collectReserve.etc_1.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_2.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_2.ToString()))
                         {
                             productList += string.Format("폐기서비스, ", rootObj.collectReserve.etc_2.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_3.ToString()))
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_3.ToString()))
                         {
                             productList += string.Format("유품정리, ", rootObj.collectReserve.etc_3.ToString());
                         }
@@ -117,6 +128,7 @@ namespace RecycleWeb
                         {
                             this.collectorImg.Src = "/img/pro_icon.jpg";
                         }
+
                         this.collectList.InnerText = productList;
                         this.collectorName.InnerText = rootObj.collectReserve.collectorName;
                         this.collectorContactNumber.InnerText = rootObj.collectReserve.collectorContactNumber;
@@ -141,37 +153,6 @@ namespace RecycleWeb
                     }
                 }
             }
-        }
-        
-    }
-
-    public class CollectReserve
-    {
-        public int product_1 { get; set; }
-        public int product_2 { get; set; }
-        public int product_3 { get; set; }
-        public int product_4 { get; set; }
-        public int product_5 { get; set; }
-        public int product_6 { get; set; }
-        public int product_7 { get; set; }
-        public int product_8 { get; set; }
-        public int product_9 { get; set; }
-        public int product_10 { get; set; }
-        public string collectorImageUrl { get; set; }
-        public string collectorName { get; set; }
-        public string collectorContactNumber { get; set; }
-        public string hopeCollectDate { get; set; }
-        public int etc_1 { get; set; }
-        public int etc_2 { get; set; }
-        public int etc_3 { get; set; }
-    }
-
-    public class RootObjectCollectReserve
-    {
-        public string result_msg { get; set; }
-        public string server_time { get; set; }
-        public CollectReserve collectReserve { get; set; }
-        public string server_ver { get; set; }
-        public int value { get; set; }
+        }        
     }
 }

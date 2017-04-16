@@ -1,78 +1,31 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DonationDetails.aspx.cs" Inherits="RecycleWeb.Donation.DonationDetails" %>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>고물상</title>
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-        <link href="../css/layout.css" rel="stylesheet" type="text/css" media="all">
-        <link href="../css/adjustment.css" rel="stylesheet" type="text/css" media="all">
-
-        <link href="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+<!-- #include file="/include/header_b.html" --> 
         <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css">
-    </head>
-    <body class="all" contenteditable="false">
+<style>
+
+</style>
+<header>
+        <div class="su_header">
+			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>세이브 더 칠드런
+        </div>
+    </header>
+<div class="container" style="">
+	<div class="su_form"> 
         <input type="hidden" runat="server" id="hdProducerIdx" />
         <input type="hidden" runat="server" id="hdGroupIdx" />
-        <div class="wrap" id="wrap">            
-            <div data-role="page" class="nd2-no-menu-swipe">
-                <!-- #header -->
-                <div class="header" id="header">
-                    <div data-role="header" class="wow fadeIn">
-                        <div class="ci use-search-reset" style="width:100%">
-                        <a href="javascript:;" class="back-btn">
-                                <em class="img-menu ci-logo"><img src="../img/back-btn.png" style="width:8px; height:12px; margin:6px;" alt="leftmenu"></em>                          
-                            </a>
-                            <div>
-                                세이브 더 칠드런
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- //#header -->
-                <!-- #container -->
-                <div class="container" id="container">
-                    <!-- #main -->
-                    <div role="main" class="wow fadeIn" data-inset="false" data-wow-delay="0.2s">
-                        <div class="content fixed" id="content">   
-                            <div class="main">
-                                <div class="section">
-                                    <h5 style="color:#91cd33; margin: 10px 0;">
-                                        <label runat="server" id="lblGroupName" style="font-size:14px;"></label>
-                                    </h5>
-                                    <img runat="server" src="" id="imgGroup" style="width:100%; height:auto; margin-bottom: 10px;">
-                                    <p>
-                                        <label runat="server" id="lblGroupDesc" style="font-size:14px;"></label>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="footer" style="padding:15px;">
-                                <div class="ui-grid-a" style="padding:10px 0; border-bottom: 1px solid #eeeeee;">
-                                    <div class="ui-block-a" style="line-height:30px;">기부가능포인트</div>
-                                    <div class="ui-block-b" style="text-align:right; line-height:30px;">
-                                        <label runat="server" id="currPoint">0</label>
-                                    </div>
-                                </div>
-                                <div class="ui-grid-a" style="padding:10px 0; border-bottom: 3px solid #91cd33; margin-bottom: 20px;">
-                                    <div class="ui-block-a" style="line-height:30px;">기부포인트</div>
-                                    <div class="ui-block-b" style="text-align:right;">
-                                        <input type="text" id="txtDonationPoint" value="0" style="width:100%; padding:0; margin:0; border:1px solid #eeeeee !important; text-align: right;">
-                                    </div>
-                                </div>
+    	<div class="su_title"><span class="color90cd32">세이브더칠드런</span></div>   	
+    	<div class="ctext pad20"><img src="/img/savethe.gif" width="100%"></div>
+		<div class="su_title color000">사회복지공동모금회는 공동모금을 통해 아동 청소년, 노인, 장애인, 여성, 가족, 지역사회 등 도움이 필요한 곳을 지원하며 행복공동체를 만들어 가는 전문 모금 및 배분기관입니다.</div>
 
-                                <a href="#" id="btnDonate" class="ui-btn ui-corner-all" style="background-color:#91cd33; color:#ffffff; text-shadow:none; border:0;">기부하기</a>
-                            </div>
-                        </div>
-                    </div> <!-- //main -->
-                </div> <!-- //container -->
-            </div>
-        </div> <!-- //wrap -->
+        <div class="su_title padt20">기부 가능 포인트</div>
+        <div><input type="text" runat="server" id="currPoint" class="su_input alig_r" readonly /></div>
+        <div class="su_title color000">기부 포인트</div>
+        <div><input type="text" id="txtDonationPoint"  name="" value="0" class="su_input b90cd32 alig_r" /></div>
+        <div style="height:30px;"></div>
+        <div class="su_submit pdt30" id="btnDonate"><div class="btn_grean"><a href="javascript:;">기부하기</a></div></div>
+    </div>
+</div>
 
         <script type="text/javascript" src="../script/extention/jquery.js"></script>
         <script type="text/javascript" src="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
@@ -113,8 +66,19 @@
                             }, "post", false);
                         },
                         donate: function () {
-                            if ($("#currPoint").val() < $("#txtDonationPoint").val()) {
+                            if (!isNumeric($("#currPoint").val())
+                                || !isNumeric($("#txtDonationPoint").val())) {
+                                infoBox("포인트는 숫자형식으로만 입력가능합니다.");
+                                return;
+                            }
+
+                            if (parseInt($("#currPoint").val()) < parseInt($("#txtDonationPoint").val())) {
                                 infoBox("현재 보유중인 포인트내에서 기부가능합니다.");
+                                return;
+                            }
+
+                            if (parseInt($("#txtDonationPoint").val()) <= 0) {
+                                infoBox("기부하실 포인트를 입력하세요.");
                                 return;
                             }
 

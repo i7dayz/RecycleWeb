@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RecycleWeb.Model;
 using RecycleWeb.util;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace RecycleWeb
             if (Session["kakaoId"] != null)
             {
                 getMarketPrice();
+                getCollectReserve();
             }
             else
             {
@@ -31,7 +33,7 @@ namespace RecycleWeb
 
             WebApiUtil.HttpPostJSON(url, null, out msg);
 
-            RootObject rootObj = JsonConvert.DeserializeObject<RootObject>(msg);
+            RootObjectMarketView rootObj = JsonConvert.DeserializeObject<RootObjectMarketView>(msg);
 
             if (rootObj.value == 0)
             {
@@ -47,14 +49,102 @@ namespace RecycleWeb
                 this.hdProduce_10_price.Value = rootObj.marketPriceView[9][1].ToString();
             }
         }
-    }
 
-    public class RootObject
-    {
-        public string result_msg { get; set; }
-        public string server_time { get; set; }
-        public string server_ver { get; set; }
-        public int value { get; set; }
-        public List<List<int>> marketPriceView { get; set; }
+        private void getCollectReserve()
+        {
+            if (Session["producerIdx"] != null)
+            {
+                string url = "http://geno47.cafe24.com:8080/producer/collectReserve";
+
+                Dictionary<string, string> param = new Dictionary<string, string>();
+                param.Add("producerIdx", Session["producerIdx"].ToString());
+
+                string msg = string.Empty;
+
+                WebApiUtil.HttpPostJSON(url, param, out msg);
+
+                RootObjectCollectReserve rootObj = JsonConvert.DeserializeObject<RootObjectCollectReserve>(msg);
+
+                if (rootObj.value == 0)
+                {
+                    if (rootObj.collectReserve != null)
+                    {
+                        string productList = string.Empty;
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_6.ToString()))
+                        {
+                            this.txtProduct06.Value = rootObj.collectReserve.product_6.ToString();
+                            //productList += string.Format("헌옷 {0}, ", rootObj.collectReserve.product_6.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_7.ToString()))
+                        {
+                            this.txtProduct07.Value = rootObj.collectReserve.product_7.ToString();
+                            //productList += string.Format("휴대폰 {0}, ", rootObj.collectReserve.product_7.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_9.ToString()))
+                        {
+                            this.txtProduct09.Value = rootObj.collectReserve.product_9.ToString();
+                            //productList += string.Format("소형가전 {0}, ", rootObj.collectReserve.product_9.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_8.ToString()))
+                        {
+                            this.txtProduct08.Value = rootObj.collectReserve.product_8.ToString();
+                            //productList += string.Format("대형가전 {0}, ", rootObj.collectReserve.product_8.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_1.ToString()))
+                        {
+                            this.txtProduct01.Value = rootObj.collectReserve.product_1.ToString();
+                            //productList += string.Format("폐지 {0}, ", rootObj.collectReserve.product_1.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_2.ToString()))
+                        {
+                            this.txtProduct02.Value = rootObj.collectReserve.product_2.ToString();
+                            //productList += string.Format("병 {0}, ", rootObj.collectReserve.product_2.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_4.ToString()))
+                        {
+                            this.txtProduct04.Value = rootObj.collectReserve.product_4.ToString();
+                            //productList += string.Format("고철 {0}, ", rootObj.collectReserve.product_4.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_5.ToString()))
+                        {
+                            this.txtProduct05.Value = rootObj.collectReserve.product_5.ToString();
+                            //productList += string.Format("비철 {0}, ", rootObj.collectReserve.product_5.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_10.ToString()))
+                        {
+                            this.chkProduct10.Checked = true;
+                            //productList += string.Format("이삿짐, ", rootObj.collectReserve.product_10.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_1.ToString()))
+                        {
+                            this.chkEtc1.Checked = true;
+                            //productList += string.Format("기타, ", rootObj.collectReserve.etc_1.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_2.ToString()))
+                        {
+                            this.chkEtc2.Checked = true;
+                            //productList += string.Format("폐기서비스, ", rootObj.collectReserve.etc_2.ToString());
+                        }
+                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_3.ToString()))
+                        {
+                            this.chkEtc3.Checked = true;
+                            //productList += string.Format("유품정리, ", rootObj.collectReserve.etc_3.ToString());
+                        }
+
+                        this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+                        this.hdProduceIdx.Value = rootObj.collectReserve.product_3.ToString();
+
+                        this.not_reserved.Style["display"] = "none";
+                        this.reserved.Style["display"] = "block";
+                    }
+                    else
+                    {
+                        this.not_reserved.Style["display"] = "block";
+                        this.reserved.Style["display"] = "none";
+                    }
+                }
+            }
+        }
     }
 }

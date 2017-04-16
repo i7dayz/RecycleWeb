@@ -11,7 +11,7 @@ namespace RecycleWeb.Collection
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["kakaoId"] != null)
+            if (Session["kakaoId"] != null && Request.Form.AllKeys.Length > 0)
             {
                 string productList = string.Empty;
                 for (int i = 0; i < Request.Form.AllKeys.Length; i++) {

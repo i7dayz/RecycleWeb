@@ -13,6 +13,24 @@ namespace RecycleWeb.Member {
     public partial class EditInfo {
         
         /// <summary>
+        /// profileImg 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage profileImg;
+        
+        /// <summary>
+        /// joinForm 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm joinForm;
+        
+        /// <summary>
         /// producerIdx 컨트롤입니다.
         /// </summary>
         /// <remarks>
@@ -112,22 +130,13 @@ namespace RecycleWeb.Member {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden contactNumber;
         
         /// <summary>
-        /// profileImg 컨트롤입니다.
-        /// </summary>
-        /// <remarks>
-        /// 자동 생성 필드입니다.
-        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage profileImg;
-        
-        /// <summary>
         /// name 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl name;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
         
         /// <summary>
         /// nickname 컨트롤입니다.
@@ -136,16 +145,34 @@ namespace RecycleWeb.Member {
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nickname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nickname;
         
         /// <summary>
-        /// txtContactNumber 컨트롤입니다.
+        /// txtContactNumber1 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber1;
+        
+        /// <summary>
+        /// txtContactNumber2 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber2;
+        
+        /// <summary>
+        /// txtContactNumber3 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber3;
         
         /// <summary>
         /// txtBaseAddress 컨트롤입니다.

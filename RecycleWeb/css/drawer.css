@@ -11,7 +11,7 @@
 \*!------------------------------------*/
 .drawer-nav {
     position: fixed;
-    z-index: 101;
+    z-index: 104;
     top: 0;
     overflow: hidden;
     width: 16.25rem;
@@ -132,8 +132,8 @@ ul.drawer-menu li a.drawer-brand {
     Hamburger
 \*!------------------------------------*/
 .drawer-hamburger {
-  position: fixed;
-  z-index: 104;
+      position: absolute;
+  z-index: 124;
   top: 0;
   display: block;
   box-sizing: content-box;
@@ -362,7 +362,7 @@ ul.drawer-menu li a.drawer-brand {
 }
 
 .drawer-navbar-header {
-  position: relative;
+  /*position: relative;*/
   z-index: 102;
   box-sizing: border-box;
   width: 100%;
@@ -533,4 +533,42 @@ ul.drawer-menu li a.drawer-brand {
   .drawer-container {
     max-width: 70rem;
   }
+}
+@media (min-width: 361px) {
+.coupon_pr {
+    text-align: center;
+    padding-top: 38px;
+}
+}
+@media (min-width: 761px) {
+li.top_menu_li img {
+    width: 70px;
+}
+.drawer-navbar-header {
+    height: 70px;
+}
+
+.container {
+    padding-top: 70px;
+
+}
+.su_adr2 {
+    width: 500px;
+    margin: 0 auto;
+}
+.su_left180 {
+    width: 375px;
+    float: left;
+    padding-top: 9px;
+}
+
+.drawer-hamburger {
+    top: 8px;
+}
+.su_header {
+    line-height: 70px;
+}
+span.su_leftbtn {
+    padding-top: 25px;
+}
 }

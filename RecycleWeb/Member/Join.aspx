@@ -103,60 +103,60 @@
             </div>
         </div>
 
-<div id="modal-wrapper">
-    <div id="modal-overlay"></div>
-    <div id="modal-content">
-        <div class="wrap" id="wrap"> 
-        <header>
-            <div class="su_header" style="z-index:10000">
-                <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
-                주소검색
-            </div>
-        </header>
-            <!-- //#header -->
-            <!-- #container -->
-            <div class="container" id="container" style="background-color:#fff !important">
-                <div class="colgroup">
-                    <div class="content fixed" id="content">                            
-                        <div class="main ui-content">
-                            <div class="fixed option-area"> 
-                                <form name="form" id="form" method="post">
-                                    <input type="hidden" name="currentPage" value="1" /> <!-- 요청 변수 설정 (현재 페이지) -->
-                                    <input type="hidden" name="countPerPage" value="10" /> <!-- 요청 변수 설정 (페이지당 출력 개수) -->
-                                    <input type="hidden" name="resultType" value="json" /> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
-                                    <input type="hidden" name="confmKey" value="U01TX0FVVEgyMDE1MTIxODE0MTU0NTA=" />	<!-- 요청 변수 설정 (승인키) -->
-                                    <input type="hidden" name="totalCount" value="0" />
-                                    <input style="display:none;">   
-	                                <div class="su_form">   
-                                        <%--<div>
-                                            <input type="search" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
-                                                placeholder="도로, 건물명, 지번을 검색해보세요."
-                                                value="" />
-                                            <a href="javascript:;" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">
-                                                <img src="../img/search.png" style="width:16px; height:16px;">
-                                            </a>
-                                        </div>
-                                        <span class="txt-color5">(예: 부개동 502, 국립중앙박물관, 반포대로 55)</span>--%>
+        <div id="modal-wrapper">
+            <div id="modal-overlay"></div>
+            <div id="modal-content">
+                <div class="wrap" id="wrap"> 
+                <header>
+                    <div class="su_header" style="z-index:10000">
+                        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
+                        주소검색
+                    </div>
+                </header>
+                    <!-- //#header -->
+                    <!-- #container -->
+                    <div class="container" id="container" style="background-color:#fff !important">
+                        <div class="colgroup">
+                            <div class="content fixed" id="content">                            
+                                <div class="main ui-content">
+                                    <div class="fixed option-area"> 
+                                        <form name="form" id="form" method="post">
+                                            <input type="hidden" name="currentPage" value="1" /> <!-- 요청 변수 설정 (현재 페이지) -->
+                                            <input type="hidden" name="countPerPage" value="10" /> <!-- 요청 변수 설정 (페이지당 출력 개수) -->
+                                            <input type="hidden" name="resultType" value="json" /> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
+                                            <input type="hidden" name="confmKey" value="U01TX0FVVEgyMDE1MTIxODE0MTU0NTA=" />	<!-- 요청 변수 설정 (승인키) -->
+                                            <input type="hidden" name="totalCount" value="0" />
+                                            <input style="display:none;">   
+	                                        <div class="su_form">   
+                                                <%--<div>
+                                                    <input type="search" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
+                                                        placeholder="도로, 건물명, 지번을 검색해보세요."
+                                                        value="" />
+                                                    <a href="javascript:;" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">
+                                                        <img src="../img/search.png" style="width:16px; height:16px;">
+                                                    </a>
+                                                </div>
+                                                <span class="txt-color5">(예: 부개동 502, 국립중앙박물관, 반포대로 55)</span>--%>
                                             
-                                        <div class="su_title pdt20">기본주소</div>
-                                        <div class="su_adr">
-                                            <div class="su_juso_left8"><input type="search" id="keyword" name="keyword"
-                                                placeholder="도로, 건물명, 지번을 검색해보세요." value="" class="su_input_juso01" /></div>
-                                            <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearch"></div>
-                                        </div>
-			                            <p><span class="font_size12 colorccc">(예: 부개동 502, 국립중앙박물관, 반포대로 58)</span></p>
+                                                <div class="su_title pdt20">기본주소</div>
+                                                <div class="su_adr">
+                                                    <div class="su_juso_left8"><input type="search" id="keyword" name="keyword"
+                                                        placeholder="도로, 건물명, 지번을 검색해보세요." value="" class="su_input_juso01" /></div>
+                                                    <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearch"></div>
+                                                </div>
+			                                    <p><span class="font_size12 colorccc">(예: 부개동 502, 국립중앙박물관, 반포대로 58)</span></p>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="address-list"></div>
+                                <p class="su_btn" id="btnSearchNext">다음 검색</p>
                             </div>
                         </div>
-                        <div class="address-list"></div>
-                        <p class="su_btn" id="btnSearchNext">다음 검색</p>
-                    </div>
-                </div>
-            </div> <!-- //container -->
-        </div> <!-- //wrap -->
-    </div>
-</div>
+                    </div> <!-- //container -->
+                </div> <!-- //wrap -->
+            </div>
+        </div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>

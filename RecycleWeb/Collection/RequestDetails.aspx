@@ -34,62 +34,63 @@
 <link rel="stylesheet" href="/css/layout.css" >
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="../css/modal.css" />
-    <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/modal.css" />
+    <link href="/script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
 
-    <link href="../script/extention/air-datepicker-master/datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="/script/extention/air-datepicker-master/datepicker.min.css" rel="stylesheet" type="text/css">
     <style>
 #wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
     </style>
-    <header>
-        <div class="su_header" style="z-index:1">
-			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>수거신청
-        </div>
-    </header>
-    <div class="container" style="">
-	    <div class="su_form">
-            <input type="hidden" runat="server" id="hdProducerIdx" />
-            <input type="hidden" runat="server" id="hdAddress1" value="0" />
-            <input type="hidden" runat="server" id="hdAddress2" value="0" />
-            <input type="hidden" runat="server" id="hdProduct01" value="0" />
-            <input type="hidden" runat="server" id="hdProduct02" value="0" />
-            <input type="hidden" runat="server" id="hdProduct03" value="0" />
-            <input type="hidden" runat="server" id="hdProduct04" value="0" />
-            <input type="hidden" runat="server" id="hdProduct05" value="0" />
-            <input type="hidden" runat="server" id="hdProduct06" value="0" />
-            <input type="hidden" runat="server" id="hdProduct07" value="0" />
-            <input type="hidden" runat="server" id="hdProduct08" value="0" />
-            <input type="hidden" runat="server" id="hdProduct09" value="0" />
-            <input type="hidden" runat="server" id="hdProduct10" value="0" />
-            <input type="hidden" runat="server" id="hdEtc1" value="0" />
-            <input type="hidden" runat="server" id="hdEtc2" value="0" />
-            <input type="hidden" runat="server" id="hdEtc3" value="0" />
+    <div id="body">
+        <header>
+            <div class="su_header" style="z-index:1">
+			    <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>수거신청
+            </div>
+        </header>
+        <div class="container" style="">
+	        <div class="su_form">
+                <input type="hidden" runat="server" id="hdProducerIdx" />
+                <input type="hidden" runat="server" id="hdAddress1" value="0" />
+                <input type="hidden" runat="server" id="hdAddress2" value="0" />
+                <input type="hidden" runat="server" id="hdProduct01" value="0" />
+                <input type="hidden" runat="server" id="hdProduct02" value="0" />
+                <input type="hidden" runat="server" id="hdProduct03" value="0" />
+                <input type="hidden" runat="server" id="hdProduct04" value="0" />
+                <input type="hidden" runat="server" id="hdProduct05" value="0" />
+                <input type="hidden" runat="server" id="hdProduct06" value="0" />
+                <input type="hidden" runat="server" id="hdProduct07" value="0" />
+                <input type="hidden" runat="server" id="hdProduct08" value="0" />
+                <input type="hidden" runat="server" id="hdProduct09" value="0" />
+                <input type="hidden" runat="server" id="hdProduct10" value="0" />
+                <input type="hidden" runat="server" id="hdEtc1" value="0" />
+                <input type="hidden" runat="server" id="hdEtc2" value="0" />
+                <input type="hidden" runat="server" id="hdEtc3" value="0" />
 
-            <div class="su_title"><span class="color90cd32">[수거신청품목]</span></div>
-            <div><input type="text" runat="server" id="txtReqProduct" name="" value="" class="su_input" /></div>
-            <div class="su_title">이름</div>
-            <div><input type="text" runat="server" id="txtName" name="" value="" class="su_input" /></div>
-            <div class="su_title">연락처</div>
-            <div><input type="text" runat="server" id="txtContactNumber1" name="" value="" class="su_hp1" readonly/> - <input type="text" runat="server" id="txtContactNumber2" name="" value="" class="su_hp2" readonly /> - <input type="text" runat="server" id="txtContactNumber3" name="" value="" class="su_hp3" readonly /></div>
-            <div class="su_title">기본주소</div>
-                <div class="su_juso_left8"><input type="text" runat="server" id="txtBaseAddress" name="" value="" class="su_input" readonly/></div>
-                <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnChangeAddress"></div>
-            <div class="su_title">
-                <div class="su_juso_left">세부주소</div>
-                <div class="su_juso_right">우편번호</div>
+                <div class="su_title"><span class="color90cd32">[수거신청품목]</span></div>
+                <div><input type="text" runat="server" id="txtReqProduct" name="" value="" class="su_input" /></div>
+                <div class="su_title">이름</div>
+                <div><input type="text" runat="server" id="txtName" name="" value="" class="su_input" /></div>
+                <div class="su_title">연락처</div>
+                <div><input type="text" runat="server" id="txtContactNumber1" name="" value="" class="su_hp1" readonly/> - <input type="text" runat="server" id="txtContactNumber2" name="" value="" class="su_hp2" readonly /> - <input type="text" runat="server" id="txtContactNumber3" name="" value="" class="su_hp3" readonly /></div>
+                <div class="su_title">기본주소</div>
+                    <div class="su_juso_left8"><input type="text" runat="server" id="txtBaseAddress" name="" value="" class="su_input" readonly/></div>
+                    <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnChangeAddress"></div>
+                <div class="su_title">
+                    <div class="su_juso_left">세부주소</div>
+                    <div class="su_juso_right">우편번호</div>
+                </div>
+                <div class="su_adr">
+                    <div class="su_juso_left"><input type="text" runat="server" id="txtDetailAddress" name="" value="" class="su_input_juso01" readonly /> </div>
+                    <div class="su_juso_right"><input type="text" runat="server" id="txtZipno" name="" value="" class="su_input_juso02" readonly /> </div>
+                </div>
+                <div class="su_title">희망수거일</div>
+                <div class="su_date">
+                    <input type="text" id="txtReqDate" class="su_date01" onfocus="this.blur()"/>
+                </div>
+                <div style="height:30px;"></div>
+                <div class="su_submit" id="btnRequest"><div class="btn_grean">수거신청</div></div>
             </div>
-            <div class="su_adr">
-                <div class="su_juso_left"><input type="text" runat="server" id="txtDetailAddress" name="" value="" class="su_input_juso01" readonly /> </div>
-                <div class="su_juso_right"><input type="text" runat="server" id="txtZipno" name="" value="" class="su_input_juso02" readonly /> </div>
-            </div>
-            <div class="su_title">희망수거일</div>
-            <div class="su_date">
-                <input type="text" id="txtReqDate" class="su_date01" onfocus="this.blur()"/>
-            </div>
-            <div style="height:30px;"></div>
-            <div class="su_submit" id="btnRequest"><div class="btn_grean">수거신청</div></div>
         </div>
-    </div>
 
     <div id="modal-wrapper">
         <div id="modal-overlay"></div>
@@ -118,7 +119,6 @@
             </div>
         </div>
     </div>
-
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/extention/air-datepicker-master/datepicker.min.js"></script>
     <script type="text/javascript" src="../script/extention/air-datepicker-master/i18n/datepicker.ko.js"></script>
@@ -134,30 +134,6 @@
                 },
                 initComponent: function () {
                     $("#modal-wrapper").hide();
-
-                    var modal = {
-                        open: function () {
-                            $('#modal-wrapper').show();
-                        },
-                        close: function () {
-                            $('#modal-wrapper').hide();
-                        }
-                    };
-
-
-                    $(document).on('click', '#modal-overlay', function () {
-                        window.history.back();
-                    }).on('click', '#btnChangeAddress', function () {
-                        window.history.pushState({}, 'modal', '/modal');
-                        modal.open();
-                        page.fn.addressList();
-                    });
-
-                    window.onpopstate = history.onpushstate = function (e) {
-                        if (window.location.href.split('/').pop().indexOf('modal') === -1) { // 마지막 segment가 cards라면 모달이 아닌 리스트인 상태이어야한다.
-                            modal.close(); // 현재의 모달을 닫는다.
-                        }
-                    }
 
                     // Create start date
                     var start = new Date();
@@ -185,6 +161,29 @@
                     });
                 },
                 initEvent: function () {
+                    var modal = {
+                        open: function () {
+                            $('#modal-wrapper').show();
+                        },
+                        close: function () {
+                            $('#modal-wrapper').hide();
+                        }
+                    };
+
+
+                    $(document).on('click', '#modal-overlay', function () {
+                        window.history.back();
+                    }).on('click', '#btnChangeAddress', function () {
+                        window.history.pushState({}, 'modal', '/modal');
+                        modal.open();
+                        page.fn.addressList();
+                    });
+
+                    window.onpopstate = history.onpushstate = function (e) {
+                        if (window.location.href.split('/').pop().indexOf('modal') === -1) { // 마지막 segment가 cards라면 모달이 아닌 리스트인 상태이어야한다.
+                            modal.close(); // 현재의 모달을 닫는다.
+                        }
+                    }
                     $(document).on('click', '.back-btn', function () {
                         window.history.back();
                     });
@@ -240,7 +239,7 @@
                         Server.ajax("/producer/produceReg", params, function (response, status, xhr) {
                             //alert(response.value);
                             if (response.value == 0) {
-                                $("#pickupForm").submit();
+                                location.href = "RequestDone.aspx";
                             } else {
                                 //if (response.value == 200) {
                                 //    errorBoxWithCallback("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goUrl, { url: "/Main.aspx" });

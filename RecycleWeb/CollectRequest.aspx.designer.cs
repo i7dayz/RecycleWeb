@@ -112,6 +112,24 @@ namespace RecycleWeb {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdProduce_10_price;
         
         /// <summary>
+        /// hdProduceIdx 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdProduceIdx;
+        
+        /// <summary>
+        /// hdProducerIdx 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdProducerIdx;
+        
+        /// <summary>
         /// txtProduct06 컨트롤입니다.
         /// </summary>
         /// <remarks>
@@ -218,5 +236,23 @@ namespace RecycleWeb {
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkEtc3;
+        
+        /// <summary>
+        /// not_reserved 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl not_reserved;
+        
+        /// <summary>
+        /// reserved 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl reserved;
     }
 }

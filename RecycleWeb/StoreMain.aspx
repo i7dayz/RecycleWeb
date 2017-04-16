@@ -33,7 +33,7 @@
                 <p><a href="#"><img src="./img/sugeo/su_icon2/sto_02.png" class="img65"></a></p>
                 <p class="su_name">편의점</p>
             </div>
-            <div class="three_03">
+            <div class="three_03" id="cafe">
                 <p><a href="#"><img src="./img/sugeo/su_icon2/sto_03.png" class="img65"></a></p>
                 <p class="su_name">카페</p>
             </div>
@@ -95,6 +95,9 @@
                     });
                     $(document).on('click', '#tabDonate', function () {
                         location.href = "Donate.aspx";
+                    });
+                    $(document).on('click', '#cafe', function () {
+                        location.href = "/Store/Goods.aspx?store=cafe&brandId=";
                     });
                 },
                 fn: {

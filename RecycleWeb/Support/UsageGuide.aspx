@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UsageGuide.aspx.cs" Inherits="RecycleWeb.Support.UsageGuide" %>
 
-<!-- #include file="./include/header_b.html" --> 
+<!-- #include file="/include/header_b.html" --> 
 <style>
 
 </style>
@@ -33,7 +33,7 @@ function faq_open(el)
 </script>
 <header>
     <div class="su_header">
-        <span class="su_leftbtn back-btn"><img src="./img/baechul/back-btn.png" width="13" /></span>이용안내
+        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>이용안내
     </div>
 </header>
 <div class="container" style="">

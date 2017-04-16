@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 /* CSS Document */
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
  
@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {font-size:1em}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
 #hd ul, nav ul, #ft ul {margin:0;padding:0;list-style:none}
 legend {position:absolute;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
-label, input, button, select, img {/*vertical-align:middle*/}
+label, input, button, select, img {vertical-align:middle}
 input, button {margin:0;padding:0;font-size:1em}
 button {cursor:pointer}
 input[type=text], input[type=password], input[type=submit], input[type=image] {
@@ -23,7 +23,7 @@ button {
     font-size: 1em;
     -webkit-appearance: none;
 }
-textarea, select {font-size:1em;font-family:dotum}
+textarea, select {font-size:1em;font-family: "Nanum Gothic", sans-serif;}
 textarea {border-radius:0;-webkit-appearance:none}
 select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
@@ -96,6 +96,12 @@ footer {
 
 .pad_b10 {padding-bottom:10px;}
 
+.pad_t2 {padding-top:2px;}
+.pad_t4 {padding-top:4px;}
+.pad_t6 {padding-top:6px;}
+.pad_t7 {padding-top:7px;}
+.pad_t9 {padding-top:9px;}
+
 .pad_t10 {padding-top:10px;}
 .pad_t20 {padding-top:20px;}
 .pad_t30 {padding-top:30px;}
@@ -135,6 +141,17 @@ div#body {
     margin: 0 auto;
     position: relative;
 }
+img.img14_icon {
+    width: 14px;
+    margin: -5px 0 0 5px;
+}
+img.img14_icon_l {
+    width: 14px;
+    margin: -5px 5px 0 5px;
+}
+img.img20_icon {
+    margin: -5px 0 0 5px;
+}
 img.img20 { width: 20px;}
 img.img23 {
     width: 23px;
@@ -150,7 +167,11 @@ img.img45 { width: 45px;}
 img.img50 { width: 50px;}
 img.img55 { width: 55px;}
 img.img60 { width: 60px;}
-img.img65 { width: 65px;}
+/*img.img65 { width: 65px;}*/
+/*아이콘용*/
+img.img65 {
+    width: 35%;
+}
 img.img70 { width: 70px;}
 img.img75 { width: 75px;}
 img.img80 { width: 80px;}
@@ -186,6 +207,10 @@ img.img95 { width: 95px;}
 a.openMask img {
     border-radius: 50px;
     max-width: 100px;
+}
+a.openMask .no_img{
+    border-radius: 60px;
+    max-width: 120px;
 }
 .rtext {
     text-align: right;
@@ -520,7 +545,7 @@ span.su_rightbtn.color90cd32 {
 span.kg_m {
     padding: 0 5px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     color: #b7b7b7;
 }
@@ -794,13 +819,16 @@ tr.tr_top .td_rang3_2 {
     font-weight: bold;
 }
 p.total {
-    padding: 10px 2px;
+    padding: 10px 12px;
     background: #5e8d19;
-    text-align: center;
+    text-align: right;
     border-radius: 22px;
     font-size: 19px;
     font-weight: bold;
     margin-top: 10px;
+    width: 155px;
+    float: right;
+    /* width: 100%; */
 }
 span.icon_s {
     background: #ffc045;
@@ -1044,6 +1072,16 @@ input.b90cd32{
 .coupon_pr {
     text-align: center;
     padding-top: 30px;
+    position: relative;
+    width: 320px;
+    margin: 0 auto;
+}
+a.coupon_info_link {
+    position: absolute;
+    bottom: 0px;
+    right: 34px;
+    color: #ffc045;
+    font-weight: bold;
 }
 .coupon_pr img {
     border-radius: 40px;
@@ -1172,7 +1210,7 @@ tr.tr_top .td_po3_2 {
     color: #fff;
 }
 .point td {
-    padding: 11px;
+    padding: 11px 0;
     /* border-top: 1px solid #e9e9e9; */
     border-bottom: 1px solid #9fdc41;
     line-height: 1.5em;
@@ -1287,10 +1325,146 @@ p.txt_cen.fix_btm {
     bottom: 100px;
     width: 100%;
 }
-@media (min-width: 361px) {
-.coupon_pr {
-    text-align: center;
-    padding-top: 38px;
+span.icon_onoff {
+    /* background: #ffc045; */
+    padding: 0px 5px;
+    line-height: 12px;
+    border-radius: 16px;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    right: 19px;
+    background-image: url(../img/sugeo/su_icon3/n_opn.png);
+
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 25px;
+    height: 25px;
 }
+span.icon_onoff.on {
+    background-image: url(../img/sugeo/su_icon3/n_opn.png);
+}
+span.icon_onoff.off {
+    background-image: url(../img/sugeo/su_icon3/n_cls.png);
+}
+.su_adr2 {
+    width: 300px;
+    margin: 0 auto;
+}
+.su_right70 {
+    width: 70px;
+    float: left;
+}
+.su_left180 {
+    width: 180px;
+    float: left;
+    padding-top: 9px;
+}
+.su_right50 {
+    float: right;
+    width: 50px;
+    padding-top: 6px;
+}
+.su_left180 input.input_cf6_100 {
+    width: 96%;
+    border: 0;
+    padding: 5px 0;
+    height: 24px;
+    border-radius: 5px;
+    background: #f6f6f6;
+}
+.su_form2 {
+        padding-bottom: 10px;
+    float: left;
+    width: 100%;
 }
 
+/*7-1*/
+.kg10 {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+span.sm01 {
+    position: absolute;
+    right: 9px;
+}
+.m_con_text {
+    text-align: center;
+    background: #fff;
+    padding: 57px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.btn_ox {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    left: 85px;
+}
+.btn_ok {
+    width: 120px;
+    height: 41px;
+    background: #9ee039;
+    position: absolute;
+    bottom: -22px;
+    left: 49px;
+    text-align: center;
+    line-height: 41px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.13);
+}
+p.su_des_top {
+    line-height: 55px;
+    background: #90cd32;
+    float: left;
+    width: 100%;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+.main_real_cov {
+    float: left;
+    width: 100%;
+    margin-bottom: 8px;
+}
+.real_bn {
+    margin: 2px 8px;
+    text-align: center;
+}
+.real_bn2 {
+    float: left;
+    width: 100%;
+    padding-top: 7px;
+}
+.li49_left {
+    width: 49%;
+    float: left;
+    background: #fff;
+    padding: 10px 0;
+	position:relative;
+}
+.li49_right {
+    width: 49%;
+    float: right;
+    background: #fff;
+    padding: 10px 0;
+	position:relative;
+}
+
+.kg10 {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+span.sm01 {
+    position: absolute;
+    right: 9px;
+}
