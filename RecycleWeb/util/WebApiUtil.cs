@@ -227,7 +227,7 @@ namespace RecycleWeb.util
             return content;
         }
 
-        public static string AppLogin(string uri, string resource, Dictionary<string, string> param)
+        public static string RestRequest(string uri, string resource, Dictionary<string, string> param)
         {
             var client = new RestClient(uri);
             var request = new RestRequest();
@@ -243,6 +243,18 @@ namespace RecycleWeb.util
 
         // 카카오 - 로그아웃
         public static string Logout(string uri, string resource, string accessToken)
+        {
+            var client = new RestClient(uri);
+            var request = new RestRequest(resource, Method.POST);
+            request.AddHeader("Authorization", string.Format("Bearer {0}", accessToken));
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+
+            return content;
+        }
+
+        // 카카오 - 언링크
+        public static string Unlink(string uri, string resource, string accessToken)
         {
             var client = new RestClient(uri);
             var request = new RestRequest(resource, Method.POST);

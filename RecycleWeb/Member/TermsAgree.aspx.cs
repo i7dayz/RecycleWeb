@@ -11,28 +11,20 @@ namespace RecycleWeb.Member
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Request.Form["kakaoId"] != null)
-            //{
-                string kakaoId = Request.Form["kakaoId"];
-                string kakaoNickname = Request.Form["kakaoNickname"];
-                string kakaoEmail = Request.Form["kakaoEmail"];
-                string kakaoThumbnailImage = Request.Form["kakaoThumbnailImage"];
-                string kakaoProfileImage = Request.Form["kakaoProfileImage"];
-                string accessToken = Request.Form["accessToken"];
-                string refreshToken = Request.Form["refreshToken"];
-
-                this.kakaoId.Value = kakaoId;
-                this.kakaoNickname.Value = kakaoNickname;
-                this.kakaoEmail.Value = kakaoEmail;
-                this.kakaoThumbnailImage.Value = kakaoThumbnailImage;
-                this.kakaoProfileImage.Value = kakaoProfileImage;
-                this.accessToken.Value = accessToken;
-                this.refreshToken.Value = refreshToken;
-            //}
-            //else
-            //{
-            //    Response.Redirect("/Default.aspx");
-            //}
+            if (Session["kakaoId"] != null)
+            {
+                this.kakaoId.Value = Session["kakaoId"].ToString();
+                this.kakaoNickname.Value = Session["kakaoNickname"].ToString();
+                this.kakaoEmail.Value = Session["kakaoEmail"].ToString();
+                this.kakaoThumbnailImage.Value = Session["kakaoThumbnailImage"].ToString();
+                this.kakaoProfileImage.Value = Session["kakaoProfileImage"].ToString();
+                this.accessToken.Value = Session["accessToken"].ToString();
+                this.refreshToken.Value = Session["refreshToken"].ToString();
+            }
+            else
+            {
+                Response.Redirect("/Default.aspx");
+            }
         }
     }
 }

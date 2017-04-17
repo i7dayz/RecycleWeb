@@ -14,7 +14,7 @@ input, button {margin:0;padding:0;font-size:1em}
 button {cursor:pointer}
 input[type=text], input[type=password], input[type=submit], input[type=image] {
     border-radius: 0;
-    font-size: 1em;
+    font-size: 1.5em;
     -webkit-appearance: none;
     height: 33px;
 }
@@ -540,7 +540,7 @@ span.su_rightbtn.color90cd32 {
 }
 
 .kg {
-    padding: 0 20px;
+    padding: 0 5px 0 0;
 }
 span.kg_m {
     padding: 0 5px;

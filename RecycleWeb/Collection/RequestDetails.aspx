@@ -83,9 +83,11 @@
                     <div class="su_juso_left"><input type="text" runat="server" id="txtDetailAddress" name="" value="" class="su_input_juso01" readonly /> </div>
                     <div class="su_juso_right"><input type="text" runat="server" id="txtZipno" name="" value="" class="su_input_juso02" readonly /> </div>
                 </div>
-                <div class="su_title">희망수거일</div>
+                <div class="su_title">희망수거일시</div>
                 <div class="su_date">
                     <input type="text" id="txtReqDate" class="su_date01" onfocus="this.blur()"/>
+                    <%--<input type="radio" name="radTime" id="radTime01" value="오전 10시~오후 2시" style="margin-left:20px;" checked="checked"/><label for="radTime01" style="cursor:pointer">오전 10시~오후 2시</label>
+                    <input type="radio" name="radTime" id="radTime02" value="오후 2시~오후 6시"  style="margin-left:20px;"/><label for="radTime02" style="cursor:pointer">오후 2시~오후 6시</label>--%>
                 </div>
                 <div style="height:30px;"></div>
                 <div class="su_submit" ><div class="btn_grean" id="btnRequest" style="cursor:pointer" >수거신청</div></div>
@@ -233,7 +235,7 @@
                             etc_2: $("#hdEtc2").val(), // 폐기서비스
                             etc_3: $("#hdEtc3").val(), // 유품정리
                             companyCode: 0,
-                            hopeCollectDate: $("#txtReqDate").val()
+                            hopeCollectDate: $("#txtReqDate").val()// + ' ' + $('input[name="radTime"]:checked').val()
                         };
 
                         Server.ajax("/producer/produceReg", params, function (response, status, xhr) {

@@ -11,28 +11,63 @@ using System.Web.UI.WebControls;
 using RecycleWeb.util;
 using Newtonsoft.Json;
 using RecycleWeb.Model;
+using RecycleWeb.Member;
 
 namespace RecycleWeb
 {
     public partial class Main : System.Web.UI.Page
     {
+        const string APP_SERVER_URI = "http://geno47.cafe24.com:8080";
+        
+        const string PRODUCER_LOGIN = "producer/login";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["kakaoId"] != null)
             {
-                if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
+
+                Dictionary<string, string> param = new Dictionary<string, string>();
+                param.Add("snsType", "1");
+                param.Add("snsId", Session["kakaoId"].ToString());
+                param.Add("snsURL", Session["kakaoThumbnailImage"].ToString());
+                param.Add("snsNickname", Session["kakaoNickname"].ToString());
+                param.Add("carrierId", "31");
+                param.Add("appVersion", "1.0.0");
+
+                RootObject rootObj = JsonConvert.DeserializeObject<RootObject>(WebApiUtil.RestRequest(APP_SERVER_URI, PRODUCER_LOGIN, param));
+
+                if (rootObj.value == 0)
                 {
-                    this.profileImg.Src = Session["kakaoProfileImage"].ToString();
+                    Session["producerIdx"] = rootObj.login.producerIdx;
+                    Session["producerContactNumber"] = rootObj.login.producerContactNumber;
+                    Session["zipCode"] = rootObj.login.zipCode;
+                    Session["address1"] = rootObj.login.address1;
+                    Session["address2"] = rootObj.login.address2;
+                    Session["detailAddress"] = rootObj.login.detailAddress;
+                    Session["producePoint"] = rootObj.login.producePoint;
+                    Session["producePointExpireDate"] = rootObj.login.producePointExpireDate;
+                    Session["totalDonationPoint"] = rootObj.login.totalDonationPoint;
+                    Session["rank"] = rootObj.login.rank;
+                    Session["nickname"] = rootObj.login.nickname;
+                    Session["expirePoint"] = rootObj.login.expirePoint;
+                    Session["name"] = rootObj.login.name;
+
+                    if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
+                    {
+                        this.profileImg.Src = Session["kakaoProfileImage"].ToString();
+                    }
+
+                    if (Session["producePointExpireDate"] != null && Session["expirePoint"] != null)
+                    {
+                        DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
+                        this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
+                        this.exPoint.InnerText = Session["expirePoint"].ToString();
+                    }
+
+                    this.nickname.InnerText = Session["nickname"].ToString();
+                    this.point.InnerText = int.Parse(Session["producePoint"].ToString()).ToString("N0");
+
+                    getCollectReserve();
                 }
-
-                DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
-                this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
-                this.exPoint.InnerText = Session["expirePoint"].ToString();
-
-                this.nickname.InnerText = Session["nickname"].ToString();
-                this.point.InnerText = int.Parse(Session["producePoint"].ToString()).ToString("N0");
-
-                getCollectReserve();
             }
             else
             {

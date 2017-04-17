@@ -76,7 +76,7 @@ namespace RecycleWeb.Member
                             param.Add("carrierId", "31");
                             param.Add("appVersion", "1.0.0");
 
-                            RootObject rootObj = JsonConvert.DeserializeObject<RootObject>(WebApiUtil.AppLogin(APP_SERVER_URI, PRODUCER_LOGIN, param));
+                            RootObject rootObj = JsonConvert.DeserializeObject<RootObject>(WebApiUtil.RestRequest(APP_SERVER_URI, PRODUCER_LOGIN, param));
 
                             if (rootObj.value == 0)
                             {
@@ -106,6 +106,14 @@ namespace RecycleWeb.Member
                             }
                             else
                             {
+                                Session["kakaoId"] = kakaoUserInfo.id.ToString();
+                                Session["kakaoNickname"] = kakaoUserInfo.properties.nickname;
+                                Session["kakaoEmail"] = kakaoUserInfo.kaccount_email;
+                                Session["kakaoThumbnailImage"] = kakaoUserInfo.properties.thumbnail_image;
+                                Session["kakaoProfileImage"] = kakaoUserInfo.properties.profile_image;
+                                Session["accessToken"] = kakaoToken.access_token;
+                                Session["refreshToken"] = kakaoToken.refresh_token;
+
                                 Response.Redirect("/Member/TermsAgree.aspx");
                             }
                         }

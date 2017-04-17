@@ -11,10 +11,6 @@ namespace RecycleWeb.Member
 {
     public partial class Info : System.Web.UI.Page
     {
-        const string KAKAO_KAPI_URI = "https://kapi.kakao.com";
-
-        const string GET_LOGOUT_RESOURCE = "v1/user/logout";
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -54,10 +50,13 @@ namespace RecycleWeb.Member
                     this.name.InnerText = "이름";
                     this.nickname.InnerText = Session["nickname"].ToString();
 
-                    string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
-                    this.txtContactNumber1.Value = contactNumber[0];
-                    this.txtContactNumber2.Value = contactNumber[1];
-                    this.txtContactNumber3.Value = contactNumber[2];
+                    if (!string.IsNullOrEmpty(Session["producerContactNumber"].ToString()))
+                    {
+                        string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
+                        this.txtContactNumber1.Value = contactNumber[0];
+                        this.txtContactNumber2.Value = contactNumber[1];
+                        this.txtContactNumber3.Value = contactNumber[2];
+                    }
                     this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
                     this.txtDetailAddress.Value = Session["detailAddress"].ToString();
                     this.txtZipNo.Value = Session["zipCode"].ToString();
@@ -67,23 +66,6 @@ namespace RecycleWeb.Member
                     Response.Redirect("/Default.aspx");
                 }
             }
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            if (Session["kakaoId"] != null)
-            {
-                Session["kakaoId"] = "";
-                Session.Abandon();
-            }
-            string temp = WebApiUtil.Logout(KAKAO_KAPI_URI, GET_LOGOUT_RESOURCE, Session["accessToken"].ToString());
-            ScriptManager.RegisterStartupScript(
-                this,
-                this.GetType(),
-                "redirect",
-                "window.location='" + Request.ApplicationPath + "Default.aspx';",
-                true
-            );
         }
     }
 

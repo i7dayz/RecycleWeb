@@ -61,8 +61,8 @@
                         <a href="javascript:;" runat="server" id="btnQuickRequestCancel"><span class="btn_grean">취소</span></a>
                 </div>
                 <div runat="server" id="notReserved">
-                    <span>수거신청내역이 없습니다.</span>
-                    <a href="javascript:;" runat="server" id="btnQuickRequest"><span class="btn_grean">수거신청</span></a>
+                    <div style="height:100px;">수거신청내역이 없습니다.</div>
+                    <a href="javascript:;" runat="server" id="btnQuickRequest"><span class="btn_grean" style="width:100%;">수거신청</span></a>
                 </div>
             </div>
         </div>

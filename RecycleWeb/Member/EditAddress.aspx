@@ -33,11 +33,9 @@
 <link rel="stylesheet" href="/css/drawer.css" >
 <link rel="stylesheet" href="/css/layout.css" >
 
-    <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="../css/modal.css" />
     <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
     <style>
-#wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
+        #wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
   
     .image-wrapper { 
         width:100%; text-align: center; 
@@ -67,7 +65,7 @@
 <div id="body">
         <header>
             <div class="su_header" style="z-index:1">
-                <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
+                <span class="su_leftbtn back-btn" onclick="window.history.back();"><img src="/img/baechul/back-btn.png" width="13" /></span>
                 회원정보입력
             </div>
         </header>
@@ -97,7 +95,7 @@
                                 
                     <div class="su_title pdt20">기본주소</div>
                     <div class="su_adr">
-                        <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" runat="server" id="txtBaseAddress"/></div>
+                        <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" runat="server" id="txtBaseAddress" readonly="readonly"/></div>
                         <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;cursor:pointer" id="btnSearchAddress" ></div>
                     </div>
                     <div class="su_title">
@@ -106,7 +104,7 @@
                     </div>
                     <div class="su_adr">
                         <div class="su_juso_left"><input type="text" name="" value="" class="su_input_juso01" runat="server" id="txtDetailAddress" /> </div>
-                        <div class="su_juso_right"><input type="text" name="" value="" class="su_input_juso02" runat="server" id="txtZipNo"/> </div>
+                        <div class="su_juso_right"><input type="text" name="" value="" class="su_input_juso02" runat="server" id="txtZipNo" readonly="readonly"/> </div>
                     </div>
 
                     <div class="su_title">
@@ -129,7 +127,7 @@
             <div id="modal-content">
                 <div class="wrap" id="wrap"> 
                 <header>
-                    <div class="su_header" style="z-index:10000">
+                    <div class="su_header" style="z-index:10000; position:relative;">
                         <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
                         주소검색
                     </div>
@@ -147,18 +145,7 @@
                                             <input type="hidden" name="resultType" value="json" /> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
                                             <input type="hidden" name="confmKey" value="U01TX0FVVEgyMDE1MTIxODE0MTU0NTA=" />	<!-- 요청 변수 설정 (승인키) -->
                                             <input type="hidden" name="totalCount" value="0" />
-                                            <input style="display:none;">   
-	                                        <div class="su_form">   
-                                                <%--<div>
-                                                    <input type="search" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
-                                                        placeholder="도로, 건물명, 지번을 검색해보세요."
-                                                        value="" />
-                                                    <a href="javascript:;" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">
-                                                        <img src="../img/search.png" style="width:16px; height:16px;">
-                                                    </a>
-                                                </div>
-                                                <span class="txt-color5">(예: 부개동 502, 국립중앙박물관, 반포대로 55)</span>--%>
-                                            
+	                                        <div class="su_form">                                               
                                                 <div class="su_title pdt20">기본주소</div>
                                                 <div class="su_adr">
                                                     <div class="su_juso_left8"><input type="text" id="keyword" name="keyword"
@@ -183,9 +170,9 @@
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
     <%--<script src="../script/dropdown.min.js"></script>--%>
-    <script src="../script/drawer.min.js" charset="utf-8"></script>
+    <%--<script src="../script/drawer.min.js" charset="utf-8"></script>--%>
         
-    <script>
+    <script type="text/javascript">
         (function () {
             var page = {
                 init: function () {
@@ -196,6 +183,13 @@
                     $("#modal-wrapper").hide();
                 },
                 initEvent: function () {
+                    $(document).keypress(
+                        function (event) {
+                            if (event.which == '13') {
+                                event.preventDefault();
+                            }
+                    });
+
                     var modal = {
                         open: function () {
                             $('#modal-wrapper').show();
@@ -218,7 +212,7 @@
                             modal.close(); // 현재의 모달을 닫는다.
                         }
                     }
-                    
+
                     $(document).on('click', '.back-btn', function () {
                         window.history.back();
                     });
@@ -230,15 +224,11 @@
                     }
 
                     $(document).on('click', '#btnSearch', function () {
-                        page.fn.resetAddressForm();
-                        page.fn.getAddress();
+                        page.fn.search();
                     });
 
                     $(document).on('click', '#btnSearchNext', function () {
-                        var currentPage = parseInt($("input[name='currentPage']").val());
-                        $("input[name='currentPage']").val(currentPage + 1);
-
-                        page.fn.getAddress();
+                        page.fn.searchNext();
                     });
 
                     $(document).on('click', '#address', function () {
@@ -262,16 +252,31 @@
                     });
 
                     $(document).on('click', '#btnSave', function () {
+                        page.fn.save();
+                    });
+                },
+                fn: {
+                    search: function() {                        
+                        page.fn.resetAddressForm();
+                        page.fn.getAddress();
+                    },
+                    searchNext: function () {
+                        var currentPage = parseInt($("input[name='currentPage']").val());
+                        $("input[name='currentPage']").val(currentPage + 1);
+
+                        page.fn.getAddress();
+                    },
+                    save: function () {
                         if ($("#txtZipNo").val() == "" || $("#address1").val() == "" || $("#address2").val() == "") {
                             infoBox("기본주소를 검색 후 선택하세요.");
                             return;
                         }
 
-                        if ($("#txtDetailAddress").val() == "") {
-                            infoBox("세부주소를 입력하세요.");
-                            $("#txtDetailAddress").focus();
-                            return;
-                        }
+                        //if ($("#txtDetailAddress").val() == "") {
+                        //    infoBox("세부주소를 입력하세요.");
+                        //    $("#txtDetailAddress").focus();
+                        //    return;
+                        //}
 
                         if ($("#txtLocation").val() == "") {
                             infoBox("장소를 입력하세요.");
@@ -305,9 +310,7 @@
                                 errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
-                    });
-                },
-                fn: {
+                    },
                     goUrl: function (urlData) {
                         location.href = urlData.url;
                     },
@@ -320,7 +323,7 @@
                             addressInfoIdx: $("#hdAddressIdx").val(),
                             producerIdx: $("#hdProducerIdx").val()
                         };
-
+                        
                         Server.ajax("/producer/addressInfoDetail", params, function (response, status, xhr) {
                             if (response.value == 0) {
                                 $("#txtZipNo").val(response.addressInfoDetail.zipCode),
@@ -373,7 +376,7 @@
                             }
 	                    return true ;
                     },
-                    resetAddressForm() {
+                    resetAddressForm: function() {
                         if (window.location.href.split('/').pop().indexOf('modal') === -1) {
                             $("#keyword").val("");
                         }
@@ -449,7 +452,7 @@
 
             $(document).on('ready', function () {
                 page.init();
-                $('.drawer').drawer();
+                //$('.drawer').drawer();
                 page.fn.getDetailAddress();
             });
         })();

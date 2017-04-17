@@ -82,6 +82,7 @@ box-sizing: border-box;}
         </div>
     </header>
     <input type="hidden" runat="server" id="hdProducerIdx" />
+    <input type="hidden" runat="server" id="hdAddressInfoIdx" />
     <div class="container" style="">
 	    <div class="ctext pad20 back_green">
             <div class="image-wrapper">
@@ -135,6 +136,11 @@ box-sizing: border-box;}
                     $(document).on('click', 'img[name=editAddress]', function () {
                         location.href = "EditAddress.aspx?id=" + $(this).attr('id');
                     });
+
+                    $(document).on('click', 'img[name=deleteAddress]', function () {
+                        $("#hdAddressInfoIdx").val($(this).attr('id'));
+                        confirmBox("선택한 주소를 삭제하시겠습니까?", page.fn.deleteAddress);
+                    });
                 },
                 fn: {  
                     addressList: function () {
@@ -157,34 +163,11 @@ box-sizing: border-box;}
                     addAddress: function (item) {
                         var defaultAddress = "";
 
-                        if (item[7] == "1")
+                        if (item[7] == "1") {
                             defaultAddress = ' <span class="bak90cd32">기본주소</span>';
+                        }
 
-                        //var address = '<li class="font_size12b color000 pad_l0" name="address" id="' + item[0] + '" style="cursor:pointer">'
-                        //            + '    <span class="txt-color5">' + item[8] + '</span>'
-                        //            + '    <div class="ui-grid-a">'
-                        //            + '        <div class="ui-block-a wpc90">'
-                        //            + '            ' + item[3] + ' ' + item[4] + ' '
-                        //            + '            ' + item[5] + ' (' + item[2] + ')'
-                        //            + '        </div>'
-                        //            + '        <div class="ui-block-b wpc10" style="text-align:center">'
-                        //            + '            ' + checkbox
-                        //            + '        </div>'
-                        //            + '    </div>'
-                        //            + '</li>';
                         var location = item[8] == null ? '' : item[8];
-                        //var address = '<div id="' + item[0] + '" name="address" class="pad1010" style="cursor:pointer; border-bottom: 1px solid #e4e4e4">'
-                        //            + '    <span class="txt-color5 font_size12b color000 pad_l0">' + location + '</span>'
-                        //            + '    <div class="ui-grid-a font_size12b color000 pad_l0">'
-                        //            + '        <div class="ui-block-a wpc90">'
-                        //            + '            <p>' + item[3] + ' ' + item[4] + ' </p>'
-                        //            + '            <p>' + item[5] + ' (' + item[2] + ')</p>'
-                        //            + '        </div>'
-                        //            + '        <div class="ui-block-b wpc10 font_size12b color000 pad_l0" style="text-align:right">'
-                        //            + '            ' + checkbox
-                        //            + '        </div>    '
-                        //            + '    </div>'
-                        //            + '</div>';
                         var address = '<div class="su_title">' + location + defaultAddress + '</div>'
                                     + '<div class="su_title">'
                                     + '    <div class="su_juso_left">'
@@ -192,13 +175,27 @@ box-sizing: border-box;}
                                     + '        <p class="font_size11 color_000">' + item[5] + ' (' + item[2] + ')</p>'
                                     + '    </div>'
                                     + '    <div class="su_juso_right">'
-                                    + '    	   <img src="/img/baechul/pen_icn.png" width="23" class="pl15" name="editAddress"  id="' + item[0] + '"/>'
-                                    + '        <img src="/img/baechul/del-icn.png" width="23" class="pl15" name="modifyAddress" id="' + item[0] + '" />'
+                                    + '    	   <img src="/img/baechul/pen_icn.png" width="23" class="pl15" name="editAddress" style="cursor:pointer"  id="' + item[0] + '"/>'
+                                    + '        <img src="/img/baechul/del-icn.png" width="23" class="pl15" name="deleteAddress" style="cursor:pointer" id="' + item[0] + '" />'
                                     + '    </div>'
                                     + '</div>'
                                     + '<div class="line_d p10"></div>';
 
                         $('#addressList').append(address);
+                    },
+                    deleteAddress: function () {
+                        var params = {
+                            producerIdx: $("#hdProducerIdx").val(),
+                            addressInfoIdx: $("#hdAddressInfoIdx").val()
+                        };
+
+                        Server.ajax("/producer/addressInfoDelete", params, function (respone, status, xhr) {
+                            if (respone.value == 0) {
+                                location.reload();
+                            } else {
+                                errorBox("Error Code : " + respone.value);
+                            }
+                        }, "post", false);
                     },
                     goUrl: function(urlData) {
                         location.href = urlData.url;

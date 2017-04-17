@@ -85,6 +85,15 @@ namespace RecycleWeb.Member {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden refreshToken;
         
         /// <summary>
+        /// type 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden type;
+        
+        /// <summary>
         /// profileImg 컨트롤입니다.
         /// </summary>
         /// <remarks>
@@ -166,12 +175,21 @@ namespace RecycleWeb.Member {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtZipNo;
         
         /// <summary>
-        /// LinkButton1 컨트롤입니다.
+        /// btnLogout 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnLogout;
+        
+        /// <summary>
+        /// btnUnlink 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnUnlink;
     }
 }

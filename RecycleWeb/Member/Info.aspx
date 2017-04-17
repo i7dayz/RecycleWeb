@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="Info.aspx.cs" Inherits="RecycleWeb.Member.Info" %>
 
 <!-- #include file="/include/header_b.html" --> 
+<link href="/script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
 
 <style>
     .image-wrapper { 
@@ -37,6 +38,7 @@
     <input type="hidden" id="kakaoProfileImage" runat="server" value="" />
     <input type="hidden" id="accessToken" runat="server" value="" />
     <input type="hidden" id="refreshToken" runat="server" value="" />
+    <input type="hidden" id="type" runat="server" value="" />
 <div class="container" style="">
 	<div class="ctext pad20 back_green">
         <div class="image-wrapper">
@@ -72,12 +74,12 @@
             <%--<div class="su_submit pdt30"><div class="btn_grean">기본정보 저장</div></div>--%>
             <div class="su_submit"><div class="btn_gray" id="btnEditAddress" style="cursor:pointer">수거 주소록 관리</div></div>
 
-        <div class="su_title pdt30">
-            <div class="font_size12 su_juso_left">
-                <asp:linkbutton id="LinkButton1" name="LinkButton1" runat="server" onclick="LinkButton1_Click" onclientclick="return page.fn.confirm();">로그아웃</asp:linkbutton>
-            </div>
+            <div class="su_title pdt30">
+                <div class="font_size12 su_juso_left">
+                    <a class="txt-color5" style="cursor:pointer" runat="server" id="btnLogout">로그아웃</a>
+                </div>
                 <div class="font_size12 su_juso_right">
-                    <a class="txt-color5" style="" runat="server">회원탈퇴</a>
+                    <a class="txt-color5" style="cursor:pointer" runat="server" id="btnUnlink">회원탈퇴</a>
                 </div>
             </div>
     	</div>
@@ -109,8 +111,24 @@
                     $(document).on('click', '#btnEditAddress', function () {
                         location.href = "AddressList.aspx";
                     });
+
+                    $(document).on('click', '#btnLogout', function () {
+                        confirmBox("로그아웃하시겠습니까?", page.fn.logout);
+                    });
+
+                    $(document).on('click', '#btnUnlink', function () {
+                        confirmBox("리본 서비스를 탈퇴하시겠습니까? 적립된 포인트 등의 정보는 삭제되며 복구가 불가능합니다.", page.fn.unlink);
+                    });
                 },
-                fn: {  
+                fn: {
+                    logout: function() {
+                        $('#form1').attr('action', 'Logout.aspx');
+                        $('#form1').submit();
+                    },
+                    unlink: function () {
+                        $('#form1').attr('action', 'Withdrawal.aspx');
+                        $('#form1').submit();
+                    },
                     goUrl: function(urlData) {
                         location.href = urlData.url;
                     },

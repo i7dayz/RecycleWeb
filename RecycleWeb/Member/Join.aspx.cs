@@ -27,10 +27,10 @@ namespace RecycleWeb.Member
             this.accessToken.Value = accessToken;
             this.refreshToken.Value = refreshToken;
 
-            if (!string.IsNullOrEmpty(kakaoProfileImage))
-            {
-                //this.profileImg.Src = kakaoProfileImage;
-            }
+            //if (!string.IsNullOrEmpty(kakaoProfileImage))
+            //{
+            //    this.profileImg.Src = kakaoProfileImage;
+            //}
         }
     }
 }

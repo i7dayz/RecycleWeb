@@ -70,7 +70,7 @@
                     <div><input type="text" id="txtSnsNickname" name="" value="" class="su_input"></div>
         
                     <div class="su_title pdt20">닉네임</div>
-                    <div><input type="text" name="" value="" class="su_input" /></div>
+                    <div><input type="text" id="txtNickname" name="" value="" class="su_input" /></div>
             
                     <div class="su_title pdt20">연락처</div>
                     <div class="su_adr">
@@ -88,7 +88,7 @@
             
                     <div class="su_title pdt20">기본주소</div>
                     <div class="su_adr">
-                        <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" id="txtBaseAddress"/></div>
+                        <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" id="txtBaseAddress" readonly="readonly"/></div>
                         <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px; cursor:pointer" id="btnSearchAddress"></div>
                     </div>
                     <div class="su_title">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="su_adr">
                         <div class="su_juso_left"><input type="text" name="" value="" class="su_input_juso01" id="txtDetailAddress" /> </div>
-                        <div class="su_juso_right"><input type="text" name="" value="" class="su_input_juso02" id="txtZipNo"/> </div>
+                        <div class="su_juso_right"><input type="text" name="" value="" class="su_input_juso02" id="txtZipNo" readonly="readonly"/> </div>
                     </div>
 
                     <div class="su_submit pdt30"><div class="btn_grean" id="btnSave" style="cursor:pointer">저장</div></div>
@@ -178,6 +178,13 @@
                     $("#modal-wrapper").hide();
                 },
                 initEvent: function () {
+                    $(document).keypress(
+                        function (event) {
+                            if (event.which == '13') {
+                                event.preventDefault();
+                            }
+                        });
+
                     var modal = {
                         open: function () {
                             $('#modal-wrapper').show();
@@ -280,7 +287,7 @@
                             return;
                         }
 
-                        if ($("#txtZipNo").val() == "" || $("#address1").val() || $("#address2").val()) {
+                        if ($("#txtZipNo").val() == "" || $("#address1").val() =="" || $("#address2").val() == "") {
                             errorBox("주소를 입력하세요.");
                             return;
                         }
