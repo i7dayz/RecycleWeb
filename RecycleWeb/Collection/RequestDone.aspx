@@ -29,10 +29,10 @@
                 <div style="height:30px;"></div>
                 <div class="harf_con">
                     <div class="harf_l2">
-                        <div class="btn_gray2" id="btnCancel" >취소</div>
+                        <div class="btn_gray2" id="btnCancel" style="cursor:pointer" >취소</div>
                     </div>
                     <div class="harf_r2">
-                        <div class="btn_grean2" id="btnConfirm" >확인</div>
+                        <div class="btn_grean2" id="btnConfirm" style="cursor:pointer" >확인</div>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,8 @@
                                     if (response.collectReserve.etc_3 != "0") {
                                         $("#txtReqList").val($("#txtReqList").val() + "유품정리, ");
                                     }
-                                    alert(response.collectReserve.collectorImageUrl);
+
+                                    $("#txtReqList").val($("#txtReqList").val().substring(0, $("#txtReqList").val().length - 2));
                                     $("#hdProduceIdx").val(response.collectReserve.product_3);
                                     $("#imgCollectorImg").attr("src", response.collectReserve.collectorImageUrl);
                                     $("#txtCollectorName").val(response.collectReserve.collectorName);

@@ -79,9 +79,6 @@ box-sizing: border-box;}
         <div class="su_header">
             <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>
             수거주소록
-            <span class="su_rightbtn">
-                <a href="javascript:;" id="btnAddAddress" >추가</a>
-            </span>
         </div>
     </header>
     <input type="hidden" runat="server" id="hdProducerIdx" />
@@ -99,9 +96,10 @@ box-sizing: border-box;}
                 <label runat="server" id="nickname" style="color:#ffffff;"></label>
             </p>
         </div>
-	    <%--<div class="su_form">--%> 
+	    <div class="su_form"> 
             <div id="addressList" class="reser mar_t20"></div>
-        <%--</div>--%>
+            <div class="su_submit pdt30"><div class="btn_grean" id="btnAddAddress" style="cursor:pointer">추가</div></div>
+        </div>
     </div>
 </form>
 </div>
@@ -109,7 +107,6 @@ box-sizing: border-box;}
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <script type="text/javascript" src="/script/dropdown.min.js"></script>
     <script type="text/javascript" src="/script/drawer.min.js" charset="utf-8"></script>
 
     <script>
@@ -135,7 +132,7 @@ box-sizing: border-box;}
                         }
                     });
 
-                    $(document).on('click', 'div[name=address]', function () {
+                    $(document).on('click', 'img[name=editAddress]', function () {
                         location.href = "EditAddress.aspx?id=" + $(this).attr('id');
                     });
                 },
@@ -158,10 +155,10 @@ box-sizing: border-box;}
                         }, "post", false);
                     },
                     addAddress: function (item) {
-                        var checkbox = "";
+                        var defaultAddress = "";
 
                         if (item[7] == "1")
-                            checkbox = '<label class="checkbox-wrap"><input type="checkbox" checked onclick="return false" ><i class="check-icon-green"></i></label>';
+                            defaultAddress = ' <span class="bak90cd32">기본주소</span>';
 
                         //var address = '<li class="font_size12b color000 pad_l0" name="address" id="' + item[0] + '" style="cursor:pointer">'
                         //            + '    <span class="txt-color5">' + item[8] + '</span>'
@@ -176,18 +173,30 @@ box-sizing: border-box;}
                         //            + '    </div>'
                         //            + '</li>';
                         var location = item[8] == null ? '' : item[8];
-                        var address = '<div id="' + item[0] + '" name="address" class="pad1010" style="cursor:pointer; border-bottom: 1px solid #e4e4e4">'
-                                    + '    <span class="txt-color5 font_size12b color000 pad_l0">' + location + '</span>'
-                                    + '    <div class="ui-grid-a font_size12b color000 pad_l0">'
-                                    + '        <div class="ui-block-a wpc90">'
-                                    + '            <p>' + item[3] + ' ' + item[4] + ' </p>'
-                                    + '            <p>' + item[5] + ' (' + item[2] + ')</p>'
-                                    + '        </div>'
-                                    + '        <div class="ui-block-b wpc10 font_size12b color000 pad_l0" style="text-align:right">'
-                                    + '            ' + checkbox
-                                    + '        </div>    '
+                        //var address = '<div id="' + item[0] + '" name="address" class="pad1010" style="cursor:pointer; border-bottom: 1px solid #e4e4e4">'
+                        //            + '    <span class="txt-color5 font_size12b color000 pad_l0">' + location + '</span>'
+                        //            + '    <div class="ui-grid-a font_size12b color000 pad_l0">'
+                        //            + '        <div class="ui-block-a wpc90">'
+                        //            + '            <p>' + item[3] + ' ' + item[4] + ' </p>'
+                        //            + '            <p>' + item[5] + ' (' + item[2] + ')</p>'
+                        //            + '        </div>'
+                        //            + '        <div class="ui-block-b wpc10 font_size12b color000 pad_l0" style="text-align:right">'
+                        //            + '            ' + checkbox
+                        //            + '        </div>    '
+                        //            + '    </div>'
+                        //            + '</div>';
+                        var address = '<div class="su_title">' + location + defaultAddress + '</div>'
+                                    + '<div class="su_title">'
+                                    + '    <div class="su_juso_left">'
+                                    + '        <p class="font_size11 color_000">' + item[3] + ' ' + item[4] + ' </p>'
+                                    + '        <p class="font_size11 color_000">' + item[5] + ' (' + item[2] + ')</p>'
                                     + '    </div>'
-                                    + '</div>';
+                                    + '    <div class="su_juso_right">'
+                                    + '    	   <img src="/img/baechul/pen_icn.png" width="23" class="pl15" name="editAddress"  id="' + item[0] + '"/>'
+                                    + '        <img src="/img/baechul/del-icn.png" width="23" class="pl15" name="modifyAddress" id="' + item[0] + '" />'
+                                    + '    </div>'
+                                    + '</div>'
+                                    + '<div class="line_d p10"></div>';
 
                         $('#addressList').append(address);
                     },

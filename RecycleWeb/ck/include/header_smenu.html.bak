@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<meta property="og:type" content="website">
+<meta property="og:url" content=""> 
+<meta property="og:title" content="한국자원"> 
+<meta property="og:image" content=""> 
+<meta property="og:description" content="한국자원">
+
+<meta name="title" content="한국자원">
+<meta name="subject" content="한국자원">
+<meta name="author" content="ck">
+<meta name="keywords" content="한국자원">
+<meta name="description" content="한국자원">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="한국자원">
+<meta property="og:site_name" content="">
+<meta property="og:author" content="">
+<meta property="og:type" content="">
+<meta property="og:description" content="">
+<meta property="og:url" content="">
+
+<title>한국자원</title>
+
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/responsive.css">
+<link rel="stylesheet" href="./css/sandbox.css" >
+<link rel="stylesheet" href="./css/drawer.css" >
+<link rel="stylesheet" href="./css/drawer_su.css" >
+</head>
+<body class="drawer drawer--left drawer--sidebar">
+<!-- 검은색 장막 -->
+<div id="mask"></div>
+<!-- 장막 끝 -->
+<div id="body">
+    <header class="drawer-navbar drawer-navbar--fixed" role="banner">
+        <div class="drawer-container">
+            <div class="drawer-navbar-header">
+                 <div id="top_menu">
+                     <ul id="top_menu_ul">
+                       <li class="top_menu_li" style="z-index:999">
+                            <a href="#" target="_self" class="gnb_1da">                	
+                                <img src="./img/top_menu/top01.png" onmouseover="this.src='./img/top_menu/top01o.png'" onmouseout="this.src='./img/top_menu/top01.png'" border="0" title="">
+                            </a>
+                        </li>
+                        <li class="top_menu_li" style="z-index:999">
+                            <a href="#" target="_self" class="gnb_1da">                	
+                                <img src="./img/top_menu/top02.png" onmouseover="this.src='./img/top_menu/top02o.png'" onmouseout="this.src='./img/top_menu/top02.png'" border="0" title="">
+                            </a>
+                        </li>
+                        <li class="top_menu_li" style="z-index:999">
+                            <a href="#" target="_self" class="gnb_1da">                	
+                                <img src="./img/top_menu/top03.png" onmouseover="this.src='./img/top_menu/top03o.png'" onmouseout="this.src='./img/top_menu/top03.png'" border="0" title="">
+                            </a>
+                        </li>
+                        <li class="top_menu_li" style="z-index:999">
+                            <a href="#" target="_self" class="gnb_1da">                	
+                                <img src="./img/top_menu/top04.png" onmouseover="this.src='./img/top_menu/top04o.png'" onmouseout="this.src='./img/top_menu/top04.png'" border="0" title="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" class="drawer-toggle drawer-hamburger">
+                    <span class="sr-only">toggle navigation</span>
+                    <span class="drawer-hamburger-icon"></span>
+                </button>
+            </div>
+        
+            <nav class="drawer-nav" role="navigation">
+                <ul class="drawer-menu">
+                    <li><a class="drawer-brand drawer-menu-item" href="./index.html"><img src="./img/left_menu_icon01.png" width="25px" style="padding: 0 11px;"> HOME</a></li>
+                    <li class="drawer-dropdown">
+                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img src="./img/left_menu_icon02.png" width="25px" style="padding: 0 11px;"> 회원정보 <span class="drawer-caret"></span>
+                        </a>
+                        <ul class="drawer-dropdown-menu">
+                            <li><a class="drawer-dropdown-menu-item" href="./">회원 정보 변경</a></li>
+                            <li><a class="drawer-dropdown-menu-item" href="./">포인트 충전 내역</a></li>
+                            <li><a class="drawer-dropdown-menu-item" href="./">포인트 사용 내역</a></li>
+                        </ul>
+                    </li>
+                    <li class="drawer-dropdown">
+                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img src="./img/left_menu_icon03.png" width="25px" style="padding: 0 11px;"> 고객센터 <span class="drawer-caret"></span>
+                        </a>
+                        <ul class="drawer-dropdown-menu">
+                            <li><a class="drawer-dropdown-menu-item" href="./">공지사항</a></li>
+                            <li><a class="drawer-dropdown-menu-item" href="./">이용안내</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>        
+        </div>
+    </header>

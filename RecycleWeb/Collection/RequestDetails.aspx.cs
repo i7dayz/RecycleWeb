@@ -113,7 +113,7 @@ namespace RecycleWeb.Collection
                 this.hdAddress1.Value = Session["address1"].ToString();
                 this.hdAddress2.Value = Session["address2"].ToString();
 
-                this.txtReqProduct.Value = productList;
+                this.txtReqProduct.Value = productList.Substring(0, productList.Length - 2);
                 this.txtName.Value = Session["kakaoNickname"].ToString(); // snsNickname컬럼을 이름으로 사용
 
                 string[] contactNumber;

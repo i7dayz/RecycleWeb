@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="/css/responsive.css">
 <link rel="stylesheet" href="/css/sandbox.css" >
 <link rel="stylesheet" href="/css/drawer.css" >
-<%--<link rel="stylesheet" href="/css/layout.css" >--%>
+<link rel="stylesheet" href="/css/layout.css" >
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" href="../css/modal.css" />
@@ -95,22 +95,22 @@
             
                     <div class="su_title pdt20">연락처</div>
                     <div class="su_adr">
-                        <div class="su_juso_left"><input type="tel" name="" value="" class="su_hp1" runat="server" id="txtContactNumber1" maxlength="3" /> - <input type="tel" name="" value="" class="su_hp2" runat="server" id="txtContactNumber2" maxlength="4" /> - <input type="tel" name="" value="" class="su_hp3" runat="server" id="txtContactNumber3" maxlength="4" /> </div>
-                        <div class="su_juso_right"><input type="button" class="btn gray_bak" id="btnReqToken" value="인증번호받기"> </div>
+                        <div class="su_juso_left"><input type="text" name="" value="" class="su_hp1" runat="server" id="txtContactNumber1" maxlength="3" /> - <input type="text" name="" value="" class="su_hp2" runat="server" id="txtContactNumber2" maxlength="4" /> - <input type="text" name="" value="" class="su_hp3" runat="server" id="txtContactNumber3" maxlength="4" /> </div>
+                        <div class="su_juso_right"><img src="/img/baechul/btn-num-1.png" id="btnReqToken" height="40" style="cursor:pointer" /></div>
                     </div>
 
                     <div id="reqTokenArea">
                         <div class="su_title pdt20 color90cd32">인증번호입력</div>
                         <div class="su_adr">
                             <div class="su_juso_left"><input type="text" name="" value="" class="su_input_juso01 b90cd32" id="txtToken" /> </div>
-                            <div class="su_juso_right"><input type="button" class="btn" id="btnReqTokenCheck" value="인증하기"> </div>
+                            <div class="su_juso_right"><img src="/img/baechul/btn-num-2.png" id="btnReqTokenCheck" height="40" style="cursor:pointer"/></div>
                         </div>
                     </div>
             
                     <div class="su_title pdt20">기본주소</div>
                     <div class="su_adr">
                         <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" runat="server" id="txtBaseAddress"/></div>
-                        <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearchAddress"></div>
+                        <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;cursor:pointer" id="btnSearchAddress"></div>
                     </div>
                     <div class="su_title">
                         <div class="su_juso_left">세부주소</div>
@@ -121,7 +121,7 @@
                         <div class="su_juso_right"><input type="text" name="" value="" class="su_input_juso02" runat="server" id="txtZipNo"/> </div>
                     </div>
 
-                    <div class="su_submit pdt30"><div class="btn_grean" id="btnSave">저장</div></div>
+                    <div class="su_submit pdt30"><div class="btn_grean" id="btnSave" style="cursor:pointer">저장</div></div>
                 </form>
             </div>
         </div>
@@ -163,7 +163,7 @@
                                             
                                                 <div class="su_title pdt20">기본주소</div>
                                                 <div class="su_adr">
-                                                    <div class="su_juso_left8"><input type="search" id="keyword" name="keyword"
+                                                    <div class="su_juso_left8"><input type="text" id="keyword" name="keyword"
                                                         placeholder="도로, 건물명, 지번을 검색해보세요." value="" class="su_input_juso01" /></div>
                                                     <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearch"></div>
                                                 </div>
@@ -185,7 +185,6 @@
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <script src="../script/dropdown.min.js"></script>
     <script src="../script/drawer.min.js" charset="utf-8"></script>
         
     <script>
@@ -196,8 +195,8 @@
                     this.initEvent();
                 },
                 initComponent: function () {
-                    $("#modal-wrapper").hide();
                     $("#reqTokenArea").hide();
+                    $("#modal-wrapper").hide();
                 },
                 initEvent: function () {
                     var modal = {
@@ -292,11 +291,15 @@
                         }
                         page.fn.getSmsToken();
                         $("#reqTokenArea").show();
+                        $("#btnReqToken").attr("src", "/img/baechul/btn-num-3.png");
                     });
                     
                     $(document).on('click', '#btnReqTokenCheck', function () {
                         page.fn.chkSmsToken();
                     });
+                },
+                attr: {
+                    smsChcked: false
                 },
                 fn: {
                     getSmsToken: function () {                        
@@ -340,13 +343,19 @@
                             if (response.value == 0) {
                                 infoBox("휴대전화번호 인증이 완료되었습니다.");
                                 page.attr.smsChcked = true;
+
+                                $("#txtContactNumber1").attr("readonly", "readonly");
+                                $("#txtContactNumber2").attr("readonly", "readonly");
+                                $("#txtContactNumber3").attr("readonly", "readonly");
+                                $("#reqTokenArea").hide();
+                                $("#btnReqToken").hide();
                             } else {
                                 errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
                     },
                     saveInfo: function () {
-                        if ($("#txtContactNumber").val() != $("#contactNumber").val()) {
+                        if ($("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val() != $("#contactNumber").val()) {
                             if (!page.attr.smsChcked) {
                                 errorBox("휴대전화번호 변경시 인증이 필요합니다.");
                                 return;

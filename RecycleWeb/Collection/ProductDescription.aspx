@@ -46,8 +46,12 @@
         <p class="rec_text2 pdl40">상태와 연식에 따라 매입이 불가능한 제품이 있습니다. (수거기사와 협의)</p>
         <p class="rec_text2 pdl40 colorfe708a">가구류, 유리, 플라스틱, 스티로폼, 고무류, 비닐류, PET 등은 수거가 안됩니다.</p>
     </div>
-    <div class="su_submit pdt30"><div class="btn_grean">확인</div></div>
+    <div class="su_submit pdt30"><div class="btn_grean back-btn" style="cursor:pointer" class="">확인</div></div>
 </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+  <script src="../script/drawer.min.js" charset="utf-8"></script>
     <script>
         (function () {
             var page = {

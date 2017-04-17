@@ -2,36 +2,10 @@
 <style>
 
 </style>
-<script>
-$(function() {
-    $(".closer_btn").on("click", function() {
-        $(this).closest(".con_inner").slideToggle();
-    });
-});
-
-function faq_open(el)
-{
-    var $con = $(el).closest("li").find(".con_inner");
-
-    if($con.is(":visible")) {
-        $con.slideUp();
-    } else {
-        $("#faq_con .con_inner:visible").css("display", "none");
-
-        $con.slideDown(
-            function() {
-                // 이미지 리사이즈
-                //$con.viewimageresize2();
-            }
-        );
-    }
-
-    return false;
-}
-</script>
+<script src="./js/faq.js" charset="utf-8"></script>
 <header>
     <div class="su_header">
-        <span class="su_leftbtn"><img src="./img/baechul/back-btn.png" width="13" /></span>공지사항 / 이벤트
+        <span class="su_leftbtn"><img src="./img/baechul/back-btn.png" width="13" /></span>공지사항
     </div>
 </header>
 <div class="container" style="">
@@ -41,7 +15,7 @@ function faq_open(el)
         <ol>
              <li>                
                 <a href="#none" onclick="return faq_open(this);" class="faq_q"> 
-                    <p class="font_size14b pad_l0">추천인 이벤트<span class="icon_s12">N</span></p>
+                    <p class="font_size14b pad_l0">추천인 이벤트<img src="./img/n.png" class="img14_icon" /><span class="icon_onoff"></span></p>
                     <p class="font_size11 color_b7b7b7">2017-02-18 16:00</p>
                 </a>                
                 <div class="con_inner faq_a" style="display: none;">
@@ -52,7 +26,7 @@ function faq_open(el)
             </li>
              <li>
                <a href="#none" onclick="return faq_open(this);" class="faq_q"> 
-                    <p class="font_size14b pad_l0">대한민국 SW기업 경쟁력 대상 우...<span class="icon_s12">N</span></p>
+                    <p class="font_size14b pad_l0">대한민국 SW기업 경쟁력 대상 우...<img src="./img/n.png" class="img14_icon" /><span class="icon_onoff"></span></p>
                     <p class="font_size11 color_b7b7b7">2017-02-18 16:00</p>
                 </a>  
                 <div class="con_inner faq_a" style="display: none;">

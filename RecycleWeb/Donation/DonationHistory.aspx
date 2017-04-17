@@ -100,7 +100,6 @@ p.su_btn.po_more {
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <script type="text/javascript" src="/script/dropdown.min.js"></script>
     <script type="text/javascript" src="/script/drawer.min.js" charset="utf-8"></script>
 
     <script>
@@ -141,7 +140,11 @@ p.su_btn.po_more {
                         //                    + '    <li class="point">' + item[3] + '</li>'
                         //                    + '    <li class="group">' + item[1] + '</li>'
                         //                    + '</ul>';
-                        var date = new Date(item[5]);
+
+                        var t = item[5].split(/[- :]/);
+                        var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
+                        var date = new Date(d);
+
                         var donationHistory = '<tr class="">'
                                               + '	<td class="td_po3_1"></td>'
                                               + '	<td class="td_po3_2">' + date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate() + '</td>'

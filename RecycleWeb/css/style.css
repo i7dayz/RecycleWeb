@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
  
@@ -962,6 +962,9 @@ span.left_tlt {
     font-size: 12px;
     font-weight: bold;
     padding: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 div#list_onoff {
     float: left;
@@ -988,6 +991,7 @@ cursor:pointer;
     margin-top: 10px;
 }
 .reser_icon.reser_icon2 img {
+    max-width: 90%;
     max-height: 95px;
 }
 /*5-3*/
@@ -1468,3 +1472,5 @@ span.sm01 {
     position: absolute;
     right: 9px;
 }
+
+.back-btn { cursor: pointer; }

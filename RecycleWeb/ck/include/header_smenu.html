@@ -33,6 +33,9 @@
 <link rel="stylesheet" href="./css/drawer_su.css" >
 </head>
 <body class="drawer drawer--left drawer--sidebar">
+<!-- 검은색 장막 -->
+<div id="mask"></div>
+<!-- 장막 끝 -->
 <div id="body">
     <header class="drawer-navbar drawer-navbar--fixed" role="banner">
         <div class="drawer-container">
@@ -70,9 +73,9 @@
             <nav class="drawer-nav" role="navigation">
                 <ul class="drawer-menu">
                     <li><a class="drawer-brand drawer-menu-item" href="./index.html"><img src="./img/left_menu_icon01.png" width="25px" style="padding: 0 11px;"> HOME</a></li>
-                    <li class="drawer-dropdown">
-                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="./img/left_menu_icon02.png" width="25px" style="padding: 0 11px;"> 회원정보 <span class="drawer-caret"></span>
+                    <li class="drawer-dropdown open">
+                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="true">
+                            <img src="./img/left_menu_icon02.png" width="25px" style="padding: 0 11px;"> 회원정보 <!--<span class="drawer-caret"></span>-->
                         </a>
                         <ul class="drawer-dropdown-menu">
                             <li><a class="drawer-dropdown-menu-item" href="./">회원 정보 변경</a></li>
@@ -80,9 +83,9 @@
                             <li><a class="drawer-dropdown-menu-item" href="./">포인트 사용 내역</a></li>
                         </ul>
                     </li>
-                    <li class="drawer-dropdown">
-                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="./img/left_menu_icon03.png" width="25px" style="padding: 0 11px;"> 고객센터 <span class="drawer-caret"></span>
+                    <li class="drawer-dropdown open">
+                        <a class="drawer-brand drawer-menu-item" data-target="#" href="#" data-toggle="dropdown" role="button" aria-expanded="true">
+                            <img src="./img/left_menu_icon03.png" width="25px" style="padding: 0 11px;"> 고객센터 <!--<span class="drawer-caret"></span>-->
                         </a>
                         <ul class="drawer-dropdown-menu">
                             <li><a class="drawer-dropdown-menu-item" href="./">공지사항</a></li>

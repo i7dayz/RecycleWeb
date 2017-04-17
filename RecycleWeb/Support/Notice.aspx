@@ -71,7 +71,6 @@ function faq_open(el)
     <script type="text/javascript" src="../script/common.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-  <script src="../script/dropdown.min.js"></script>
   <script src="../script/drawer.min.js" charset="utf-8"></script>
         
     <script>

@@ -49,7 +49,7 @@
                                     <li>
                                         <span class="txt-color5">기본주소</span>
                                         <div>
-                                            <input type="search" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
+                                            <input type="text" id="keyword" name="keyword" class="text-field required input-guide txt-input-guide wpc90"
                                                 placeholder="도로, 건물명, 지번을 검색해보세요."
                                                 value="" />
                                             <a href="javascript:;" id="btnSearch" class="ui-btn ui-corner-all wpc8 btn-green" style="display:inline-block !important; padding:5px 3px 3px 3px !important; margin:0; float:right;"">

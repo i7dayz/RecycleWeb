@@ -137,7 +137,6 @@ p.su_btn.po_more {
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <script type="text/javascript" src="/script/dropdown.min.js"></script>
     <script type="text/javascript" src="/script/drawer.min.js" charset="utf-8"></script>
 
     <script>
@@ -218,7 +217,9 @@ p.su_btn.po_more {
                         if (parseInt(item[14]) > 0)
                             goods += "이사수거 " + item[14] + ", ";
 
-                        var date = new Date(item[4]);
+                        var t = item[4].split(/[- :]/);
+                        var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
+                        var date = new Date(d);
 
                         //var point = '<ul class="point-item" id=' + item[0] + '>'
                         //          + '    <li class="date">' + date.getFullYear() + "." + (date.getMonth() + 1 ) + "." + date.getDate()  + '</li>'

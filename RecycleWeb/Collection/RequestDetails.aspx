@@ -88,7 +88,7 @@
                     <input type="text" id="txtReqDate" class="su_date01" onfocus="this.blur()"/>
                 </div>
                 <div style="height:30px;"></div>
-                <div class="su_submit" id="btnRequest"><div class="btn_grean">수거신청</div></div>
+                <div class="su_submit" ><div class="btn_grean" id="btnRequest" style="cursor:pointer" >수거신청</div></div>
             </div>
         </div>
 

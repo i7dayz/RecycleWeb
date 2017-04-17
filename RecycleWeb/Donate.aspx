@@ -29,7 +29,7 @@
 
     <script type="text/javascript" src="script/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <script type="text/javascript" src="script/dropdown.min.js"></script>
+    <%--<script type="text/javascript" src="script/dropdown.min.js"></script>--%>
     <script type="text/javascript" src="script/drawer.min.js"></script>
     <script type="text/javascript" src="script/common.js"></script>
         
@@ -41,7 +41,6 @@
                     this.initEvent();
                 },
                 initComponent: function () {
-                    $('.drawer').drawer();
                     $("#tabDonate").find("img").attr("src", "/img/top_menu/top04o.png");
                 },
                 initEvent: function () {
@@ -100,6 +99,7 @@
 
             $(document).on('ready', function () {
                 page.init();
+                $('.drawer').drawer();
                 page.fn.getDonationGroup();
             });
 

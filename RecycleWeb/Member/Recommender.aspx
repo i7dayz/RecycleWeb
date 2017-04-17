@@ -19,7 +19,7 @@
                 <input type="text" name="" id="txtRecommenderNickname" placeholder="추천인 닉네임 입력" value="" />
             </div>	
             <div class="reco_r">
-                <input type="button" id="btnSave" class="btn" value="확인" />
+                <img src="/img/baechul/btn-cnf.png" height="40" id="btnSave"/>
             </div>	
         </div>
         
@@ -51,6 +51,12 @@
                         window.history.back();
                     });
                     $(document).on('click', '#btnSave', function () {
+                        if ($("#txtRecommenderNickname").val() == "") {
+                            $("#txtRecommenderNickname").focus();
+                            errorBox("추천인 닉네임을 입력하세요.");
+                            return;
+                        }
+
                         page.fn.saveRecommender();
                     });
                 },

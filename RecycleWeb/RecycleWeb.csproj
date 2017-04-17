@@ -1087,6 +1087,7 @@
       <DependentUpon>TermsAgree.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\CollectReserve.cs" />
+    <Compile Include="Model\GoodsInfo.cs" />
     <Compile Include="Model\RootObjectCollectReserve.cs" />
     <Compile Include="Model\RootObjectMarketView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

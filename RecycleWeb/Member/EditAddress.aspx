@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="/css/responsive.css">
 <link rel="stylesheet" href="/css/sandbox.css" >
 <link rel="stylesheet" href="/css/drawer.css" >
-<%--<link rel="stylesheet" href="/css/layout.css" >--%>
+<link rel="stylesheet" href="/css/layout.css" >
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" href="../css/modal.css" />
@@ -98,7 +98,7 @@
                     <div class="su_title pdt20">기본주소</div>
                     <div class="su_adr">
                         <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" runat="server" id="txtBaseAddress"/></div>
-                        <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearchAddress"></div>
+                        <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;cursor:pointer" id="btnSearchAddress" ></div>
                     </div>
                     <div class="su_title">
                         <div class="su_juso_left">세부주소</div>
@@ -118,10 +118,11 @@
                         <input type="text" runat="server" id="txtLocation" class="su_input_juso01"/>
                     </div>
 
-                    <div class="su_submit pdt30"><div class="btn_grean" id="btnSave">저장</div></div>
+                    <div class="su_submit pdt30"><div class="btn_grean" id="btnSave" style="cursor:pointer">저장</div></div>
                 </form>
             </div>
         </div>
+    
 
         <div id="modal-wrapper">
             <div id="modal-overlay"></div>
@@ -160,7 +161,7 @@
                                             
                                                 <div class="su_title pdt20">기본주소</div>
                                                 <div class="su_adr">
-                                                    <div class="su_juso_left8"><input type="search" id="keyword" name="keyword"
+                                                    <div class="su_juso_left8"><input type="text" id="keyword" name="keyword"
                                                         placeholder="도로, 건물명, 지번을 검색해보세요." value="" class="su_input_juso01" /></div>
                                                     <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearch"></div>
                                                 </div>
@@ -177,12 +178,11 @@
                 </div> <!-- //wrap -->
             </div>
         </div>
-
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <script src="../script/dropdown.min.js"></script>
+    <%--<script src="../script/dropdown.min.js"></script>--%>
     <script src="../script/drawer.min.js" charset="utf-8"></script>
         
     <script>

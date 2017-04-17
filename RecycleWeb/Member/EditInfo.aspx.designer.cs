@@ -154,7 +154,7 @@ namespace RecycleWeb.Member {
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtContactNumber1;
         
         /// <summary>
         /// txtContactNumber2 컨트롤입니다.
@@ -163,7 +163,7 @@ namespace RecycleWeb.Member {
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtContactNumber2;
         
         /// <summary>
         /// txtContactNumber3 컨트롤입니다.
@@ -172,7 +172,7 @@ namespace RecycleWeb.Member {
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtContactNumber3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtContactNumber3;
         
         /// <summary>
         /// txtBaseAddress 컨트롤입니다.

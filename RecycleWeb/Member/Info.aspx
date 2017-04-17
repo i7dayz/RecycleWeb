@@ -51,8 +51,7 @@
             <label runat="server" id="nickname" style="color:#ffffff;"></label>
         </p>
     </div>
-	<div class="su_form">    	
-    	</div>
+	<div class="su_form">    
             <div class="su_title">연락처</div>
             <div><input type="text" runat="server" id="txtContactNumber1" name="" value="" class="su_hp1" readonly /> - <input type="text" runat="server" id="txtContactNumber2" name="" value="" class="su_hp2" readonly /> - <input type="text" runat="server" id="txtContactNumber3" name="" value="" class="su_hp3" readonly /></div>
             <div class="su_title pdt20">기본주소</div>
@@ -71,18 +70,18 @@
             	<input type="checkbox" name="che_su" checked="checked" id="che_su"  /> <label for="che_su"><span class="color_b7b7b7">수거 주소와 동일</span></label>
             </div>--%>
             <%--<div class="su_submit pdt30"><div class="btn_grean">기본정보 저장</div></div>--%>
-            <div class="su_submit" id="btnEditAddress"><div class="btn_gray">수거 주소록 관리</div></div>
+            <div class="su_submit"><div class="btn_gray" id="btnEditAddress" style="cursor:pointer">수거 주소록 관리</div></div>
 
         <div class="su_title pdt30">
             <div class="font_size12 su_juso_left">
                 <asp:linkbutton id="LinkButton1" name="LinkButton1" runat="server" onclick="LinkButton1_Click" onclientclick="return page.fn.confirm();">로그아웃</asp:linkbutton>
             </div>
                 <div class="font_size12 su_juso_right">
-                    <a class="txt-color5" style="padding-right:15px;" runat="server">회원탈퇴</a>
+                    <a class="txt-color5" style="" runat="server">회원탈퇴</a>
                 </div>
             </div>
-    </div>
-</div>
+    	</div>
+    </div>	
 </form>
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
@@ -99,8 +98,8 @@
                 },
                 initEvent: function () {
                     $(document).on('click', '.back-btn', function () {
-                        //window.history.back();
-                        location.href = "/Main.aspx";
+                        window.history.back();
+                        //location.href = "/Main.aspx";
                     });
 
                     $(document).on('click', '#btnEdit', function () {
@@ -126,6 +125,4 @@
             });
         })();
     </script>
-<!-- #include file="/include/footer_b.html" -->
-</form>
 

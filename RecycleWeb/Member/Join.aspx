@@ -74,20 +74,22 @@
             
                     <div class="su_title pdt20">연락처</div>
                     <div class="su_adr">
-                        <div class="su_juso_left"><input type="tel" name="" value="" class="su_hp1" id="txtContactNumber1" maxlength="3" /> - <input type="text" name="" value="" class="su_hp2" id="txtContactNumber2" maxlength="4" /> - <input type="text" name="" value="" class="su_hp3" id="txtContactNumber3" maxlength="4" /> </div>
-                        <div class="su_juso_right"><input type="button" class="btn gray_bak" value="인증번호받기"> </div>
+                        <div class="su_juso_left"><input type="text" name="" value="" class="su_hp1" id="txtContactNumber1" maxlength="3" /> - <input type="text" name="" value="" class="su_hp2" id="txtContactNumber2" maxlength="4" /> - <input type="text" name="" value="" class="su_hp3" id="txtContactNumber3" maxlength="4" /> </div>
+                        <div class="su_juso_right"><img src="/img/baechul/btn-num-1.png" id="btnReqToken" height="40" style="cursor:pointer" /></div>
                     </div>
             
-                    <div class="su_title pdt20 color90cd32">인증번호입력</div>
-                    <div class="su_adr">
-                        <div class="su_juso_left"><input type="text" name="" value="" class="su_input_juso01 b90cd32" /> </div>
-                        <div class="su_juso_right"><input type="button" class="btn" value="인증하기"> </div>
+                    <div id="reqTokenArea">
+                        <div class="su_title pdt20 color90cd32">인증번호입력</div>
+                        <div class="su_adr">
+                            <div class="su_juso_left"><input type="text" name="" value="" class="su_input_juso01 b90cd32" id="txtToken" /> </div>
+                            <div class="su_juso_right"><img src="/img/baechul/btn-num-2.png" id="btnReqTokenCheck" height="40" style="cursor:pointer" /></div>
+                        </div>
                     </div>
             
                     <div class="su_title pdt20">기본주소</div>
                     <div class="su_adr">
                         <div class="su_juso_left8"><input type="text" name="" value="" class="su_input_juso01" id="txtBaseAddress"/></div>
-                        <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearchAddress"></div>
+                        <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px; cursor:pointer" id="btnSearchAddress"></div>
                     </div>
                     <div class="su_title">
                         <div class="su_juso_left">세부주소</div>
@@ -98,7 +100,7 @@
                         <div class="su_juso_right"><input type="text" name="" value="" class="su_input_juso02" id="txtZipNo"/> </div>
                     </div>
 
-                    <div class="su_submit pdt30"><div class="btn_grean" id="btnSave">저장</div></div>
+                    <div class="su_submit pdt30"><div class="btn_grean" id="btnSave" style="cursor:pointer">저장</div></div>
                 </form>
             </div>
         </div>
@@ -140,7 +142,7 @@
                                             
                                                 <div class="su_title pdt20">기본주소</div>
                                                 <div class="su_adr">
-                                                    <div class="su_juso_left8"><input type="search" id="keyword" name="keyword"
+                                                    <div class="su_juso_left8"><input type="text" id="keyword" name="keyword"
                                                         placeholder="도로, 건물명, 지번을 검색해보세요." value="" class="su_input_juso01" /></div>
                                                     <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnSearch"></div>
                                                 </div>
@@ -162,7 +164,6 @@
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <script src="../script/dropdown.min.js"></script>
     <script src="../script/drawer.min.js" charset="utf-8"></script>
         
     <script>
@@ -173,6 +174,7 @@
                     this.initEvent();
                 },
                 initComponent: function () {
+                    $("#reqTokenArea").hide();
                     $("#modal-wrapper").hide();
                 },
                 initEvent: function () {
@@ -240,7 +242,49 @@
                         }
                     });
 
+                    $(document).on('click', '#btnReqToken', function () {
+                        var phoneNumber = $("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val();
+
+                        if (phoneNumber.length != 13) {
+                            errorBox("휴대전화번호를 입력하세요");
+                            return;
+                        }
+                        page.fn.getSmsToken();
+                        $("#reqTokenArea").show();
+                        $("#btnReqToken").attr("src", "/img/baechul/btn-num-3.png");
+                    });
+
+                    $(document).on('click', '#btnReqTokenCheck', function () {
+                        page.fn.chkSmsToken();
+                    });
+
                     $(document).on('click', '#btnSave', function () {
+                        if ($("#txtSnsNickname").val() == "") {
+                            errorBox("이름을 입력하세요.");
+                            return;
+                        }
+
+                        if ($("#txtNickname").val() == "") {
+                            errorBox("닉네임을 입력하세요.");
+                            return;
+                        }
+                        var phoneNumber = $("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val();
+
+                        if (phoneNumber.length != 13) {
+                            errorBox("휴대전화번호를 입력하세요");
+                            return;
+                        }
+
+                        if (!page.attr.smsChcked) {
+                            errorBox("휴대전화번호 인증이 필요합니다.");
+                            return;
+                        }
+
+                        if ($("#txtZipNo").val() == "" || $("#address1").val() || $("#address2").val()) {
+                            errorBox("주소를 입력하세요.");
+                            return;
+                        }
+
                         var params = {
                             snsType: "1",
                             snsId: $("#kakaoId").val(),
@@ -267,7 +311,62 @@
                         }, "post", false);
                     });
                 },
-                fn: {                    
+                attr: {
+                    smsChcked: false
+                },
+                fn: {
+                    getSmsToken: function () {
+                        var phoneNumber = $("#txtContactNumber1").val() + $("#txtContactNumber2").val() + $("#txtContactNumber3").val();
+
+                        if (phoneNumber == null || phoneNumber == "" || phoneNumber.length !== 11) {
+                            errorBox("휴대전화번호를 입력하세요.");
+                            return;
+                        }
+
+                        var params = {
+                            phoneNumber: phoneNumber
+                        };
+
+                        Server.ajax("/producer/smsTokenCreate", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                infoBox("인증번호가 발송되었습니다.");
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
+                    chkSmsToken: function () {
+                        var phoneNumber = $("#txtContactNumber1").val() + $("#txtContactNumber2").val() + $("#txtContactNumber3").val();
+                        var token = $("#txtToken").val();
+
+                        if (phoneNumber == null || phoneNumber == "" || phoneNumber.length !== 11) {
+                            errorBox("휴대전화번호를 입력하세요."); return;
+                        }
+
+                        if (token == null || token == "") {
+                            errorBox("인증번호를 입력하세요."); return;
+                        }
+
+                        var params = {
+                            phoneNumber: phoneNumber,
+                            token: token
+                        };
+
+                        Server.ajax("/producer/smsTokenCheck", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                infoBox("휴대전화번호 인증이 완료되었습니다.");
+                                page.attr.smsChcked = true;
+
+                                $("#txtContactNumber1").attr("readonly", "readonly");
+                                $("#txtContactNumber2").attr("readonly", "readonly");
+                                $("#txtContactNumber3").attr("readonly", "readonly");
+                                $("#reqTokenArea").hide();
+                                $("#btnReqToken").hide();
+                            } else {
+                                errorBox(getErrMsg(response.value));
+                            }
+                        }, "post", false);
+                    },
                     //특수문자, 특정문자열(sql예약어의 앞뒤공백포함) 제거
                     checkSearchedWord: function(obj){
 	                    if(obj.length >0){

@@ -1,0 +1,206 @@
+<!-- #include file="./include/header.html" --> 
+<style>
+
+.drawer--sidebar {
+    background-color: #e3e3e3;
+}
+
+</style>
+<script>
+function form_submit() {
+}
+</script>
+<script src="https://code.jquery.com/jquery-latest.js"></script> 
+<link rel="stylesheet" href="./css/modal.css">
+<script>
+function wrapWindowByMask(){
+	//화면의 높이와 너비를 구한다.
+	var maskHeight = $(document).height();  
+	var maskWidth = $(window).width();  
+
+	//마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+	$('#mask').css({'width':maskWidth,'height':maskHeight});  
+
+	//애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
+	//$('#mask').fadeIn(0);      
+	$('#mask').fadeTo("slow",0.6);    
+
+	//윈도우 같은 거 띄운다.
+	$('.window').show();
+}
+
+$(document).ready(function(){
+	//검은 막 띄우기
+	$('.openMask').click(function(e){
+		e.preventDefault();
+		wrapWindowByMask();
+	});
+
+	//닫기 버튼을 눌렀을 때
+	$('.window .close').click(function (e) {  
+		//링크 기본동작은 작동하지 않도록 한다.
+		e.preventDefault();  
+		$('#mask, .window').hide();  
+	}); 
+	
+	
+	//btn01 버튼을 눌렀을 때
+	$('.btn01').click(function (e) {  
+		//링크 기본동작은 작동하지 않도록 한다.
+		e.preventDefault();  
+		$('#mask, .window').hide();  
+	}); 
+	//btn02 버튼을 눌렀을 때
+	$('.btn02').click(function (e) {  
+		//링크 기본동작은 작동하지 않도록 한다.
+		e.preventDefault();  
+		$('#mask, .window').hide();  
+	});      
+
+	//검은 막을 눌렀을 때
+	$('#mask').click(function () {  
+		$(this).hide();  
+		$('.window').hide();  
+	});      
+});
+</script>
+
+<!-- 모달팝업 시작 -->
+<div class="window">
+	<div class="pro_modal">
+    	<div class="btn_ox"><img src="./img/click.png" /></div>
+        <!-- 클래스 btn01을 누르면 작동하도록 했습니다 -->
+        <div class="m_con_text" >
+        	<p>취소되었습니다!</p>
+        </div>
+        <div class="btn_ok">OK</div>
+    </div>
+    <!--input type="button" href="#" class="close" value="닫기(.window .close)"/-->
+</div>
+<!-- 모달팝업 끝 -->
+<div class="container" style="">
+
+    <p class="su_des_top" >
+    	<a href="#" class="openMask" style="color:#fff"><img src="./img/icon_sm.png" class="img14_icon_l" />수거 불가능 품목을 확인하세요</a>
+    </p>
+    <div class="main_real_cov">
+        <div class="real_bn">
+            <div class="real_bn2">
+                <ul>
+                    <li class="li49_left">
+                    	<span class="sm01"><img src="./img/icon_sm2.png" /></span>
+                        <p><a href="#"><img src="./img/sugeo/su_icon/pck_01.png" class="img65"></a></p>
+                        <p class="su_name">헌옷</p>
+                        <p class="su_pm">
+                            <span class="kg_m"><img src="./img/icon_mm.png" width="20" /></span>
+                            <span class="kg10">10</span>
+                            <span class="kg_p"><img src="./img/icon_pp.png" width="20" /></span>
+                        </p>
+                    </li>
+                    <li class="li49_right">
+                    	<span class="sm01"><img src="./img/icon_sm3.png" /></span>
+                        <p><a href="#"><img src="./img/sugeo/su_icon/pck_02.png" class="img65"></a></p>
+                        <p class="su_name">휴대폰</p>
+                        <p class="su_pm">
+                            <span class="kg_m"><img src="./img/icon_mm.png" width="20" /></span>
+                            <span class="kg10">10</span>
+                            <span class="kg_p"><img src="./img/icon_pp.png" width="20" /></span>
+                        </p>
+                    </li>
+                </ul>       	
+            </div>
+        </div>
+        <div class="real_bn">
+            <div class="real_bn2">
+                <ul>
+                    <li class="li49_left">
+                        <p><a href="#"><img src="./img/sugeo/su_icon/pck_03.png" class="img65"></a></p>
+            <p class="su_name">소형가전</p>
+            <p class="su_pm"><span class="kg_m">-</span><span class="kg10">10</span><span class="kg_p">+</span></p>
+                    </li>
+                    <li class="li49_right">
+            <p><a href="#"><img src="./img/sugeo/su_icon/pck_04.png" class="img65"></a></p>
+            <p class="su_name">대형가전</p>
+            <p class="su_pm"><span class="kg_m">-</span><span class="kg10">10</span><span class="kg_p">+</span></p>
+                    </li>
+                </ul>       	
+            </div>
+        </div>
+        <div class="real_bn">
+            <div class="real_bn2">
+                <ul>
+                    <li class="li49_left">
+<p><a href="#"><img src="./img/sugeo/su_icon/pck_05.png" class="img65"></a></p>
+            <p class="su_name">폐지</p>
+            <p class="su_pm"><span class="kg_m">-</span><span class="kg10">10</span><span class="kg_p">+</span></p>
+                    </li>
+                    <li class="li49_right">
+            <p><a href="#"><img src="./img/sugeo/su_icon/pck_06.png" class="img65"></a></p>
+            <p class="su_name">병</p>
+            <p class="su_pm"><span class="kg_m">-</span><span class="kg10">10</span><span class="kg_p">+</span></p>
+                    </li>
+                </ul>       	
+            </div>
+        </div>
+        <div class="real_bn">
+            <div class="real_bn2">
+                <ul>
+                    <li class="li49_left">
+            <p><a href="#"><img src="./img/sugeo/su_icon/pck_07.png" class="img65"></a></p>
+            <p class="su_name">고철</p>
+            <p class="su_pm"><span class="kg_m">-</span><span class="kg10">10</span><span class="kg_p">+</span></p>
+                    </li>
+                    <li class="li49_right">
+            <p><a href="#"><img src="./img/sugeo/su_icon/pck_08.png" class="img65"></a></p>
+            <p class="su_name">비철</p>
+            <p class="su_pm"><span class="kg_m">-</span><span class="kg10">10</span><span class="kg_p">+</span></p>
+                    </li>
+                </ul>       	
+            </div>
+        </div>
+         <div class="real_bn">
+            <div class="real_bn2">
+                <ul>
+                    <li class="li49_left">
+            <p><a href="#"><img src="./img/sugeo/su_icon/pck_09.png" class="img65"></a></p>
+            <p class="su_name">이삿짐</p>
+            <p class="su_onoff"><img src="./img/baechul/pck-slt.png" height="20px" /></p>
+                    </li>
+                    <li class="li49_right">
+            <p><a href="#"><img src="./img/sugeo/su_icon/pck_10.png" class="img65"></a></p>
+            <p class="su_name">기타</p>
+            <p class="su_onoff"><img src="./img/baechul/pck-slt.png" height="20px" /></p>
+                    </li>
+                </ul>       	
+            </div>
+        </div>
+    </div>
+   
+    <p class="text_title">
+    	<span class="font_size14b">대형서비스</span>
+        <span class="font_size10_bbb">수거가능/불가능 품목 확인</span>
+    </p>
+    <div class="main_real_cov">
+        <div class="real_bn">
+            <div class="real_bn2">
+                <ul>
+                    <li class="li49_left">
+<p><a href="#"><img src="./img/sugeo/su_icon/pck_big01.png" class="img65"></a></p>
+            <p class="su_name">폐기대행</p>
+            <p class="su_onoff"><img src="./img/baechul/pck-slt.png"  height="20px" /></p>
+                    </li>
+                    <li class="li49_right">
+            <p><a href="#"><img src="./img/sugeo/su_icon/pck_big02.png" class="img65"></a></p>
+            <p class="su_name">유품정리</p>
+            <p class="su_onoff"><img src="./img/baechul/pck-usl.png"  height="20px" /></p>
+                    </li>
+                </ul>       	
+            </div>
+        </div>
+    </div>
+    
+    <p class="su_btn" onclick="form_submit();">
+    	수거신청
+    </p>
+</div>
+<!-- #include file="./include/footer.html" -->
