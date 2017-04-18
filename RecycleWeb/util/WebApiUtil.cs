@@ -183,6 +183,12 @@ namespace RecycleWeb.util
                 case -9798:
                     msg = "서비스 점검중(503)";
                     break;
+                case 121:
+                    msg = "보유 포인트가 부족합니다.";
+                    break;
+                case 6:
+                    msg = "일시적인 서버 오류가 발생하였습니다. 관리자에게 문의하세요.";
+                    break;
             }
 
             return msg;

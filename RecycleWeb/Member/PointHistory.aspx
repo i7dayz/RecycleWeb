@@ -217,6 +217,8 @@ p.su_btn.po_more {
                         if (parseInt(item[14]) > 0)
                             goods += "이사수거 " + item[14] + ", ";
 
+                        goods = goods.substring(0, goods.length - 2);
+
                         var t = item[4].split(/[- :]/);
                         var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
                         var date = new Date(d);
@@ -231,7 +233,7 @@ p.su_btn.po_more {
                                   + '	<td class="td_po3_1"></td>'
                                   + '	<td class="td_po3_2">' + date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate() + '</td>'
                                   + '    <td class="td_po3_3">'
-                                  + '    	<p>'+ pm + item[3] + '</p>'
+                                  + '    	<p>' + pm + commaSeparateNumber(item[3]) + '</p>'
                                   + '       <p>' + goods + '</p>'
                                   + '    </td>'
                                   + '    <td class="td_po3_4"></td>'

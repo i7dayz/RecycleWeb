@@ -33,7 +33,7 @@ namespace RecycleWeb
                 param.Add("carrierId", "31");
                 param.Add("appVersion", "1.0.0");
 
-                RootObject rootObj = JsonConvert.DeserializeObject<RootObject>(WebApiUtil.RestRequest(APP_SERVER_URI, PRODUCER_LOGIN, param));
+                RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(WebApiUtil.RestRequest(APP_SERVER_URI, PRODUCER_LOGIN, param));
 
                 if (rootObj.value == 0)
                 {

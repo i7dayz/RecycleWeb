@@ -21,12 +21,12 @@ namespace RecycleWeb.Member
 
                 DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
                 this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
-                this.exPoint.InnerText = Session["expirePoint"].ToString();
+                this.exPoint.InnerText = int.Parse(Session["expirePoint"].ToString()).ToString("N0");
 
                 this.nickname.InnerText = Session["nickname"].ToString();
-                this.point.InnerText = Session["producePoint"].ToString();
+                this.point.InnerText = int.Parse(Session["producePoint"].ToString()).ToString("N0");
 
-                this.totalDonatePoint.InnerText = Session["totalDonationPoint"].ToString();
+                this.totalDonatePoint.InnerText = int.Parse(Session["totalDonationPoint"].ToString()).ToString("N0");
             }
             else
             {

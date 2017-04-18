@@ -266,11 +266,11 @@ namespace RecycleWeb.Store
                                                 <div><span class=""font_size14bi color_b7b7b7"">{1}</span></div>
                                                 <div> 
                                                     <p class=""font_size14bi color_000"" style=""text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"">{2}</p>
-                                                    <div class=""total2 color_fff"">{3}</span></div>
+                                                    <div class=""total2 color_fff"">{3} p</span></div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </a>", goodsList[i].IMG_URL, goodsList[i].BRAND_NAME, goodsList[i].GOODS_NAME, goodsList[i].PRICE, Request["store"], goodsList[i].GOODS_ID);
+                                    </a>", goodsList[i].IMG_URL, goodsList[i].BRAND_NAME, goodsList[i].GOODS_NAME, int.Parse(goodsList[i].PRICE).ToString("N0"), Request["store"], goodsList[i].GOODS_ID);
             }
             this.goodsList.InnerHtml += sb.ToString();
         }

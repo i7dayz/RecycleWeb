@@ -66,19 +66,21 @@
                             }, "post", false);
                         },
                         donate: function () {
-                            if (!isNumeric($("#currPoint").val())
-                                || !isNumeric($("#txtDonationPoint").val())) {
+                            var currPoint = parseInt($("#currPoint").val().replace(/,/g, ""));
+                            var donationPoint = parseInt($("#txtDonationPoint").val().replace(/,/g, ""));
+
+                            if (isNaN(donationPoint) || donationPoint <= 0) {
+                                infoBox("기부하실 포인트를 입력하세요.");
+                                return;
+                            }
+
+                            if (!isNumeric(donationPoint)) {
                                 infoBox("포인트는 숫자형식으로만 입력가능합니다.");
                                 return;
                             }
 
-                            if (parseInt($("#currPoint").val()) < parseInt($("#txtDonationPoint").val())) {
+                            if (currPoint < donationPoint) {
                                 infoBox("현재 보유중인 포인트내에서 기부가능합니다.");
-                                return;
-                            }
-
-                            if (parseInt($("#txtDonationPoint").val()) <= 0) {
-                                infoBox("기부하실 포인트를 입력하세요.");
                                 return;
                             }
 
@@ -90,7 +92,7 @@
 
                             Server.ajax("/producer/donation", params, function (response, status, xhr) {
                                 if (response.value == 0) {
-                                    infoBox($("#txtDonationPoint").val() + "포인트를 기부하였습니다.");
+                                    infoBox(commaSeparateNumber(donationPoint) + "포인트를 기부하였습니다.");
                                 } else {
                                     if (response.value == 111) {
                                         errorBox(getErrMsg(response.value));

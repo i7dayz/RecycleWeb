@@ -18,7 +18,7 @@ namespace RecycleWeb.Member
         {
             if (Session["kakaoId"] != null)
             {
-                string temp = WebApiUtil.Logout(KAKAO_KAPI_URI, GET_LOGOUT_RESOURCE, Session["accessToken"].ToString());
+                string result = WebApiUtil.Logout(KAKAO_KAPI_URI, GET_LOGOUT_RESOURCE, Session["accessToken"].ToString());
 
                 Session["kakaoId"] = string.Empty;
                 Session["kakaoId"] = string.Empty;

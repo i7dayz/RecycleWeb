@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Withdrawal.aspx.cs" Inherits="RecycleWeb.Member.Withdrawal" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Unlink.aspx.cs" Inherits="RecycleWeb.Member.Unlink" %>
 
 <!DOCTYPE html>
 

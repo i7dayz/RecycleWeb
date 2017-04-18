@@ -177,7 +177,7 @@
     <Content Include="Member\MyCouponDetails.aspx" />
     <Content Include="Member\MyCouponGuide.aspx" />
     <Content Include="Member\PointHistory.aspx" />
-    <Content Include="Member\Withdrawal.aspx" />
+    <Content Include="Member\Unlink.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1105,17 +1105,26 @@
     <Compile Include="Member\TermsAgree.aspx.designer.cs">
       <DependentUpon>TermsAgree.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Member\Withdrawal.aspx.cs">
-      <DependentUpon>Withdrawal.aspx</DependentUpon>
+    <Compile Include="Member\Unlink.aspx.cs">
+      <DependentUpon>Unlink.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Member\Withdrawal.aspx.designer.cs">
-      <DependentUpon>Withdrawal.aspx</DependentUpon>
+    <Compile Include="Member\Unlink.aspx.designer.cs">
+      <DependentUpon>Unlink.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\CollectReserve.cs" />
     <Compile Include="Model\GoodsInfo.cs" />
+    <Compile Include="Model\KakaoSignup.cs" />
+    <Compile Include="Model\KakaoToken.cs" />
+    <Compile Include="Model\KakaoUserInfo.cs" />
+    <Compile Include="Model\Login.cs" />
+    <Compile Include="Model\Properties.cs" />
+    <Compile Include="Model\RootObject.cs" />
     <Compile Include="Model\RootObjectCollectReserve.cs" />
+    <Compile Include="Model\RootObjectGoodsBuyResult.cs" />
+    <Compile Include="Model\RootObjectLogin.cs" />
     <Compile Include="Model\RootObjectMarketView.cs" />
+    <Compile Include="Model\userPointInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoreMain.aspx.cs">
       <DependentUpon>StoreMain.aspx</DependentUpon>

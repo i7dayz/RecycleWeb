@@ -114,7 +114,7 @@
 
                                     $("#txtReqList").val($("#txtReqList").val().substring(0, $("#txtReqList").val().length - 2));
                                     $("#hdProduceIdx").val(response.collectReserve.product_3);
-                                    $("#imgCollectorImg").attr("src", response.collectReserve.collectorImageUrl);
+                                    $("#imgCollectorImg").attr("src", "http://hrx.co.kr/img/collector_profile/" + response.collectReserve.collectorImageUrl);
                                     $("#txtCollectorName").val(response.collectReserve.collectorName);
                                     $("#txtCollectorContactNumber").val(response.collectReserve.collectorContactNumber);
                                     $("#txtReqDate").val(response.collectReserve.hopeCollectDate);

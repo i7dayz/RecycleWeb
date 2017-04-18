@@ -3,13 +3,15 @@
 <style>
 
 </style>
+    <input type="hidden" runat="server" id="hdProducerIdx" />
+    <input type="hidden" runat="server" id="hdGoodsBuyIdx" value="0"/>
     <header>
         <div class="su_header">
 			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>쿠폰함
         </div>
     </header>
     <div class="container" id="coupon-list">
-        <div class="reser">
+        <%--<div class="reser">
     	    <div class="reser_icon reser_icon2">
         	    <img src="/img/cfn-cof.png" />
             </div>
@@ -44,7 +46,7 @@
                     <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : 2017년 09월 22일 까지</p>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
@@ -69,11 +71,66 @@
                     });
                 },
                 fn: {
+                    couponList: function () {
+                        var params = {
+                            producerIdx: $("#hdProducerIdx").val(),
+                            goodsBuyIdx: $("#hdGoodsBuyIdx").val()
+                        };
+
+                        Server.ajax("/producer/goodsBuyHistory", params, function (response, status, xhr) {
+                            if (response.value == 0) {
+                                var list = response.goodsBuyHistory;
+
+                                for (var i = 0; i < list.length; i++) {
+                                    page.fn.addCoupon(list[i]);
+                                }
+                            } else {
+                                errorBox("Error Code : " + response.value);
+                            }
+                        }, "post", false);
+                    },
+                    addCoupon: function (item) {
+                        //var donationHistory = '<ul class="donation-item" id="' + item[0] + '">'
+                        //                    + '    <li class="date">기부일자..</li>'
+                        //                    + '    <li class="point">' + item[3] + '</li>'
+                        //                    + '    <li class="group">' + item[1] + '</li>'
+                        //                    + '</ul>';
+
+                        
+                        var brand = item[5].split('|');
+
+                        var exDate = "";
+                        if (item[3] == 2) {
+                            if (item[10] != null) {
+                                var t = item[10].split(/[- :]/);
+                                var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
+                                exDate = "유효기간 : " + new Date(d) + "까지";
+                            }
+                        } else if (item[3] == 3) {
+                            exDate = "취소";
+                        }
+
+                        var coupon = '<div class="reser" id="' + item[0] + '">'
+    	                           + '    <div class="reser_icon reser_icon2">'
+                                   + '	      <img src="' + item[6] + '" />'
+                                   + '    </div>'
+                                   + '    <div class="reser_con padt30">'
+                                   + '	      <div><span class="font_size12b color90cd32  pad_l0">' + brand[0] + '</span></div>'
+                                   + '        <div> '
+                                   + '    	      <p class="font_size16b color000 pad_l0">' + brand[1] + '</p>'
+                                   + '            <p class="font_size12 color_b7b7b7 pad_t12">' + exDate + '</p>'
+                                   + '    </div>'
+                                   + '    </div>'
+                                   + '</div>';
+
+                        $('#coupon-list').append(coupon);
+                    }
                 }
             };
 
             $(document).on('ready', function () {
                 page.init();
+                page.fn.couponList();
             });
         })();
     </script>

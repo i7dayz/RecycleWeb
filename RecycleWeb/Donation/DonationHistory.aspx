@@ -49,7 +49,7 @@ p.su_btn.po_more {
     <input type="hidden" runat="server" id="hdProducerIdx" />
 <header>
     <div class="su_header">
-        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>포인트 내역
+        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>기부 내역
     </div>
 </header>
 <div class="container" style="">
@@ -149,7 +149,7 @@ p.su_btn.po_more {
                                               + '	<td class="td_po3_1"></td>'
                                               + '	<td class="td_po3_2">' + date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate() + '</td>'
                                               + '    <td class="td_po3_3">'
-                                              + '    	<p>' + item[3] + '</p>'
+                                              + '    	<p>' + commaSeparateNumber(item[3]) + '</p>'
                                               + '       <p>' + item[1] + '</p>'
                                               + '    </td>'
                                               + '    <td class="td_po3_4"></td>'

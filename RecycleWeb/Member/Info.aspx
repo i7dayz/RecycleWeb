@@ -126,7 +126,7 @@
                         $('#form1').submit();
                     },
                     unlink: function () {
-                        $('#form1').attr('action', 'Withdrawal.aspx');
+                        $('#form1').attr('action', 'Unlink.aspx');
                         $('#form1').submit();
                     },
                     goUrl: function(urlData) {

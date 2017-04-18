@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RecycleWeb.util;
+using RecycleWeb.Model;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
@@ -76,7 +77,7 @@ namespace RecycleWeb.Member
                             param.Add("carrierId", "31");
                             param.Add("appVersion", "1.0.0");
 
-                            RootObject rootObj = JsonConvert.DeserializeObject<RootObject>(WebApiUtil.RestRequest(APP_SERVER_URI, PRODUCER_LOGIN, param));
+                            RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(WebApiUtil.RestRequest(APP_SERVER_URI, PRODUCER_LOGIN, param));
 
                             if (rootObj.value == 0)
                             {
@@ -123,7 +124,7 @@ namespace RecycleWeb.Member
                             ScriptManager.RegisterStartupScript(
                                 this,
                                 this.GetType(),
-                                "redirect",
+                                "alert",
                                 "alert('" + WebApiUtil.GetErrorMsg(kakaoUserInfo.code) + "'); window.location='" + Request.ApplicationPath + "Default.aspx';",
                                 true
                             );
@@ -143,66 +144,5 @@ namespace RecycleWeb.Member
                 }
             }
         }
-    }
-
-    public class KakaoToken
-    {
-        public int code { get; set; }
-        public string msg { get; set; }
-        public string access_token { get; set; }
-        public string token_type { get; set; }
-        public string refresh_token { get; set; }
-        public int expires_in { get; set; }
-        public string scope { get; set; }
-    }
-
-    public class KakaoSignup
-    {
-        public int code { get; set; }
-        public string msg { get; set; }
-        public string id { get; set; }
-    }
-
-    public class KakaoUserInfo
-    {
-        public int code { get; set; }
-        public string msg { get; set; }
-        public string kaccount_email { get; set; }
-        public bool kaccount_email_verified { get; set; }
-        public int id { get; set; }
-        public Properties properties { get; set; }
-    }
-
-    public class Properties
-    {
-        public string profile_image { get; set; }
-        public string nickname { get; set; }
-        public string thumbnail_image { get; set; }
-    }
-
-    public class RootObject
-    {
-        public string result_msg { get; set; }
-        public string server_time { get; set; }
-        public string server_ver { get; set; }
-        public Login login { get; set; }
-        public int value { get; set; }
-    }
-
-    public class Login
-    {
-        public int producerIdx { get; set; }
-        public string producerContactNumber { get; set; }
-        public int zipCode { get; set; }
-        public string address1 { get; set; }
-        public string address2 { get; set; }
-        public string detailAddress { get; set; }
-        public int producePoint { get; set; }
-        public string producePointExpireDate { get; set; }
-        public int totalDonationPoint { get; set; }
-        public int rank { get; set; }
-        public string nickname { get; set; }
-        public string expirePoint { get; set; }
-        public string name { get; set; }
     }
 }

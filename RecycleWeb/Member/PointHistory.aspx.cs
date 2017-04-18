@@ -22,10 +22,10 @@ namespace RecycleWeb.Member
 
                 DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
                 this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
-                this.exPoint.InnerText = Session["expirePoint"].ToString(); // 현재 로그인시에 넘어오는 값이 없음
+                this.exPoint.InnerText = int.Parse(Session["expirePoint"].ToString()).ToString("N0"); // 현재 로그인시에 넘어오는 값이 없음
 
                 this.nickname.InnerText = Session["nickname"].ToString();
-                this.point.InnerText = Session["producePoint"].ToString();
+                this.point.InnerText = int.Parse(Session["producePoint"].ToString()).ToString("N0");
             }
             else
             {

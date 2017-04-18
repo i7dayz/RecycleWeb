@@ -27,7 +27,7 @@ namespace RecycleWeb.Donation
                 }
 
                 this.hdProducerIdx.Value = Session["producerIdx"].ToString();
-                this.currPoint.Value = Session["producePoint"].ToString();
+                this.currPoint.Value = int.Parse(Session["producePoint"].ToString()).ToString("N0");
             }
             else
             {
