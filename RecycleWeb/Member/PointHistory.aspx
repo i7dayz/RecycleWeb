@@ -68,69 +68,12 @@ p.su_btn.po_more {
     </div>
 	<div class="point">
     	<table>
-        	<tbody class="point-list"> 
-                <%--
-                <tr class="">
-                	<td class="td_po3_1"></td>
-                	<td class="td_po3_2">2016.12.16</td>
-                    <td class="td_po3_3">
-                    	<p>+10,200</p>
-                        <p>고철 1, 헌옷 3, 비철 5, 병 2 외</p>
-                    </td>
-                    <td class="td_po3_4"></td>
-                </tr>
-                <tr class="">
-                	<td class="td_po3_1"></td>
-                	<td class="td_po3_2">2016.12.02</td>
-                    <td class="td_po3_3">
-                    	<p>+10,200</p>
-                        <p>고철 1, 헌옷 3, 비철 5, 병 2 외</p>
-                    </td>
-                    <td class="td_po3_4"></td>
-                </tr>
-                <tr class="">
-                	<td class="td_po3_1"></td>
-                	<td class="td_po3_2">2016.11.26</td>
-                    <td class="td_po3_3">
-                    	<p>+10,200</p>
-                        <p>고철 1, 헌옷 3, 비철 5, 병 2 외</p>
-                    </td>
-                    <td class="td_po3_4"></td>
-                </tr>
-                <tr class="">
-                	<td class="td_po3_1"></td>
-                	<td class="td_po3_2">2016.11.13</td>
-                    <td class="td_po3_3">
-                    	<p>+10,200</p>
-                        <p>고철 1, 헌옷 3, 비철 5, 병 2 외</p>
-                    </td>
-                    <td class="td_po3_4"></td>
-                </tr>
-                <tr class="">
-                	<td class="td_po3_1"></td>
-                	<td class="td_po3_2">2016.10.17</td>
-                    <td class="td_po3_3">
-                    	<p>+10,200</p>
-                        <p>고철 1, 헌옷 3, 비철 5, 병 2 외</p>
-                    </td>
-                    <td class="td_po3_4"></td>
-                </tr>
-                <tr class="">
-                	<td class="td_po3_1"></td>
-                	<td class="td_po3_2">2016.10.11</td>
-                    <td class="td_po3_3">
-                    	<p>+10,200</p>
-                        <p>고철 1, 헌옷 3, 비철 5, 병 2 외</p>
-                    </td>
-                    <td class="td_po3_4"></td>
-                </tr>
-                --%>
-            </tbody>
+        	<tbody class="point-list"></tbody>
         </table>   	
     </div>
-    <%--<p class="su_btn po_more" onclick="form_submit();">
+    <p class="su_btn po_more" id="btnSearchNext" style="cursor:pointer">
     	+ 더보기 
-    </p>--%>
+    </p>
 </div>
 
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
@@ -152,12 +95,18 @@ p.su_btn.po_more {
                     $(document).on('click', '.back-btn', function () {
                         window.history.back();
                     });
+                    $(document).on('click', '#btnSearchNext', function () {
+                        page.fn.pointHistory();
+                    });
+                },
+                attr: {
+                    pageNum: 0
                 },
                 fn: {
                     pointHistory: function () {
                         var params = {
                             producerIdx: $("#hdProducerIdx").val(),
-                            pageNum: 0
+                            pageNum: page.attr.pageNum
                         };
 
                         Server.ajax("/producer/pointHistory", params, function (respone, status, xhr) {
@@ -165,7 +114,16 @@ p.su_btn.po_more {
                                 var list = respone.pointHistory;
 
                                 for (var i = 0; i < list.length; i++) {
+                                    if ((i + 1) === list.length)
+                                    {
+                                        page.attr.pageNum = list[i][0];
+                                    }
+
                                     page.fn.addPoint(list[i]);
+                                }
+
+                                if (list.length < 10) {
+                                    $('#btnSearchNext').hide();
                                 }
                             } else {
                                 errorBox("Error Code : " + respone.value);
@@ -174,23 +132,21 @@ p.su_btn.po_more {
                     },
                     addPoint: function (item) {
                         var type = "";
-                        var pm = "";
                         switch (item[1]) {
-                            case "1": 
+                            case 1: 
                                 type = "적립";
-                                pm = "+";
                                 break;
-                            case "2 ": 
+                            case 2: 
                                 type = "사용";
-                                pm = "-";
                                 break;
-                            case "3": 
+                            case 3: 
                                 type = "기부";
-                                pm = "-";
                                 break;
-                            case "4":
+                            case 4:
                                 type = "추천포인트";
-                                pm = "+";
+                                break;
+                            case 5:
+                                type = "사용취소";
                                 break;
                         }
 
@@ -223,17 +179,12 @@ p.su_btn.po_more {
                         var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
                         var date = new Date(d);
 
-                        //var point = '<ul class="point-item" id=' + item[0] + '>'
-                        //          + '    <li class="date">' + date.getFullYear() + "." + (date.getMonth() + 1 ) + "." + date.getDate()  + '</li>'
-                        //          + '    <li class="point">' + pm + item[3] + '</li>'
-                        //          + '    <li class="goods">' + goods + '</li>'
-                        //          + '</ul>';
-
                         var point = '<tr class="" id=' + item[0] + '>'
                                   + '	<td class="td_po3_1"></td>'
                                   + '	<td class="td_po3_2">' + date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate() + '</td>'
                                   + '    <td class="td_po3_3">'
-                                  + '    	<p>' + pm + commaSeparateNumber(item[3]) + '</p>'
+                                  + '       <p>[' + type + ']</p>'
+                                  + '    	<p>' + commaSeparateNumber(item[2]) + '</p>'
                                   + '       <p>' + goods + '</p>'
                                   + '    </td>'
                                   + '    <td class="td_po3_4"></td>'
@@ -248,6 +199,12 @@ p.su_btn.po_more {
                 page.init();
                 $('.drawer').drawer();
                 page.fn.pointHistory();
+
+                if ($('.point-list').html() == '') {
+                    $('#btnSearchNext').hide();
+                } else {
+                    $('#btnSearchNext').show();
+                }
             });
         })();
     </script>

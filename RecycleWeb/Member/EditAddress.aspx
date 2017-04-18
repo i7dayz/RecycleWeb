@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="address-list"></div>
-                                <p class="su_btn" id="btnSearchNext">다음 검색</p>
+                                <p class="su_btn" id="btnSearchNext" style="cursor:pointer">다음 검색</p>
                             </div>
                         </div>
                     </div> <!-- //container -->

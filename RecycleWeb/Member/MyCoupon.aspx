@@ -100,14 +100,11 @@
                         var brand = item[5].split('|');
 
                         var exDate = "";
+                        var status = "";
                         if (item[3] == 2) {
-                            if (item[10] != null) {
-                                var t = item[10].split(/[- :]/);
-                                var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
-                                exDate = "유효기간 : " + new Date(d) + "까지";
-                            }
+                            status == "구매";
                         } else if (item[3] == 3) {
-                            exDate = "취소";
+                            status = "취소";
                         }
 
                         var coupon = '<div class="reser" id="' + item[0] + '">'
@@ -118,7 +115,7 @@
                                    + '	      <div><span class="font_size12b color90cd32  pad_l0">' + brand[0] + '</span></div>'
                                    + '        <div> '
                                    + '    	      <p class="font_size16b color000 pad_l0">' + brand[1] + '</p>'
-                                   + '            <p class="font_size12 color_b7b7b7 pad_t12">' + exDate + '</p>'
+                                   + '            <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : ' + item[10] + '</p>'
                                    + '    </div>'
                                    + '    </div>'
                                    + '</div>';

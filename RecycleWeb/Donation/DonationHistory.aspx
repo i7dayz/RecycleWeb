@@ -77,21 +77,10 @@ p.su_btn.po_more {
                     </td>
                     <td class="td_po3_4"></td>
                 </tr>
-                <%--
-                <tr class="">
-                	<td class="td_po3_1"></td>
-                	<td class="td_po3_2">2016.12.16</td>
-                    <td class="td_po3_3">
-                    	<p>+10,200</p>
-                        <p>어린이 재단</p>
-                    </td>
-                    <td class="td_po3_4"></td>
-                </tr>
-                --%>
             </tbody>
         </table>   	
     </div>
-    <%--<p class="su_btn po_more" onclick="form_submit();">
+    <%--<p class="su_btn po_more" id="btnSearchNext" style="cursor:pointer">
     	+ 더보기 
     </p>--%>
 </div>

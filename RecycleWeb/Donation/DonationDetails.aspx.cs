@@ -16,10 +16,6 @@ namespace RecycleWeb.Donation
                 if (!string.IsNullOrEmpty(Request.QueryString["id"].ToString()))
                 {
                     this.hdGroupIdx.Value = Request.QueryString["id"].ToString();
-
-                    //this.lblGroupName.InnerText = item[1];
-                    //this.lblGroupDesc.InnerHtml = item[2].Replace("\\n","<br />");
-                    //this.imgGroup.Src = item[3];
                 }
                 else
                 {

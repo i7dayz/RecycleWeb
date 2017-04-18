@@ -28,7 +28,6 @@
 </div>
 
         <script type="text/javascript" src="../script/extention/jquery.js"></script>
-        <script type="text/javascript" src="../script/extention/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
         <script type="text/javascript" src="../script/common.js"></script>
         <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
         
@@ -92,14 +91,17 @@
 
                             Server.ajax("/producer/donation", params, function (response, status, xhr) {
                                 if (response.value == 0) {
-                                    infoBox(commaSeparateNumber(donationPoint) + "포인트를 기부하였습니다.");
+                                    infoBoxWithCallback(commaSeparateNumber(donationPoint) + "포인트를 기부하였습니다.", page.fn.goUrl, { url: "/Donate.aspx" });
                                 } else {
                                     if (response.value == 111) {
                                         errorBox(getErrMsg(response.value));
                                     }
                                 }
                             }, "post", false);
-                        }
+                        },
+                        goUrl: function (urlData) {
+                            location.href = urlData.url;
+                        },
                     }
                 };
 

@@ -26,7 +26,7 @@ namespace RecycleWeb.Member
                 this.nickname.InnerText = Session["nickname"].ToString();
                 this.point.InnerText = int.Parse(Session["producePoint"].ToString()).ToString("N0");
 
-                this.totalDonatePoint.InnerText = int.Parse(Session["totalDonationPoint"].ToString()).ToString("N0");
+                this.totalDonatePoint.InnerHtml = int.Parse(Session["totalDonationPoint"].ToString()).ToString("N0") + " <img src = \"/img/p.png\" class=\"img20_icon\">";
             }
             else
             {
