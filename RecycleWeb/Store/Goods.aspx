@@ -21,7 +21,7 @@ function form_submit() {
         <span class="font_size14b" runat="server" id="brandName"></span>
     </div>
     <div id="goodsList" runat="server"></div>
-    <div class="su_submit pdt30"><div class="btn_grean"><a href="#">쿠폰함 바로가기</a></div></div>
+    <div class="su_submit pdt30"><div class="btn_grean" style="cursor:pointer" id="btnCoupon">쿠폰함 바로가기</div></div>
 </div>
     <script type="text/javascript" src="../script/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
@@ -39,11 +39,21 @@ function form_submit() {
                 },
                 initEvent: function () {
                     $(document).on('click', '.back-btn', function () {
-                        window.history.back();
+                        location.replace("/StoreMain.aspx")
                     });
 
                     $(document).on('click', '#list_onoff', function () {
                         $('#moreBrandList').toggle();
+
+                        if ($('#moreBrandList').css('display') == "none") {
+                            $('#list_onoff').text("더보기");
+                        } else {
+                            $('#list_onoff').text("접기");
+                        }
+                    });
+
+                    $(document).on('click', '#btnCoupon', function() {
+                        location.href = "/Member/MyCoupon.aspx";
                     });
                 },
                 fn: {
@@ -54,6 +64,18 @@ function form_submit() {
                 page.init();
             });
         })();
+
+        function move(store, brandId) {
+            var more;
+            if ($('#moreBrandList').css('display') == "none") {
+                more = "N";
+            }
+            else {
+                more = "Y";
+            }
+
+            location.replace("/Store/Goods.aspx?store=" + store + "&brandId=" + brandId + "&more=" + more);
+        }
     </script>
 </body>
 </html>

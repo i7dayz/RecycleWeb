@@ -27,6 +27,8 @@
     <!-- #home tab -->          
     <input type="hidden" runat="server" id="hdProduceIdx" />
     <input type="hidden" runat="server" id="hdProducerIdx" />    
+    <input type="hidden" runat="server" id="hdRank" />    
+    <input type="hidden" runat="server" id="hdTotalDonationPoint" />    
     <div class="container" style="">
 	    <div class="member_po">
     	    <p class="rtext">만료예정일 : <label runat="server" id="exDate"></label></p>
@@ -67,104 +69,28 @@
             </div>
         </div>
         <div class="harf_con">
-    	    <div class="harf_l">
-        	    <span class="cic_icon">12</span>
-                <p><a href="#"><img src="/img/baechul/i-ntc.png" class="img27" /></a></p>
-                <p><a href="#">공지사항 / 이벤트</a></p>
+    	    <div class="harf_l" id="btnNoticeEvent" style="cursor:pointer">
+        	    <%--<span class="cic_icon">12</span>--%>
+                <p><a href="javascript:;"><img src="/img/baechul/i-ntc.png" class="img27" /></a></p>
+                <%--<p><a href="#">공지사항 / 이벤트</a></p>--%>
+                <p><a href="javascript:;">공지사항</a></p>
             </div>
             <div class="harf_r" id="btnSimpleUsageGuide" style="cursor:pointer">
         	    <span class="cic_icon2"><img src="/img/baechul/ird-icn.png" class="img40" /></span>
-                <p><a href="#"><img src="/img/baechul/i-inf.png" class="img30" /></a></p>
-                <p><a href="#">이용안내</a></p>
+                <p><a href="javascript:;"><img src="/img/baechul/i-inf.png" class="img30" /></a></p>
+                <p><a href="javascript:;">이용안내</a></p>
             </div>
         </div>
 
 	    <div class="ranking" id="ranking">
     	    <table>
-        	    <tbody>
-                    <%--<tr class="">
-                	    <td class="td_rang01"><img src="/img/baechul/rnk-g.png" width="20" /></td>
-                	    <td class="td_rang02"><a href="#"><img src="/img/baechul/kko-prf-2.png" class="img23"/>happysoyle</a></td>
-                        <td class="td_rang03">10,000,000</td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang01"><img src="/img/baechul/rnk-s.png" width="20" /></td>
-                	    <td class="td_rang02"><a href="#"><img src="/img/baechul/kko-prf-2.png" class="img23"/> happysdoyle</a></td>
-                        <td class="td_rang03">8,000,000</td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang01"><img src="/img/baechul/rnk-b.png" width="20" /></td>
-                	    <td class="td_rang02"><a href="#"><img src="/img/baechul/kko-prf-2.png" class="img23"/> happssysoyle</a></td>
-                        <td class="td_rang03">6,000,000</td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang01">4</td>
-                	    <td class="td_rang02"><a href="#"><img src="/img/baechul/kko-prf-2.png" class="img23"/> happysle</a></td>
-                        <td class="td_rang03">500,000</td>
-                    </tr>
-                    <tr class="sel">
-                	    <td class="td_rang01">56</td>
-                	    <td class="td_rang02"><a href="#"><img src="/img/baechul/kko-prf-2.png" class="img23"/> happe</a></td>
-                        <td class="td_rang03">300,000</td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang01">57</td>
-                	    <td class="td_rang02"><a href="#"><img src="/img/baechul/kko-prf-2.png" class="img23"/> happe</a></td>
-                        <td class="td_rang03">300,000</td>
-                    </tr>--%>
-                </tbody>
+        	    <tbody></tbody>
             </table>   	
         </div>
 
 	    <div class="ranking" id="totalDonationAmount">
     	    <table>
-        	    <tbody>               
-                    <%--<tr class="tr_top">
-                	    <td class="td_rang3_1"></td>
-                	    <td class="td_rang3_2">전체 누적 기부 금액</td>
-                        <td class="td_rang3_3"><span class="font_color5e8d19">TODAY : 10,800</span>
-                    	    <p class="total">779,000<img src="/img/p.png" class="img20_icon" /></p>
-                        </td>
-                        <td class="td_rang3_4"></td>
-                    </tr>--%>
-                
-                    <%--<tr class="">
-                	    <td class="td_rang3_1"></td>
-                	    <td class="td_rang3_2">2016.12.16</td>
-                        <td class="td_rang3_3">10,200</td>
-                        <td class="td_rang3_4"></td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang3_1"></td>
-                	    <td class="td_rang3_2">2016.12.02</td>
-                        <td class="td_rang3_3">20,200</td>
-                        <td class="td_rang3_4"></td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang3_1"></td>
-                	    <td class="td_rang3_2">2016.11.26</td>
-                        <td class="td_rang3_3">16,400</td>
-                        <td class="td_rang3_4"></td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang3_1"></td>
-                	    <td class="td_rang3_2">2016.11.13</td>
-                        <td class="td_rang3_3">44,900</td>
-                        <td class="td_rang3_4"></td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang3_1"></td>
-                	    <td class="td_rang3_2">2016.10.17</td>
-                        <td class="td_rang3_3">10,200</td>
-                        <td class="td_rang3_4"></td>
-                    </tr>
-                    <tr class="">
-                	    <td class="td_rang3_1"></td>
-                	    <td class="td_rang3_2">2016.10.11</td>
-                        <td class="td_rang3_3">10,200</td>
-                        <td class="td_rang3_4"></td>
-                    </tr>--%>
-                </tbody>
+        	    <tbody></tbody>
             </table>   	
         </div>
 
@@ -181,10 +107,10 @@
         
             <p class="rec_text">친구초대</p> 
             <div class="rec_sns_con">
-        	    <div class="reco_sns"><a href="#"><img src="/img/baechul/frd-kko.png" class="img60" /><p>카카오톡</p></a></div>
-                <div class="reco_sns"><a href="#"><img src="/img/baechul/frd-sms.png" class="img60" /><p>SMS</p></a></div>
-                <div class="reco_sns"><a href="#"><img src="/img/baechul/frd-lin.png" class="img60" /><p>LINE</p></a></div>
-                <div class="reco_sns"><a href="#"><img src="/img/baechul/frd-lnk.png" class="img60" /><p>링크</p></a></div>
+        	    <div class="reco_sns" style="width:33.3%"><a id="kakao-link-btn" href="javascript:sendKakaoLink()"><img src="/img/baechul/frd-kko.png" class="img60" /><p>카카오톡</p></a></div>
+                <div class="reco_sns" style="width:33.3%"><a id="sms-btn" href="javascript:infoBox('문자공유는 스마트폰에서만 가능합니다.');"><img src="/img/baechul/frd-sms.png" class="img60" /><p>SMS</p></a></div>
+                <%--<div class="reco_sns"><a href="#"><img src="/img/baechul/frd-lin.png" class="img60" /><p>LINE</p></a></div>--%>
+                <div class="reco_sns" style="width:33.3%"><a id="copy-btn" href="javascript:;"><img src="/img/baechul/frd-lnk.png" class="img60" /><p>링크</p></a></div>
             </div>
         </div>
     </div>
@@ -197,8 +123,63 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
     <%--<script type="text/javascript" src="/script/dropdown.min.js"></script>--%>
     <script type="text/javascript" src="/script/drawer.min.js"></script>
+    <script type="text/javascript" src="/script/clipboard.min.js"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
         
     <script>
+        //<![CDATA[
+        // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('5fbf9e293f3ee6416b6b387bdfcaafb3');
+        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+        function sendKakaoLink() {
+            var device = check_device();
+            if (device === '') {
+                infoBox("카카오톡 공유하기 기능 스마트폰에서만 가능합니다.");
+                return;
+            }
+
+            Kakao.Link.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '디저트 사진',
+                    description: '아메리카노, 빵, 케익',
+                    imageUrl: 'http://mud-kage.kakao.co.kr/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+                    link: {
+                        mobileWebUrl: 'https://dev.kakao.com'
+                    }
+                },
+                social: {
+                    likeCount: 10,
+                    commentCount: 20,
+                    sharedCount: 30
+                },
+                buttons: [{
+                    title: '웹으로 이동',
+                    link: {
+                        mobileWebUrl: 'https://dev.kakao.com'
+                    }
+                }, {
+                    title: '앱으로 이동',
+                    link: {
+                        mobileWebUrl: 'https://dev.kakao.com'
+                    }
+                }]
+            });
+        }
+        //]]>
+
+        function check_device() {
+            var mobileKeyWords = new Array('iPhone', 'iPad', 'iPod', 'Android');
+            var device_name = '';
+            for (var word in mobileKeyWords) {
+                if (navigator.userAgent.match(mobileKeyWords[word]) != null) {
+                    device_name = mobileKeyWords[word];
+                    break;
+                }
+            }
+            return device_name
+        }
+
         (function () {
             var page = {
                 init: function () {
@@ -212,6 +193,24 @@
                     $("#ranking").hide();
                     $("#totalDonationAmount").hide();
                     $("#recommend").hide();
+
+                    var device = check_device();
+
+                    if (device === 'iPhone') {
+                        $("#sms-btn").attr("href", "sms:&body=문자전송");
+                    } else if (device === 'Android') {
+                        $("#sms-btn").attr("href", "sms:?body=문자전송");
+                    }
+
+                    var clipboard = new Clipboard('#copy-btn', {
+                        text: function () {
+                            return 'http://hrx.co.kr/Default.aspx';
+                        }
+                    });
+
+                    clipboard.on('success', function (e) {
+                        infoBox("공유주소가 복사되었습니다.");
+                    });
                 },
                 initEvent: function () {
                     $(document).on('click', '#tabRequest', function () {
@@ -293,6 +292,9 @@
 
                         page.fn.saveRecommender();
                     });
+                    $(document).on('click', '#btnNoticeEvent', function () {
+                        location.href = "/Support/Notice.aspx";
+                    });
                     $(document).on('click', '#btnSimpleUsageGuide', function () {
                         location.href = "/Support/SimpleUsageGuide.aspx";
                     });
@@ -337,7 +339,7 @@
 
                         var rank = '<tr class="">'
                                  + '	<td class="td_rang01">' + medal + '</td>'
-                                 + '	<td class="td_rang02"><a href="#">' + profileImg + ' ' +item[5] + '</a></td>'
+                                 + '	<td class="td_rang02">' + profileImg + ' ' +item[5] + '</td>'
                                  + '    <td class="td_rang03">' + commaSeparateNumber(item[1]) + '</td>'
                                  + '</tr>';
 

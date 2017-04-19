@@ -75,4 +75,5 @@
             });
         })();
     </script>
-<!-- #include file="/include/footer.html" -->
+</body>
+</html>

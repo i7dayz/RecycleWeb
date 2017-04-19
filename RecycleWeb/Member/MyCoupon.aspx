@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyCoupon.aspx.cs" Inherits="RecycleWeb.Member.MyCoupon" %>
 <!-- #include file="/include/header_b.html" --> 
+<link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
 <style>
 
 </style>
@@ -67,7 +68,12 @@
                         window.history.back();
                     });
                     $(document).on("click", "div[class='reser']", function () {
-                        location.href = "MyCouponDetails.aspx?my_coupon_id=" + $(this).attr("id");
+                        if ($(this).attr("status") == 2) {
+                            location.href = "MyCouponDetails.aspx?url=" + $(this).attr("url") + "&order_id=" + $(this).attr("order_id") + "&pin=" + $(this).attr("pin") + "&brand=" + $(this).attr("brand") + "&exdate=" + $(this).attr("exdate");
+                        }
+                        else if ($(this).attr("status") == 3) {
+                            infoBox("구매가 취소된 쿠폰입니다.");
+                        }
                     });
                 },
                 fn: {
@@ -90,32 +96,26 @@
                         }, "post", false);
                     },
                     addCoupon: function (item) {
-                        //var donationHistory = '<ul class="donation-item" id="' + item[0] + '">'
-                        //                    + '    <li class="date">기부일자..</li>'
-                        //                    + '    <li class="point">' + item[3] + '</li>'
-                        //                    + '    <li class="group">' + item[1] + '</li>'
-                        //                    + '</ul>';
-
-                        
                         var brand = item[5].split('|');
 
                         var exDate = "";
                         var status = "";
                         if (item[3] == 2) {
-                            status == "구매";
+                            status = "구매";
                         } else if (item[3] == 3) {
                             status = "취소";
                         }
 
-                        var coupon = '<div class="reser" id="' + item[0] + '">'
+                        var coupon = '<div class="reser" url="' + item[6] + '" status="' + item[3] + '" order_id="' + item[8] + '" pin="' + item[7] + '" brand="' + item[5] + '" exdate="' + item[10] + '" style="cursor:pointer;">'
     	                           + '    <div class="reser_icon reser_icon2">'
                                    + '	      <img src="' + item[6] + '" />'
                                    + '    </div>'
-                                   + '    <div class="reser_con padt30">'
+                                   + '    <div class="reser_con padt20">'
                                    + '	      <div><span class="font_size12b color90cd32  pad_l0">' + brand[0] + '</span></div>'
                                    + '        <div> '
                                    + '    	      <p class="font_size16b color000 pad_l0">' + brand[1] + '</p>'
-                                   + '            <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : ' + item[10] + '</p>'
+                                   + '            <p class="font_size12 color_b7b7b7 pad_t12">유효기간 : ' + item[10] + ' 까지</p>'
+                                   + '            <p class="font_size12 color_b7b7b7">상태 : ' + status + '</p>'
                                    + '    </div>'
                                    + '    </div>'
                                    + '</div>';

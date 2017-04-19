@@ -51,6 +51,9 @@ namespace RecycleWeb
                     Session["expirePoint"] = rootObj.login.expirePoint;
                     Session["name"] = rootObj.login.name;
 
+                    hdRank.Value = rootObj.login.rank.ToString();
+                    hdTotalDonationPoint.Value = rootObj.login.totalDonationPoint.ToString();
+
                     if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
                     {
                         this.profileImg.Src = Session["kakaoProfileImage"].ToString();
@@ -60,7 +63,7 @@ namespace RecycleWeb
                     {
                         DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
                         this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
-                        this.exPoint.InnerText = Session["expirePoint"].ToString();
+                        this.exPoint.InnerText = int.Parse(Session["expirePoint"].ToString()).ToString("N0");
                     }
 
                     this.nickname.InnerText = Session["nickname"].ToString();
@@ -155,9 +158,9 @@ namespace RecycleWeb
                             productList += string.Format("유품정리, ", rootObj.collectReserve.etc_3.ToString());
                         }
 
-                        if (string.IsNullOrEmpty(rootObj.collectReserve.collectorImageUrl.ToString()))
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.collectorImageUrl.ToString()))
                         {
-                            this.collectorImg.Src = "/img/collector_profile/010-4320-1721.png"; // " + collectorContactNumber + "
+                            this.collectorImg.Src = string.Format("/img/collector_profile/{0}", rootObj.collectReserve.collectorImageUrl.ToString());
                         }
                         else
                         {

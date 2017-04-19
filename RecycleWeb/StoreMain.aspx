@@ -50,7 +50,7 @@
             </div>
             <div class="three_03" name="store" id="icecream">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_06.png" class="img65"></a></p>
-                <p class="su_name">아이스크림</p>
+                <p class="su_name">아이스크림/간식</p>
             </div>
             <div class="line_d"></div>
         </div>

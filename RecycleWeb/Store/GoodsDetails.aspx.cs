@@ -49,8 +49,7 @@ namespace RecycleWeb.Store
                                     Page,
                                     Page.GetType(),
                                     "alert",
-                                    "onSuccess('상품구입이 완료되었습니다. 현재 잔여 포인트는 " + Session["producePoint"].ToString() + " 포인트입니다.');",
-                                    //"onError('" + rootObj.value.ToString() + "');",
+                                    "onSuccess('상품구입이 완료되었습니다. 현재 잔여 포인트는 " + int.Parse(Session["producePoint"].ToString()).ToString("N0") + " 포인트입니다.');",
                                     true
                                 );
                             }

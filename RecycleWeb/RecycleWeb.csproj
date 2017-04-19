@@ -1113,6 +1113,7 @@
       <DependentUpon>Unlink.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\CollectReserve.cs" />
+    <Compile Include="Model\EPinStatus.cs" />
     <Compile Include="Model\GoodsInfo.cs" />
     <Compile Include="Model\KakaoSignup.cs" />
     <Compile Include="Model\KakaoToken.cs" />
@@ -1121,6 +1122,7 @@
     <Compile Include="Model\Properties.cs" />
     <Compile Include="Model\RootObject.cs" />
     <Compile Include="Model\RootObjectCollectReserve.cs" />
+    <Compile Include="Model\RootObjectGoodsBuyHistory.cs" />
     <Compile Include="Model\RootObjectGoodsBuyResult.cs" />
     <Compile Include="Model\RootObjectLogin.cs" />
     <Compile Include="Model\RootObjectMarketView.cs" />
