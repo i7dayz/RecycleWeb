@@ -61,11 +61,6 @@
                         mobileWebUrl: 'https://dev.kakao.com'
                     }
                 },
-                social: {
-                    likeCount: 10,
-                    commentCount: 20,
-                    sharedCount: 30
-                },
                 buttons: [{
                     title: '웹으로 이동',
                     link: {

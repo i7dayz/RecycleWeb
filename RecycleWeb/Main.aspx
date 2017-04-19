@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </p>
-            <p class="ctext color_b7b7b7 font_size12"><label runat="server" id="nickname"></label></p>
+            <p class="ctext color_b7b7b7 font_size12 pdt10"><label runat="server" id="nickname"></label></p>
             <p class="ctext font_size34b "><label runat="server" id="point">0</label> <img src="/img/d-pnt-56.png" class="img20" /></p>
         </div>
         <div class="slide">
@@ -52,6 +52,7 @@
         	    <img src="/img/pro_icon.jpg" runat="server" id="collectorImg"/>
             </div>
             <div class="reser_con">
+        	    <div><img src="./img/baechul/i-cld.png" class="img27f" /><span class="font_size14bi"> 예약현황</span></div>
                 <div runat="server" id="reserved">
         	            <div><img src="/img/baechul/i-cld.png" class="img27f" /><span class="font_size14bi"> 예약현황</span></div>
                         <div class="font_size12 color_b7b7b7"> 
@@ -63,15 +64,15 @@
                         <a href="javascript:;" runat="server" id="btnQuickRequestCancel"><span class="btn_grean">취소</span></a>
                 </div>
                 <div runat="server" id="notReserved">
-                    <div style="height:100px;">수거신청내역이 없습니다.</div>
-                    <a href="javascript:;" runat="server" id="btnQuickRequest"><span class="btn_grean" style="width:100%;">수거신청</span></a>
+                    <div style="height:75px;">수거신청내역이 없습니다.</div>
+                    <a href="javascript:;" runat="server" id="btnQuickRequest"><span class="btn_grean">수거신청</span></a>
                 </div>
             </div>
         </div>
         <div class="harf_con">
     	    <div class="harf_l" id="btnNoticeEvent" style="cursor:pointer">
-        	    <%--<span class="cic_icon">12</span>--%>
-                <p><a href="javascript:;"><img src="/img/baechul/i-ntc.png" class="img27" /></a></p>
+        	    <span class="cic_icon">12</span>
+                <p><a href="javascript:;"><img src="/img/baechul/i-ntc.png" class="img30" /></a></p>
                 <%--<p><a href="#">공지사항 / 이벤트</a></p>--%>
                 <p><a href="javascript:;">공지사항</a></p>
             </div>
@@ -241,6 +242,11 @@
 
                         $(".drawer--sidebar").addClass("foot_back01");
                         $(".drawer--sidebar").removeClass("foot_back02");
+
+                        $("#btnFooter01").find("img").attr("src", "/img/foot_menu/foot01o.png");
+                        $("#btnFooter02").find("img").attr("src", "/img/foot_menu/foot02.png");
+                        $("#btnFooter03").find("img").attr("src", "/img/foot_menu/foot03.png");
+                        $("#btnFooter04").find("img").attr("src", "/img/foot_menu/foot04.png");
                     });
                     $(document).on('click', '#btnFooter02', function () {
                         $('.slide').hide();
@@ -252,6 +258,11 @@
 
                         $(".drawer--sidebar").addClass("foot_back01");
                         $(".drawer--sidebar").removeClass("foot_back02");
+
+                        $("#btnFooter01").find("img").attr("src", "/img/foot_menu/foot01.png");
+                        $("#btnFooter02").find("img").attr("src", "/img/foot_menu/foot02o.png");
+                        $("#btnFooter03").find("img").attr("src", "/img/foot_menu/foot03.png");
+                        $("#btnFooter04").find("img").attr("src", "/img/foot_menu/foot04.png");
                     });
                     $(document).on('click', '#btnFooter03', function () {
                         $('.slide').hide();
@@ -263,6 +274,11 @@
 
                         $(".drawer--sidebar").addClass("foot_back01");
                         $(".drawer--sidebar").removeClass("foot_back02");
+
+                        $("#btnFooter01").find("img").attr("src", "/img/foot_menu/foot01.png");
+                        $("#btnFooter02").find("img").attr("src", "/img/foot_menu/foot02.png");
+                        $("#btnFooter03").find("img").attr("src", "/img/foot_menu/foot03o.png");
+                        $("#btnFooter04").find("img").attr("src", "/img/foot_menu/foot04.png");
                     });
                     $(document).on('click', '#btnFooter04', function () {
                         $('.slide').hide();
@@ -274,6 +290,11 @@
 
                         $(".drawer--sidebar").removeClass("foot_back01");
                         $(".drawer--sidebar").addClass("foot_back02");
+
+                        $("#btnFooter01").find("img").attr("src", "/img/foot_menu/foot01.png");
+                        $("#btnFooter02").find("img").attr("src", "/img/foot_menu/foot02.png");
+                        $("#btnFooter03").find("img").attr("src", "/img/foot_menu/foot03.png");
+                        $("#btnFooter04").find("img").attr("src", "/img/foot_menu/foot04o.png");
                     });
                     $(document).on('click', '#btnSave', function () {
                         if ($("#txtRecommenderNickname").val() == "") {
@@ -402,6 +423,8 @@
                 $('.drawer').drawer();
                 page.fn.getRank();
                 page.fn.getDonationAmount();
+
+                $("#btnFooter01").find("img").attr("src", "/img/foot_menu/foot01o.png");
             });
 
         })();

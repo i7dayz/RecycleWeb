@@ -63,7 +63,7 @@ p.su_btn.po_more {
                 </div>
             </div>
         </div>
-        <p class="ctext color_b7b7b7 font_size12"><label runat="server" id="nickname"></label></p>
+        <p class="ctext color_b7b7b7 font_size12 pdt10"><label runat="server" id="nickname"></label></p>
         <p class="ctext font_size34b "><label runat="server" id="point">0</label> <img src="/img/d-pnt-56.png" class="img20" /></p>
     </div>
 	<div class="point">

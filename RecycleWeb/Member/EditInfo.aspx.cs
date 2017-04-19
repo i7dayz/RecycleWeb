@@ -19,7 +19,7 @@ namespace RecycleWeb.Member
                 }
 
                 this.producerIdx.Value = Session["producerIdx"].ToString();
-                this.name.Value = "이름";
+                this.name.Value = Session["name"].ToString();
                 this.nickname.Value = Session["nickname"].ToString();
                 string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
                 this.txtContactNumber1.Value = contactNumber[0];

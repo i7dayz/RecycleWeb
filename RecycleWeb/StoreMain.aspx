@@ -66,7 +66,7 @@
 
             <div class="line_d"></div>
         </div>
-        <div class="su_submit pdt30"><div class="btn_grean"><a href="javascript:;">쿠폰함 바로가기</a></div></div>
+        <div class="su_submit pdt30"><div class="btn_grean" style="cursor:pointer" id="btnCoupon">쿠폰함 바로가기</div></div>
     </div> <!-- //스토어 tab -->
 
     <script type="text/javascript" src="script/jquery-1.9.1.min.js"></script>
@@ -96,6 +96,9 @@
                     });
                     $(document).on('click', 'div[name=store]', function () {
                         location.href = "/Store/Goods.aspx?store=" + $(this).attr("id") + "&brandId=";
+                    });
+                    $(document).on('click', '#btnCoupon', function () {
+                        location.href = "/Member/MyCoupon.aspx";
                     });
                 },
                 fn: {

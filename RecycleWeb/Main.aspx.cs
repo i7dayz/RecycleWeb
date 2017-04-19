@@ -71,6 +71,10 @@ namespace RecycleWeb
 
                     getCollectReserve();
                 }
+                else
+                {
+                    Response.Redirect("Default.aspx");
+                }
             }
             else
             {

@@ -40,14 +40,14 @@ namespace RecycleWeb.Member
                         Session["producePoint"] = rootObj.userInfoDetail.producePoint;
                         Session["producePointExpireDate"] = rootObj.userInfoDetail.producePointExpireDate;
                         Session["nickname"] = rootObj.userInfoDetail.nickname;
-                    }
+                        Session["name"] = rootObj.userInfoDetail.producerSNSNickname;
 
                     if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
                     {
                         this.profileImg.Src = Session["kakaoProfileImage"].ToString();
                     }
 
-                    this.name.InnerText = "이름";
+                    this.name.InnerText = Session["name"].ToString();
                     this.nickname.InnerText = Session["nickname"].ToString();
 
                     if (!string.IsNullOrEmpty(Session["producerContactNumber"].ToString()))
@@ -60,6 +60,11 @@ namespace RecycleWeb.Member
                     this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
                     this.txtDetailAddress.Value = Session["detailAddress"].ToString();
                     this.txtZipNo.Value = Session["zipCode"].ToString();
+                    }
+                    else
+                    {
+                        Response.Redirect("/Default.aspx");
+                    }
                 }
                 else
                 {

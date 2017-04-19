@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta http-equiv="imagetoolbar" content="no">
 <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
 <meta name="format-detection" content="telephone=no" />
@@ -63,7 +63,7 @@
                     <input type="hidden" id="address2" value="" />
 
                     <div class="su_title pdt20">이름</div>
-                    <div><input type="text" id="txtSnsNickname" name="" value="" class="su_input"></div>
+                    <div><input type="text" id="txtSnsNickname" name="" value="" class="su_input" /></div>
         
                     <div class="su_title pdt20">닉네임</div>
                     <div><input type="text" id="txtNickname" name="" value="" class="su_input" /></div>
