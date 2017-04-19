@@ -283,7 +283,7 @@
                             return;
                         }
 
-                        if ($("#txtZipNo").val() == "" || $("#address1").val() =="" || $("#address2").val() == "") {
+                        if ($("#txtZipNo").val() == "" || $("#address1").val() =="") {
                             errorBox("주소를 입력하세요.");
                             return;
                         }

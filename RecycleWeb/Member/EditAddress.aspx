@@ -62,7 +62,7 @@
         <header>
             <div class="su_header" style="z-index:1">
                 <span class="su_leftbtn back-btn" onclick="window.history.back();"><img src="/img/baechul/back-btn.png" width="13" /></span>
-                회원정보입력
+                수거주소록 편집
             </div>
         </header>
         <div class="container" style="">

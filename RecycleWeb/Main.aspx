@@ -54,7 +54,6 @@
             <div class="reser_con">
         	    <div><img src="./img/baechul/i-cld.png" class="img27f" /><span class="font_size14bi"> 예약현황</span></div>
                 <div runat="server" id="reserved">
-        	            <div><img src="/img/baechul/i-cld.png" class="img27f" /><span class="font_size14bi"> 예약현황</span></div>
                         <div class="font_size12 color_b7b7b7"> 
             	            <p><span runat="server" id="collectList"></span></p>
             	            <p>담당자 : <span  runat="server" id="collectorName"></span> 기사님</p>
@@ -130,7 +129,7 @@
     <script>
         //<![CDATA[
         // // 사용할 앱의 JavaScript 키를 설정해 주세요.
-        Kakao.init('5fbf9e293f3ee6416b6b387bdfcaafb3');
+        Kakao.init('8316ff1b5d02ffcacf9a4ab2fbeb344d');
         // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
         function sendKakaoLink() {
             var device = check_device();

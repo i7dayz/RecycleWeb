@@ -36,7 +36,7 @@
             },
             initEvent: function () {
                 $(document).on('click', '#btnKakaoLogin', function () {
-                    var clientId = '7ac9ab630f44e0b7910f477934bb9f9a';
+                    var clientId = '31571a3371ddd1ea8d002eb018b7fb88';
                     var redirectUri = 'http://' + jQuery(location).attr('host') + '/Member/KakaoLogin.aspx';
                     var url = 'https://kauth.kakao.com/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirectUri + '&response_type=code';
 

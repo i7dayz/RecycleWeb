@@ -18,7 +18,7 @@ namespace RecycleWeb.Member
                     this.profileImg.Src = Session["kakaoProfileImage"].ToString();
                 }
 
-                this.name.InnerHtml = "이름";
+                this.name.InnerHtml = Session["name"].ToString();
                 this.nickname.InnerHtml = Session["nickname"].ToString();
 
                 this.hdProducerIdx.Value = Session["producerIdx"].ToString();

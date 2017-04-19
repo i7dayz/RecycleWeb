@@ -27,41 +27,41 @@
         <div class="three_con">
     	    <div class="three_01" name="store" id="giftcard">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_01.png" class="img65"></a></p>
-                <p class="su_name">상품권</p>
+                <p class="su_name" style="padding-top:10px">상품권</p>
             </div>
             <div class="three_02" name="store" id="cv">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_02.png" class="img65"></a></p>
-                <p class="su_name">편의점</p>
+                <p class="su_name" style="padding-top:10px">편의점</p>
             </div>
             <div class="three_03" name="store" id="cafe">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_03.png" class="img65"></a></p>
-                <p class="su_name">카페</p>
+                <p class="su_name" style="padding-top:10px">카페</p>
             </div>
             <div class="line_d"></div>
         </div>
         <div class="three_con">
     	    <div class="three_01" name="store" id="bakery">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_04.png" class="img65"></a></p>
-                <p class="su_name">베이커리</p>
+                <p class="su_name" style="padding-top:10px">베이커리</p>
             </div>
             <div class="three_02" name="store" id="restaurant">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_05.png" class="img65"></a></p>
-                <p class="su_name">레스토랑</p>
+                <p class="su_name" style="padding-top:10px">레스토랑</p>
             </div>
             <div class="three_03" name="store" id="icecream">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_06.png" class="img65"></a></p>
-                <p class="su_name">아이스크림/간식</p>
+                <p class="su_name" style="padding-top:10px">아이스크림/간식</p>
             </div>
             <div class="line_d"></div>
         </div>
         <div class="three_con">
     	    <div class="three_01" name="store" id="movie">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_07.png" class="img65"></a></p>
-                <p class="su_name">영화/도서</p>
+                <p class="su_name" style="padding-top:10px">영화/도서</p>
             </div>
             <div class="three_02" name="store" id="beauty">
                 <p><a href="javascript:;"><img src="./img/sugeo/su_icon2/sto_08.png" class="img65"></a></p>
-                <p class="su_name">뷰티/악세사리</p>
+                <p class="su_name" style="padding-top:10px">뷰티/악세사리</p>
             </div>
 
             <div class="line_d"></div>

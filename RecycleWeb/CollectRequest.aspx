@@ -28,12 +28,12 @@
             </div>
             <div class="harf_con2">
     	        <div class="harf_l">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_01.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_01.png" class="img65"></p>
                     <p class="su_name">헌옷</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct06" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">kg</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
                 <div class="harf_r">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_02.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_02.png" class="img65"></p>
                     <p class="su_name">휴대폰</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct07" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">개</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
@@ -41,12 +41,12 @@
             <div class="line_d"></div>
             <div class="harf_con2">
     	        <div class="harf_l">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_03.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_03.png" class="img65"></p>
                     <p class="su_name">소형가전</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct09" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">개</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
                 <div class="harf_r">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_04.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_04.png" class="img65"></p>
                     <p class="su_name">대형가전</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct08" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">개</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
@@ -54,12 +54,12 @@
             <div class="line_d"></div>
             <div class="harf_con2">
     	        <div class="harf_l">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_05.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_05.png" class="img65"></p>
                     <p class="su_name">폐지</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct01" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">kg</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
                 <div class="harf_r">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_06.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_06.png" class="img65"></p>
                     <p class="su_name">병</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct02" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">개</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
@@ -67,12 +67,12 @@
             <div class="line_d"></div>
             <div class="harf_con2">
     	        <div class="harf_l">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_07.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_07.png" class="img65"></p>
                     <p class="su_name">고철</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct04" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">kg</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
                 <div class="harf_r">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_08.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_08.png" class="img65"></p>
                     <p class="su_name">비철</p>
                     <p class="su_pm"><span class="kg_m"><img src="/img/minus.png" /></span><input type="text" class="kg" runat="server" id="txtProduct05" style="width:30px; height:21px; text-align:right; border:0" value="0" readonly><span class="kg">kg</span><span class="kg_p"><img src="/img/plus.png" /></span></p>
                 </div>
@@ -80,7 +80,7 @@
             <div class="line_d"></div>
             <div class="harf_con2">
     	        <div class="harf_l">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_09.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_09.png" class="img65"></p>
                     <p class="su_name">이삿짐</p>
                     <p class="su_onoff">
                         <img src="./img/baechul/pck-usl.png" height="20px" />
@@ -88,7 +88,7 @@
                     </p>
                 </div>
                 <div class="harf_r">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_10.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_10.png" class="img65"></p>
                     <p class="su_name">기타</p>
                     <p class="su_onoff">
                         <img src="./img/baechul/pck-usl.png" height="20px" />
@@ -102,7 +102,7 @@
             </p>
             <div class="harf_con2">
     	        <div class="harf_l">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_big01.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_big01.png" class="img65"></a></p>
                     <p class="su_name">폐기대행</p>
                     <p class="su_onoff">
                         <img src="./img/baechul/pck-usl.png" height="20px" />
@@ -110,7 +110,7 @@
                     </p>
                 </div>
                 <div class="harf_r">
-                    <p><a href="#"><img src="./img/sugeo/su_icon/pck_big02.png" class="img65"></a></p>
+                    <p><img src="./img/sugeo/su_icon/pck_big02.png" class="img65"></a></p>
                     <p class="su_name">유품정리</p>
                     <p class="su_onoff">
                         <img src="./img/baechul/pck-usl.png" height="20px" />

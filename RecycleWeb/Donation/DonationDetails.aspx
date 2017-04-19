@@ -14,10 +14,9 @@
 	<div class="su_form"> 
         <input type="hidden" runat="server" id="hdProducerIdx" />
         <input type="hidden" runat="server" id="hdGroupIdx" />
-    	<div class="su_title"><span class="color90cd32">세이브더칠드런</span></div>   	
-    	<div class="ctext pad20"><img src="/img/savethe.gif" width="100%"></div>
-		<div class="su_title color000">사회복지공동모금회는 공동모금을 통해 아동 청소년, 노인, 장애인, 여성, 가족, 지역사회 등 도움이 필요한 곳을 지원하며 행복공동체를 만들어 가는 전문 모금 및 배분기관입니다.</div>
-
+    	<div class="su_title"><label class="color90cd32" id="lblGroupName"></label></div>
+    	<div class="ctext pad20"><img src="" id="imgGroup" width="100%"></div>
+		<div class="su_title color000" id="lblGroupDesc"></div>
         <div class="su_title padt20">기부 가능 포인트</div>
         <div><input type="text" runat="server" id="currPoint" class="su_input alig_r" readonly /></div>
         <div class="su_title color000">기부 포인트</div>
@@ -58,7 +57,7 @@
                                 if (response.value == 0) {                                    
                                     $("#lblGroupName").text(response.donationDetail[0][1]);
                                     $("#lblGroupDesc").text(response.donationDetail[0][3]);
-                                    $("#imgGroup").attr("src", response.donationDetail[0][5]);
+                                    $("#imgGroup").attr("src", "http://hrx.co.kr/img/dnt_1out/" + response.donationDetail[0][5]);
                                 } else {
                                     errorBox(getErrMsg(response.value));
                                 }

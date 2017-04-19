@@ -32,7 +32,7 @@ namespace RecycleWeb.Member
                 // 2. 사용자 토큰 받기
                 param = new Dictionary<string, string>();
                 param.Add("grant_type", "authorization_code");
-                param.Add("client_id", "7ac9ab630f44e0b7910f477934bb9f9a");
+                param.Add("client_id", "31571a3371ddd1ea8d002eb018b7fb88");
                 param.Add("redirect_uri", uri + "/Member/KakaoLogin.aspx");
                 param.Add("code", code);
 

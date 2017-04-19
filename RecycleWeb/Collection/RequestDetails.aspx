@@ -63,21 +63,21 @@
                 <input type="hidden" runat="server" id="hdEtc3" value="0" />
 
                 <div class="su_title"><span class="color90cd32">[수거신청품목]</span></div>
-                <div><input type="text" runat="server" id="txtReqProduct" name="" value="" class="su_input" /></div>
+                <div><input type="text" runat="server" id="txtReqProduct" name="" value="" class="su_input" readonly="readonly"/></div>
                 <div class="su_title">이름</div>
-                <div><input type="text" runat="server" id="txtName" name="" value="" class="su_input" /></div>
+                <div><input type="text" runat="server" id="txtName" name="" value="" class="su_input" readonly="readonly"/></div>
                 <div class="su_title">연락처</div>
-                <div><input type="text" runat="server" id="txtContactNumber1" name="" value="" class="su_hp1" readonly/> - <input type="text" runat="server" id="txtContactNumber2" name="" value="" class="su_hp2" readonly /> - <input type="text" runat="server" id="txtContactNumber3" name="" value="" class="su_hp3" readonly /></div>
+                <div><input type="text" runat="server" id="txtContactNumber1" name="" value="" class="su_hp1" readonly="readonly"/> - <input type="text" runat="server" id="txtContactNumber2" name="" value="" class="su_hp2" readonly /> - <input type="text" runat="server" id="txtContactNumber3" name="" value="" class="su_hp3" readonly /></div>
                 <div class="su_title">기본주소</div>
-                    <div class="su_juso_left8"><input type="text" runat="server" id="txtBaseAddress" name="" value="" class="su_input" readonly/></div>
+                    <div class="su_juso_left8"><input type="text" runat="server" id="txtBaseAddress" name="" value="" class="su_input"  readonly="readonly"/></div>
                     <div class="su_juso_right2"><img src="/img/baechul/i-sch.png" width="40" style="margin-top: -10px;" id="btnChangeAddress"></div>
                 <div class="su_title">
                     <div class="su_juso_left">세부주소</div>
                     <div class="su_juso_right">우편번호</div>
                 </div>
                 <div class="su_adr">
-                    <div class="su_juso_left"><input type="text" runat="server" id="txtDetailAddress" name="" value="" class="su_input_juso01" readonly /> </div>
-                    <div class="su_juso_right"><input type="text" runat="server" id="txtZipno" name="" value="" class="su_input_juso02" readonly /> </div>
+                    <div class="su_juso_left"><input type="text" runat="server" id="txtDetailAddress" name="" value="" class="su_input_juso01" readonly="readonly" /> </div>
+                    <div class="su_juso_right"><input type="text" runat="server" id="txtZipno" name="" value="" class="su_input_juso02"  readonly="readonly" /> </div>
                 </div>
                 <div class="su_title">희망수거일시</div>
                 <div class="su_date">
@@ -86,7 +86,8 @@
                     <input type="radio" name="radTime" id="radTime02" value="오후 2시~오후 6시"  style="margin-left:20px;"/><label for="radTime02" style="cursor:pointer">오후 2시~오후 6시</label>--%>
                 </div>
                 <div style="height:30px;"></div>
-                <div class="su_submit" ><div class="btn_grean" id="btnRequest" style="cursor:pointer" >수거신청</div></div>
+                <div class="su_submit"><div class="btn_grean" id="btnRequest" style="cursor:pointer" >수거신청</div></div>
+                <div class="su_submit"><div class="btn_gray" id="btnEditAddress" style="cursor:pointer">수거 주소록 관리</div></div>
             </div>
         </div>
 
@@ -191,6 +192,10 @@
                         page.fn.requestPickup();
                     });
 
+                    $(document).on('click', '#btnEditAddress', function () {
+                        location.href = "../Member/AddressList.aspx";
+                    });
+
                     $(document).on('click', 'div[name=address]', function () {
                         $("#hdAddress1").val($(this).find('div').find('p').find('#address1').text());
                         $("#hdAddress2").val($(this).find('div').find('p').find('#address2').text());
@@ -280,7 +285,7 @@
                         //            + '</li>';
                         var address = "<div class='reser2' name='address' id='" + item[0] + "'>";
                         address += "    <div class='pad1010'>";
-                        address += "        <p class='font_size12b color000 pad_l0'>" + "장소구분" + "</p>";
+                        address += "        <p class='font_size12b color000 pad_l0'>" + item[8] + "</p>";
                         address += "        <p class='font_size12b color000'><span id='address1'>" + item[3] + "</span> <span id='address2'>" + item[4] + "</span></p>";
                         address += "        <p class='font_size12b color000'><span id='detailAddress'>" + item[5] + "</span> (<span id='zipNo'>" + item[2] + "</span>)</p>";
                         address += "    </div>";

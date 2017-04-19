@@ -351,17 +351,27 @@
                         }, "post", false);
                     },
                     saveInfo: function () {
-                        if ($("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val() != $("#contactNumber").val()) {
-                            if (!page.attr.smsChcked) {
-                                errorBox("휴대전화번호 변경시 인증이 필요합니다.");
-                                return;
-                            }
+                        var phoneNumber = $("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val();
+
+                        if (phoneNumber.length != 13) {
+                            errorBox("휴대전화번호를 입력하세요");
+                            return;
+                        }
+
+                        if (!page.attr.smsChcked) {
+                            errorBox("휴대전화번호 인증이 필요합니다.");
+                            return;
+                        }
+
+                        if ($("#txtZipNo").val() == "" || $("#address1").val() == "") {
+                            errorBox("주소를 입력하세요.");
+                            return;
                         }
 
                         var params = {
                             producerIdx: $("#producerIdx").val(),
                             producerStoreName: "",
-                            producerContactNumber: $("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val(),
+                            producerContactNumber: phoneNumber,
                             zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
                             address2: $.trim($("#address2").val()),
