@@ -274,15 +274,6 @@
                         }, "post", false);
                     },
                     addAddress: function (item) {
-                        //var address = '<li class="bb-1 pb10" name="address" id="' + item[0] + '" style="cursor:pointer">'
-                        //            + '    <span class="txt-color5">' + '장소구분' + '</span>'
-                        //            + '    <div class="ui-grid-a">'
-                        //            + '        <div class="ui-block-a wpc90">'
-                        //            + '            <span id="address1">' + item[3] + '</span> <span id="address2">' + item[4] + '</span> '
-                        //            + '            <span id="detailAddress">' + item[5] + '</span> (<span id="zipNo">' + item[2] + '</span>)'
-                        //            + '        </div>'
-                        //            + '    </div>'
-                        //            + '</li>';
                         var address = "<div class='reser2' name='address' id='" + item[0] + "'>";
                         address += "    <div class='pad1010'>";
                         address += "        <p class='font_size12b color000 pad_l0'>" + item[8] + "</p>";

@@ -13,7 +13,7 @@
 
 <header>
     <div class="su_header">
-        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>약관동의
+        <span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>서비스 이용약관 및 개인정보 취급 방침
     </div>
 </header>
 <div class="container" style="">
@@ -32,7 +32,7 @@
             
             <div class="su_title">
             	<%--<input type="checkbox" name="" checked="checked" />--%>
-            	<label class="color_000">개인정보 수집 및 이용 <span class="font_size11b color_f78c96"></span></label>
+            	<label class="color_000">개인정보 취급 방침<span class="font_size11b color_f78c96"></span></label>
             </div>
             <div class="reser">
                 <div class="pad1010">
