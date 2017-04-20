@@ -49,12 +49,14 @@ function faq_open(el)
                 </div>
             </li>
              <li>
-               <a href="#none" onclick="return faq_open(this);" class="faq_q_use"> 
-                    <p class="font_size14b pad_l0">대한민국 SW기업 경쟁력 대상 우...<span class="icon_s12">N</span></p>
+               <a href="http://blog.naver.com/rebornservice/220982724755" onclick="window.open(this.href, '', ''); return false;" class="faq_q_use" target="_blank"> 
+                    <p class="font_size14b pad_l0">왜 플라스틱, PET, 비닐, 스티로폼 등은 수거가 안 되나요?<span class="icon_s12">N</span></p>
                 </a>  
-                <div class="con_inner faq_a" style="display: none;">
-                    <p class="faq_aa">test</p>                    
-                </div>
+                <%--<div class="con_inner faq_a" style="display: none;">
+                    <p class="faq_aa">
+                        &nbsp;
+                    </p>
+                </div>--%>
             </li>
         </ol>
     </section>

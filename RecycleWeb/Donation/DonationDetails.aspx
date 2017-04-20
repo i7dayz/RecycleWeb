@@ -7,7 +7,7 @@
 </style>
 <header>
         <div class="su_header">
-			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span>세이브 더 칠드런
+			<span class="su_leftbtn back-btn"><img src="/img/baechul/back-btn.png" width="13" /></span><label id="lblTitle"></label>
         </div>
     </header>
 <div class="container" style="">
@@ -54,7 +54,8 @@
                             }
 
                             Server.ajax("/producer/donationDetail", params, function (response, status, xhr) {
-                                if (response.value == 0) {                                    
+                                if (response.value == 0) {
+                                    $("#lblTitle").text(response.donationDetail[0][1]);
                                     $("#lblGroupName").text(response.donationDetail[0][1]);
                                     $("#lblGroupDesc").text(response.donationDetail[0][3]);
                                     $("#imgGroup").attr("src", "http://hrx.co.kr/img/dnt_1out/" + response.donationDetail[0][5]);

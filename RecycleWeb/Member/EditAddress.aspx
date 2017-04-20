@@ -263,8 +263,8 @@
                         page.fn.getAddress();
                     },
                     save: function () {
-                        if ($("#txtZipNo").val() == "" || $("#address1").val() == "" || $("#address2").val() == "") {
-                            infoBox("기본주소를 검색 후 선택하세요.");
+                        if ($("#txtZipNo").val() == "" || $("#address1").val() == "") {
+                            infoBox("주소를 입력하세요.");
                             return;
                         }
 
