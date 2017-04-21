@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -18,7 +19,7 @@ namespace RecycleWeb.Member
                 if (Session["kakaoId"] != null)
                 {
                     // 로그인 진행
-                    string url = "http://geno47.cafe24.com:8080/producer/userInfoDetail";
+                    string url = WebConfigurationManager.AppSettings["server_url"] + "/producer/userInfoDetail";
 
                     Dictionary<string, string> param = new Dictionary<string, string>();
                     param.Add("producerIdx", Session["producerIdx"].ToString());
@@ -42,24 +43,24 @@ namespace RecycleWeb.Member
                         Session["nickname"] = rootObj.userInfoDetail.nickname;
                         Session["name"] = rootObj.userInfoDetail.producerSNSNickname;
 
-                    if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
-                    {
-                        this.profileImg.Src = Session["kakaoProfileImage"].ToString();
-                    }
+                        if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
+                        {
+                            this.profileImg.Src = Session["kakaoProfileImage"].ToString();
+                        }
 
-                    this.name.InnerText = Session["name"].ToString();
-                    this.nickname.InnerText = Session["nickname"].ToString();
+                        this.name.InnerText = Session["name"].ToString();
+                        this.nickname.InnerText = Session["nickname"].ToString();
 
-                    if (!string.IsNullOrEmpty(Session["producerContactNumber"].ToString()))
-                    {
-                        string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
-                        this.txtContactNumber1.Value = contactNumber[0];
-                        this.txtContactNumber2.Value = contactNumber[1];
-                        this.txtContactNumber3.Value = contactNumber[2];
-                    }
-                    this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
-                    this.txtDetailAddress.Value = Session["detailAddress"].ToString();
-                    this.txtZipNo.Value = Session["zipCode"].ToString();
+                        if (!string.IsNullOrEmpty(Session["producerContactNumber"].ToString()))
+                        {
+                            string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
+                            this.txtContactNumber1.Value = contactNumber[0];
+                            this.txtContactNumber2.Value = contactNumber[1];
+                            this.txtContactNumber3.Value = contactNumber[2];
+                        }
+                        this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
+                        this.txtDetailAddress.Value = Session["detailAddress"].ToString();
+                        this.txtZipNo.Value = Session["zipCode"].ToString();
                     }
                     else
                     {

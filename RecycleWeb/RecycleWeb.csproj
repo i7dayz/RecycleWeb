@@ -125,6 +125,9 @@
     <Content Include="css\style.css" />
     <Content Include="Donate.aspx" />
     <Content Include="Donation\DonationDetails.aspx" />
+    <Content Include="event01.txt" />
+    <Content Include="event02.txt" />
+    <Content Include="event03.txt" />
     <Content Include="img\1.gif" />
     <Content Include="img\cfn-cof.png" />
     <Content Include="img\cfn-cof2.png" />

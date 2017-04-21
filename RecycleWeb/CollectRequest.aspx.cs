@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,7 +28,7 @@ namespace RecycleWeb
 
         private void getMarketPrice()
         {
-            string url = "http://geno47.cafe24.com:8080/producer/marketPriceView";
+            string url = WebConfigurationManager.AppSettings["server_url"] + "/producer/marketPriceView";
 
             string msg = string.Empty;
 
@@ -54,7 +55,7 @@ namespace RecycleWeb
         {
             if (Session["producerIdx"] != null)
             {
-                string url = "http://geno47.cafe24.com:8080/producer/collectReserve";
+                string url = WebConfigurationManager.AppSettings["server_url"] + "/producer/collectReserve";
 
                 Dictionary<string, string> param = new Dictionary<string, string>();
                 param.Add("producerIdx", Session["producerIdx"].ToString());

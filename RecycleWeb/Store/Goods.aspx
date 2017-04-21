@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Goods.aspx.cs" Inherits="RecycleWeb.Store.Goods" %>
 <!-- #include file="/include/header_b.html" --> 
 <style>
-
+    .lazy {
+        display: none;
+    }
 </style>
 <script>
 function form_submit() {
@@ -25,6 +27,7 @@ function form_submit() {
 </div>
     <script type="text/javascript" src="../script/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
     <script type="text/javascript" src="../script/drawer.min.js"></script>
     <script type="text/javascript" src="../script/store.js"></script>
     <script>
@@ -36,6 +39,11 @@ function form_submit() {
                 },
                 initComponent: function () {
                     $('.drawer').drawer();
+                    $("img.lazy").show().lazyload({
+                        effect: "fadeIn", // 나타날때 Fadein 효과
+                        threshold: 200, // 스크롤 200 픽셀 전에 미리 로딩
+                        placeholder: "../img/loading_green.gif" // 로딩전 보여줄 이미지 설정
+                    });
                 },
                 initEvent: function () {
                     $(document).on('click', '.back-btn', function () {

@@ -16,7 +16,7 @@
 }
  
 html {overflow-y:scroll}
-body {margin:0;padding:0;font-size:0.75em;font-family: 'notokr-regular', sans-serif;}
+body {margin:0;padding:0;font-size:0.75em;font-family: 'notokr-regular', sans-serif;background-color:#fff;}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 h1, h2, h3, h4, h5, h6 {font-size:1em}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
@@ -589,7 +589,7 @@ span.kg_p {
 p.su_name {
     font-size: 14px;
     font-weight: bold;
-    padding: 0px;
+    /*padding: 0px;*/
 }
 .harf_con2 {
     float: left;
@@ -977,7 +977,7 @@ span.left_tlt {
 .four_con p.su_name {
     font-size: 12px;
     font-weight: bold;
-    padding: 0px;
+    /*padding: 0px;*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -1153,7 +1153,7 @@ p.mar_t7 {
 #faq_wrap {margin:0px 0;}
 #faq_wrap h2 {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 .faq_admin {margin:0 5px;text-align:right}
-#faq_wrap p {line-height:1.8em}
+#faq_wrap p {line-height:1.8em;font-size:14px;}
 #faq_wrap ol {margin:0;padding:0;list-style:none}
 #faq_con {border:1px solid #e9e9e9;border-top:0}
 

@@ -44,8 +44,8 @@ body {
         <input type="hidden" runat="server" id="Hidden2" />
         <input type="hidden" runat="server" id="Hidden3" />
 	    <div class="member_po pdt30">
-            <p class="ctext"><img src="/img/cfn-cof2.png" class="img90" runat="server" id="goodsImg" /></p>
-            <p class="ctext font_size20b pad20 "><span class="dashed_line"><label runat="server" id="goodsName"></label></span></p> 
+            <div class="ctext"><img src="/img/cfn-cof2.png" class="img90" runat="server" id="goodsImg" /></div>
+            <div class="ctext font_size20b pad20 "><p class="dashed_line"><label runat="server" id="goodsName"></label></p></div> 
         </div>
 	    <table class="cen">
             <tbody>              

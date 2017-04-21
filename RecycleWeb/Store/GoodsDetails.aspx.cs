@@ -14,8 +14,8 @@ namespace RecycleWeb.Store
 {
     public partial class GoodsDetails : System.Web.UI.Page
     {
-        const string APP_SERVER_URI = "http://geno47.cafe24.com:8080";
-        const string GOODS_BUY_RESULT = "producer/goodsBuyResult";
+        string url = WebConfigurationManager.AppSettings["server_url"];
+        string GOODS_BUY_RESULT = "/producer/goodsBuyResult";
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace RecycleWeb.Store
                             Hidden2.Value = Request["goods_id"].ToString();
                             Hidden3.Value = Session["producerContactNumber"].ToString();
 
-                            RootObjectGoodsBuyResult rootObj = JsonConvert.DeserializeObject<RootObjectGoodsBuyResult>(WebApiUtil.RestRequest(APP_SERVER_URI, GOODS_BUY_RESULT, param));
+                            RootObjectGoodsBuyResult rootObj = JsonConvert.DeserializeObject<RootObjectGoodsBuyResult>(WebApiUtil.RestRequest(url, GOODS_BUY_RESULT, param));
 
                             if (rootObj.value == 0)
                             {
@@ -113,10 +113,10 @@ namespace RecycleWeb.Store
         }
         private void getGoodsInfo(string goodsId)
         {
-            string url = "https://wapi.gift-n.net:443/getGoodsInfo";
+            string giftnUrl = "https://wapi.gift-n.net:443/getGoodsInfo";
             string msg = string.Empty;
 
-            WebApiUtil.HttpGet(url + "?cid=" + WebConfigurationManager.AppSettings["cid"] + "&goods_id=" + goodsId + "&enc=" + WebApiUtil.MD5Hash(WebConfigurationManager.AppSettings["giftn_auth_key"] + WebConfigurationManager.AppSettings["cid"] + goodsId), out msg);
+            WebApiUtil.HttpGet(giftnUrl + "?cid=" + WebConfigurationManager.AppSettings["cid"] + "&goods_id=" + goodsId + "&enc=" + WebApiUtil.MD5Hash(WebConfigurationManager.AppSettings["giftn_auth_key"] + WebConfigurationManager.AppSettings["cid"] + goodsId), out msg);
 
 
             GoodsInfoDetail goodsInfo = JsonConvert.DeserializeObject<GoodsInfoDetail>(msg);

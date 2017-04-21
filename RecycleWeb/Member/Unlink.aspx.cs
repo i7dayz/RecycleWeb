@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,11 +13,11 @@ namespace RecycleWeb.Member
 {
     public partial class Unlink : System.Web.UI.Page
     {
-        const string APP_SERVER_URI = "http://geno47.cafe24.com:8080";
-        const string USER_LEAVE = "producer/userLeave";
+        string APP_SERVER_URI = WebConfigurationManager.AppSettings["server_url"];
+        string USER_LEAVE = "/producer/userLeave";
 
-        const string KAKAO_KAPI_URI = "https://kapi.kakao.com";
-        const string GET_UNLINK_RESOURCE = "v1/user/unlink";
+        string KAKAO_KAPI_URI = "https://kapi.kakao.com";
+        string GET_UNLINK_RESOURCE = "v1/user/unlink";
 
         protected void Page_Load(object sender, EventArgs e)
         {

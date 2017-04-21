@@ -220,8 +220,8 @@ namespace RecycleWeb.Store
                 StringBuilder sb = new StringBuilder();
                 sb.AppendFormat(@"  <a href=""javascript:move('{3}','{4}');"">
                                         <div class=""{2}"">
-                                            <p><img src=""{0}"" class=""img65""></p>
-                                            <p class=""su_name"">{1}</p>
+                                            <p><img src=""{0}"" class=""img65 lazy""></p>
+                                            <p class=""su_name pad_t4"">{1}</p>
                                         </div>
                                     </a>", brand.IMG_URL, brand.BRAND_NAME, cls, Request["store"], brandNo);
                 if (cls.Equals("four_04"))
@@ -255,16 +255,30 @@ namespace RecycleWeb.Store
         {
             // 제외상품
             List<string> exceptGoods = new List<string>();
-            exceptGoods.Add("0000006119"); // [신세계상품권] 5만원권_정가, 이미지 없음
-            exceptGoods.Add("0000006798"); // [신세계상품권] 5만원권_조건다름, 이미지 없음
-            exceptGoods.Add("0000006799"); // [신세계상품권] 2만원권_조건다름, 이미지 없음
-
             exceptGoods.Add("0000003244"); // [SKT] T데이터쿠폰 100MB, 이미지 없음
 
             exceptGoods.Add("0000007123"); // [엔제리너스] 아메리카노(S), 이미지 없음
 
             exceptGoods.Add("0000007155"); // [배스킨라빈스] 쿼터아이스크림, 이미지 없음
             exceptGoods.Add("0000007157"); // [배스킨라빈스] 하프갤론, 이미지 없음
+
+            // 2017-04-21 요청
+            exceptGoods.Add("0000006119"); // [신세계상품권] 5만원권_정가, 내부 조정건
+            exceptGoods.Add("0000006798"); // [신세계상품권] 5만원권_조건다름, 내부 조정건
+            exceptGoods.Add("0000006799"); // [신세계상품권] 2만원권_조건다름, 내부 조정건
+
+            // 2017-04-21 요청
+            exceptGoods.Add("0000000597"); // [GS25] 모바일상품권 1천원, 공급사이슈
+            exceptGoods.Add("0000000598"); // [GS25] 모바일상품권 2천원, 공급사이슈
+            exceptGoods.Add("0000000599"); // [GS25] 모바일상품권 3천원, 공급사이슈
+            exceptGoods.Add("0000000600"); // [GS25] 모바일상품권 4천원, 공급사이슈
+            exceptGoods.Add("0000000601"); // [GS25] 모바일상품권 5천원, 공급사이슈
+            exceptGoods.Add("0000000602"); // [GS25] 모바일상품권 7천원, 공급사이슈
+            exceptGoods.Add("0000000603"); // [GS25] 모바일상품권 8천원, 공급사이슈
+            exceptGoods.Add("0000000604"); // [GS25] 모바일상품권 1만원, 공급사이슈
+            exceptGoods.Add("0000000605"); // [GS25] 모바일상품권 2만원, 공급사이슈
+            exceptGoods.Add("0000000606"); // [GS25] 모바일상품권 3만원, 공급사이슈
+            exceptGoods.Add("0000000607"); // [GS25] 모바일상품권 5만원, 공급사이슈
 
             string url = "https://wapi.gift-n.net:443/getGoodsInfoList";
             string msg = string.Empty;
@@ -283,7 +297,7 @@ namespace RecycleWeb.Store
                     sb.AppendFormat(@"  <a href=""GoodsDetails.aspx?store={4}&goods_id={5}"">
                                             <div class=""reser"">
                                                 <div class=""reser_icon reser_icon2"">
-                                                    <img src=""{0}""/>
+                                                    <img src=""{0}"" class=""lazy""/>
                                                 </div >
                                                 <div class=""reser_con"">
                                                     <div><span class=""font_size14bi color_b7b7b7"">{1}</span></div>

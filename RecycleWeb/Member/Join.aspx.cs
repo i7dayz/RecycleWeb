@@ -28,6 +28,11 @@ namespace RecycleWeb.Member
                 this.kakaoProfileImage.Value = kakaoProfileImage;
                 this.accessToken.Value = accessToken;
                 this.refreshToken.Value = refreshToken;
+
+                if (!string.IsNullOrEmpty(kakaoProfileImage))
+                {
+                    this.profileImg.Src = kakaoProfileImage;
+                }
             }
             else
             {

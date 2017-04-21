@@ -1,16 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Event.aspx.cs" Inherits="RecycleWeb.Support.Event" %>
 
 <!-- #include file="/include/header_b.html" --> 
+    <link href="/script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
 <style>
 
 </style>
 <script>
-$(function() {
-    $(".closer_btn").on("click", function() {
-        $(this).closest(".con_inner").slideToggle();
-    });
-});
-
 function faq_open(el)
 {
     var $con = $(el).closest("li").find(".con_inner");
@@ -69,9 +64,8 @@ function faq_open(el)
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-  <script src="../script/drawer.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+    <script src="../script/drawer.min.js" charset="utf-8"></script>
         
     <script>
         (function () {
@@ -83,18 +77,12 @@ function faq_open(el)
                 initComponent: function () {      
                 },
                 initEvent: function () {
+                    $(".closer_btn").on("click", function () {
+                        $(this).closest(".con_inner").slideToggle();
+                    });
                     $(document).on('click', '.back-btn', function () {
                         window.history.back();
                     });
-                    //$(document).on('click', '.notice', function (id) {
-                    //    $(this).find('.content-area').toggle(100, function () {
-                    //        if ($(this).css('display') != 'none') {
-                    //            $(this).parent().find('#notice_img').attr("src", $(this).parent().find('#notice_img').attr("src").replace("../img/open-g.png", "../img/close-p.png"));
-                    //        } else {
-                    //            $(this).parent().find('#notice_img').attr("src", $(this).parent().find('#notice_img').attr("src").replace("../img/close-p.png", "../img/open-g.png"));
-                    //        }
-                    //    });
-                    //});
                 },
                 fn: {
                     eventList: function () {
@@ -115,38 +103,61 @@ function faq_open(el)
                         }, "post", false);
                     },
                     addEvent: function (item) {
-                        //var event = '<div class="notice" id="' + item[0] + '">'
-                        //             + '    <div class="title">'
-                        //             + '        <div class="title-image">'
-                        //             + '            <img src="../img/event-g.png">'
-                        //             + '        </div>'
-                        //             + '        <div class="title-text">'
-                        //             + '            <ul>'
-                        //             + '                <li class="title-main">' + "[" + item[6] + "]" + item[1] + '</li>'
-                        //             + '                <li class="title-date">' + item[4] + "~" + item[5] + '</li>'
-                        //             + '            </ul>'
-                        //             + '        </div>'
-                        //             + '        <div class="title-close">'
-                        //             + '            <img id="notice_img" src="../img/open-g.png">'
-                        //             + '        </div>'
-                        //             + '    </div>'
-                        //             + '    <div class="content-area">'
-                        //             + '        <img src="' + item[3] + '" style="width:100%">'
-                        //             + '    </div>'
-                        //             + '</div>';
+                        var isDev = false;
+                        var fileName = "";
+                        if (isDev) {
+                            switch (item[0]) {
+                                case 163:
+                                    fileName = "/event01.txt";
+                                    break;
+                                case 164:
+                                    fileName = "/event02.txt";
+                                    break;
+                                case 165:
+                                    fileName = "/event03.txt";
+                                    break;
+                            }
+                        }
+                        else {
+                            switch (item[0]) {
+                                case 163:
+                                    fileName = "/event01.txt";
+                                    break;
+                                case 164:
+                                    fileName = "/event02.txt";
+                                    break;
+                                case 164:
+                                    fileName = "/event03.txt";
+                                    break;
+                            }
+                        }
 
-                        
+                        var status = item[6] === 1 ? '진행중' : '종료';
+
+                        var img = item[3] != '' ? '<img src="' + item[3] + '" style="width:100%">' : '';
+
                         var event = '<li id="' + item[0] + '">'
                                   + '    <a href="#none" onclick="return faq_open(this);" class="faq_q">'
-                                  + '        <p class="font_size14b pad_l0">' + "[" + item[6] + "]" + item[1] + '<span class="icon_s12">N</span></p>'
+                                  + '        <p class="font_size14b pad_l0">[' + status + '] ' + item[1] + '<span class="icon_s12">N</span></p>'
                                   + '        <p class="font_size11 color_b7b7b7">' + item[4] + "~" + item[5] + '</p>'
                                   + '    </a>'
                                   + '    <div class="con_inner faq_a" style="display: none;">'
-                                  + '        <p><img src="' + item[3] + '" style="width:100%"></p>'
+                                  + '        <p>' + img + '</p>'
+                                  + '        <p id="event' + item[0] + '"></p>';
                                   + '    </div>'
                                   + '</li>';
 
-                        $('#eventList').append(event);
+                                  $('#eventList').append(event);
+
+                        if (fileName != "") {
+                            $.ajax({
+                                url: fileName,
+                                dataType: "text",
+                                success: function (data) {
+                                    $("#event" + item[0]).html(data);
+                                }
+                            });
+                        }
                     }
                 }
             };

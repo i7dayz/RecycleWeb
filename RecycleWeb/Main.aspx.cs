@@ -17,9 +17,11 @@ namespace RecycleWeb
 {
     public partial class Main : System.Web.UI.Page
     {
-        const string APP_SERVER_URI = "http://geno47.cafe24.com:8080";
-        
-        const string PRODUCER_LOGIN = "producer/login";
+        string url = WebConfigurationManager.AppSettings["server_url"];
+
+        string PRODUCER_LOGIN = "/producer/login";
+        string COLLECT_RESERVE = "/producer/collectReserve";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["kakaoId"] != null)
@@ -33,7 +35,7 @@ namespace RecycleWeb
                 param.Add("carrierId", "31");
                 param.Add("appVersion", "1.0.0");
 
-                RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(WebApiUtil.RestRequest(APP_SERVER_URI, PRODUCER_LOGIN, param));
+                RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(WebApiUtil.RestRequest(url, PRODUCER_LOGIN, param));
 
                 if (rootObj.value == 0)
                 {
@@ -86,12 +88,12 @@ namespace RecycleWeb
         {
             if (Session["producerIdx"] != null)
             {
-                string url = "http://geno47.cafe24.com:8080/producer/collectReserve";
-
                 Dictionary<string, string> param = new Dictionary<string, string>();
                 param.Add("producerIdx", Session["producerIdx"].ToString());
 
                 string msg = string.Empty;
+
+                url = string.Format("{0}{1}", url, COLLECT_RESERVE);
 
                 WebApiUtil.HttpPostJSON(url, param, out msg);
 

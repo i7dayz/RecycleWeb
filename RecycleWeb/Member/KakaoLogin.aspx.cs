@@ -4,19 +4,20 @@ using RecycleWeb.Model;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using System.Web.Configuration;
 
 namespace RecycleWeb.Member
 {
     public partial class KakaoLogin : System.Web.UI.Page
     {
-        const string KAKAO_KAPI_URI = "https://kapi.kakao.com";
-        const string KAKAO_KAUTH_URI = "https://kauth.kakao.com";
-        const string APP_SERVER_URI = "http://geno47.cafe24.com:8080";
+        string KAKAO_KAPI_URI = "https://kapi.kakao.com";
+        string KAKAO_KAUTH_URI = "https://kauth.kakao.com";
+        string APP_SERVER_URI = WebConfigurationManager.AppSettings["server_url"];
 
-        const string GET_AUTH_TOKEN_RESOURCE = "oauth/token";
-        const string GET_SIGNUP_RESOURCE = "v1/user/signup";
-        const string GET_REQUEST_ME_RESOURCE = "v1/user/me";
-        const string PRODUCER_LOGIN = "producer/login";
+        string GET_AUTH_TOKEN_RESOURCE = "oauth/token";
+        string GET_SIGNUP_RESOURCE = "v1/user/signup";
+        string GET_REQUEST_ME_RESOURCE = "v1/user/me";
+        string PRODUCER_LOGIN = "/producer/login";
 
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -33,7 +33,20 @@
     <link rel="stylesheet" href="../css/modal.css" />
     <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
     <style>
-#wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
+        #wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
+        .image-wrapper { 
+            width:100%; text-align: center; 
+            background: url('../img/character-02.png') no-repeat;
+            background-size: contain;
+            background-position:center
+        }
+        .image { display: block; overflow: hidden; width: 64px; height: 64px; border-radius: 50%; margin: 0 auto; }
+        .image > img {
+            display: inline-block;
+            max-width: 100%;
+            min-height: 100%;
+            -ms-interpolation-mode: bicubic;
+        }
     </style>
 </head>
 <body>
@@ -46,9 +59,12 @@
         </header>
         <div class="container" style="">
 	        <div class="ctext pad20 back_green">
-                <a href="#" class="openMask"><img src="/img/baechul/kko-prf-1.png" width="100"></a>
+                <div class="image-wrapper">
+                    <div class="image">
+                        <img runat="server" id="profileImg" src="/img/person64x64.png">
+                    </div>
+                </div>
             </div>
-    
 	        <div class="su_form">    	
                 <form runat="server" id="joinForm" method="post" action="/Main.aspx" data-ajax="false">
                     <input type="hidden" id="kakaoId" runat="server" value="" />
@@ -115,7 +131,7 @@
                     <!-- #container -->
                     <div class="container" id="container" style="background-color:#fff !important">
                         <div class="colgroup">
-                            <div class="content fixed" id="content">                            
+                            <div class="content fixed" id="content">
                                 <div class="main ui-content">
                                     <div class="fixed option-area"> 
                                         <form name="form" id="form" method="post">
