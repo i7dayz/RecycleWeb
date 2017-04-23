@@ -12,6 +12,7 @@
 </header>
 <div class="container" style="">
     <input type="hidden" runat="server" id="hdProducerIdx" />
+    <input type="hidden" runat="server" id="hdNickname" />
 	<div class="recommend_cu">
 		<p class="rec_text">추천인 입력</p> 
         <div>
@@ -19,18 +20,13 @@
                 <input type="text" name="" id="txtRecommenderNickname" placeholder="추천인 닉네임 입력" value="" />
             </div>	
             <div class="reco_r">
-                <img src="/img/baechul/btn-cnf.png" height="40" id="btnSave"/>
+                <img src="/img/baechul/btn-cnf.png" height="40" id="btnSave" style="cursor:pointer;"/>
             </div>	
         </div>
         
         <p class="rec_text">친구초대</p> 
         <div class="rec_sns_con">
-        	<%--<div class="reco_sns" style="width:33.3%"><a id="kakao-link-btn" href="javascript:sendKakaoLink()"><img src="/img/baechul/frd-kko.png" class="img60" /><p>카카오톡</p></a></div>--%>
-            <div class="reco_sns" style="width:33.3%">
-                <a id="kakao-link-btn" href="javascript:sendKakaoLink();">
-                    <img src="//dev.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/>
-                </a>
-            </div>
+        	<div class="reco_sns" style="width:33.3%"><a id="kakao-link-btn" href="javascript:sendKakaoLink()"><img src="/img/baechul/frd-kko.png" class="img60" /><p>카카오톡</p></a></div>
             <div class="reco_sns" style="width:33.3%"><a id="sms-btn" href="javascript:infoBox('문자공유는 스마트폰에서만 가능합니다.');"><img src="/img/baechul/frd-sms.png" class="img60" /><p>SMS</p></a></div>
             <%--<div class="reco_sns"><a href="#"><img src="/img/baechul/frd-lin.png" class="img60" /><p>LINE</p></a></div>--%>
             <div class="reco_sns" style="width:33.3%"><a id="copy-btn" href="javascript:;"><img src="/img/baechul/frd-lnk.png" class="img60" /><p>링크</p></a></div>
@@ -52,14 +48,14 @@
         function sendKakaoLink() {
             var device = check_device(); 
             if (device === '') {
-                infoBox("카카오톡 공유하기 기능 스마트폰에서만 가능합니다.");
+                infoBox("카카오톡으로 공유하기는 스마트폰에서만 가능합니다.");
                 return;
             }
             Kakao.Link.sendCustom({
                     templateId: 3619,
                     templateArgs: {
                     'title': '',
-                    'description': "신개념 재활용품 방문수거 애플리케이션 출시! 지금 앱스토어에서 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:닉네임)"
+                    'description': "신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ")"
                 }
             });
 
@@ -124,9 +120,9 @@
                     var device = check_device();
 
                     if (device === 'iPhone') {
-                        $("#sms-btn").attr("href", "sms:&body=문자전송");
+                        $("#sms-btn").attr("href", "sms:&body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ")");
                     } else if (device === 'Android') {
-                        $("#sms-btn").attr("href", "sms:?body=문자전송");
+                        $("#sms-btn").attr("href", "sms:?body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ")");
                     }
 
                     var clipboard = new Clipboard('#copy-btn', {

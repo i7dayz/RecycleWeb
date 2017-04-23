@@ -14,6 +14,7 @@ namespace RecycleWeb.Member
             if (Session["kakaoId"] != null)
             {
                 this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+                this.hdNickname.Value = Session["nickname"].ToString();
             }
             else
             {

@@ -79,7 +79,13 @@
 
             $(document).on('ready', function () {
                 page.init();
-                $('.drawer').drawer();
+                $('.drawer').drawer({
+                    iscroll: {
+                        mouseWheel: true,
+                        preventDefault: false
+                    },
+                    showOverlay: true
+                });
                 page.fn.getDonationGroup();
             });
 

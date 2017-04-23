@@ -103,7 +103,7 @@
                                         $("#txtReqList").val($("#txtReqList").val() + "이사수거 " + response.collectReserve.product_10 + ", ");
                                     }
                                     if (response.collectReserve.etc_1 != "0") {
-                                        $("#txtReqList").val($("#txtReqList").val() + "기타, ");
+                                        $("#txtReqList").val($("#txtReqList").val() + "가구류/기타, ");
                                     }
                                     if (response.collectReserve.etc_2 != "0") {
                                         $("#txtReqList").val($("#txtReqList").val() + "폐기서비스, ");

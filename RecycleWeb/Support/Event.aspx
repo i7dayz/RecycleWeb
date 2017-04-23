@@ -32,6 +32,7 @@ function faq_open(el)
     </div>
 </header>
 <div class="container" style="">
+    <input type="hidden" runat="server" id="hdId" />
 	<div id="faq_wrap" class="faq_1">
         <section id="faq_con">
         <h2>자주하시는 질문 목록</h2>
@@ -120,13 +121,13 @@ function faq_open(el)
                         }
                         else {
                             switch (item[0]) {
-                                case 163:
+                                case 1:
                                     fileName = "/event01.txt";
                                     break;
-                                case 164:
+                                case 2:
                                     fileName = "/event02.txt";
                                     break;
-                                case 164:
+                                case 3:
                                     fileName = "/event03.txt";
                                     break;
                             }
@@ -136,7 +137,7 @@ function faq_open(el)
 
                         var img = item[3] != '' ? '<img src="' + item[3] + '" style="width:100%">' : '';
 
-                        var event = '<li id="' + item[0] + '">'
+                        var event = '<li id="e_' + item[0] + '">'
                                   + '    <a href="#none" onclick="return faq_open(this);" class="faq_q">'
                                   + '        <p class="font_size14b pad_l0">[' + status + '] ' + item[1] + '<span class="icon_s12">N</span></p>'
                                   + '        <p class="font_size11 color_b7b7b7">' + item[4] + "~" + item[5] + '</p>'
@@ -165,7 +166,12 @@ function faq_open(el)
             $(document).on('ready', function () {
                 page.init();
                 page.fn.eventList();
-                $('.drawer').drawer();
+
+                if ($('#hdId').val != '') {
+                    $('#e_' + $('#hdId').val()).find('div').css('display', 'block');
+                    var offset = $('#e_' + $('#hdId').val()).offset();
+                    $('html, body').animate({ scrollTop: offset.top }, 400);
+                }
             });
         })();
     </script>

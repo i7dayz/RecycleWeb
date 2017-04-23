@@ -44,7 +44,25 @@
                             window.history.back();
                         });
                         $(document).on('click', '#btnDonate', function () {
-                            page.fn.donate();
+                            var currPoint = parseInt($("#currPoint").val().replace(/,/g, ""));
+                            var donationPoint = parseInt($("#txtDonationPoint").val().replace(/,/g, ""));
+
+                            if (isNaN(donationPoint) || donationPoint <= 0) {
+                                infoBox("기부하실 포인트를 입력하세요.");
+                                return;
+                            }
+
+                            if (!isNumeric(donationPoint)) {
+                                infoBox("포인트는 숫자형식으로만 입력가능합니다.");
+                                return;
+                            }
+
+                            if (currPoint < donationPoint) {
+                                infoBox("현재 보유중인 포인트내에서 기부가능합니다.");
+                                return;
+                            }
+
+                            confirmBox(commaSeparateNumber(donationPoint) + " 포인트를 기부하시겠습니까?", page.fn.donate);
                         });
                     },
                     fn: {
@@ -65,24 +83,6 @@
                             }, "post", false);
                         },
                         donate: function () {
-                            var currPoint = parseInt($("#currPoint").val().replace(/,/g, ""));
-                            var donationPoint = parseInt($("#txtDonationPoint").val().replace(/,/g, ""));
-
-                            if (isNaN(donationPoint) || donationPoint <= 0) {
-                                infoBox("기부하실 포인트를 입력하세요.");
-                                return;
-                            }
-
-                            if (!isNumeric(donationPoint)) {
-                                infoBox("포인트는 숫자형식으로만 입력가능합니다.");
-                                return;
-                            }
-
-                            if (currPoint < donationPoint) {
-                                infoBox("현재 보유중인 포인트내에서 기부가능합니다.");
-                                return;
-                            }
-
                             var params = {
                                 producerIdx: $("#hdProducerIdx").val(),
                                 donationGroupIdx: $("#hdGroupIdx").val(),

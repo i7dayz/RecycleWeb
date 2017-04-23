@@ -40,11 +40,11 @@
         <p class="rec_text2 pdl40 color53acbc">가능 : 자석에 붙지 않는 금속 (전선, 냄비, 양은, 샷시, 후라이팬, 수도꼭지 등)</p>
     	<p class="rec_text2"><span class="colorffc045">▶ </span> 소형가전, 대형가전</p>
         <p class="rec_text2 pdl40">상태와 연식에 따라 매입이 불가능한 제품이 있습니다. (수거기사와 협의)</p>
-    	<p class="rec_text2"><span class="colorffc045">▶ </span> 기타</p>
-        <p class="rec_text2 pdl40">그 외 재활용이 가능하다고 생각되는 제품은 기타로 신청하세요.</p>        
+    	<p class="rec_text2"><span class="colorffc045">▶ </span> 가구류/기타</p>
+        <p class="rec_text2 pdl40">그 외 재활용이 가능하다고 생각되는 가구류나 제품은 기타로 신청하세요.</p>
     	<p class="rec_text2"><span class="colorffc045">▶ </span> 수거불가</p>
         <p class="rec_text2 pdl40">상태와 연식에 따라 매입이 불가능한 제품이 있습니다. (수거기사와 협의)</p>
-        <p class="rec_text2 pdl40 colorfe708a">가구류, 유리, 플라스틱, 스티로폼, 고무류, 비닐류, PET 등은 수거가 안됩니다.</p>
+        <p class="rec_text2 pdl40 colorfe708a">유리, 플라스틱, 스티로폼, 고무류, 비닐류, PET 등은 수거가 안됩니다.</p>
     </div>
     <div class="su_submit pdt30"><div class="btn_grean back-btn" style="cursor:pointer" class="">확인</div></div>
 </div>

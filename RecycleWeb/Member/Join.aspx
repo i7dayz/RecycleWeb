@@ -459,6 +459,15 @@
                                         } else {
                                             $('#btnSearchNext').show();
                                         }
+
+                                        if (listCount === 0) {
+                                            var html = "<div class='reser2'>";
+                                            html += "    <div class='pad1010'>";
+                                            html += "        <p class='font_size12b color000 pad_l0'>검색결과가 없습니다. 검색어를 확인하세요.</p>";
+                                            html += "    </div>";
+                                            html += "</div>";
+                                            $(".address-list").append(html);
+                                        }
                                     }
                                 }
                             }
@@ -493,7 +502,6 @@
 
             $(document).on('ready', function () {
                 page.init();
-                $('.drawer').drawer();
             });
         })();
     </script>

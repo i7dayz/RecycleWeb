@@ -125,7 +125,6 @@ function faq_open(el)
             $(document).on('ready', function () {
                 page.init();
                 page.fn.noticeList();
-                $('.drawer').drawer();
             });
         })();
     </script>

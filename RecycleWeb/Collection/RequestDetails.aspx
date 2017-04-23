@@ -35,8 +35,9 @@
 
     <link href="/script/extention/air-datepicker-master/datepicker.min.css" rel="stylesheet" type="text/css">
     <style>
-#wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
+        #wrap{position:relative;margin:0 auto;height:100%;max-width:780px;}
     </style>
+</head>
     <div id="body">
         <header>
             <div class="su_header" style="z-index:1">
@@ -45,6 +46,14 @@
         </header>
         <div class="container" style="">
 	        <div class="su_form">
+                <form id="form1" runat="server" method="post">
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                <script type="text/javascript">
+                    function chklogin() {
+                        confirmBox("회원전용메뉴입니다.<br/>로그인하시겠습니까?", page.fn.goUrl, "/Default.aspx");
+                        return;
+                    }
+                </script>
                 <input type="hidden" runat="server" id="hdProducerIdx" />
                 <input type="hidden" runat="server" id="hdAddress1" value="0" />
                 <input type="hidden" runat="server" id="hdAddress2" value="0" />
@@ -88,6 +97,7 @@
                 <div style="height:30px;"></div>
                 <div class="su_submit"><div class="btn_grean" id="btnRequest" style="cursor:pointer" >수거신청</div></div>
                 <div class="su_submit"><div class="btn_gray" id="btnEditAddress" style="cursor:pointer">수거 주소록 관리</div></div>
+                </form>
             </div>
         </div>
 
@@ -188,8 +198,12 @@
                     });
 
                     $(document).on('click', '#btnRequest', function () {
-                        //location.href = "RequestDone.aspx";
-                        page.fn.requestPickup();
+                        if ($("#txtReqDate").val() == "") {
+                            infoBoxWithCallback("수희망수거일을 선택하세요.", page.fn.setFocus, null);
+                            return;
+                        }
+
+                        confirmBox("수거신청을 하시겠습니까?", page.fn.requestPickup);
                     });
 
                     $(document).on('click', '#btnEditAddress', function () {
@@ -210,11 +224,6 @@
                         $("#txtReqDate").focus();
                     },
                     requestPickup: function () {
-                        if ($("#txtReqDate").val() == "") {
-                            infoBoxWithCallback("수희망수거일을 선택하세요.", page.fn.setFocus, null);
-                            return;
-                        }
-
                         var params = {
                             producerIdx: $("#hdProducerIdx").val(),
                             zipCode: $("#txtZipno").val(),
@@ -232,7 +241,7 @@
                             product_8: $("#hdProduct08").val(),
                             product_9: $("#hdProduct09").val(),
                             product_10: $("#hdProduct10").val(), // 이삿짐
-                            etc_1: $("#hdEtc1").val(), // 기타
+                            etc_1: $("#hdEtc1").val(), // 가구류/기타
                             etc_2: $("#hdEtc2").val(), // 폐기서비스
                             etc_3: $("#hdEtc3").val(), // 유품정리
                             companyCode: 0,
@@ -247,7 +256,7 @@
                                 //if (response.value == 200) {
                                 //    errorBoxWithCallback("진행중인 수거 건이 있으므로 배출 신청을 할 수 없습니다.", page.fn.goUrl, { url: "/Main.aspx" });
                                 //} 
-                                errorBox(getErrMsg(response.value));
+                                errorBoxWithCallback(getErrMsg(response.value), page.fn.goUrl, { url: "/Main.aspx" });
                             }
                         }, "post", false);
                     },

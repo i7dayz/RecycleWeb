@@ -27,6 +27,10 @@ body {
     <form id="form1" runat="server" method="post">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <script type="text/javascript">
+            function chklogin() {
+                confirmBox("회원전용메뉴입니다.<br/>로그인하시겠습니까?", page.fn.goUrl, "/Default.aspx");
+                return;
+            }
             function onError(msg) {
                 errorBox(msg);
                 return;
@@ -95,11 +99,17 @@ body {
                     });
 
                     $(document).on('click', '#btnBuy', function () {
-                        $('#form1').attr('action', 'GoodsDetails.aspx?store=' + $("#hdStore").val() + '&goods_id=' + $("#hdGoodsId").val());
-                        $('#form1').submit();
+                        confirmBox("상품을 구매하시겠습니까?", page.fn.buy);
                     });
                 },
                 fn: {
+                    buy: function () {
+                        $('#form1').attr('action', 'GoodsDetails.aspx?store=' + $("#hdStore").val() + '&goods_id=' + $("#hdGoodsId").val());
+                        $('#form1').submit();
+                    },
+                    goUrl: function (urlData) {
+                        location.href = urlData.url;
+                    },
                 }
             };
 

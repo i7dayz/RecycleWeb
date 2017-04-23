@@ -684,6 +684,9 @@ function getErrMsg(errCode) {
         case 200:
             msg = "이미 배출 신청 중입니다.";
             break;
+        case 201:
+            msg = "서비스 예정지역입니다.";
+            break;
         case 9999:
             msg = "기타 오류가 발생하였습니다.<br/>관리자에게 문의하세요.";
             break;
@@ -744,4 +747,8 @@ function commaSeparateNumber(val) {
         val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
     }
     return val;
+}
+
+function callLoginPage() {
+    location.href = "/Default.aspx";
 }

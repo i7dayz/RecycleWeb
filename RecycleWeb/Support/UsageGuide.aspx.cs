@@ -11,7 +11,13 @@ namespace RecycleWeb.Support
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (Session["kakaoId"] != null)
+            //{
+            //}
+            //else
+            //{
+            //    Response.Redirect("/Default.aspx");
+            //}
         }
     }
 }

@@ -26,7 +26,6 @@ namespace RecycleWeb
         {
             if (Session["kakaoId"] != null)
             {
-
                 Dictionary<string, string> param = new Dictionary<string, string>();
                 param.Add("snsType", "1");
                 param.Add("snsId", Session["kakaoId"].ToString());
@@ -80,8 +79,18 @@ namespace RecycleWeb
             }
             else
             {
-                Response.Redirect("Default.aspx");
+                nickname.InnerText = "비회원";
+
+                this.reserved.Style["display"] = "none";
+                this.notReserved.Style["display"] = "block";
+
+                this.btnQuickRequest.Style["display"] = "block";
+                this.btnQuickRequestCancel.Style["display"] = "none";
             }
+            //else
+            //{
+            //    Response.Redirect("Default.aspx");
+            //}
         }
 
         private void getCollectReserve()
@@ -151,7 +160,7 @@ namespace RecycleWeb
 
                         if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_1.ToString()) && rootObj.collectReserve.etc_1 > 0)
                         {
-                            productList += string.Format("기타, ", rootObj.collectReserve.etc_1.ToString());
+                            productList += string.Format("가구류/기타, ", rootObj.collectReserve.etc_1.ToString());
                         }
 
                         if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_2.ToString()) && rootObj.collectReserve.etc_2 > 0)

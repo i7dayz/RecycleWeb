@@ -61,7 +61,6 @@ namespace RecycleWeb.Store
                                     Page.GetType(),
                                     "alert",
                                     "onError('" + WebApiUtil.GetErrorMsg(rootObj.value) + "');",
-                                    //"onError('" + rootObj.value.ToString() + "');",
                                     true
                                 );
                             }

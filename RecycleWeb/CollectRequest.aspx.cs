@@ -22,8 +22,10 @@ namespace RecycleWeb
             }
             else
             {
-                Response.Redirect("Default.aspx");
-            }            
+                //Response.Redirect("Default.aspx");
+                this.not_reserved.Style["display"] = "block";
+                this.reserved.Style["display"] = "none";
+            }
         }
 
         private void getMarketPrice()

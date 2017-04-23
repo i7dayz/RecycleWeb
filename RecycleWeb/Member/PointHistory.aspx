@@ -197,7 +197,6 @@ p.su_btn.po_more {
 
             $(document).on('ready', function () {
                 page.init();
-                $('.drawer').drawer();
                 page.fn.pointHistory();
 
                 if ($('.point-list').html() == '') {

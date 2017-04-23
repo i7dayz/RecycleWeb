@@ -63,7 +63,7 @@
                         <a href="javascript:;" runat="server" id="btnQuickRequestCancel"><span class="btn_grean">취소</span></a>
                 </div>
                 <div runat="server" id="notReserved">
-                    <div style="height:75px;">수거신청내역이 없습니다.</div>
+                    <div style="height:40px;padding-top:30px; text-align:center;">수거신청내역이 없습니다.</div>
                     <a href="javascript:;" runat="server" id="btnQuickRequest"><span class="btn_grean">수거신청</span></a>
                 </div>
             </div>
@@ -73,13 +73,18 @@
         	    <span class="cic_icon">12</span>
                 <p><a href="javascript:;"><img src="/img/baechul/i-ntc.png" class="img30" /></a></p>
                 <%--<p><a href="#">공지사항 / 이벤트</a></p>--%>
-                <p><a href="javascript:;">공지사항</a></p>
+                <p><a href="javascript:;" style="font-weight:bold">공지사항</a></p>
             </div>
             <div class="harf_r" id="btnSimpleUsageGuide" style="cursor:pointer">
         	    <span class="cic_icon2"><img src="/img/baechul/ird-icn.png" class="img40" /></span>
                 <p><a href="javascript:;"><img src="/img/baechul/i-inf.png" class="img30" /></a></p>
-                <p><a href="javascript:;">이용안내</a></p>
+                <p><a href="javascript:;" style="font-weight:bold">이용안내</a></p>
             </div>
+        </div>
+        <div class="harf_con" style="text-align:center; padding:15px 0;">
+            <p>한국자원거래소 Ι 대표:김재현 Ι 서울용산녹사평대로40가길2-10</p>
+            <p>고객센터:1644-9317 I cs@hrx.co.kr I fax:080-8097-9317</p>
+            <p>736-87-00212 Ι 제22017-서울용산-0149호</p>
         </div>
 
 	    <div class="ranking" id="ranking">
@@ -101,7 +106,7 @@
                     <input type="text" name="" placeholder="추천인 닉네임 입력" value="" id="txtRecommenderNickname"/>
                 </div>	
                 <div class="reco_r">
-                    <img src="/img/baechul/btn-cnf.png" height="40" id="btnSave"/>
+                <img src="/img/baechul/btn-cnf.png" height="40" id="btnSave" style="cursor:pointer;"/>
                 </div>	
             </div>
         
@@ -134,31 +139,16 @@
         function sendKakaoLink() {
             var device = check_device();
             if (device === '') {
-                infoBox("카카오톡 공유하기 기능 스마트폰에서만 가능합니다.");
+                infoBox("카카오톡으로 공유하기는 스마트폰에서만 가능합니다.");
                 return;
             }
 
-            Kakao.Link.sendDefault({
-                objectType: 'feed',
-                content: {
-                    title: '리본 for Kakao',
-                    description: '아메리카노, 빵, 케익',
-                    imageUrl: 'http://mud-kage.kakao.co.kr/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
-                    link: {
-                        mobileWebUrl: 'https://hrx.co.kr/Default.aspx'
-                    }
-                },
-                buttons: [{
-                    title: '웹으로 이동',
-                    link: {
-                        mobileWebUrl: 'https://hrx.co.kr/Default.aspx'
-                    }
-                }, {
-                    title: '앱으로 이동',
-                    link: {
-                        mobileWebUrl: 'http://play.google.com/store/apps/details?id=<package_name>'
-                    }
-                }]
+            Kakao.Link.sendCustom({
+                templateId: 3619,
+                templateArgs: {
+                    'title': '',
+                    'description': "신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#nickname').text() + ")"
+                }
             });
         }
         //]]>
@@ -182,7 +172,6 @@
                     this.initEvent();
                 },
                 initComponent: function () {
-                    $('.drawer').drawer();
                     $("#tabHome").find("img").attr("src", "/img/top_menu/top01o.png");
 
                     $("#ranking").hide();
@@ -192,9 +181,9 @@
                     var device = check_device();
 
                     if (device === 'iPhone') {
-                        $("#sms-btn").attr("href", "sms:&body=문자전송");
+                        $("#sms-btn").attr("href", "sms:&body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#nickname').text() + ")");
                     } else if (device === 'Android') {
-                        $("#sms-btn").attr("href", "sms:?body=문자전송");
+                        $("#sms-btn").attr("href", "sms:?body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#nickname').text() + ")");
                     }
 
                     var clipboard = new Clipboard('#copy-btn', {
@@ -414,7 +403,13 @@
 
             $(document).on('ready', function () {
                 page.init();
-                $('.drawer').drawer();
+                $('.drawer').drawer({
+                    iscroll: {
+                        mouseWheel: true,
+                        preventDefault: false
+                    },
+                    showOverlay: true
+                });
                 page.fn.getRank();
                 page.fn.getDonationAmount();
 

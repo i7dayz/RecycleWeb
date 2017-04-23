@@ -493,7 +493,6 @@
 
             $(document).on('ready', function () {
                 page.init();
-                $('.drawer').drawer();
             });
         })();
     </script>

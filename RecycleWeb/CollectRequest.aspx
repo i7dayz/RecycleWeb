@@ -17,7 +17,7 @@
             <input type="hidden" runat="server" id="hdProduce_9_price" />
             <input type="hidden" runat="server" id="hdProduce_10_price" />
             <input type="hidden" runat="server" id="hdProduceIdx" />
-            <input type="hidden" runat="server" id="hdProducerIdx" />   
+            <input type="hidden" runat="server" id="hdProducerIdx" />
 
 	        <div class="description">
     	        <img src="./img/page_description/4_1top.gif" width="100%" />
@@ -89,7 +89,7 @@
                 </div>
                 <div class="harf_r">
                     <p><img src="./img/sugeo/su_icon/pck_10.png" class="img65"></p>
-                    <p class="su_name">기타</p>
+                    <p class="su_name">가구류/기타</p>
                     <p class="su_onoff">
                         <img src="./img/baechul/pck-usl.png" height="20px" />
                         <input type="checkbox" runat="server" id="chkEtc1" style="display:none" />
@@ -103,7 +103,7 @@
             <div class="harf_con2">
     	        <div class="harf_l">
                     <p><img src="./img/sugeo/su_icon/pck_big01.png" class="img65"></a></p>
-                    <p class="su_name">폐기대행</p>
+                    <p class="su_name">처리대행</p>
                     <p class="su_onoff">
                         <img src="./img/baechul/pck-usl.png" height="20px" />
                         <input type="checkbox" runat="server" id="chkEtc2" style="display:none" />
@@ -120,7 +120,7 @@
             </div>
             <div runat="server" id="not_reserved">
                 <p class="su_btn">
-    	            수거하기
+    	            수거신청
                 </p>
             </div>
             <div runat="server" id="reserved">
@@ -184,6 +184,15 @@
                     });
 
                     $(document).on('click', '#not_reserved', function () {
+                        page.fn.collectRequest();
+                    });
+
+                    $(document).on('click', '#reserved', function () {
+                        confirmBox("수거예약을 취소하시겠습니까?", page.fn.cancelRequest);
+                    });
+                },
+                fn: {
+                    collectRequest: function () {
                         // 선택된 항목이 한개라도 있어야 수거 신청 가능
                         if (parseInt($("#txtProduct06").val()) > 0 || parseInt($("#txtProduct07").val()) > 0
                             || parseInt($("#txtProduct09").val()) > 0 || parseInt($("#txtProduct08").val()) > 0
@@ -196,7 +205,7 @@
 
                             // 여기서 수거신청 금액 확인
                             if (!page.fn.checkPrice()) {
-                                infoBox("수거신청은 총 요청 금액이 3,000원 이상이거나 수거대상이 20kg이상일 경우 가능합니다. (단 이삿짐, 기타, 폐기서비스, 유품정리의 경우 단일건 가능)");
+                                infoBox("수거신청은 총 요청 금액이 3,000원 이상이거나 수거대상이 20kg이상일 경우 가능합니다. (단 이삿짐, 가구류/기타, 폐기서비스, 유품정리의 경우 단일건 가능)");
                                 return;
                             }
                             //return;
@@ -206,13 +215,7 @@
                             infoBox("선택된 수거요청항목이 없습니다.");
                             return;
                         }
-                    });
-
-                    $(document).on('click', '#reserved', function () {
-                        confirmBox("수거예약을 취소하시겠습니까?", page.fn.cancelRequest);
-                    });
-                },
-                fn: {
+                    },
                     cancelRequest: function () {
                         var params = {
                             produceIdx: $("#hdProduceIdx").val(),
@@ -291,7 +294,13 @@
 
             $(document).on('ready', function () {
                 page.init();
-                $('.drawer').drawer();
+                $('.drawer').drawer({
+                    iscroll: {
+                        mouseWheel: true,
+                        preventDefault: false
+                    },
+                    showOverlay: true
+                });
             });
 
         })();

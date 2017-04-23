@@ -85,7 +85,7 @@ namespace RecycleWeb.Collection
                             case "chkEtc1":
                                 if (Request.Form[i].Equals("on"))
                                 {
-                                    productList += "기타, ";
+                                    productList += "가구류/기타, ";
                                     this.hdEtc1.Value = "1";
                                 }
                                 break;
@@ -134,7 +134,14 @@ namespace RecycleWeb.Collection
             }
             else
             {
-                Response.Redirect("/Default.aspx");
+                //Response.Redirect("/Default.aspx");
+                ScriptManager.RegisterStartupScript(
+                    this,
+                    GetType(),
+                    "alert",
+                    "chkLogin();",
+                    true
+                );
             }
         }
     }

@@ -38,7 +38,6 @@ function form_submit() {
                     this.initEvent();
                 },
                 initComponent: function () {
-                    $('.drawer').drawer();
                     $("img.lazy").show().lazyload({
                         effect: "fadeIn", // 나타날때 Fadein 효과
                         threshold: 200, // 스크롤 200 픽셀 전에 미리 로딩

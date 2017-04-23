@@ -202,7 +202,6 @@ box-sizing: border-box;}
             $(document).on('ready', function () {
                 page.init();
                 page.fn.addressList();
-                $('.drawer').drawer();
             });
         })();
     </script>
