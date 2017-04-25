@@ -112,6 +112,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Android\Home.aspx" />
     <Content Include="Collection\ProductDescription.aspx" />
     <Content Include="Collection\RequestDetails.aspx" />
     <Content Include="Collection\RequestDone.aspx" />
@@ -120,6 +121,7 @@
     <Content Include="css\drawer.min.css" />
     <Content Include="css\drawer_su.css" />
     <Content Include="css\modal.css" />
+    <Content Include="css\m_common.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\sandbox.css" />
     <Content Include="css\style.css" />
@@ -942,6 +944,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Android\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Android\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Collection\ProductDescription.aspx.cs">
       <DependentUpon>ProductDescription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
