@@ -170,6 +170,7 @@
     <Content Include="include\header_smenu.html" />
     <Content Include="include\header_su.html" />
     <Content Include="include\main_full_slide.html" />
+    <Content Include="ios_dw.aspx" />
     <Content Include="Member\AddressList.aspx" />
     <Content Include="Member\EditAddress.aspx" />
     <Content Include="Member\EditInfo.aspx" />
@@ -990,6 +991,13 @@
     <Compile Include="Donation\DonationDetails.aspx.designer.cs">
       <DependentUpon>DonationDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ios_dw.aspx.cs">
+      <DependentUpon>ios_dw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ios_dw.aspx.designer.cs">
+      <DependentUpon>ios_dw.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1203,6 +1211,7 @@
     <Folder Include="img\slide\" />
     <Folder Include="img\sugeo\" />
     <Folder Include="img\top_menu\" />
+    <Folder Include="ios_app\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
