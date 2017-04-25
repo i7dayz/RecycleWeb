@@ -22,9 +22,9 @@ namespace RecycleWeb
             }
             else
             {
-                //Response.Redirect("Default.aspx");
-                this.not_reserved.Style["display"] = "block";
-                this.reserved.Style["display"] = "none";
+                Response.Redirect("Default.aspx");
+                //this.not_reserved.Style["display"] = "block";
+                //this.reserved.Style["display"] = "none";
             }
         }
 

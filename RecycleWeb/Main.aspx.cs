@@ -77,20 +77,20 @@ namespace RecycleWeb
                     Response.Redirect("Default.aspx");
                 }
             }
-            else
-            {
-                nickname.InnerText = "비회원";
-
-                this.reserved.Style["display"] = "none";
-                this.notReserved.Style["display"] = "block";
-
-                this.btnQuickRequest.Style["display"] = "block";
-                this.btnQuickRequestCancel.Style["display"] = "none";
-            }
             //else
             //{
-            //    Response.Redirect("Default.aspx");
+            //    nickname.InnerText = "비회원";
+
+            //    this.reserved.Style["display"] = "none";
+            //    this.notReserved.Style["display"] = "block";
+
+            //    this.btnQuickRequest.Style["display"] = "block";
+            //    this.btnQuickRequestCancel.Style["display"] = "none";
             //}
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         private void getCollectReserve()

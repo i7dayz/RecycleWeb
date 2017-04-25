@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Android\Home.aspx" />
+    <Content Include="Android\WebConnect.aspx" />
     <Content Include="Collection\ProductDescription.aspx" />
     <Content Include="Collection\RequestDetails.aspx" />
     <Content Include="Collection\RequestDone.aspx" />
@@ -950,6 +951,13 @@
     </Compile>
     <Compile Include="Android\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Android\WebConnect.aspx.cs">
+      <DependentUpon>WebConnect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Android\WebConnect.aspx.designer.cs">
+      <DependentUpon>WebConnect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Collection\ProductDescription.aspx.cs">
       <DependentUpon>ProductDescription.aspx</DependentUpon>

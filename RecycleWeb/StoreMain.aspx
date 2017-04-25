@@ -107,6 +107,13 @@
 
             $(document).on('ready', function () {
                 page.init();
+                $('.drawer').drawer({
+                    iscroll: {
+                        mouseWheel: true,
+                        preventDefault: false
+                    },
+                    showOverlay: true
+                });
             });
         })();
     </script>

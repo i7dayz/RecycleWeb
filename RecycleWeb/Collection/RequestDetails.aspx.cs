@@ -134,14 +134,14 @@ namespace RecycleWeb.Collection
             }
             else
             {
-                //Response.Redirect("/Default.aspx");
-                ScriptManager.RegisterStartupScript(
-                    this,
-                    GetType(),
-                    "alert",
-                    "chkLogin();",
-                    true
-                );
+                Response.Redirect("/Default.aspx");
+                //ScriptManager.RegisterStartupScript(
+                //    this,
+                //    GetType(),
+                //    "alert",
+                //    "chkLogin();",
+                //    true
+                //);
             }
         }
     }
