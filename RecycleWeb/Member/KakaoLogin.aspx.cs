@@ -51,10 +51,10 @@ namespace RecycleWeb.Member
                         KakaoUserInfo kakaoUserInfo = JsonConvert.DeserializeObject<KakaoUserInfo>(WebApiUtil.RequestMe(KAKAO_KAPI_URI, GET_REQUEST_ME_RESOURCE, kakaoToken.access_token));
 
                         Session["kakaoId"] = kakaoUserInfo.id.ToString();
-                        Session["kakaoNickname"] = kakaoUserInfo.properties.nickname;
+                        Session["kakaoNickname"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.nickname) ? kakaoUserInfo.properties.nickname : string.Empty;
                         Session["kakaoEmail"] = kakaoUserInfo.kaccount_email;
-                        Session["kakaoThumbnailImage"] = kakaoUserInfo.properties.thumbnail_image;
-                        Session["kakaoProfileImage"] = kakaoUserInfo.properties.profile_image;
+                        Session["kakaoThumbnailImage"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.thumbnail_image) ? kakaoUserInfo.properties.thumbnail_image : string.Empty;
+                        Session["kakaoProfileImage"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.profile_image) ? kakaoUserInfo.properties.profile_image : string.Empty;
                         Session["accessToken"] = kakaoToken.access_token;
                         Session["refreshToken"] = kakaoToken.refresh_token;
 
@@ -73,8 +73,8 @@ namespace RecycleWeb.Member
                             param = new Dictionary<string, string>();
                             param.Add("snsType", "1");
                             param.Add("snsId", kakaoUserInfo.id.ToString());
-                            param.Add("snsURL", kakaoUserInfo.properties.profile_image);
-                            param.Add("snsNickname", kakaoUserInfo.properties.nickname);
+                            param.Add("snsURL", !string.IsNullOrEmpty(kakaoUserInfo.properties.profile_image) ? kakaoUserInfo.properties.profile_image : string.Empty);
+                            param.Add("snsNickname", !string.IsNullOrEmpty(kakaoUserInfo.properties.nickname) ? kakaoUserInfo.properties.nickname : string.Empty);
                             param.Add("carrierId", "31");
                             param.Add("appVersion", "1.0.0");
 
@@ -83,10 +83,10 @@ namespace RecycleWeb.Member
                             if (rootObj.value == 0)
                             {
                                 Session["kakaoId"] = kakaoUserInfo.id.ToString();
-                                Session["kakaoNickname"] = kakaoUserInfo.properties.nickname;
+                                Session["kakaoNickname"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.nickname) ? kakaoUserInfo.properties.nickname : string.Empty;
                                 Session["kakaoEmail"] = kakaoUserInfo.kaccount_email;
-                                Session["kakaoThumbnailImage"] = kakaoUserInfo.properties.thumbnail_image;
-                                Session["kakaoProfileImage"] = kakaoUserInfo.properties.profile_image;
+                                Session["kakaoThumbnailImage"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.thumbnail_image) ? kakaoUserInfo.properties.thumbnail_image : string.Empty;
+                                Session["kakaoProfileImage"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.profile_image) ? kakaoUserInfo.properties.profile_image : string.Empty;
                                 Session["accessToken"] = kakaoToken.access_token;
                                 Session["refreshToken"] = kakaoToken.refresh_token;
 
@@ -109,10 +109,10 @@ namespace RecycleWeb.Member
                             else
                             {
                                 Session["kakaoId"] = kakaoUserInfo.id.ToString();
-                                Session["kakaoNickname"] = kakaoUserInfo.properties.nickname;
+                                Session["kakaoNickname"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.nickname) ? kakaoUserInfo.properties.nickname : string.Empty;
                                 Session["kakaoEmail"] = kakaoUserInfo.kaccount_email;
-                                Session["kakaoThumbnailImage"] = kakaoUserInfo.properties.thumbnail_image;
-                                Session["kakaoProfileImage"] = kakaoUserInfo.properties.profile_image;
+                                Session["kakaoThumbnailImage"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.thumbnail_image) ? kakaoUserInfo.properties.thumbnail_image : string.Empty;
+                                Session["kakaoProfileImage"] = !string.IsNullOrEmpty(kakaoUserInfo.properties.profile_image) ? kakaoUserInfo.properties.profile_image : string.Empty;
                                 Session["accessToken"] = kakaoToken.access_token;
                                 Session["refreshToken"] = kakaoToken.refresh_token;
 

@@ -45,6 +45,8 @@
 
 <!-- #include file="/include/footer_b.html" -->
 
+    <iframe src="../temp.html"  style="visibility:hidden;display:none" scrolling="no"></iframe>
+
     <script type="text/javascript" src="/script/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
     <script type="text/javascript" src="/script/drawer.min.js"></script>

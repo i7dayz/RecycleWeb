@@ -75,6 +75,8 @@
             </div> <!-- //container -->
         </div>
     </div> <!-- //wrap -->
+    
+    <iframe src="../temp.html"  style="visibility:hidden;display:none" scrolling="no"></iframe>
 
     <script type="text/javascript" src="script/extention/jquery.js"></script>
         

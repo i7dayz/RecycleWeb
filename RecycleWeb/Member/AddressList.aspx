@@ -100,6 +100,8 @@ box-sizing: border-box;}
     </div>
 </form>
 </div>
+    <iframe src="../temp.html"  style="visibility:hidden;display:none" scrolling="no"></iframe>
+
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>

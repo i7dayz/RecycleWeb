@@ -930,6 +930,7 @@
     <Content Include="Support\TermsAndPolicies.aspx" />
     <Content Include="Support\UsageGuide.aspx" />
     <Content Include="Support\Notice.aspx" />
+    <Content Include="temp.html" />
     <Content Include="temp\777.jpg" />
     <Content Include="temp\cef1f56553fba92d9e95c19e5a34c09a.jpg" />
     <Content Include="temp\EAN-13.png" />

@@ -130,7 +130,9 @@
             </div>
         </form>
     </div> <!-- //수거신청 tab -->
-        
+
+    <iframe src="/temp.html"  style="visibility:hidden;display:none" scrolling="no"></iframe>
+
     <script type="text/javascript" src="script/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="script/common.js"></script>

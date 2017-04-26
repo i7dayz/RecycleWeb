@@ -34,6 +34,8 @@
     </div>
 </div>
 
+    <iframe src="../temp.html"  style="visibility:hidden;display:none" scrolling="no"></iframe>
+
     <script type="text/javascript" src="../script/extention/jquery.js"></script>
     <script type="text/javascript" src="../script/common.js"></script>
     <script type="text/javascript" src="../script/extention/jquery.modal-master/js/jquery.modal.js"></script>
@@ -54,8 +56,7 @@
             Kakao.Link.sendCustom({
                     templateId: 3619,
                     templateArgs: {
-                    'title': '',
-                    'description': "신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ")"
+                        'recommender': $('#hdNickname').val()
                 }
             });
 
