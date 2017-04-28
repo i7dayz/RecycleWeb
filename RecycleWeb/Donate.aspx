@@ -19,7 +19,7 @@
 
     <script type="text/javascript" src="script/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <%--<script type="text/javascript" src="script/dropdown.min.js"></script>--%>
+    <script type="text/javascript" src="script/dropdown.min.js"></script>
     <script type="text/javascript" src="script/drawer.min.js"></script>
     <script type="text/javascript" src="script/common.js"></script>
         
@@ -59,8 +59,8 @@
                         }, "post", false);
                     },
                     addDonationGroup: function (item) {                        
-                        var donationGroup = '<div class="reser">'
-                                          + '    <a href="/Donation/DonationDetails.aspx?id=' + item[0] + '">'
+                        var donationGroup = '<a href="/Donation/DonationDetails.aspx?id=' + item[0] + '">'
+                                          + '    <div class="reser">'
     	                                  + '        <div class="reser_icon reser_icon2">'
         	                              + '            <img src="http://hrx.co.kr/img/dnt_1out/' + item[3] + '" />'
                                           + '        </div>'
@@ -71,8 +71,8 @@
                                           + '                <p class="font_size12 color_b7b7b7 pad_t12">' + item[2] + '</span></p>'
                                           + '            </div>'
                                           + '        </div>'
-                                          + '    </a>'
-                                          + '</div>';
+                                          + '    </div>'
+                                          + '</a>';
 
                         $('#donationGroupList').append(donationGroup);
                     },

@@ -137,7 +137,7 @@
     <script type="text/javascript" src="script/extention/jquery.modal-master/js/jquery.modal.js"></script>
     <script type="text/javascript" src="script/common.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-    <%--<script type="text/javascript" src="script/dropdown.min.js"></script>--%>
+    <script type="text/javascript" src="script/dropdown.min.js"></script>
     <script type="text/javascript" src="script/drawer.min.js"></script>
     <script>
         (function () {

@@ -52,7 +52,7 @@ ul.drawer-menu li a.drawer-brand {
 
 .drawer-menu-item:hover {
   text-decoration: underline;
-  color: #15353c;
+  /*color: #15353c;*/
   background-color: transparent;
 }
 
