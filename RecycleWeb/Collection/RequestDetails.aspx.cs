@@ -114,7 +114,7 @@ namespace RecycleWeb.Collection
                 this.hdAddress2.Value = Session["address2"].ToString();
 
                 this.txtReqProduct.Value = productList.Substring(0, productList.Length - 2);
-                this.txtName.Value = Session["kakaoNickname"].ToString(); // snsNickname컬럼을 이름으로 사용
+                this.txtName.Value = Session["name"].ToString();
 
                 string[] contactNumber;
                 if (Session["producerContactNumber"].ToString().Length == 13)
