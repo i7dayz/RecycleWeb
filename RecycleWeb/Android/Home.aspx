@@ -122,7 +122,7 @@
                                 <li><a class="drawer-dropdown-menu-item" href="../Support/Notice.aspx">공지사항</a></li>
                                 <li><a class="drawer-dropdown-menu-item" href="../Support/UsageGuide.aspx">이용안내</a></li>
                         	    <li><a class="drawer-dropdown-menu-item" href="../Support/FAQ.aspx">자주 묻는 질문</a></li>
-                                <li><a class="drawer-dropdown-menu-item" href="mailto:cs@hrx.co.kr">1:1 문의</a></li>
+                                <li><a class="drawer-dropdown-menu-item" href="http://plus.kakao.com/home/@리본고객센터" target="_blank">1:1 문의</a></li>
                                 <li><a class="drawer-dropdown-menu-item" href="../Support/TermsAndPolicies.aspx">약관 및 정책</a></li>
                             </ul>
                         </li>
