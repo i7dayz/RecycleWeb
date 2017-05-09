@@ -18,8 +18,8 @@ namespace RecycleWeb.Member
                 this.kakaoEmail.Value = Session["kakaoEmail"].ToString();
                 this.kakaoThumbnailImage.Value = Session["kakaoThumbnailImage"].ToString();
                 this.kakaoProfileImage.Value = Session["kakaoProfileImage"].ToString();
-                this.accessToken.Value = Session["accessToken"].ToString();
-                this.refreshToken.Value = Session["refreshToken"].ToString();
+                //this.accessToken.Value = Session["accessToken"].ToString();
+                //this.refreshToken.Value = Session["refreshToken"].ToString();
             }
             else
             {

@@ -120,6 +120,14 @@ namespace RecycleWeb.Store
             {
                 if (Request["store"] != null && !string.IsNullOrEmpty(Request["store"].ToString()))
                 {
+                    if (!Session["kakaoId"].ToString().Equals("n"))
+                    {
+                    }
+                    else
+                    {
+                        hdProducerIdx.Value = "0";
+                    }
+
                     string[] brandNos = null;
                     switch (Request["store"].ToString())
                     {

@@ -16,6 +16,8 @@ function form_submit() {
     </header>
 <div class="container" style="">
     <input type="hidden" runat="server" id="hdMsg" />
+    <input type="hidden" runat="server" id="hdProducerIdx" />
+
     <div class="four_con" runat="server" id="baseBrandList"></div>
     <div class="four_con" runat="server" id="moreBrandList"></div>
     <div id="list_onoff" class="list_view" runat="server">더보기<!--img src="./img/baechul/btn-vie1.png"  /--></div>

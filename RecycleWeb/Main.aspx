@@ -162,7 +162,7 @@
                     break;
                 }
             }
-            return device_name
+            return device_name;
         }
 
         (function () {

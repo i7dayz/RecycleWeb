@@ -22,87 +22,94 @@ namespace RecycleWeb.Store
         {
             if (Session["kakaoId"] != null)
             {
-                if (Request["goods_id"] != null && !string.IsNullOrEmpty(Request["goods_id"].ToString()))
+                if (!Session["kakaoId"].ToString().Equals("n"))
                 {
-                    if (Request["store"] != null && !string.IsNullOrEmpty(Request["store"].ToString()))
+                    if (Request["goods_id"] != null && !string.IsNullOrEmpty(Request["goods_id"].ToString()))
                     {
-                        if (IsPostBack)
+                        if (Request["store"] != null && !string.IsNullOrEmpty(Request["store"].ToString()))
                         {
-                            Dictionary<string, string> param = new Dictionary<string, string>();
-                            param.Add("producerIdx", Session["producerIdx"].ToString());
-                            param.Add("goodsId", Request["goods_id"].ToString());
-                            param.Add("phoneNumber", Session["producerContactNumber"].ToString());
-
-                            hdIsPostback.Value = "Y";
-
-                            Hidden1.Value = Session["producerIdx"].ToString();
-                            Hidden2.Value = Request["goods_id"].ToString();
-                            Hidden3.Value = Session["producerContactNumber"].ToString();
-
-                            RootObjectGoodsBuyResult rootObj = JsonConvert.DeserializeObject<RootObjectGoodsBuyResult>(WebApiUtil.RestRequest(url, GOODS_BUY_RESULT, param));
-
-                            if (rootObj.value == 0)
+                            if (IsPostBack)
                             {
-                                Session["producePoint"] = rootObj.userPointInfo.producePoint.ToString();
-                                hdTest.Value = rootObj.userPointInfo.producePoint.ToString();
-                                ScriptManager.RegisterStartupScript(
-                                    Page,
-                                    Page.GetType(),
-                                    "alert",
-                                    "onSuccess('상품구입이 완료되었습니다. 현재 잔여 포인트는 " + int.Parse(Session["producePoint"].ToString()).ToString("N0") + " 포인트입니다.');",
-                                    true
-                                );
+                                Dictionary<string, string> param = new Dictionary<string, string>();
+                                param.Add("producerIdx", Session["producerIdx"].ToString());
+                                param.Add("goodsId", Request["goods_id"].ToString());
+                                param.Add("phoneNumber", Session["producerContactNumber"].ToString());
+
+                                hdIsPostback.Value = "Y";
+
+                                hdProducerIdx.Value = Session["producerIdx"].ToString();
+                                hdGoodsId2.Value = Request["goods_id"].ToString();
+                                hdProducerContactNumber.Value = Session["producerContactNumber"].ToString();
+
+                                RootObjectGoodsBuyResult rootObj = JsonConvert.DeserializeObject<RootObjectGoodsBuyResult>(WebApiUtil.RestRequest(url, GOODS_BUY_RESULT, param));
+
+                                if (rootObj.value == 0)
+                                {
+                                    Session["producePoint"] = rootObj.userPointInfo.producePoint.ToString();
+                                    hdTest.Value = rootObj.userPointInfo.producePoint.ToString();
+                                    ScriptManager.RegisterStartupScript(
+                                        Page,
+                                        Page.GetType(),
+                                        "alert",
+                                        "onSuccess('상품구입이 완료되었습니다. 현재 잔여 포인트는 " + int.Parse(Session["producePoint"].ToString()).ToString("N0") + " 포인트입니다.');",
+                                        true
+                                    );
+                                }
+                                else
+                                {
+                                    this.hdTest.Value = rootObj.value.ToString();
+                                    ScriptManager.RegisterStartupScript(
+                                        Page,
+                                        Page.GetType(),
+                                        "alert",
+                                        "onError('" + WebApiUtil.GetErrorMsg(rootObj.value) + "');",
+                                        true
+                                    );
+                                }
                             }
-                            else
+
+                            switch (Request["store"].ToString())
                             {
-                                this.hdTest.Value = rootObj.value.ToString();
-                                ScriptManager.RegisterStartupScript(
-                                    Page,
-                                    Page.GetType(),
-                                    "alert",
-                                    "onError('" + WebApiUtil.GetErrorMsg(rootObj.value) + "');",
-                                    true
-                                );
+                                case "giftcard":
+                                    this.title.InnerText = "상품권";
+                                    break;
+                                case "cv":
+                                    this.title.InnerText = "편의점";
+                                    break;
+                                case "cafe":
+                                    this.title.InnerText = "카페";
+                                    break;
+                                case "bakery":
+                                    this.title.InnerText = "베이커리";
+                                    break;
+                                case "restaurant":
+                                    this.title.InnerText = "레스토랑";
+                                    break;
+                                case "icecream":
+                                    this.title.InnerText = "아이스크림/간식";
+                                    break;
+                                case "movie":
+                                    this.title.InnerText = "영화/도서";
+                                    break;
+                                case "beauty":
+                                    this.title.InnerText = "뷰티/악세사리";
+                                    break;
                             }
                         }
 
-                        switch (Request["store"].ToString())
-                        {
-                            case "giftcard":
-                                this.title.InnerText = "상품권";
-                                break;
-                            case "cv":
-                                this.title.InnerText = "편의점";
-                                break;
-                            case "cafe":
-                                this.title.InnerText = "카페";
-                                break;
-                            case "bakery":
-                                this.title.InnerText = "베이커리";
-                                break;
-                            case "restaurant":
-                                this.title.InnerText = "레스토랑";
-                                break;
-                            case "icecream":
-                                this.title.InnerText = "아이스크림/간식";
-                                break;
-                            case "movie":
-                                this.title.InnerText = "영화/도서";
-                                break;
-                            case "beauty":
-                                this.title.InnerText = "뷰티/악세사리";
-                                break;
-                        }
+                        this.hdStore.Value = Request["store"].ToString();
+                        this.hdGoodsId.Value = Request["goods_id"].ToString();
+
+                        getGoodsInfo(Request["goods_id"].ToString());
                     }
-
-                    this.hdStore.Value = Request["store"].ToString();
-                    this.hdGoodsId.Value = Request["goods_id"].ToString();
-
-                    getGoodsInfo(Request["goods_id"].ToString());
+                    else
+                    {
+                        Response.Redirect("/Default.aspx");
+                    }
                 }
                 else
                 {
-                    Response.Redirect("/Default.aspx");
+                    hdProducerIdx.Value = "0";
                 }
             }
             else

@@ -114,6 +114,7 @@
   <ItemGroup>
     <Content Include="Android\Home.aspx" />
     <Content Include="Android\WebConnect.aspx" />
+    <Content Include="Android\WebConnectGet.aspx" />
     <Content Include="Collection\ProductDescription.aspx" />
     <Content Include="Collection\RequestDetails.aspx" />
     <Content Include="Collection\RequestDone.aspx" />
@@ -234,6 +235,8 @@
     <Content Include="script\extention\jquery.modal-master\bower.json" />
     <Content Include="script\extention\jquery.modal-master\LICENSE" />
     <Content Include="script\extention\jquery.modal-master\README.md" />
+    <Content Include="script\jquery-barcode.min.js" />
+    <Content Include="script\jquery-migrate-1.4.1.min.js" />
     <Content Include="StoreMain.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -960,6 +963,13 @@
     <Compile Include="Android\WebConnect.aspx.designer.cs">
       <DependentUpon>WebConnect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Android\WebConnectGet.aspx.cs">
+      <DependentUpon>WebConnectGet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Android\WebConnectGet.aspx.designer.cs">
+      <DependentUpon>WebConnectGet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Collection\ProductDescription.aspx.cs">
       <DependentUpon>ProductDescription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1144,6 +1154,7 @@
     <Compile Include="Model\CollectReserve.cs" />
     <Compile Include="Model\EPinStatus.cs" />
     <Compile Include="Model\GoodsInfo.cs" />
+    <Compile Include="Model\KakaoAccessTokenInfo.cs" />
     <Compile Include="Model\KakaoSignup.cs" />
     <Compile Include="Model\KakaoToken.cs" />
     <Compile Include="Model\KakaoUserInfo.cs" />

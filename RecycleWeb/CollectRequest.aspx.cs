@@ -18,7 +18,18 @@ namespace RecycleWeb
             if (Session["kakaoId"] != null)
             {
                 getMarketPrice();
-                getCollectReserve();
+
+                if (!Session["kakaoId"].ToString().Equals("n"))
+                {
+                    getCollectReserve();
+                }
+                else
+                {
+                    hdProducerIdx.Value = "0";
+
+                    not_reserved.Style["display"] = "block";
+                    reserved.Style["display"] = "none";
+                }
             }
             else
             {

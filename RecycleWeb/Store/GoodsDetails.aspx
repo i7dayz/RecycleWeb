@@ -44,9 +44,9 @@ body {
         <input type="hidden" runat="server" id="hdGoodsId" />
         <input type="hidden" runat="server" id="hdTest" />
         <input type="hidden" runat="server" id="hdIsPostback" />
-        <input type="hidden" runat="server" id="Hidden1" />
-        <input type="hidden" runat="server" id="Hidden2" />
-        <input type="hidden" runat="server" id="Hidden3" />
+        <input type="hidden" runat="server" id="hdProducerIdx" />
+        <input type="hidden" runat="server" id="hdGoodsId2" />
+        <input type="hidden" runat="server" id="hdProducerContactNumber" />
 	    <div class="member_po pdt30">
             <div class="ctext"><img src="/img/cfn-cof2.png" class="img90" runat="server" id="goodsImg" /></div>
             <div class="ctext font_size20b pad20 "><p class="dashed_line"><label runat="server" id="goodsName"></label></p></div> 

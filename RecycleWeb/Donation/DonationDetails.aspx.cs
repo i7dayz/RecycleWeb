@@ -15,15 +15,22 @@ namespace RecycleWeb.Donation
             {
                 if (!string.IsNullOrEmpty(Request.QueryString["id"].ToString()))
                 {
-                    this.hdGroupIdx.Value = Request.QueryString["id"].ToString();
+                    hdGroupIdx.Value = Request.QueryString["id"].ToString();
                 }
                 else
                 {
                     Response.Redirect("/Main.aspx");
                 }
 
-                this.hdProducerIdx.Value = Session["producerIdx"].ToString();
-                this.currPoint.Value = int.Parse(Session["producePoint"].ToString()).ToString("N0");
+                if (!Session["kakaoId"].ToString().Equals("n"))
+                {
+                    hdProducerIdx.Value = Session["producerIdx"].ToString();
+                    currPoint.Value = int.Parse(Session["producePoint"].ToString()).ToString("N0");
+                }
+                else
+                {
+                    hdProducerIdx.Value = "0";
+                }
             }
             else
             {

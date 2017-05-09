@@ -186,7 +186,10 @@
                     });
 
                     $(document).on('click', '#not_reserved', function () {
-                        page.fn.collectRequest();
+                        // 로그인 확인
+                        if (page.fn.checkSignedIn()) {
+                            page.fn.collectRequest();
+                        }
                     });
 
                     $(document).on('click', '#reserved', function () {
@@ -194,6 +197,15 @@
                     });
                 },
                 fn: {
+                    checkSignedIn: function () {
+                        var isSignedIn = $("#hdProducerIdx").val() === "0" ? false : true;
+                        if (!isSignedIn) {
+                            confirmBox("회원가입이 필요한 메뉴입니다.<br/>회원가입 페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/NonMemberLogin" });
+                            return false;
+                        }
+
+                        return true;
+                    },
                     collectRequest: function () {
                         // 선택된 항목이 한개라도 있어야 수거 신청 가능
                         if (parseInt($("#txtProduct06").val()) > 0 || parseInt($("#txtProduct07").val()) > 0
@@ -210,7 +222,7 @@
                                 infoBox("수거신청은 총 요청 금액이 3,000원 이상이거나 수거대상이 20kg이상일 경우 가능합니다. (단 이삿짐, 가구류/기타, 폐기서비스, 유품정리의 경우 단일건 가능)");
                                 return;
                             }
-                            //return;
+                            return;
                             $("#pickupForm").submit();
                         }
                         else {

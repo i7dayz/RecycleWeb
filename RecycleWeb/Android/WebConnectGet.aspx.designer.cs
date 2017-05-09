@@ -7,81 +7,90 @@
 // </자동 생성됨>
 //------------------------------------------------------------------------------
 
-namespace RecycleWeb.Store {
+namespace RecycleWeb.Android {
     
     
-    public partial class Goods {
+    public partial class WebConnectGet {
         
         /// <summary>
-        /// title 컨트롤입니다.
+        /// form1 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl title;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// hdMsg 컨트롤입니다.
+        /// text1 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdMsg;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text1;
         
         /// <summary>
-        /// hdProducerIdx 컨트롤입니다.
+        /// text2 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdProducerIdx;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text2;
         
         /// <summary>
-        /// baseBrandList 컨트롤입니다.
+        /// text3 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl baseBrandList;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text3;
         
         /// <summary>
-        /// moreBrandList 컨트롤입니다.
+        /// text4 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl moreBrandList;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text4;
         
         /// <summary>
-        /// list_onoff 컨트롤입니다.
+        /// text5 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl list_onoff;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text5;
         
         /// <summary>
-        /// brandName 컨트롤입니다.
+        /// text6 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl brandName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text6;
         
         /// <summary>
-        /// goodsList 컨트롤입니다.
+        /// text7 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl goodsList;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text7;
+        
+        /// <summary>
+        /// text8 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText text8;
     }
 }

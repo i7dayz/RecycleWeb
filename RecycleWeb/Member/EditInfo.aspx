@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="/css/drawer.css" >
 <link rel="stylesheet" href="/css/layout.css" >
 
-    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <%--<script src="https://code.jquery.com/jquery-latest.js"></script>--%>
     <link rel="stylesheet" href="../css/modal.css" />
     <link href="../script/extention/jquery.modal-master/css/jquery.modal.css" rel="stylesheet" type="text/css" />
     <style>

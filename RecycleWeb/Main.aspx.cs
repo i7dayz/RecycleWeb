@@ -26,67 +26,71 @@ namespace RecycleWeb
         {
             if (Session["kakaoId"] != null)
             {
-                Dictionary<string, string> param = new Dictionary<string, string>();
-                param.Add("snsType", "1");
-                param.Add("snsId", Session["kakaoId"].ToString());
-                param.Add("snsURL", Session["kakaoThumbnailImage"].ToString());
-                param.Add("snsNickname", Session["kakaoNickname"].ToString());
-                param.Add("carrierId", "31");
-                param.Add("appVersion", "1.0.0");
-
-                RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(WebApiUtil.RestRequest(url, PRODUCER_LOGIN, param));
-
-                if (rootObj.value == 0)
+                if (!Session["kakaoId"].ToString().Equals("n"))
                 {
-                    Session["producerIdx"] = rootObj.login.producerIdx;
-                    Session["producerContactNumber"] = rootObj.login.producerContactNumber;
-                    Session["zipCode"] = rootObj.login.zipCode;
-                    Session["address1"] = rootObj.login.address1;
-                    Session["address2"] = rootObj.login.address2;
-                    Session["detailAddress"] = rootObj.login.detailAddress;
-                    Session["producePoint"] = rootObj.login.producePoint;
-                    Session["producePointExpireDate"] = rootObj.login.producePointExpireDate;
-                    Session["totalDonationPoint"] = rootObj.login.totalDonationPoint;
-                    Session["rank"] = rootObj.login.rank;
-                    Session["nickname"] = rootObj.login.nickname;
-                    Session["expirePoint"] = rootObj.login.expirePoint;
-                    Session["name"] = rootObj.login.name;
+                    Dictionary<string, string> param = new Dictionary<string, string>();
+                    param.Add("snsType", "1");
+                    param.Add("snsId", Session["kakaoId"].ToString());
+                    param.Add("snsURL", Session["kakaoThumbnailImage"].ToString());
+                    param.Add("snsNickname", Session["kakaoNickname"].ToString());
+                    param.Add("carrierId", "31");
+                    param.Add("appVersion", "1.0.0");
 
-                    hdRank.Value = rootObj.login.rank.ToString();
-                    hdTotalDonationPoint.Value = rootObj.login.totalDonationPoint.ToString();
+                    RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(WebApiUtil.RestRequest(url, PRODUCER_LOGIN, param));
 
-                    if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
+                    if (rootObj.value == 0)
                     {
-                        this.profileImg.Src = Session["kakaoProfileImage"].ToString();
-                    }
+                        Session["producerIdx"] = rootObj.login.producerIdx;
+                        Session["producerContactNumber"] = rootObj.login.producerContactNumber;
+                        Session["zipCode"] = rootObj.login.zipCode;
+                        Session["address1"] = rootObj.login.address1;
+                        Session["address2"] = rootObj.login.address2;
+                        Session["detailAddress"] = rootObj.login.detailAddress;
+                        Session["producePoint"] = rootObj.login.producePoint;
+                        Session["producePointExpireDate"] = rootObj.login.producePointExpireDate;
+                        Session["totalDonationPoint"] = rootObj.login.totalDonationPoint;
+                        Session["rank"] = rootObj.login.rank;
+                        Session["nickname"] = rootObj.login.nickname;
+                        Session["expirePoint"] = rootObj.login.expirePoint;
+                        Session["name"] = rootObj.login.name;
 
-                    if (Session["producePointExpireDate"] != null && Session["expirePoint"] != null)
+                        hdRank.Value = rootObj.login.rank.ToString();
+                        hdTotalDonationPoint.Value = rootObj.login.totalDonationPoint.ToString();
+
+                        if (!string.IsNullOrEmpty(Session["kakaoProfileImage"].ToString()))
+                        {
+                            profileImg.Src = Session["kakaoProfileImage"].ToString();
+                        }
+
+                        if (Session["producePointExpireDate"] != null && Session["expirePoint"] != null)
+                        {
+                            DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
+                            exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
+                            exPoint.InnerText = int.Parse(Session["expirePoint"].ToString()).ToString("N0");
+                        }
+
+                        nickname.InnerText = Session["nickname"].ToString();
+                        point.InnerText = int.Parse(Session["producePoint"].ToString()).ToString("N0");
+
+                        getCollectReserve();
+                    }
+                    else
                     {
-                        DateTime dateValue = DateTime.Parse(Session["producePointExpireDate"].ToString());
-                        this.exDate.InnerText = dateValue.ToString("yyyy.MM.dd");
-                        this.exPoint.InnerText = int.Parse(Session["expirePoint"].ToString()).ToString("N0");
+                        Response.Redirect("Default.aspx");
                     }
-
-                    this.nickname.InnerText = Session["nickname"].ToString();
-                    this.point.InnerText = int.Parse(Session["producePoint"].ToString()).ToString("N0");
-
-                    getCollectReserve();
                 }
                 else
                 {
-                    Response.Redirect("Default.aspx");
+                    // 비회원 로그인
+                    nickname.InnerText = "비회원";
+
+                    reserved.Style["display"] = "none";
+                    notReserved.Style["display"] = "block";
+
+                    btnQuickRequest.Style["display"] = "block";
+                    btnQuickRequestCancel.Style["display"] = "none";
                 }
             }
-            //else
-            //{
-            //    nickname.InnerText = "비회원";
-
-            //    this.reserved.Style["display"] = "none";
-            //    this.notReserved.Style["display"] = "block";
-
-            //    this.btnQuickRequest.Style["display"] = "block";
-            //    this.btnQuickRequestCancel.Style["display"] = "none";
-            //}
             else
             {
                 Response.Redirect("Default.aspx");

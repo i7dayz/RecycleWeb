@@ -13,8 +13,15 @@ namespace RecycleWeb.Member
         {
             if (Session["kakaoId"] != null)
             {
-                this.hdProducerIdx.Value = Session["producerIdx"].ToString();
-                this.hdNickname.Value = Session["nickname"].ToString();
+                if (!Session["kakaoId"].ToString().Equals("n"))
+                {
+                    hdProducerIdx.Value = Session["producerIdx"].ToString();
+                    hdNickname.Value = Session["nickname"].ToString();
+                }
+                else
+                {
+                    hdProducerIdx.Value = "0";
+                }
             }
             else
             {

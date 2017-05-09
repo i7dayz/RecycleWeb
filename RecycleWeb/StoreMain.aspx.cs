@@ -13,6 +13,13 @@ namespace RecycleWeb
         {
             if (Session["kakaoId"] != null)
             {
+                if (!Session["kakaoId"].ToString().Equals("n"))
+                {
+                }
+                else
+                {
+                    hdProducerIdx.Value = "0";
+                }
             }
             else
             {
