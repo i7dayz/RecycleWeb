@@ -18,6 +18,7 @@
             <input type="hidden" runat="server" id="hdProduce_10_price" />
             <input type="hidden" runat="server" id="hdProduceIdx" />
             <input type="hidden" runat="server" id="hdProducerIdx" />
+            <input type="hidden" runat="server" id="hdProducerName" />
 
 	        <div class="description">
     	        <img src="./img/page_description/4_1top.gif" width="100%" />
@@ -159,6 +160,34 @@
                     $(document).on('click', '#tabDonate', function () {
                         location.href = "Donate.aspx";
                     });
+                    $(document).on('click', '#btnMyCoupon', function () {
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                location.href = "/Member/MyCoupon.aspx";
+                            }
+                        }
+                    });
+                    $(document).on('click', '#btnMemberInfoModify', function () {
+                        if (page.fn.checkSignedIn()) {
+                            location.href = "/Member/Info.aspx";
+                        }
+                    });
+
+                    $(document).on('click', '#btnPointHistory', function () {
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                location.href = "/Member/PointHistory.aspx";
+                            }
+                        }
+                    });
+
+                    $(document).on('click', '#btnDonationHistory', function () {
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                location.href = "/Donation/DonationHistory.aspx";
+                            }
+                        }
+                    });
 
                     $(document).on('click', '.kg_m', function () {
                         var $input = $($(this).parent().find('input[class=kg]'));
@@ -188,7 +217,9 @@
                     $(document).on('click', '#not_reserved', function () {
                         // 로그인 확인
                         if (page.fn.checkSignedIn()) {
-                            page.fn.collectRequest();
+                            if (page.fn.checkAddInfo()) {
+                                page.fn.collectRequest();
+                            }
                         }
                     });
 
@@ -197,14 +228,23 @@
                     });
                 },
                 fn: {
+                    checkAddInfo: function() {
+                        var isAddInfo = $("#hdProducerName").val() == "" ? false : true;
+                        if (!isAddInfo) {
+                            confirmBox("추가 정보 입력이 필요한 메뉴입니다.<br/>입력페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/AddMemberInfo" });
+                            return isAddInfo;
+                        }
+
+                        return isAddInfo;
+                    },
                     checkSignedIn: function () {
                         var isSignedIn = $("#hdProducerIdx").val() === "0" ? false : true;
                         if (!isSignedIn) {
                             confirmBox("회원가입이 필요한 메뉴입니다.<br/>회원가입 페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/NonMemberLogin" });
-                            return false;
+                            return isSignedIn;
                         }
 
-                        return true;
+                        return isSignedIn;
                     },
                     collectRequest: function () {
                         // 선택된 항목이 한개라도 있어야 수거 신청 가능
@@ -216,13 +256,12 @@
                             || $("#chkEtc1").is(":checked")
                             || $("#chkEtc2").is(":checked")
                             || $("#chkEtc3").is(":checked")) {
-
                             // 여기서 수거신청 금액 확인
                             if (!page.fn.checkPrice()) {
                                 infoBox("수거신청은 총 요청 금액이 3,000원 이상이거나 수거대상이 20kg이상일 경우 가능합니다. (단 이삿짐, 가구류/기타, 폐기서비스, 유품정리의 경우 단일건 가능)");
                                 return;
                             }
-                            return;
+
                             $("#pickupForm").submit();
                         }
                         else {

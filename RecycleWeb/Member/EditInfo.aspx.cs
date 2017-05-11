@@ -21,10 +21,14 @@ namespace RecycleWeb.Member
                 this.producerIdx.Value = Session["producerIdx"].ToString();
                 this.name.Value = Session["name"].ToString();
                 this.nickname.Value = Session["nickname"].ToString();
-                string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
-                this.txtContactNumber1.Value = contactNumber[0];
-                this.txtContactNumber2.Value = contactNumber[1];
-                this.txtContactNumber3.Value = contactNumber[2];
+                if (Session["producerContactNumber"].ToString().Length == 13)
+                {
+                    string[] contactNumber = Session["producerContactNumber"].ToString().Split('-');
+                    this.txtContactNumber1.Value = contactNumber[0];
+                    this.txtContactNumber2.Value = contactNumber[1];
+                    this.txtContactNumber3.Value = contactNumber[2];
+                }
+                //txtContactNumber.Value = Session["producerContactNumber"].ToString();
                 this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"], Session["address2"]);
                 this.txtDetailAddress.Value = Session["detailAddress"].ToString();
                 this.txtZipNo.Value = Session["zipCode"].ToString();

@@ -81,6 +81,7 @@ namespace RecycleWeb
                 }
                 else
                 {
+                    hdProducerIdx.Value = "0";
                     // 비회원 로그인
                     nickname.InnerText = "비회원";
 
@@ -95,6 +96,16 @@ namespace RecycleWeb
             {
                 Response.Redirect("Default.aspx");
             }
+
+            if (Session["name"] == null)
+            {
+                hdProducerName.Value = "";
+            }
+            else
+            {
+                hdProducerName.Value = Session["name"].ToString();
+            }
+
         }
 
         private void getCollectReserve()

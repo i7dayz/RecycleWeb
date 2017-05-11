@@ -101,6 +101,15 @@ namespace RecycleWeb.Store
                         this.hdGoodsId.Value = Request["goods_id"].ToString();
 
                         getGoodsInfo(Request["goods_id"].ToString());
+
+                        if (Session["name"] == null)
+                        {
+                            hdProducerName.Value = "";
+                        }
+                        else
+                        {
+                            hdProducerName.Value = Session["name"].ToString();
+                        }
                     }
                     else
                     {

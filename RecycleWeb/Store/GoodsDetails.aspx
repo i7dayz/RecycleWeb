@@ -47,8 +47,10 @@ body {
         <input type="hidden" runat="server" id="hdProducerIdx" />
         <input type="hidden" runat="server" id="hdGoodsId2" />
         <input type="hidden" runat="server" id="hdProducerContactNumber" />
+        <input type="hidden" runat="server" id="hdProducerName" />
+
 	    <div class="member_po pdt30">
-            <div class="ctext"><img src="/img/cfn-cof2.png" class="img90" runat="server" id="goodsImg" /></div>
+            <div class="ctext"><img src="" class="img90" runat="server" id="goodsImg" /></div>
             <div class="ctext font_size20b pad20 "><p class="dashed_line"><label runat="server" id="goodsName"></label></p></div> 
         </div>
 	    <table class="cen">
@@ -68,7 +70,7 @@ body {
                 <tr class="">
                     <td class="td_cen3_1"></td>
                     <td class="td_cen3_2"><span class="color000 font_size14b pad_l0 ">유효기간</span></td>
-                    <td class="td_cen3_3"><span class="color000 font_size14b pad_l0 ">구입 후 <label runat="server" id="exDate"></label>일 이내</span></td>
+                    <td class="td_cen3_3"><span class="color000 font_size14b pad_l0 ">구입 후 <label runat="server" id="exDate">0</label>일 이내</span></td>
                     <td class="td_cen3_4"></td>
             </tbody>
         </table>
@@ -100,13 +102,35 @@ body {
                     });
 
                     $(document).on('click', '#btnBuy', function () {
-                        confirmBox("상품을 구매하시겠습니까?", page.fn.buy);
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                confirmBox("상품을 구매하시겠습니까?", page.fn.buy);
+                            }
+                        }
                     });
                 },
                 fn: {
                     buy: function () {
                         $('#form1').attr('action', 'GoodsDetails.aspx?store=' + $("#hdStore").val() + '&goods_id=' + $("#hdGoodsId").val());
                         $('#form1').submit();
+                    },
+                    checkAddInfo: function () {
+                        var isAddInfo = $("#hdProducerName").val() == "" ? false : true;
+                        if (!isAddInfo) {
+                            confirmBox("추가 정보 입력이 필요한 메뉴입니다.<br/>입력페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/AddMemberInfo" });
+                            return isAddInfo;
+                        }
+
+                        return isAddInfo;
+                    },
+                    checkSignedIn: function () {
+                        var isSignedIn = $("#hdProducerIdx").val() === "0" ? false : true;
+                        if (!isSignedIn) {
+                            confirmBox("회원가입이 필요한 메뉴입니다.<br/>회원가입 페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/NonMemberLogin" });
+                            return isSignedIn;
+                        }
+
+                        return isSignedIn;
                     },
                     goUrl: function (urlData) {
                         location.href = urlData.url;

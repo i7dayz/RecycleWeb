@@ -30,6 +30,15 @@ namespace RecycleWeb
                     not_reserved.Style["display"] = "block";
                     reserved.Style["display"] = "none";
                 }
+
+                if (Session["name"] == null)
+                {
+                    hdProducerName.Value = "";
+                }
+                else
+                {
+                    hdProducerName.Value = Session["name"].ToString();
+                }
             }
             else
             {

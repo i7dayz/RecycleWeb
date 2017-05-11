@@ -233,33 +233,6 @@ namespace RecycleWeb.util
             return content;
         }
 
-        // 사용자 토큰 유효성 검사
-        public static string AccessTokenInfo(string uri, string resource, string accessToken)
-        {
-            var client = new RestClient(uri);
-            var request = new RestRequest(resource, Method.GET);
-            request.AddHeader("Authorization", string.Format("Bearer {0}", accessToken));
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-
-            return content;
-        }
-
-        // 사용자 토큰 갱신
-        public static string RefreshAuthToken(string uri, string resource, Dictionary<string, string> param)
-        {
-            var client = new RestClient(uri);
-            var request = new RestRequest(resource, Method.POST);
-            foreach (var item in param)
-            {
-                request.AddParameter(item.Key, item.Value);
-            }
-            IRestResponse response = client.Execute(request);
-            var content = response.Content;
-
-            return content;
-        }
-
         public static string RestRequest(string uri, string resource, Dictionary<string, string> param)
         {
             var client = new RestClient(uri);

@@ -14,6 +14,8 @@
 	<div class="su_form"> 
         <input type="hidden" runat="server" id="hdProducerIdx" />
         <input type="hidden" runat="server" id="hdGroupIdx" />
+        <input type="hidden" runat="server" id="hdProducerName" />
+
     	<div class="su_title"><label class="color90cd32" id="lblGroupName"></label></div>
     	<div class="ctext pad20"><img src="" id="imgGroup" width="100%"></div>
 		<div class="su_title color000" id="lblGroupDesc"></div>
@@ -26,7 +28,6 @@
     </div>
 </div>
 
-    <iframe src="../temp.html"  style="visibility:hidden;display:none" scrolling="no"></iframe>
 
         <script type="text/javascript" src="../script/extention/jquery.js"></script>
         <script type="text/javascript" src="../script/common.js"></script>
@@ -46,28 +47,50 @@
                             window.history.back();
                         });
                         $(document).on('click', '#btnDonate', function () {
-                            var currPoint = parseInt($("#currPoint").val().replace(/,/g, ""));
-                            var donationPoint = parseInt($("#txtDonationPoint").val().replace(/,/g, ""));
+                            if (page.fn.checkSignedIn()) {
+                                if (page.fn.checkAddInfo()) {
+                                    var currPoint = parseInt($("#currPoint").val().replace(/,/g, ""));
+                                    var donationPoint = parseInt($("#txtDonationPoint").val().replace(/,/g, ""));
 
-                            if (isNaN(donationPoint) || donationPoint <= 0) {
-                                infoBox("기부하실 포인트를 입력하세요.");
-                                return;
+                                    if (isNaN(donationPoint) || donationPoint <= 0) {
+                                        infoBox("기부하실 포인트를 입력하세요.");
+                                        return;
+                                    }
+
+                                    if (!isNumeric(donationPoint)) {
+                                        infoBox("포인트는 숫자형식으로만 입력가능합니다.");
+                                        return;
+                                    }
+
+                                    if (currPoint < donationPoint) {
+                                        infoBox("현재 보유중인 포인트내에서 기부가능합니다.");
+                                        return;
+                                    }
+
+                                    confirmBox(commaSeparateNumber(donationPoint) + " 포인트를 기부하시겠습니까?", page.fn.donate);
+                                }
                             }
-
-                            if (!isNumeric(donationPoint)) {
-                                infoBox("포인트는 숫자형식으로만 입력가능합니다.");
-                                return;
-                            }
-
-                            if (currPoint < donationPoint) {
-                                infoBox("현재 보유중인 포인트내에서 기부가능합니다.");
-                                return;
-                            }
-
-                            confirmBox(commaSeparateNumber(donationPoint) + " 포인트를 기부하시겠습니까?", page.fn.donate);
                         });
                     },
                     fn: {
+                        checkAddInfo: function () {
+                            var isAddInfo = $("#hdProducerName").val() == "" ? false : true;
+                            if (!isAddInfo) {
+                                confirmBox("추가 정보 입력이 필요한 메뉴입니다.<br/>입력페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/AddMemberInfo" });
+                                return isAddInfo;
+                            }
+
+                            return isAddInfo;
+                        },
+                        checkSignedIn: function () {
+                            var isSignedIn = $("#hdProducerIdx").val() === "0" ? false : true;
+                            if (!isSignedIn) {
+                                confirmBox("회원가입이 필요한 메뉴입니다.<br/>회원가입 페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/NonMemberLogin" });
+                                return isSignedIn;
+                            }
+
+                            return isSignedIn;
+                        },
                         group: function () {
                             var params = {
                                 donationGroupIdx: $("#hdGroupIdx").val()
@@ -93,7 +116,7 @@
 
                             Server.ajax("/producer/donation", params, function (response, status, xhr) {
                                 if (response.value == 0) {
-                                    infoBoxWithCallback(commaSeparateNumber(donationPoint) + "포인트를 기부하였습니다.", page.fn.goUrl, { url: "/Donate.aspx" });
+                                    infoBoxWithCallback(commaSeparateNumber(params.donationPoint) + "포인트를 기부하였습니다.", page.fn.goUrl, { url: "/Donate.aspx" });
                                 } else {
                                     if (response.value == 111) {
                                         errorBox(getErrMsg(response.value));

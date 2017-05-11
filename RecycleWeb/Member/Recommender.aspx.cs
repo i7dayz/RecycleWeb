@@ -22,6 +22,16 @@ namespace RecycleWeb.Member
                 {
                     hdProducerIdx.Value = "0";
                 }
+
+                if (Session["name"] == null)
+                {
+                    hdProducerName.Value = "";
+                }
+                else
+                {
+                    hdProducerName.Value = Session["name"].ToString();
+                }
+
             }
             else
             {

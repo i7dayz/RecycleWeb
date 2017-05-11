@@ -13,6 +13,8 @@
 <div class="container" style="">
     <input type="hidden" runat="server" id="hdProducerIdx" />
     <input type="hidden" runat="server" id="hdNickname" />
+    <input type="hidden" runat="server" id="hdProducerName" />
+
 	<div class="recommend_cu">
 		<p class="rec_text">추천인 입력</p> 
         <div>
@@ -121,14 +123,14 @@
                     var device = check_device();
 
                     if (device === 'iPhone') {
-                        $("#sms-btn").attr("href", "sms:&body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ")");
+                        $("#sms-btn").attr("href", "sms:&body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ") https://goo.gl/4lSUT0");
                     } else if (device === 'Android') {
-                        $("#sms-btn").attr("href", "sms:?body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ")");
+                        $("#sms-btn").attr("href", "sms:?body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#hdNickname').val() + ") https://goo.gl/4lSUT0");
                     }
 
                     var clipboard = new Clipboard('#copy-btn', {
                         text: function () {
-                            return 'http://hrx.co.kr/Default.aspx';
+                            return 'https://goo.gl/4lSUT0';
                         }
                     });
 
@@ -140,17 +142,41 @@
                     $(document).on('click', '.back-btn', function () {
                         window.history.back();
                     });
-                    $(document).on('click', '#btnSave', function () {
-                        if ($("#txtRecommenderNickname").val() == "") {
-                            $("#txtRecommenderNickname").focus();
-                            errorBox("추천인 닉네임을 입력하세요.");
-                            return;
-                        }
+                    $(document).on('click', '#btnSave', function () {                        
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                if ($("#txtRecommenderNickname").val() == "") {
+                                    errorBox("추천인 닉네임을 입력하세요.");
+                                    return;
+                                }
 
-                        page.fn.saveRecommender();
+                                page.fn.saveRecommender();
+                            }
+                        }
                     });
                 },
                 fn: {
+                    checkAddInfo: function () {
+                        var isAddInfo = $("#hdProducerName").val() == "" ? false : true;
+                        if (!isAddInfo) {
+                            confirmBox("추가 정보 입력이 필요한 메뉴입니다.<br/>입력페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/AddMemberInfo" });
+                            return isAddInfo;
+                        }
+
+                        return isAddInfo;
+                    },
+                    checkSignedIn: function () {
+                        var isSignedIn = $("#hdProducerIdx").val() === "0" ? false : true;
+                        if (!isSignedIn) {
+                            confirmBox("회원가입이 필요한 메뉴입니다.<br/>회원가입 페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/NonMemberLogin" });
+                            return isSignedIn;
+                        }
+
+                        return isSignedIn;
+                    },
+                    goUrl: function (urlData) {
+                        location.href = urlData.url;
+                    },
                     saveRecommender: function () {
                         var params = {
                             producerIdx: $("#hdProducerIdx").val(),

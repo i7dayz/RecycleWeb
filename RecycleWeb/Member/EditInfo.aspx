@@ -91,7 +91,7 @@
             
                     <div class="su_title pdt20">연락처</div>
                     <div class="su_adr">
-                        <div class="su_juso_left"><input type="text" name="" value="" class="su_hp1" runat="server" id="txtContactNumber1" maxlength="3" /> - <input type="text" name="" value="" class="su_hp2" runat="server" id="txtContactNumber2" maxlength="4" /> - <input type="text" name="" value="" class="su_hp3" runat="server" id="txtContactNumber3" maxlength="4" /> </div>
+                        <div class="su_juso_left"><input type="text" runat="server" id="txtContactNumber1" name="" value="" class="su_hp1"/> - <input type="text" runat="server" id="txtContactNumber2" name="" value="" class="su_hp2" /> - <input type="text" runat="server" id="txtContactNumber3" name="" value="" class="su_hp3" /></div>
                         <div class="su_juso_right"><img src="/img/baechul/btn-num-1.png" id="btnReqToken" height="40" style="cursor:pointer" /></div>
                     </div>
 
@@ -266,7 +266,7 @@
                         var params = {
                             producerIdx: $("#producerIdx").val(),
                             producerStoreName: "",
-                            producerContactNumber: $("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val(),
+                            producerContactNumber: $("#txtContactNumber").val(),
                             zipCode: $("#txtZipNo").val(),
                             address1: $("#address1").val(),
                             address2: $.trim($("#address2").val()),
@@ -283,7 +283,7 @@
                     });
 
                     $(document).on('click', '#btnReqToken', function () {
-                        if ($("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val() == $("#contactNumber").val()) {
+                        if ($("#txtContactNumber").val() == $("#contactNumber").val()) {
                             errorBox("변경할 휴대전화번호를 입력하세요");
                             return;
                         }
@@ -301,7 +301,7 @@
                 },
                 fn: {
                     getSmsToken: function () {                        
-                        var phoneNumber = $("#txtContactNumber1").val() + $("#txtContactNumber2").val() + $("#txtContactNumber3").val();
+                        var phoneNumber = $("#txtContactNumber").val();
 
                         if (phoneNumber == null || phoneNumber == "" || phoneNumber.length !== 11) {
                             errorBox("휴대전화번호를 입력하세요.");
@@ -321,7 +321,7 @@
                         }, "post", false);
                     },
                     chkSmsToken: function () {
-                        var phoneNumber = $("#txtContactNumber1").val() + $("#txtContactNumber2").val() + $("#txtContactNumber3").val();
+                        var phoneNumber = $("#txtContactNumber").val();
                         var token = $("#txtToken").val();
 
                         if (phoneNumber == null || phoneNumber == "" || phoneNumber.length !== 11) {
@@ -342,9 +342,7 @@
                                 infoBox("휴대전화번호 인증이 완료되었습니다.");
                                 page.attr.smsChcked = true;
 
-                                $("#txtContactNumber1").attr("readonly", "readonly");
-                                $("#txtContactNumber2").attr("readonly", "readonly");
-                                $("#txtContactNumber3").attr("readonly", "readonly");
+                                $("#txtContactNumber").attr("readonly", "readonly");
                                 $("#reqTokenArea").hide();
                                 $("#btnReqToken").hide();
                             } else {
@@ -353,9 +351,9 @@
                         }, "post", false);
                     },
                     saveInfo: function () {
-                        var phoneNumber = $("#txtContactNumber1").val() + '-' + $("#txtContactNumber2").val() + '-' + $("#txtContactNumber3").val();
+                        var phoneNumber = $("#txtContactNumber").val();
 
-                        if (phoneNumber.length != 13) {
+                        if (phoneNumber.length != 11) {
                             errorBox("휴대전화번호를 입력하세요");
                             return;
                         }

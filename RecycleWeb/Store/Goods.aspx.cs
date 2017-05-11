@@ -175,6 +175,15 @@ namespace RecycleWeb.Store
                         getGoodsList(Request["brandId"].ToString());
                     }
                 }
+
+                if (Session["name"] == null)
+                {
+                    hdProducerName.Value = "";
+                }
+                else
+                {
+                    hdProducerName.Value = Session["name"].ToString();
+                }
             }
             else
             {

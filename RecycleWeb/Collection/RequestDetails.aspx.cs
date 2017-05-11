@@ -111,7 +111,10 @@ namespace RecycleWeb.Collection
 
                 this.hdProducerIdx.Value = Session["producerIdx"].ToString();
                 this.hdAddress1.Value = Session["address1"].ToString();
-                this.hdAddress2.Value = Session["address2"].ToString();
+                if (Session["address2"] != null)
+                {
+                    this.hdAddress2.Value = Session["address2"].ToString();
+                }
 
                 this.txtReqProduct.Value = productList.Substring(0, productList.Length - 2);
                 this.txtName.Value = Session["name"].ToString();
@@ -128,7 +131,7 @@ namespace RecycleWeb.Collection
                         this.txtContactNumber3.Value = contactNumber[2];
                     }
                 }
-                this.txtBaseAddress.Value = string.Format("{0} {1}", Session["address1"].ToString(), Session["address2"].ToString());
+                this.txtBaseAddress.Value = string.Format("{0} {1}", hdAddress1.Value, hdAddress2.Value);
                 this.txtDetailAddress.Value = Session["detailAddress"].ToString();
                 this.txtZipno.Value = Session["zipCode"].ToString();
             }

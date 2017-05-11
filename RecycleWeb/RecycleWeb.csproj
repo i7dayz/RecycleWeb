@@ -235,8 +235,6 @@
     <Content Include="script\extention\jquery.modal-master\bower.json" />
     <Content Include="script\extention\jquery.modal-master\LICENSE" />
     <Content Include="script\extention\jquery.modal-master\README.md" />
-    <Content Include="script\jquery-barcode.min.js" />
-    <Content Include="script\jquery-migrate-1.4.1.min.js" />
     <Content Include="StoreMain.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1154,7 +1152,6 @@
     <Compile Include="Model\CollectReserve.cs" />
     <Compile Include="Model\EPinStatus.cs" />
     <Compile Include="Model\GoodsInfo.cs" />
-    <Compile Include="Model\KakaoAccessTokenInfo.cs" />
     <Compile Include="Model\KakaoSignup.cs" />
     <Compile Include="Model\KakaoToken.cs" />
     <Compile Include="Model\KakaoUserInfo.cs" />

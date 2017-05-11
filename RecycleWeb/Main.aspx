@@ -28,7 +28,8 @@
     <input type="hidden" runat="server" id="hdProduceIdx" />
     <input type="hidden" runat="server" id="hdProducerIdx" />    
     <input type="hidden" runat="server" id="hdRank" />    
-    <input type="hidden" runat="server" id="hdTotalDonationPoint" />    
+    <input type="hidden" runat="server" id="hdTotalDonationPoint" />   
+    <input type="hidden" runat="server" id="hdProducerName" /> 
     <div class="container" style="">
 	    <div class="member_po">
     	    <p class="rtext">만료예정일 : <label runat="server" id="exDate"></label></p>
@@ -36,7 +37,7 @@
             <p class="ctext">
                 <div class="image-wrapper">
                     <div class="image">
-                        <img runat="server" id="profileImg" src="img/person64x64.png">
+                        <img runat="server" id="profileImg" src="">
                     </div>
                 </div>
             </p>
@@ -181,14 +182,14 @@
                     var device = check_device();
 
                     if (device === 'iPhone') {
-                        $("#sms-btn").attr("href", "sms:&body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#nickname').text() + ")");
+                        $("#sms-btn").attr("href", "sms:&body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#nickname').text() + ") https://goo.gl/4lSUT0");
                     } else if (device === 'Android') {
-                        $("#sms-btn").attr("href", "sms:?body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#nickname').text() + ")");
+                        $("#sms-btn").attr("href", "sms:?body=신개념 재활용품 방문수거 앱 출시! 지금 '리본 수거'를 검색하시고, 추가 적립금과 리뷰 이벤트 등 다양한 혜택을 누리세요~~♡♡ (추천인:" + $('#nickname').text() + ") https://goo.gl/4lSUT0");
                     }
 
                     var clipboard = new Clipboard('#copy-btn', {
                         text: function () {
-                            return 'http://hrx.co.kr/Default.aspx';
+                            return 'https://goo.gl/4lSUT0';
                         }
                     });
 
@@ -200,11 +201,43 @@
                     $(document).on('click', '#tabRequest', function () {
                         location.href = "CollectRequest.aspx";
                     });
+
                     $(document).on('click', '#tabStore', function () {
                         location.href = "StoreMain.aspx";
                     });
+
                     $(document).on('click', '#tabDonate', function () {
                         location.href = "Donate.aspx";
+                    });
+
+                    $(document).on('click', '#btnMyCoupon', function () {
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                location.href = "/Member/MyCoupon.aspx";
+                            }
+                        }
+                    });
+                    
+                    $(document).on('click', '#btnMemberInfoModify', function () {
+                        if (page.fn.checkSignedIn()) {
+                            location.href = "/Member/Info.aspx";
+                        }
+                    });
+
+                    $(document).on('click', '#btnPointHistory', function () {
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                location.href = "/Member/PointHistory.aspx";
+                            }
+                        }
+                    });
+
+                    $(document).on('click', '#btnDonationHistory', function () {
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                location.href = "/Donation/DonationHistory.aspx";
+                            }
+                        }
                     });
 
                     $(document).on('click', '#btnQuickRequest', function () {
@@ -279,22 +312,18 @@
                         $("#btnFooter03").find("img").attr("src", "/img/foot_menu/foot03.png");
                         $("#btnFooter04").find("img").attr("src", "/img/foot_menu/foot04o.png");
                     });
-                    $(document).on('click', '#btnSave', function () {
-                        if ($("#txtRecommenderNickname").val() == "") {
-                            errorBox("추천인 닉네임을 입력하세요.");
-                            return;
-                        }
 
-                        page.fn.saveRecommender();
-                    });
                     $(document).on('click', '#btnSave', function () {
-                        if ($("#txtRecommenderNickname").val() == "") {
-                            $("#txtRecommenderNickname").focus();
-                            errorBox("추천인 닉네임을 입력하세요.");
-                            return;
-                        }
+                        if (page.fn.checkSignedIn()) {
+                            if (page.fn.checkAddInfo()) {
+                                if ($("#txtRecommenderNickname").val() == "") {
+                                    errorBox("추천인 닉네임을 입력하세요.");
+                                    return;
+                                }
 
-                        page.fn.saveRecommender();
+                                page.fn.saveRecommender();
+                            }
+                        }
                     });
                     $(document).on('click', '#btnNoticeEvent', function () {
                         location.href = "/Support/Notice.aspx";
@@ -343,7 +372,7 @@
 
                         var rank = '<tr class="">'
                                  + '	<td class="td_rang01">' + medal + '</td>'
-                                 + '	<td class="td_rang02">' + profileImg + ' ' +item[5] + '</td>'
+                                 + '	<td class="td_rang02">' + profileImg + ' ' + item[5] + '</td>'
                                  + '    <td class="td_rang03">' + commaSeparateNumber(item[1]) + '</td>'
                                  + '</tr>';
 
@@ -394,6 +423,24 @@
                                 errorBox(getErrMsg(response.value));
                             }
                         }, "post", false);
+                    },
+                    checkAddInfo: function () {
+                        var isAddInfo = $("#hdProducerName").val() == "" ? false : true;
+                        if (!isAddInfo) {
+                            confirmBox("추가 정보 입력이 필요한 메뉴입니다.<br/>입력페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/AddMemberInfo" });
+                            return isAddInfo;
+                        }
+
+                        return isAddInfo;
+                    },
+                    checkSignedIn: function () {
+                        var isSignedIn = $("#hdProducerIdx").val() === "0" ? false : true;
+                        if (!isSignedIn) {
+                            confirmBox("회원가입이 필요한 메뉴입니다.<br/>회원가입 페이지로 이동하시겠습니까?", page.fn.goUrl, { url: "/NonMemberLogin" });
+                            return isSignedIn;
+                        }
+
+                        return isSignedIn;
                     },
                     goUrl: function (urlData) {
                         location.href = urlData.url;
