@@ -54,6 +54,7 @@ namespace RecycleWeb
                         Session["expirePoint"] = rootObj.login.expirePoint;
                         Session["name"] = rootObj.login.name;
 
+                        hdProducerIdx.Value = rootObj.login.producerIdx.ToString();
                         hdRank.Value = rootObj.login.rank.ToString();
                         hdTotalDonationPoint.Value = rootObj.login.totalDonationPoint.ToString();
 

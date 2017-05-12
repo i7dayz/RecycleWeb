@@ -131,6 +131,7 @@ p.su_btn.po_more {
                         //                    + '    <li class="point">' + item[3] + '</li>'
                         //                    + '    <li class="group">' + item[1] + '</li>'
                         //                    + '</ul>';
+                        $("#totalDonatePoint").html(commaSeparateNumber(item[2]) + " <img src = \"/img/p.png\" class=\"img20_icon\">");
 
                         var t = item[5].split(/[- :]/);
                         var d = new Date(t[0], t[1] - 1, t[2], t[3], t[4], t[5]);
