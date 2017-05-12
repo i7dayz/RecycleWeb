@@ -161,6 +161,7 @@
     <Content Include="img\reborn.jpg" />
     <Content Include="Donation\DonationHistory.aspx" />
     <Content Include="img\savethe.gif" />
+    <Content Include="img\trans.png" />
     <Content Include="img\usage_guide_1.png" />
     <Content Include="img\usage_guide_2.png" />
     <Content Include="img\usage_guide_3.png" />
