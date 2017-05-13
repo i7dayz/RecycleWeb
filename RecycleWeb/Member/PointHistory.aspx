@@ -150,6 +150,12 @@ p.su_btn.po_more {
                             case 5:
                                 type = "사용취소";
                                 break;
+                            case 6:
+                                type = "관리자 지급"
+                                break;
+                            case 7:
+                                type = "관리자 회수"
+                                break;
                         }
 
                         var goods = "";
