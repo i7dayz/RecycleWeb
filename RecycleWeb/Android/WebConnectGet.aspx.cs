@@ -21,6 +21,7 @@ namespace RecycleWeb.Android
             Session["kakaoNickname"] = Request["snsNickname"];
             Session["carrierId"] = Request["carrierId"];
             Session["appVersion"] = Request["appVersion"];
+            Session["deviceInfo"] = Request["deviceInfo"];
 
             if (type.Equals("s"))
             {

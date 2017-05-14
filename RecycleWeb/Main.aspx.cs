@@ -35,6 +35,10 @@ namespace RecycleWeb
                     param.Add("snsNickname", Session["kakaoNickname"].ToString());
                     param.Add("carrierId", "31");
                     param.Add("appVersion", "1.0.0");
+                    if (Session["deviceInfo"] != null)
+                    {
+                        param.Add("deviceInfo", Session["deviceInfo"].ToString());
+                    }
 
                     RootObjectLogin rootObj = JsonConvert.DeserializeObject<RootObjectLogin>(WebApiUtil.RestRequest(url, PRODUCER_LOGIN, param));
 
