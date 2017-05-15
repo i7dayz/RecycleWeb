@@ -71,10 +71,11 @@
                     });
                     $(document).on("click", "div[class='reser']", function () {
                         if ($(this).attr("status") == 2) {
-                            location.href = "MyCouponDetails.aspx?url=" + $(this).attr("url") + "&order_id=" + $(this).attr("order_id") + "&pin=" + $(this).attr("pin") + "&brand=" + $(this).attr("brand") + "&exdate=" + $(this).attr("exdate");
+                            location.href = "MyCouponDetails.aspx?url=" + $(this).attr("url") + "&order_id=" + $(this).attr("order_id") + "&pin=" + $(this).attr("pin") + "&brand=" + encodeURIComponent($(this).attr("brand")) + "&exdate=" + $(this).attr("exdate");
                         }
                         else if ($(this).attr("status") == 3) {
                             infoBox("구매가 취소된 쿠폰입니다.");
+                            return;
                         }
                     });
                 },
