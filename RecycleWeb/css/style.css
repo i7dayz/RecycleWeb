@@ -207,6 +207,12 @@ img.img95 { width: 95px;}
 }
 .font_size11b { font-size:11px;font-weight: bold;}
 .font_size12b { font-size:12px;font-weight: bold;}
+.font_size12_bbb { 
+    font-size: 12px;
+    float: right;
+    padding-right: 10px;
+    color: #bbb;
+}
 .font_size14b {
     font-size: 14px;
     font-weight: bold;
@@ -908,9 +914,9 @@ span.icon_s {
     float: left;
     width: 100%;
 }
-.colorffc045 {color:#ffc045;}
-.color53acbc {color:#53acbc}
-.colorfe708a {color:#fe708a}
+.colorffc045 {color:#ffc045 !important;}
+.color53acbc {color:#53acbc !important}
+.colorfe708a {color:#fe708a !important}
 
 p.rec_text2 {
     font-size: 12px;

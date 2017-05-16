@@ -118,6 +118,7 @@
     <Content Include="Collection\ProductDescription.aspx" />
     <Content Include="Collection\RequestDetails.aspx" />
     <Content Include="Collection\RequestDone.aspx" />
+    <Content Include="Collection\ServiceDescription.aspx" />
     <Content Include="CollectRequest.aspx" />
     <Content Include="css\drawer.css" />
     <Content Include="css\drawer.min.css" />
@@ -989,6 +990,13 @@
     </Compile>
     <Compile Include="Collection\RequestDone.aspx.designer.cs">
       <DependentUpon>RequestDone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Collection\ServiceDescription.aspx.cs">
+      <DependentUpon>ServiceDescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Collection\ServiceDescription.aspx.designer.cs">
+      <DependentUpon>ServiceDescription.aspx</DependentUpon>
     </Compile>
     <Compile Include="CollectRequest.aspx.cs">
       <DependentUpon>CollectRequest.aspx</DependentUpon>

@@ -134,26 +134,6 @@ namespace RecycleWeb
                     {
                         string productList = string.Empty;
 
-                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_6.ToString()) && rootObj.collectReserve.product_6 > 0)
-                        {
-                            productList += string.Format("헌옷 {0}, ", rootObj.collectReserve.product_6.ToString());
-                        }
-
-                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_7.ToString()) && rootObj.collectReserve.product_7 > 0)
-                        {
-                            productList += string.Format("휴대폰 {0}, ", rootObj.collectReserve.product_7.ToString());
-                        }
-
-                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_9.ToString()) && rootObj.collectReserve.product_9 > 0)
-                        {
-                            productList += string.Format("소형가전 {0}, ", rootObj.collectReserve.product_9.ToString());
-                        }
-
-                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_8.ToString()) && rootObj.collectReserve.product_8 > 0)
-                        {
-                            productList += string.Format("대형가전 {0}, ", rootObj.collectReserve.product_8.ToString());
-                        }
-
                         if (!string.IsNullOrEmpty(rootObj.collectReserve.product_1.ToString()) && rootObj.collectReserve.product_1 > 0)
                         {
                             productList += string.Format("폐지 {0}, ", rootObj.collectReserve.product_1.ToString());
@@ -168,9 +148,30 @@ namespace RecycleWeb
                         {
                             productList += string.Format("고철 {0}, ", rootObj.collectReserve.product_4.ToString());
                         }
-                        else if (!string.IsNullOrEmpty(rootObj.collectReserve.product_5.ToString()) && rootObj.collectReserve.product_5 > 0)
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_5.ToString()) && rootObj.collectReserve.product_5 > 0)
                         {
                             productList += string.Format("비철 {0}, ", rootObj.collectReserve.product_5.ToString());
+                        }
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_6.ToString()) && rootObj.collectReserve.product_6 > 0)
+                        {
+                            productList += string.Format("헌옷 {0}, ", rootObj.collectReserve.product_6.ToString());
+                        }
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_7.ToString()) && rootObj.collectReserve.product_7 > 0)
+                        {
+                            productList += string.Format("휴대폰 {0}, ", rootObj.collectReserve.product_7.ToString());
+                        }
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_8.ToString()) && rootObj.collectReserve.product_8 > 0)
+                        {
+                            productList += string.Format("대형가전 {0}, ", rootObj.collectReserve.product_8.ToString());
+                        }
+
+                        if (!string.IsNullOrEmpty(rootObj.collectReserve.product_9.ToString()) && rootObj.collectReserve.product_9 > 0)
+                        {
+                            productList += string.Format("소형가전 {0}, ", rootObj.collectReserve.product_9.ToString());
                         }
 
                         if (!string.IsNullOrEmpty(rootObj.collectReserve.product_10.ToString()) && rootObj.collectReserve.product_10 > 0)
@@ -185,7 +186,7 @@ namespace RecycleWeb
 
                         if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_2.ToString()) && rootObj.collectReserve.etc_2 > 0)
                         {
-                            productList += string.Format("폐기서비스, ", rootObj.collectReserve.etc_2.ToString());
+                            productList += string.Format("처리대행, ", rootObj.collectReserve.etc_2.ToString());
                         }
 
                         if (!string.IsNullOrEmpty(rootObj.collectReserve.etc_3.ToString()) && rootObj.collectReserve.etc_3 > 0)

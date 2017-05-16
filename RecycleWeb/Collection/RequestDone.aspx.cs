@@ -14,6 +14,15 @@ namespace RecycleWeb.Collection
             if (Session["kakaoId"] != null)
             {
                 this.hdProducerIdx.Value = Session["producerIdx"].ToString();
+
+                if (Session["name"] == null)
+                {
+                    hdProducerName.Value = "";
+                }
+                else
+                {
+                    hdProducerName.Value = Session["name"].ToString();
+                }
             }
             else
             {

@@ -92,7 +92,7 @@ namespace RecycleWeb.Collection
                             case "chkEtc2":
                                 if (Request.Form[i].Equals("on"))
                                 {
-                                    productList += "폐기서비스, ";
+                                    productList += "처리대행, ";
                                     this.hdEtc2.Value = "1";
                                 }
                                 break;

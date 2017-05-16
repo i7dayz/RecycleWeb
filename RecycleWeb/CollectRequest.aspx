@@ -25,7 +25,7 @@
             </div>
             <div class="text_title">
                 <span class="font_size14b">수거서비스</span>
-                <span class="font_size10_bbb"><a href="Collection/ProductDescription.aspx">ⓘ 수거가능/불가능 품목 확인</a></span>
+                <span class="font_size12_bbb"><a href="Collection/ProductDescription.aspx" style="color:#ff7089 !important">ⓘ 수거가능/불가능 품목 확인</a></span>
             </div>
             <div class="harf_con2">
     	        <div class="harf_l">
@@ -98,8 +98,8 @@
                 </div>
             </div>
             <p class="text_title">
-    	        <span class="font_size14b">대행서비스</span>
-                <span class="font_size10_bbb"><a href="Collection/ProductDescription.aspx">ⓘ 수거가능/불가능 품목 확인</a></span>
+                <span class="font_size14b">대행서비스</span>
+                <span class="font_size12_bbb"><a href="Collection/ServiceDescription.aspx" style="color:#ff7089 !important">ⓘ 유상서비스 금액 안내</a></span>
             </p>
             <div class="harf_con2">
     	        <div class="harf_l">
@@ -121,12 +121,12 @@
             </div>
             <div runat="server" id="not_reserved">
                 <p class="su_btn">
-    	            수거신청
+    	            서비스신청
                 </p>
             </div>
             <div runat="server" id="reserved">
                 <p class="su_btn">
-    	            수거취소
+    	            서비스취소
                 </p>
             </div>
         </form>
