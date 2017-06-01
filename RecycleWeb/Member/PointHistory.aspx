@@ -151,10 +151,13 @@ p.su_btn.po_more {
                                 type = "사용취소";
                                 break;
                             case 6:
-                                type = "관리자 지급"
+                                type = "관리자 지급";
                                 break;
                             case 7:
-                                type = "관리자 회수"
+                                type = "관리자 회수";
+                                break;
+                            case 8:
+                                type = "회원가입";
                                 break;
                         }
 
