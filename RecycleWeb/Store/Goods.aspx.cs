@@ -297,6 +297,9 @@ namespace RecycleWeb.Store
             exceptGoods.Add("0000000606"); // [GS25] 모바일상품권 3만원, 공급사이슈
             exceptGoods.Add("0000000607"); // [GS25] 모바일상품권 5만원, 공급사이슈
 
+            // 2017-06-01 회원가입 300포인트 지급으로 인해 300원 이하 상품 판매하지 않음 결정으로 숨김
+            exceptGoods.Add("0000002578"); // [GS25] 츄파춥스200
+
             string url = "https://wapi.gift-n.net:443/getGoodsInfoList";
             string msg = string.Empty;
 
